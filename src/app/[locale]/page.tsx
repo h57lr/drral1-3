@@ -18,8 +18,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <main>
       <Hero locale={locale} />
-      <TrustStrip locale={locale} />
       <CaseShowcase locale={locale} />
+      <TrustStrip locale={locale} />
       <ReelsShowcase locale={locale} />
       <ServicesPreview locale={locale} />
       <AboutPreview locale={locale} />

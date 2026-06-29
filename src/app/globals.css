@@ -421,7 +421,7 @@ select {
 
 .case-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr 0.8fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
@@ -430,23 +430,76 @@ select {
 }
 
 .case-card.featured {
-  grid-row: span 2;
+  grid-row: auto;
 }
 
 .case-visual {
-  min-height: 270px;
+  aspect-ratio: 1280 / 1080;
   background: linear-gradient(135deg, rgba(47, 111, 106, 0.24), rgba(185, 201, 155, 0.48)), var(--stone);
 }
 
 .case-visual img {
   width: 100%;
   height: 100%;
-  min-height: inherit;
-  object-fit: cover;
+  object-fit: contain;
 }
 
-.case-card.featured .case-visual {
-  min-height: 560px;
+.case-carousel {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(255, 251, 245, 0.62);
+}
+
+.case-carousel-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: transform 650ms ease;
+}
+
+.case-carousel-slide {
+  display: flex;
+  flex: 0 0 100%;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 10px;
+}
+
+.case-carousel-slide img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.case-carousel-dots {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  left: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.case-carousel-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 251, 245, 0.82);
+  box-shadow: 0 0 0 1px rgba(47, 111, 106, 0.18), 0 6px 16px rgba(23, 33, 31, 0.18);
+  cursor: pointer;
+}
+
+.case-carousel-dots button.active {
+  width: 22px;
+  background: var(--teal-dark);
 }
 
 .case-body {
@@ -759,8 +812,7 @@ select {
   }
 
   .case-card.featured {
-    grid-row: auto;
-    grid-column: span 2;
+    grid-column: auto;
   }
 }
 
@@ -808,12 +860,8 @@ select {
     grid-template-columns: 1fr;
   }
 
-  .case-card.featured {
-    grid-column: auto;
-  }
-
-  .case-card.featured .case-visual {
-    min-height: 330px;
+  .case-carousel-slide img {
+    max-height: 520px;
   }
 
   .reel-row {

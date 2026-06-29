@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CaseCarousel } from "@/components/CaseCarousel";
 import { HeroVideo } from "@/components/HeroVideo";
 import { blogPosts, cases, dictionary, reels, reviews, services, site, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
@@ -245,16 +246,23 @@ export function SectionHead({ eyebrow, title, text }: { eyebrow: string; title: 
 }
 
 export function CaseCard({ item, locale }: { item: CaseMedia; locale: Locale }) {
+  const slot = item.id.startsWith("ig-") ? item.id.replace("ig-", "") : null;
+  const featuredCaseImages = ["04", "05"].map((image) => `/media/cases/instagram/20/image-${image}.jpg`);
+  const carouselImages = item.id === "ig-03"
+    ? featuredCaseImages
+    : item.type === "before-after" && slot
+    ? ["01", "03"].map((image) => `/media/cases/instagram/${slot}/image-${image}.jpg`)
+    : [];
+
   return (
     <article className={`case-card ${item.isFeatured ? "featured" : ""}`}>
-      <div className="case-visual" role="img" aria-label={item.alt[locale]}>
-        {item.assetReady ? <img src={item.posterSrc} alt={item.alt[locale]} /> : null}
+      <div className="case-visual">
+        {carouselImages.length > 0 ? <CaseCarousel images={carouselImages} alt={item.alt[locale]} /> : item.assetReady ? <img src={item.posterSrc} alt={item.alt[locale]} /> : null}
       </div>
       <div className="case-body">
         <span className="pill">{item.treatment.replaceAll("-", " ")}</span>
         <h3>{item.title[locale]}</h3>
         <p>{item.caption[locale]}</p>
-        {item.sourceUrl ? <a className="text-link" href={item.sourceUrl}>{locale === "ar" ? "افتح المصدر على إنستغرام" : "Open Instagram source"}</a> : null}
       </div>
     </article>
   );

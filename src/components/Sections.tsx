@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeroVideo } from "@/components/HeroVideo";
 import { blogPosts, cases, dictionary, reels, reviews, services, site, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
@@ -24,7 +25,9 @@ export function Hero({ locale }: { locale: Locale }) {
           </div>
         </div>
         <div className="hero-media" aria-hidden="true">
-          <div className="hero-card" />
+          <div className="hero-card">
+            <HeroVideo />
+          </div>
           <div className="hero-orbit" />
           <div className="hero-note">
             <strong>{locale === "ar" ? "نتائج طبيعية" : "Natural results"}</strong>
@@ -264,7 +267,7 @@ export function ReelCard({ item, locale }: { item: CaseMedia; locale: Locale }) 
     <article className="reel-card">
       <div className="reel-frame">
         {item.assetReady && videoSrc ? (
-          <video src={videoSrc} poster={item.posterSrc} muted playsInline preload="metadata" controls />
+          <video src={videoSrc} poster={item.posterSrc} muted playsInline preload="none" controls />
         ) : item.assetReady ? (
           <img src={item.posterSrc} alt={item.alt[locale]} />
         ) : null}

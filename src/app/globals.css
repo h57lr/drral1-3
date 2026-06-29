@@ -251,26 +251,37 @@ select {
 
 .hero-media {
   position: relative;
-  min-height: 640px;
+  min-height: 680px;
 }
 
 .hero-card {
   position: absolute;
-  inset: 0 0 0 52px;
+  top: 0;
+  right: 0;
+  width: min(420px, calc(100% - 24px));
+  aspect-ratio: 9 / 16;
   overflow: hidden;
   border: 1px solid rgba(255, 250, 241, 0.72);
-  border-radius: 46% 46% 28px 28px;
-  background:
-    linear-gradient(145deg, rgba(47, 111, 106, 0.15), rgba(185, 201, 155, 0.3)),
-    url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=980&q=85") center/cover;
+  border-radius: 36px;
+  background-color: var(--ink);
+  background-image: url("/media/posters/reel-01.jpg");
+  background-position: center;
+  background-size: cover;
   box-shadow: var(--shadow);
+}
+
+.hero-card video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-orbit {
   position: absolute;
-  inset: 36px 38px 50px 0;
+  inset: 28px 24px 28px 0;
   border: 1px solid rgba(193, 162, 103, 0.58);
-  border-radius: 46% 46% 28px 28px;
+  border-radius: 38px;
   pointer-events: none;
 }
 
@@ -730,7 +741,7 @@ select {
   }
 
   .hero-media {
-    min-height: 520px;
+    min-height: 620px;
   }
 
   .trust-strip,
@@ -770,12 +781,14 @@ select {
     font-size: clamp(3.1rem, 16vw, 4.4rem);
   }
 
-  .hero-card {
-    inset-left: 18px;
+  .hero-media {
+    min-height: 580px;
   }
 
-  .hero-media {
-    min-height: 460px;
+  .hero-card {
+    left: 18px;
+    right: 18px;
+    width: auto;
   }
 
   .hero-note {

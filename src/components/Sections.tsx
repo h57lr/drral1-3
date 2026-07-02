@@ -163,20 +163,20 @@ const smileReelTransformations = [
     alt: { en: "Perfect veneers transformation reel", ar: "ريل تحول فينير مثالي" }
   },
   {
-    id: "confident-smile",
-    videoSrc: "/media/reels/reel-17.mp4#t=2",
-    posterSrc: "/media/posters/reel-17.jpg",
-    title: { en: "Confident Smile", ar: "ابتسامة واثقة" },
-    caption: { en: "A polished result designed around the face.", ar: "نتيجة راقية مصممة حول ملامح الوجه." },
-    alt: { en: "Confident smile patient reel", ar: "ريل ابتسامة واثقة" }
-  },
-  {
     id: "hollywood-smile",
     videoSrc: "/media/reels/reel-12.mp4",
     posterSrc: "/media/posters/reel-12.jpg",
     title: { en: "Hollywood Smile", ar: "هوليوود سمايل" },
     caption: { en: "Premium harmony with a camera-ready finish.", ar: "تناغم فاخر ولمسة جاهزة للكاميرا." },
     alt: { en: "Hollywood Smile transformation reel", ar: "ريل هوليوود سمايل" }
+  },
+  {
+    id: "confident-smile",
+    videoSrc: "/media/reels/reel-17.mp4#t=2.5",
+    posterSrc: "/media/posters/reel-17.jpg",
+    title: { en: "Confident Smile", ar: "ابتسامة واثقة" },
+    caption: { en: "A polished result designed around the face.", ar: "نتيجة راقية مصممة حول ملامح الوجه." },
+    alt: { en: "Confident smile patient reel", ar: "ريل ابتسامة واثقة" }
   }
 ] as const;
 

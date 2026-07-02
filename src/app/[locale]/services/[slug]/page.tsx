@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { CaseShowcase, FinalCta, ReelsShowcase, SectionHead } from "@/components/Sections";
 import { getService, services, site } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -23,7 +24,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
   const locale = (isLocale(raw) ? raw : "en") as Locale;
   const service = getService(slug);
 
-  if (!service) return null;
+  if (!service) notFound();
 
   return (
     <main>
@@ -33,7 +34,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
           <h1 className="display">{service.title[locale]}</h1>
           <p className="lead">{service.description[locale]}</p>
           <div className="button-row">
-            <Link className="button" href={site.whatsapp}>{locale === "ar" ? "استشارة واتساب" : "WhatsApp Consultation"}</Link>
+            <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "أرسل الصور عبر واتساب" : "Send Photos on WhatsApp"}</a>
             <Link className="button secondary" href={`/${locale}/cases`}>{locale === "ar" ? "شاهد الحالات" : "View Cases"}</Link>
           </div>
         </div>
@@ -58,7 +59,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         <section className="section compact">
           <div className="container split">
             <div className="content-card">
-              <span className="pill">SEO Focus</span>
+              <span className="pill">Smile Upgrade</span>
               <h3>{locale === "ar" ? "لماذا يستبدل المرضى الفيسنج بالفينير؟" : "Why patients replace facing with veneers"}</h3>
               <p>
                 {locale === "ar"
@@ -68,11 +69,11 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             </div>
             <div className="content-card">
               <span className="pill">Cases</span>
-              <h3>{locale === "ar" ? "حالات موثقة من إنستغرام" : "Instagram-documented cases"}</h3>
+              <h3>{locale === "ar" ? "دليل بصري قبل وبعد" : "Visual before-and-after proof"}</h3>
               <p>
                 {locale === "ar"
-                  ? "تم ربط هذه الصفحة بحالات فيسنج إلى فينير من حساب الدكتور. عند توفر ملفات MP4 والصور، ستظهر مباشرة داخل الصفحة كدليل بصري قبل وبعد."
-                  : "This page is connected to Dr. Ali's facing-to-veneers Instagram cases. Once MP4s and carousel images are available, they appear directly here as visual before-and-after proof."}
+                  ? "تساعد صور الحالات والزوايا المختلفة على فهم الفرق بين الفيسنج القديم والفينير المصمم بعناية من حيث اللون، السماكة، والملمس."
+                  : "Case photos and multiple angles help patients understand the difference between older facing and carefully planned veneers in shade, thickness, and texture."}
               </p>
             </div>
           </div>

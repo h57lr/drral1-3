@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { LocaleClientEffects } from "@/components/LocaleClientEffects";
+import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { dictionary, services, site } from "@/lib/content";
-import { getDirection, localeLabel, otherLocale, type Locale } from "@/lib/i18n";
+import { getDirection, type Locale } from "@/lib/i18n";
 
 export function Shell({ locale, children }: { locale: Locale; children: React.ReactNode }) {
   const dict = dictionary[locale];
@@ -8,6 +10,7 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
 
   return (
     <div className="site-shell" dir={getDirection(locale)}>
+      <LocaleClientEffects locale={locale} />
       <header className="site-header">
         <div className="container header-inner">
           <Link className="brand" href={`/${locale}`} aria-label={site.brand[locale]}>
@@ -21,17 +24,27 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
             <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
             <Link href={`/${locale}/blog`}>{nav.blog}</Link>
             <Link href={`/${locale}/about`}>{nav.about}</Link>
+            <Link href={`/${locale}/contact`}>{nav.contact}</Link>
           </nav>
           <div className="header-actions">
-            <Link className="lang-switch" href={`/${otherLocale(locale)}`}>
-              {localeLabel(locale)}
-            </Link>
-            <Link className="button" href={site.whatsapp}>{dict.cta}</Link>
+            <LocaleSwitch locale={locale} />
+            <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{dict.cta}</a>
+            <details className="mobile-menu">
+              <summary aria-label={locale === "ar" ? "فتح القائمة" : "Open menu"}>{locale === "ar" ? "القائمة" : "Menu"}</summary>
+              <nav className="mobile-nav" aria-label="Mobile navigation">
+                <Link href={`/${locale}/services`}>{nav.services}</Link>
+                <Link href={`/${locale}/cases`}>{nav.cases}</Link>
+                <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
+                <Link href={`/${locale}/blog`}>{nav.blog}</Link>
+                <Link href={`/${locale}/about`}>{nav.about}</Link>
+                <Link href={`/${locale}/contact`}>{nav.contact}</Link>
+              </nav>
+            </details>
           </div>
         </div>
       </header>
       {children}
-      <Link className="button pistachio sticky-mobile-cta" href={site.whatsapp}>{dict.cta}</Link>
+      <a className="button pistachio sticky-mobile-cta" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{dict.cta}</a>
       <Footer locale={locale} />
     </div>
   );
@@ -63,9 +76,9 @@ function Footer({ locale }: { locale: Locale }) {
           </div>
           <div>
             <h4>{locale === "ar" ? "تواصل" : "Contact"}</h4>
-            <Link href={site.whatsapp}>WhatsApp</Link>
-            <Link href={site.instagram}>Instagram</Link>
-            <Link href={site.googleReview}>Google Reviews</Link>
+            <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href={site.googleReview} target="_blank" rel="noopener noreferrer">Google Reviews</a>
             <p>{site.address[locale]}</p>
           </div>
         </div>

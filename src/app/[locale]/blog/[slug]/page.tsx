@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { FinalCta } from "@/components/Sections";
 import { blogPosts, getPost, site } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -23,7 +24,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
   const locale = (isLocale(raw) ? raw : "en") as Locale;
   const post = getPost(slug);
 
-  if (!post) return null;
+  if (!post) notFound();
 
   return (
     <main>
@@ -33,7 +34,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
           <h1 className="display">{post.title[locale]}</h1>
           <p className="lead">{post.excerpt[locale]}</p>
           <div className="button-row">
-            <Link className="button" href={site.whatsapp}>{locale === "ar" ? "استشارة واتساب" : "WhatsApp Consultation"}</Link>
+            <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "أرسل الصور عبر واتساب" : "Send Photos on WhatsApp"}</a>
             <Link className="button secondary" href={`/${locale}/services/${post.relatedService}`}>{locale === "ar" ? "الخدمة المرتبطة" : "Related service"}</Link>
           </div>
         </div>

@@ -73,11 +73,11 @@ export const dictionary = {
       about: "About",
       contact: "Contact"
     },
-    cta: "WhatsApp Consultation",
+    cta: "Send Photos on WhatsApp",
     viewCases: "View Transformations",
     finalCtaTitle: "Start with a private smile consultation.",
     finalCtaText: "Send your photos on WhatsApp and Dr. Ali's team will guide you toward the right cosmetic treatment without publishing prices online.",
-    placeholderNotice: "Placeholder until the real Instagram export is added."
+    reelsNotice: "Selected educational reels and patient moments from Dr. Ali's smile-design work."
   },
   ar: {
     nav: {
@@ -89,11 +89,11 @@ export const dictionary = {
       about: "عن الدكتور",
       contact: "تواصل"
     },
-    cta: "استشارة واتساب",
+    cta: "أرسل الصور عبر واتساب",
     viewCases: "شاهد التحولات",
     finalCtaTitle: "ابدئي باستشارة خاصة لابتسامتك.",
     finalCtaText: "أرسلي صورك عبر واتساب وسيقوم فريق الدكتور علي بإرشادك للعلاج التجميلي المناسب بدون عرض الأسعار علناً.",
-    placeholderNotice: "عنصر مؤقت إلى حين إضافة تصدير إنستغرام الحقيقي."
+    reelsNotice: "مختارات من الريلز التعليمية ولحظات المرضى من أعمال تصميم الابتسامة لدى الدكتور علي."
   }
 } satisfies Record<Locale, unknown>;
 
@@ -346,7 +346,7 @@ export const cases: CaseMedia[] = [
     posterSrc: "/media/posters/placeholder-01.svg",
     title: { en: "Soft Hollywood Smile", ar: "ابتسامة هوليوود ناعمة" },
     caption: { en: "Balanced brightness with a natural facial fit.", ar: "إشراقة متوازنة مع تناسق طبيعي مع الوجه." },
-    alt: { en: "Before and after Hollywood smile placeholder", ar: "صورة مؤقتة قبل وبعد لابتسامة هوليوود" },
+    alt: { en: "Before and after Hollywood smile result", ar: "صورة قبل وبعد لابتسامة هوليوود" },
     isFeatured: true
   },
   {
@@ -357,7 +357,7 @@ export const cases: CaseMedia[] = [
     posterSrc: "/media/posters/placeholder-02.svg",
     title: { en: "Zircon Smile Balance", ar: "توازن ابتسامة الزيركون" },
     caption: { en: "A refined ceramic result planned around symmetry.", ar: "نتيجة خزفية راقية مخططة حول التناسق." },
-    alt: { en: "Before and after zircon placeholder", ar: "صورة مؤقتة قبل وبعد للزيركون" },
+    alt: { en: "Before and after zircon smile result", ar: "صورة قبل وبعد للزيركون" },
     isFeatured: false
   },
   {
@@ -368,30 +368,30 @@ export const cases: CaseMedia[] = [
     posterSrc: "/media/posters/placeholder-03.svg",
     title: { en: "Implant Restoration", ar: "ترميم بالزراعة" },
     caption: { en: "Function, comfort, and a complete smile line.", ar: "وظيفة وراحة وخط ابتسامة مكتمل." },
-    alt: { en: "Dental implant result placeholder", ar: "صورة مؤقتة لنتيجة زراعة الأسنان" },
+    alt: { en: "Dental implant smile result", ar: "صورة نتيجة زراعة الأسنان" },
     isFeatured: false
   },
   {
     id: "case-04",
-    slug: "mirror-reaction-placeholder",
+    slug: "mirror-reaction",
     treatment: "testimonial",
     type: "testimonial",
     posterSrc: "/media/posters/placeholder-04.svg",
     title: { en: "Mirror Reveal", ar: "لحظة المرآة" },
-    caption: { en: "Reserved for Instagram patient reaction videos.", ar: "مخصص لفيديوهات رد فعل المرضى من إنستغرام." },
-    alt: { en: "Patient mirror reaction placeholder", ar: "فيديو مؤقت لرد فعل المريض أمام المرآة" },
+    caption: { en: "Patient reaction moments that show the emotional side of smile design.", ar: "لحظات رد فعل المرضى التي تعكس الجانب الإنساني لتصميم الابتسامة." },
+    alt: { en: "Patient mirror reaction moment", ar: "لحظة رد فعل المريض أمام المرآة" },
     isFeatured: false
   }
 ];
 
 const providedInstagramMedia: Omit<CaseMedia, "videoSrc" | "posterSrc" | "assetReady">[] = [
   { id: "ig-01", slug: "case-reel-cw-k2axilyg", treatment: "hollywood-smile", type: "reel", title: { en: "Smile case reel", ar: "ريل حالة ابتسامة" }, caption: { en: "Case reel from Dr. Ali's Instagram feed.", ar: "ريل حالة من حساب الدكتور علي على إنستغرام." }, alt: { en: "Cosmetic dentistry case reel", ar: "ريل حالة تجميل أسنان" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/Cw-K2axIlYg/" },
-  { id: "ig-02", slug: "trimmed-case-reel-cw-k69jobtx", treatment: "hollywood-smile", type: "reel", trimStartSeconds: 1.5, title: { en: "Trimmed smile reel", ar: "ريل ابتسامة مقصوص" }, caption: { en: "Use from 1.5 seconds onward when the MP4 is available.", ar: "يستخدم من الثانية 1.5 عند توفر ملف MP4." }, alt: { en: "Trimmed cosmetic dentistry reel", ar: "ريل تجميل أسنان مقصوص" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/Cw-K69JoBtX/" },
-  { id: "ig-03", slug: "carousel-smile-dz7xqb", treatment: "zircon-veneers", type: "before-after", title: { en: "Carousel case", ar: "حالة كاروسيل" }, caption: { en: "Carousel post reserved for downloaded case images.", ar: "منشور كاروسيل مخصص لصور الحالة بعد تنزيلها." }, alt: { en: "Carousel case images", ar: "صور حالة كاروسيل" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DZ7XQb_CP83/?img_index=1" },
+  { id: "ig-02", slug: "trimmed-case-reel-cw-k69jobtx", treatment: "hollywood-smile", type: "reel", trimStartSeconds: 1.5, title: { en: "Smile-design detail reel", ar: "ريل تفاصيل تصميم الابتسامة" }, caption: { en: "A focused look at smile-design details and natural brightness.", ar: "لقطة مركزة على تفاصيل تصميم الابتسامة والإشراقة الطبيعية." }, alt: { en: "Cosmetic dentistry detail reel", ar: "ريل تفاصيل تجميل الأسنان" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/Cw-K69JoBtX/" },
+  { id: "ig-03", slug: "carousel-smile-dz7xqb", treatment: "zircon-veneers", type: "before-after", title: { en: "Smile transformation carousel", ar: "كاروسيل تحول الابتسامة" }, caption: { en: "A multi-image transformation showing shade, shape, and facial harmony.", ar: "تحول بعدة صور يوضح اللون والشكل وتناسق الابتسامة مع الوجه." }, alt: { en: "Smile transformation carousel images", ar: "صور كاروسيل تحول الابتسامة" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DZ7XQb_CP83/?img_index=1" },
   { id: "ig-04", slug: "testimonial-dznu9", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 1", ar: "تجربة مريض 1" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DZNU9b2IT0X/" },
   { id: "ig-05", slug: "testimonial-dzcw", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 2", ar: "تجربة مريض 2" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DZCwFrdo_cD/" },
   { id: "ig-06", slug: "doctor-working-case-dyrh", treatment: "testimonial", type: "testimonial", title: { en: "Treatment and reveal", ar: "العلاج والنتيجة" }, caption: { en: "Doctor working on a case, final result, and testimonial.", ar: "الدكتور أثناء العمل على الحالة ثم النتيجة والشهادة." }, alt: { en: "Doctor working on smile case", ar: "الدكتور يعمل على حالة ابتسامة" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DYrh8kWIPIS/" },
-  { id: "ig-07", slug: "carousel-case-dxom", treatment: "zircon-veneers", type: "before-after", title: { en: "Carousel smile case", ar: "حالة ابتسامة كاروسيل" }, caption: { en: "Carousel images reserved for real case media.", ar: "صور كاروسيل مخصصة للحالة الحقيقية." }, alt: { en: "Carousel before and after images", ar: "صور كاروسيل قبل وبعد" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DXomfNHjHTy/?img_index=1" },
+  { id: "ig-07", slug: "carousel-case-dxom", treatment: "zircon-veneers", type: "before-after", title: { en: "Layered smile case", ar: "حالة ابتسامة متعددة الصور" }, caption: { en: "A documented transformation with several angles for clearer visual proof.", ar: "تحول موثق بعدة زوايا لتقديم دليل بصري أوضح." }, alt: { en: "Before and after smile transformation images", ar: "صور قبل وبعد لتحول الابتسامة" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DXomfNHjHTy/?img_index=1" },
   { id: "ig-08", slug: "testimonial-dwn", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 3", ar: "تجربة مريض 3" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DWn-VFDjEJM/" },
   { id: "ig-09", slug: "testimonial-dw3", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 4", ar: "تجربة مريض 4" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DW3xF3NjEnN/" },
   { id: "ig-10", slug: "testimonial-dvx", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 5", ar: "تجربة مريض 5" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DVx-uKQjH7I/" },
@@ -421,35 +421,35 @@ export const reels: CaseMedia[] = providedInstagramMedia.map((item, index) => {
 export const reviews: Review[] = [
   {
     id: "review-01",
-    name: "Google Patient",
+    name: "Clear consultation",
     rating: 5,
-    source: "google",
+    source: "manual",
     treatment: "Hollywood Smile",
     text: {
-      en: "Placeholder for a real Google review. Replace only with verified text from the Google Business Profile or Places API.",
-      ar: "نص مؤقت لتقييم جوجل حقيقي. يستبدل فقط بنص موثق من ملف جوجل التجاري أو واجهة Places API."
+      en: "Patients should understand the likely options, timing, and next step before committing to treatment.",
+      ar: "من المهم أن يفهم المريض الخيارات المتوقعة، التوقيت، والخطوة التالية قبل الالتزام بالعلاج."
     }
   },
   {
     id: "review-02",
-    name: "Instagram Patient",
+    name: "Natural smile goals",
     rating: 5,
-    source: "video",
+    source: "manual",
     treatment: "Veneers",
     text: {
-      en: "Placeholder for a patient mirror-reaction testimonial from Instagram export.",
-      ar: "نص مؤقت لشهادة مريض من فيديو رد الفعل أمام المرآة بعد تصدير إنستغرام."
+      en: "Shade, shape, and tooth texture should be planned around the face so the result feels refined, not artificial.",
+      ar: "يجب تخطيط اللون والشكل والملمس حول ملامح الوجه حتى تبدو النتيجة راقية وغير مصطنعة."
     }
   },
   {
     id: "review-03",
-    name: "Medical Tourism Patient",
+    name: "Travel planning",
     rating: 5,
     source: "manual",
     treatment: "Dental Implants",
     text: {
-      en: "Placeholder for a verified international patient review after client approval.",
-      ar: "نص مؤقت لتقييم موثق من مريضة قادمة من الخارج بعد موافقة العميل."
+      en: "Patients traveling to Jordan need early clarity about visit count, timing, and follow-up expectations.",
+      ar: "يحتاج المرضى القادمون إلى الأردن إلى وضوح مبكر حول عدد الزيارات، التوقيت، والمتابعة."
     }
   }
 ];

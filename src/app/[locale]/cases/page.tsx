@@ -9,7 +9,7 @@ export default async function CasesPage({ params }: { params: Promise<{ locale: 
   const locale = (isLocale(raw) ? raw : "en") as Locale;
   return (
     <main>
-      <section className="page-hero"><div className="container"><p className="eyebrow">{locale === "ar" ? "الحالات" : "Cases"}</p><h1 className="display">{locale === "ar" ? "قبل وبعد" : "Before and after"}</h1><p className="lead">{locale === "ar" ? "صفحة مخصصة للنتائج المرئية والحالات الحقيقية عند إضافة الأصول." : "A dedicated page for visual proof and real transformations once assets are added."}</p></div></section>
+      <section className="page-hero"><div className="container"><p className="eyebrow">{locale === "ar" ? "الحالات" : "Cases"}</p><h1 className="display">{locale === "ar" ? "قبل وبعد" : "Before and after"}</h1><p className="lead">{locale === "ar" ? "صفحة مخصصة للنتائج المرئية، تفاصيل اللون والشكل، وتحولات الابتسامة الطبيعية." : "A dedicated page for visual proof, shade and shape details, and natural smile transformations."}</p></div></section>
       <CaseShowcase locale={locale} full />
       <FinalCta locale={locale} />
     </main>

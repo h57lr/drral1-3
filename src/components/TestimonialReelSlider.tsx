@@ -36,6 +36,39 @@ const testimonialSlides: TestimonialSlide[] = [
     meta: { en: "Smile transformation · Patient story", ar: "تحول ابتسامة · قصة مريض" }
   },
   {
+    id: "testimonial-reel-05",
+    videoSrc: "/media/reels/reel-05.mp4",
+    posterSrc: "/media/posters/reel-05.jpg",
+    title: { en: "A New Smile Moment", ar: "لحظة ابتسامة جديدة" },
+    quote: {
+      en: "A warm patient reel highlighting the emotional side of a refined smile transformation.",
+      ar: "ريل دافئ يبرز الجانب الإنساني والعاطفي لتحول ابتسامة راقٍ."
+    },
+    meta: { en: "Patient moment · Smile reveal", ar: "لحظة مريض · كشف الابتسامة" }
+  },
+  {
+    id: "testimonial-reel-10",
+    videoSrc: "/media/reels/reel-10.mp4",
+    posterSrc: "/media/posters/reel-10.jpg",
+    title: { en: "Confidence in Motion", ar: "ثقة تتحرك" },
+    quote: {
+      en: "A short testimonial reel that reflects the confidence patients feel after thoughtful smile design.",
+      ar: "شهادة قصيرة تعكس الثقة التي يشعر بها المرضى بعد تصميم ابتسامة مدروس."
+    },
+    meta: { en: "Testimonial reel · Cosmetic dentistry", ar: "شهادة مريض · تجميل الأسنان" }
+  },
+  {
+    id: "testimonial-reel-11",
+    videoSrc: "/media/reels/reel-11.mp4",
+    posterSrc: "/media/posters/reel-11.jpg",
+    title: { en: "Trust the Transformation", ar: "ثقة في التحول" },
+    quote: {
+      en: "An authentic patient experience reel designed to feel premium, trustworthy, and personal.",
+      ar: "ريل تجربة مريض حقيقية بطابع راقٍ وموثوق وشخصي."
+    },
+    meta: { en: "Real patient story", ar: "قصة مريض حقيقية" }
+  },
+  {
     id: "testimonial-reel-04-refined",
     videoSrc: "/media/reels/reel-04.mp4",
     posterSrc: "/media/posters/reel-04.jpg",

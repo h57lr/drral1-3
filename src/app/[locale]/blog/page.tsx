@@ -5,8 +5,8 @@ import { blogPosts } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Cosmetic Dentistry Blog",
-  description: "SEO-focused cosmetic dentistry articles for Hollywood smile, veneers, zircon, and implants in Jordan."
+  title: "Dental Journal",
+  description: "Premium cosmetic dentistry articles about Hollywood Smile, veneers, dental tourism, and patient guides in Jordan."
 };
 
 export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -18,19 +18,23 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">{locale === "ar" ? "المدونة" : "Blog"}</p>
-          <h1 className="display">{locale === "ar" ? "محتوى يدعم السيو" : "SEO content hub"}</h1>
-          <p className="lead">{locale === "ar" ? "مقالات موجهة لبحث المرضى عن هوليوود سمايل، الفينير، الزيركون والزراعة." : "Articles aimed at patient search intent around Hollywood smile, veneers, zircon, and implants."}</p>
+          <h1 className="display">{locale === "ar" ? "مجلة الدكتور علي" : "Dental Journal"}</h1>
+          <p className="lead">{locale === "ar" ? "أدلة راقية تساعدك على فهم هوليوود سمايل، الفينير، والسياحة العلاجية قبل اتخاذ القرار." : "Premium editorial guides to help you understand Hollywood Smile, veneers, and dental tourism before choosing your treatment."}</p>
         </div>
       </section>
       <section className="section compact">
         <div className="container">
-          <SectionHead eyebrow={locale === "ar" ? "دليل المرضى" : "Patient Guides"} title={locale === "ar" ? "موضوعات تساعدك قبل الاستشارة." : "Guides that help before consultation."} text={locale === "ar" ? "كل مقال يوضح الخيارات ويربطك بالخدمة المناسبة والخطوة التالية." : "Each guide explains treatment options and connects you to the right service and next step."} />
-          <div className="card-grid">
+          <SectionHead eyebrow={locale === "ar" ? "دليل المرضى" : "Patient Guides"} title={locale === "ar" ? "مقالات مصممة بثقة ووضوح." : "Editorial guides with clarity and confidence."} text={locale === "ar" ? "كل مقال يوضح الخيارات ويربطك بالخدمة المناسبة والخطوة التالية." : "Each guide explains treatment options and connects you to the right service and next step."} />
+          <div className="journal-grid listing">
             {blogPosts.map((post) => (
-              <Link className="blog-card" key={post.slug} href={`/${locale}/blog/${post.slug}`}>
-                <span className="pill">{post.relatedService.replaceAll("-", " ")}</span>
+              <Link className="journal-card" key={post.slug} href={`/${locale}/${post.slug}`}>
+                <div className="journal-image"><img src={post.coverImage} alt={post.coverAlt[locale]} loading="lazy" /></div>
+                <div className="journal-card-copy">
+                <div className="journal-meta"><span className="pill">{post.category[locale]}</span><span>{post.readTime}</span></div>
                 <h3>{post.title[locale]}</h3>
                 <p>{post.excerpt[locale]}</p>
+                <span className="read-more">{locale === "ar" ? "اقرأ المقال →" : "Read More →"}</span>
+                </div>
               </Link>
             ))}
           </div>

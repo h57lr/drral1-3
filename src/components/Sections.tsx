@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CaseCarousel } from "@/components/CaseCarousel";
 import { HeroVideo } from "@/components/HeroVideo";
+import { TestimonialReelSlider } from "@/components/TestimonialReelSlider";
 import { blogPosts, cases, dictionary, doctorProfileHighlight, reels, reviews, services, site, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
@@ -154,28 +155,28 @@ export function CaseShowcase({ locale, full = false, variant = "cases" }: { loca
 
 const smileReelTransformations = [
   {
-    id: "reel-01",
-    videoSrc: "/media/reels/reel-01.mp4",
-    posterSrc: "/media/posters/reel-01.jpg",
-    title: { en: "Veneers + Hollywood Smile", ar: "فينير وابتسامة هوليوود" },
-    caption: { en: "Curated smile reel · Case 1", ar: "ريل ابتسامة مختار · الحالة 1" },
-    alt: { en: "Smile transformation reel 1", ar: "ريل تحول ابتسامة 1" }
+    id: "perfect-veneers",
+    videoSrc: "/media/reels/reel-04.mp4",
+    posterSrc: "/media/posters/reel-04.jpg",
+    title: { en: "Perfect Veneers", ar: "فينير مثالي" },
+    caption: { en: "Balanced shape, soft brightness, natural finish.", ar: "شكل متوازن، إشراقة ناعمة، ونتيجة طبيعية." },
+    alt: { en: "Perfect veneers transformation reel", ar: "ريل تحول فينير مثالي" }
   },
   {
-    id: "reel-12",
+    id: "confident-smile",
+    videoSrc: "/media/reels/reel-08.mp4",
+    posterSrc: "/media/posters/reel-08.jpg",
+    title: { en: "Confident Smile", ar: "ابتسامة واثقة" },
+    caption: { en: "A polished result designed around the face.", ar: "نتيجة راقية مصممة حول ملامح الوجه." },
+    alt: { en: "Confident smile patient reel", ar: "ريل ابتسامة واثقة" }
+  },
+  {
+    id: "hollywood-smile",
     videoSrc: "/media/reels/reel-12.mp4",
     posterSrc: "/media/posters/reel-12.jpg",
-    title: { en: "Smile Transformation", ar: "تحول الابتسامة" },
-    caption: { en: "Curated smile reel · Case 12", ar: "ريل ابتسامة مختار · الحالة 12" },
-    alt: { en: "Smile transformation reel 12", ar: "ريل تحول ابتسامة 12" }
-  },
-  {
-    id: "reel-02",
-    videoSrc: "/media/reels/reel-02.mp4#t=1.8",
-    posterSrc: "/media/posters/reel-02.jpg",
-    title: { en: "Veneers Focus", ar: "تفاصيل الفينير" },
-    caption: { en: "Curated smile reel · Case 2", ar: "ريل ابتسامة مختار · الحالة 2" },
-    alt: { en: "Smile transformation reel 2", ar: "ريل تحول ابتسامة 2" }
+    title: { en: "Hollywood Smile", ar: "هوليوود سمايل" },
+    caption: { en: "Premium harmony with a camera-ready finish.", ar: "تناغم فاخر ولمسة جاهزة للكاميرا." },
+    alt: { en: "Hollywood Smile transformation reel", ar: "ريل هوليوود سمايل" }
   }
 ] as const;
 
@@ -213,7 +214,6 @@ function SmileReelTransformations({ locale }: { locale: Locale }) {
                 muted
                 playsInline
                 preload="metadata"
-                controls
               />
               <div className="smile-reel-overlay">
                 <h3>{item.title[locale]}</h3>
@@ -231,20 +231,23 @@ function SmileReelTransformations({ locale }: { locale: Locale }) {
 }
 
 export function ReelsShowcase({ locale, full = false }: { locale: Locale; full?: boolean }) {
-  const dict = dictionary[locale];
   const list = full ? reels : reels.slice(0, 5);
   return (
-    <section className="section">
+    <section className="section testimonials-media-section">
       <div className="container">
         <SectionHead
-          eyebrow={locale === "ar" ? "إنستغرام ريلز" : "Instagram Reels"}
-          title={locale === "ar" ? "لقطات تعليمية واجتماعية من تجربة الابتسامة." : "Educational and social moments from the smile experience."}
-          text={dict.reelsNotice}
+          eyebrow={locale === "ar" ? "شهادات المرضى" : "Testimonials"}
+          title={locale === "ar" ? "تجارب حقيقية تلهم الثقة قبل ابتسامتك الجديدة." : "Real patient stories that build confidence before your new smile."}
+          text={locale === "ar" ? "شاهد لحظات قصيرة من تجربة المرضى وتحولات الابتسامة لدى الدكتور علي، حيث يلتقي التخطيط الدقيق مع النتيجة الطبيعية والشعور بالثقة." : "Watch refined patient moments and smile transformations from Dr. Ali's clinic, where careful planning meets natural results and renewed confidence."}
         />
-        <p className="scroll-hint">{locale === "ar" ? "اسحب لمشاهدة المزيد" : "Swipe to see more"}</p>
-        <div className="reel-row">
-          {list.map((item) => <ReelCard key={item.id} item={item} locale={locale} />)}
-        </div>
+        {full ? (
+          <>
+            <p className="scroll-hint">{locale === "ar" ? "اسحب لمشاهدة المزيد" : "Swipe to see more"}</p>
+            <div className="reel-row">
+              {list.map((item) => <ReelCard key={item.id} item={item} locale={locale} />)}
+            </div>
+          </>
+        ) : <TestimonialReelSlider locale={locale} />}
       </div>
     </section>
   );
@@ -323,25 +326,54 @@ export function Reviews({ locale }: { locale: Locale }) {
 }
 
 export function BlogPreview({ locale }: { locale: Locale }) {
+  const featured = blogPosts[2] ?? blogPosts[0];
+  const rest = blogPosts.filter((post) => post.slug !== featured.slug);
+  const trust = locale === "ar"
+    ? ["كتبها أطباء تجميل الأسنان", "معلومات موثوقة", "يتم تحديثها باستمرار", "موثوق من المرضى الدوليين"]
+    : ["Written by cosmetic dentists", "Evidence-based information", "Updated regularly", "Trusted by international patients"];
+
   return (
-    <section className="section compact">
+    <section className="section journal-section">
       <div className="container">
-        <SectionHead
-          eyebrow={locale === "ar" ? "دليل المرضى" : "Patient Guides"}
-          title={locale === "ar" ? "مقالات تدعم البحث والتحويل." : "Content that supports ranking and conversion."}
-          text={locale === "ar" ? "موضوعات مبنية حول هوليوود سمايل، الزيركون، الفينير، الزراعة، والسياحة العلاجية." : "Topics built around Hollywood smile, zircon, veneers, implants, and medical tourism search intent."}
-        />
-        <div className="card-grid">
-          {blogPosts.map((post) => (
-            <Link className="blog-card" key={post.slug} href={`/${locale}/blog/${post.slug}`}>
-              <span className="pill">SEO</span>
-              <h3>{post.title[locale]}</h3>
-              <p>{post.excerpt[locale]}</p>
-            </Link>
-          ))}
+        <div className="journal-head">
+          <div>
+            <p className="eyebrow">{locale === "ar" ? "مجلة الدكتور علي" : "Dental Journal"}</p>
+            <h2 className="section-title">{locale === "ar" ? "كل ما تحتاج معرفته قبل ابتسامتك الجديدة" : "Everything You Need to Know Before Your New Smile"}</h2>
+            <p className="lead">{locale === "ar" ? "أدلة شاملة، ونصائح من الخبراء، ومقارنات بين العلاجات، وتجارب حقيقية تساعدك على اتخاذ القرار بثقة." : "Expert advice, treatment comparisons, real patient insights, and complete guides to help you choose your smile with confidence."}</p>
+          </div>
+          <Link className="button secondary journal-cta" href={`/${locale}/blog`}>{locale === "ar" ? "عرض جميع المقالات →" : "View All Articles →"}</Link>
+        </div>
+
+        <div className="journal-grid">
+          {rest.slice(0, 2).map((post, index) => <JournalCard key={post.slug} post={post} locale={locale} reverse={index % 2 === 1} />)}
+          {featured ? <JournalCard post={featured} locale={locale} featured /> : null}
+          {rest.slice(2, 3).map((post) => <JournalCard key={post.slug} post={post} locale={locale} />)}
+        </div>
+
+        <div className="journal-trust-strip" aria-label={locale === "ar" ? "مؤشرات الثقة" : "Editorial trust markers"}>
+          {trust.map((item) => <span key={item}>✓ {item}</span>)}
         </div>
       </div>
     </section>
+  );
+}
+
+function JournalCard({ post, locale, reverse = false, featured = false }: { post: (typeof blogPosts)[number]; locale: Locale; reverse?: boolean; featured?: boolean }) {
+  return (
+    <Link className={`journal-card ${reverse ? "reverse" : ""} ${featured ? "featured" : ""}`} href={`/${locale}/${post.slug}`}>
+      <div className="journal-image">
+        <img src={post.coverImage} alt={post.coverAlt[locale]} loading="lazy" />
+      </div>
+      <div className="journal-card-copy">
+        <div className="journal-meta">
+          <span className="pill">{post.category[locale]}</span>
+          <span>{post.readTime}</span>
+        </div>
+        <h3>{post.title[locale]}</h3>
+        <p>{post.excerpt[locale]}</p>
+        <span className="read-more">{locale === "ar" ? "اقرأ المقال →" : "Read More →"}</span>
+      </div>
+    </Link>
   );
 }
 

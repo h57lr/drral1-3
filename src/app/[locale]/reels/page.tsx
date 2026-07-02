@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FinalCta, ReelsShowcase } from "@/components/Sections";
 import { isLocale, type Locale } from "@/lib/i18n";
 
-export const metadata: Metadata = { title: "Instagram Reels Gallery", description: "Vertical Instagram-style cosmetic dentistry reel gallery." };
+export const metadata: Metadata = { title: "Patient Testimonial Reels", description: "Premium patient experience and smile transformation reels from Dr. Ali's clinic." };
 
 export default async function ReelsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: raw } = await params;

@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const urls = locales.flatMap((locale) => [
     ...staticPages.map((page) => ({ url: `${base}/${locale}${page ? `/${page}` : ""}`, lastModified: new Date() })),
     ...services.map((service) => ({ url: `${base}/${locale}/services/${service.slug}`, lastModified: new Date() })),
-    ...blogPosts.map((post) => ({ url: `${base}/${locale}/blog/${post.slug}`, lastModified: new Date() }))
+    ...blogPosts.map((post) => ({ url: `${base}/${locale}/${post.slug}`, lastModified: new Date(post.lastUpdated) }))
   ]);
 
   return urls;

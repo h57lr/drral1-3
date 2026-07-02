@@ -12,6 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale: raw, slug } = await params;
   const locale = isLocale(raw) ? raw : "en";
   const post = getPost(slug);
+
   return {
     title: post?.seoTitle[locale] ?? "Dental Journal",
     description: post?.metaDescription[locale],
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export default async function DirectBlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale: raw, slug } = await params;
   const locale = (isLocale(raw) ? raw : "en") as Locale;
   const post = getPost(slug);

@@ -18,13 +18,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <main>
       <Hero locale={locale} />
-      <CaseShowcase locale={locale} />
       <TrustStrip locale={locale} />
-      <ReelsShowcase locale={locale} />
+      <CaseShowcase locale={locale} variant="reels" />
       <ServicesPreview locale={locale} />
-      <AboutPreview locale={locale} />
       <Process locale={locale} />
       <Reviews locale={locale} />
+      <AboutPreview locale={locale} />
+      <ReelsShowcase locale={locale} />
       <BlogPreview locale={locale} />
       <FinalCta locale={locale} />
     </main>

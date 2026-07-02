@@ -444,6 +444,180 @@ select {
   font-weight: 700;
 }
 
+.doctor-profile-section {
+  position: relative;
+  padding-top: clamp(58px, 7vw, 104px);
+}
+
+.doctor-profile-section::before {
+  position: absolute;
+  inset: 8% auto auto 50%;
+  width: min(620px, 72vw);
+  height: min(620px, 72vw);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(47, 111, 106, 0.16), transparent 68%);
+  content: "";
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.doctor-profile-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(28px, 5vw, 66px);
+  align-items: center;
+  padding: clamp(22px, 4vw, 44px);
+  border: 1px solid rgba(23, 33, 31, 0.08);
+  border-radius: 38px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.9), rgba(248, 243, 232, 0.62)),
+    radial-gradient(circle at 8% 12%, rgba(185, 201, 155, 0.38), transparent 22rem);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.doctor-profile-media {
+  position: relative;
+  min-height: 100%;
+}
+
+.doctor-profile-media::before {
+  position: absolute;
+  inset: 18px auto 18px -14px;
+  width: 22px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--teal), var(--pistachio));
+  box-shadow: 0 18px 34px -24px rgba(23, 33, 31, 0.7);
+  content: "";
+}
+
+.doctor-profile-media img {
+  position: relative;
+  width: 100%;
+  min-height: 430px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 32px;
+  box-shadow: var(--shadow);
+}
+
+.doctor-profile-signature {
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  min-width: min(250px, 78%);
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 250, 241, 0.7);
+  border-radius: 22px;
+  background: rgba(255, 250, 241, 0.84);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  backdrop-filter: blur(18px);
+}
+
+.doctor-profile-signature strong {
+  display: block;
+  color: var(--teal-dark);
+  font-family: var(--font-script), cursive;
+  font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.doctor-profile-signature span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted-ink);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.doctor-profile-copy {
+  text-align: start;
+}
+
+.doctor-profile-copy .section-title {
+  max-width: 700px;
+}
+
+.doctor-profile-copy .script {
+  white-space: nowrap;
+}
+
+.doctor-profile-copy .lead {
+  max-width: 660px;
+  margin: 26px 0 0;
+}
+
+.doctor-score-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: clamp(28px, 4vw, 40px);
+  padding: 0;
+  list-style: none;
+}
+
+.doctor-score-card {
+  position: relative;
+  min-height: 126px;
+  padding: clamp(18px, 2.6vw, 24px);
+  overflow: hidden;
+  border: 1px solid rgba(23, 33, 31, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 250, 241, 0.78);
+  box-shadow: 0 18px 50px -42px rgba(23, 33, 31, 0.48);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.doctor-score-card::after {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gold);
+  content: "";
+}
+
+.doctor-score-card:hover {
+  border-color: rgba(47, 111, 106, 0.22);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-4px);
+}
+
+.doctor-score-card strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--teal);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.doctor-score-card span {
+  display: block;
+  max-width: 16rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.doctor-profile-note {
+  max-width: 660px;
+  margin: 18px 0 0;
+  color: var(--muted-ink);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
 .section-head {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.58fr);
@@ -1089,6 +1263,21 @@ select {
   font-size: 1.05em;
 }
 
+[dir="rtl"] .doctor-profile-media::before {
+  right: -14px;
+  left: auto;
+}
+
+[dir="rtl"] .doctor-profile-signature {
+  right: auto;
+  left: -18px;
+}
+
+[dir="rtl"] .doctor-score-card::after {
+  right: auto;
+  left: 22px;
+}
+
 [dir="rtl"] .mobile-nav {
   right: auto;
   left: 0;
@@ -1106,8 +1295,14 @@ select {
   .hero-grid,
   .section-head,
   .smile-reels-head,
+  .doctor-profile-panel,
   .split {
     grid-template-columns: 1fr;
+  }
+
+  .doctor-profile-media {
+    max-width: 520px;
+    margin-inline: auto;
   }
 
   .hero-media {
@@ -1174,10 +1369,27 @@ select {
   .trust-strip,
   .card-grid,
   .case-grid,
+  .doctor-score-grid,
   .smile-reel-grid,
   .steps,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .doctor-profile-panel {
+    border-radius: 30px;
+  }
+
+  .doctor-profile-media img {
+    min-height: 0;
+  }
+
+  .doctor-profile-signature,
+  [dir="rtl"] .doctor-profile-signature {
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
+    min-width: 0;
   }
 
   .smile-reels-section {

@@ -97,6 +97,51 @@ export const dictionary = {
   }
 } satisfies Record<Locale, unknown>;
 
+export const doctorProfileHighlight = {
+  en: {
+    eyebrow: "About the Doctor",
+    title: "Exceptional Dental Aesthetics & High-Quality Care.",
+    accent: "High-Quality Care.",
+    body: "Dr. Ali Alheneiti blends precise cosmetic planning with a soft, natural aesthetic for Hollywood smiles, veneers, and smile transformations in Amman.",
+    imageAlt: "Dr. Ali Alheneiti, cosmetic dentist in Amman, Jordan",
+    signature: "Dr. Ali Alheneiti",
+    specialty: "Cosmetic Dentistry",
+    trustNote: "Figures reflect clinic positioning and public review signals. Individual outcomes may vary.",
+    stats: [
+      { value: "850+", label: "Hollywood / Veneer Cases" },
+      { value: "Patients", label: "from GCC & Europe" },
+      { value: "98%", label: "Patient Satisfaction" },
+      { value: "4.9★", label: "Google Rating" }
+    ]
+  },
+  ar: {
+    eyebrow: "عن الطبيب",
+    title: "جماليات أسنان استثنائية ورعاية عالية الجودة.",
+    accent: "رعاية عالية الجودة.",
+    body: "يجمع الدكتور علي الحنيطي بين التخطيط التجميلي الدقيق والنتائج الطبيعية الراقية لابتسامات هوليوود، الفينير، وتحولات الابتسامة في عمّان.",
+    imageAlt: "الدكتور علي الحنيطي، طبيب تجميل أسنان في عمّان، الأردن",
+    signature: "د. علي الحنيطي",
+    specialty: "طب تجميل الأسنان",
+    trustNote: "تعكس الأرقام مؤشرات العيادة والتقييمات العامة. قد تختلف النتائج من حالة لأخرى.",
+    stats: [
+      { value: "+850", label: "حالة هوليوود سمايل وفينير" },
+      { value: "مرضى", label: "من الخليج وأوروبا" },
+      { value: "98%", label: "رضا المرضى" },
+      { value: "4.9★", label: "تقييم Google" }
+    ]
+  }
+} satisfies Record<Locale, {
+  eyebrow: string;
+  title: string;
+  accent: string;
+  body: string;
+  imageAlt: string;
+  signature: string;
+  specialty: string;
+  trustNote: string;
+  stats: { value: string; label: string }[];
+}>;
+
 export const services: Service[] = [
   {
     slug: "hollywood-smile-jordan",

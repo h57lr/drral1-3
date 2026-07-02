@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CaseCarousel } from "@/components/CaseCarousel";
 import { HeroVideo } from "@/components/HeroVideo";
-import { blogPosts, cases, dictionary, reels, reviews, services, site, type CaseMedia } from "@/lib/content";
+import { blogPosts, cases, dictionary, doctorProfileHighlight, reels, reviews, services, site, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
 export function Hero({ locale }: { locale: Locale }) {
@@ -58,6 +58,45 @@ export function TrustStrip({ locale }: { locale: Locale }) {
             <span>{label}</span>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+export function DoctorProfileHighlight({ locale }: { locale: Locale }) {
+  const content = doctorProfileHighlight[locale];
+  const titleParts = content.title.split(content.accent);
+
+  return (
+    <section className="section doctor-profile-section" aria-labelledby="doctor-profile-title">
+      <div className="container doctor-profile-panel">
+        <div className="doctor-profile-media">
+          <img src="/media/profile-pic.jpg" alt={content.imageAlt} loading="lazy" />
+          <div className="doctor-profile-signature" aria-label={`${content.signature}, ${content.specialty}`}>
+            <strong>{content.signature}</strong>
+            <span>{content.specialty}</span>
+          </div>
+        </div>
+
+        <div className="doctor-profile-copy">
+          <p className="eyebrow">{content.eyebrow}</p>
+          <h2 className="section-title" id="doctor-profile-title">
+            {titleParts[0]}
+            <span className="script">{content.accent}</span>
+            {titleParts[1] ?? ""}
+          </h2>
+          <p className="lead">{content.body}</p>
+
+          <ul className="doctor-score-grid" aria-label={locale === "ar" ? "إحصائيات الثقة" : "Trust score cards"}>
+            {content.stats.map((stat) => (
+              <li className="doctor-score-card" key={`${stat.value}-${stat.label}`} aria-label={`${stat.value} ${stat.label}`}>
+                <strong dir={/[A-Za-z0-9+%★&]/.test(stat.value) ? "ltr" : undefined}><bdi>{stat.value}</bdi></strong>
+                <span>{stat.label}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="doctor-profile-note">{content.trustNote}</p>
+        </div>
       </div>
     </section>
   );

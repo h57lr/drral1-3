@@ -601,7 +601,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: { en: "A practical travel and treatment guide for patients considering veneers, Hollywood Smile, or cosmetic dentistry in Jordan.", ar: "دليل عملي للسفر والعلاج لمن يفكر بالفينير أو هوليوود سمايل أو تجميل الأسنان في الأردن." },
     category: { en: "Dental Tourism", ar: "السياحة العلاجية" },
     readTime: "10 min read",
-    coverImage: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1400&q=85",
+    coverImage: "/media/dental-tourism.webp",
     coverAlt: { en: "Amman Jordan travel planning for dental tourism", ar: "تخطيط السفر إلى عمّان الأردن للسياحة العلاجية للأسنان" },
     keywords: ["Dental Tourism Jordan", "Dental Clinic Jordan", "Hollywood Smile Jordan", "Medical Tourism Jordan", "Veneers Jordan"],
     lastUpdated: "2026-01-15",

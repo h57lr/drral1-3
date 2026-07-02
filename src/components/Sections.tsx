@@ -156,16 +156,16 @@ export function CaseShowcase({ locale, full = false, variant = "cases" }: { loca
 const smileReelTransformations = [
   {
     id: "perfect-veneers",
-    videoSrc: "/media/reels/reel-04.mp4",
-    posterSrc: "/media/posters/reel-04.jpg",
+    videoSrc: "/media/reels/reel-02.mp4#t=1.8",
+    posterSrc: "/media/posters/reel-02.jpg",
     title: { en: "Perfect Veneers", ar: "فينير مثالي" },
     caption: { en: "Balanced shape, soft brightness, natural finish.", ar: "شكل متوازن، إشراقة ناعمة، ونتيجة طبيعية." },
     alt: { en: "Perfect veneers transformation reel", ar: "ريل تحول فينير مثالي" }
   },
   {
     id: "confident-smile",
-    videoSrc: "/media/reels/reel-08.mp4",
-    posterSrc: "/media/posters/reel-08.jpg",
+    videoSrc: "/media/reels/reel-17.mp4#t=2",
+    posterSrc: "/media/posters/reel-17.jpg",
     title: { en: "Confident Smile", ar: "ابتسامة واثقة" },
     caption: { en: "A polished result designed around the face.", ar: "نتيجة راقية مصممة حول ملامح الوجه." },
     alt: { en: "Confident smile patient reel", ar: "ريل ابتسامة واثقة" }

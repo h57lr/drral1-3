@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { SectionHead } from "@/components/Sections";
+import { ServiceHeroCarousel } from "@/components/ServiceHeroCarousel";
 import { getCanonicalServiceSlug, getService, services, site, type Service } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
 
@@ -51,6 +52,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
   if (!service) notFound();
 
   const labels = getServiceLabels(locale);
+  const heroMedia = getServiceHeroMedia(service.slug, locale);
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -82,16 +84,24 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             </div>
           </div>
 
-          <div className="service-hero-visual" aria-hidden="true">
-            <div className="service-visual-card primary">
-              <span className="service-visual-icon"><ServiceIcon name={service.benefits[locale][0]?.icon ?? "spark"} /></span>
-              <strong>{service.navTitle[locale]}</strong>
-              <p>{service.bullets[locale][0]}</p>
-            </div>
-            <div className="service-visual-card floating">
-              <span>{locale === "ar" ? "عمّان، الأردن" : "Amman, Jordan"}</span>
-              <strong>{locale === "ar" ? "نتائج طبيعية" : "Natural-looking results"}</strong>
-            </div>
+          <div className={`service-hero-visual${heroMedia ? ` has-image has-${heroMedia.type}` : ""}`} aria-hidden={heroMedia ? undefined : "true"}>
+            {heroMedia?.type === "image" ? (
+              <img className="service-hero-image" src={heroMedia.src} alt={heroMedia.alt} />
+            ) : heroMedia?.type === "carousel" ? (
+              <ServiceHeroCarousel images={heroMedia.images} alt={heroMedia.alt} />
+            ) : (
+              <>
+                <div className="service-visual-card primary">
+                  <span className="service-visual-icon"><ServiceIcon name={service.benefits[locale][0]?.icon ?? "spark"} /></span>
+                  <strong>{service.navTitle[locale]}</strong>
+                  <p>{service.bullets[locale][0]}</p>
+                </div>
+                <div className="service-visual-card floating">
+                  <span>{locale === "ar" ? "عمّان، الأردن" : "Amman, Jordan"}</span>
+                  <strong>{locale === "ar" ? "نتائج طبيعية" : "Natural-looking results"}</strong>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
@@ -251,6 +261,39 @@ function ServiceFinalCta({ locale }: { locale: Locale }) {
       </div>
     </section>
   );
+}
+
+function getServiceHeroMedia(slug: string, locale: Locale) {
+  if (slug === "dental-veneers-jordan") {
+    return {
+      type: "carousel" as const,
+      alt: locale === "ar" ? "حالة فينير أسنان قبل وبعد مع الدكتور علي" : "Dental veneers before and after case with Dr. Ali",
+      images: [
+        {
+          src: "/media/cases/instagram/20/image-07.webp",
+          label: locale === "ar" ? "قبل" : "Before"
+        },
+        {
+          src: "/media/cases/instagram/20/image-06.webp",
+          label: locale === "ar" ? "بعد" : "After"
+        }
+      ]
+    };
+  }
+
+  if (slug !== "dental-implants-amman") return null;
+
+  return locale === "ar"
+    ? {
+      type: "image" as const,
+      src: "/media/dental_implants_infographic_arabic.png",
+      alt: "إنفوجرافيك يوضح زراعة الأسنان في عمّان مع الدكتور علي"
+    }
+    : {
+      type: "image" as const,
+      src: "/media/dental_implants_infographic_english.png",
+      alt: "Dental implants infographic for Dr. Ali in Amman"
+    };
 }
 
 function ServiceIcon({ name }: { name: string }) {

@@ -6,6 +6,11 @@ const nextConfig = {
         source: "/:locale(en|ar)/services/hollywood-smile-jordan",
         destination: "/:locale/services/veneers-in-jordan",
         permanent: true
+      },
+      {
+        source: "/:locale(en|ar)/reels",
+        destination: "/:locale/transformations",
+        permanent: true
       }
     ];
   },

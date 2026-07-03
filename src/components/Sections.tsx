@@ -281,10 +281,10 @@ function SmileReelTransformations({ locale }: { locale: Locale }) {
   );
 }
 
-export function ReelsShowcase({ locale, full = false }: { locale: Locale; full?: boolean }) {
+export function ReelsShowcase({ locale, full = false, tight = false }: { locale: Locale; full?: boolean; tight?: boolean }) {
   const list = full ? reels : reels.slice(0, 5);
   return (
-    <section className="section testimonials-media-section">
+    <section className={`section testimonials-media-section${tight ? " testimonials-media-tight" : ""}`}>
       <div className="container">
         <SectionHead
           eyebrow={locale === "ar" ? "شهادات المرضى" : "Testimonials"}

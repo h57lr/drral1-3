@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-export function ServiceHeroCarousel({ images, alt }: { images: { src: string; label: string }[]; alt: string }) {
+type FadeCarouselImage = { src: string; label: string };
+
+function ServiceFadeCarousel({ images, alt, className }: { images: FadeCarouselImage[]; alt: string; className: string }) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -16,18 +18,26 @@ export function ServiceHeroCarousel({ images, alt }: { images: { src: string; la
   }, [images.length]);
 
   return (
-    <div className="service-hero-carousel" aria-label={alt}>
-      <div className="service-hero-carousel-track">
+    <div className={className} aria-label={alt}>
+      <div className={`${className}-track`}>
         {images.map((image, index) => (
-          <figure className={`service-hero-carousel-slide${active === index ? " active" : ""}`} key={image.src}>
+          <figure className={`${className}-slide${active === index ? " active" : ""}`} key={image.src}>
             <img src={image.src} alt={`${alt} - ${image.label}`} />
             <figcaption>{image.label}</figcaption>
           </figure>
         ))}
       </div>
-      <div className="service-hero-carousel-dots" aria-hidden="true">
+      <div className={`${className}-dots`} aria-hidden="true">
         {images.map((image, index) => <span className={active === index ? "active" : ""} key={image.src} />)}
       </div>
     </div>
   );
+}
+
+export function ServiceHeroCarousel({ images, alt }: { images: FadeCarouselImage[]; alt: string }) {
+  return <ServiceFadeCarousel images={images} alt={alt} className="service-hero-carousel" />;
+}
+
+export function ServiceCaseCarousel({ images, alt }: { images: FadeCarouselImage[]; alt: string }) {
+  return <ServiceFadeCarousel images={images} alt={alt} className="service-case-carousel" />;
 }

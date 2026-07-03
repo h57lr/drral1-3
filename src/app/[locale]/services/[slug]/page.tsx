@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { SectionHead } from "@/components/Sections";
-import { ServiceHeroCarousel } from "@/components/ServiceHeroCarousel";
+import { ServiceCaseCarousel, ServiceHeroCarousel } from "@/components/ServiceHeroCarousel";
 import { getCanonicalServiceSlug, getService, services, site, type Service } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
 
@@ -53,6 +53,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
 
   const labels = getServiceLabels(locale);
   const heroMedia = getServiceHeroMedia(service.slug, locale);
+  const caseMedia = getServiceCaseMedia(service.slug, locale);
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -188,17 +189,22 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         <div className="container">
           <SectionHead eyebrow={labels.casesEyebrow} title={labels.casesTitle} text={labels.casesText} />
           <div className="service-case-grid">
-            {service.cases[locale].map((item, index) => (
-              <article className="service-case-card" key={item.title}>
-                <div className="service-case-visual">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                </div>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              </article>
-            ))}
+            {service.cases[locale].map((item, index) => {
+              const media = caseMedia[index];
+
+              return (
+                <article className="service-case-card" key={item.title}>
+                  <div className={`service-case-visual${media ? " has-carousel" : ""}`}>
+                    {media ? <ServiceCaseCarousel images={media.images} alt={media.alt} /> : null}
+                    <span className="service-case-number">{String(index + 1).padStart(2, "0")}</span>
+                  </div>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -294,6 +300,37 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
       src: "/media/dental_implants_infographic_english.png",
       alt: "Dental implants infographic for Dr. Ali in Amman"
     };
+}
+
+function getServiceCaseMedia(slug: string, locale: Locale) {
+  if (slug !== "dental-veneers-jordan") return [];
+
+  const before = locale === "ar" ? "قبل" : "Before";
+  const after = locale === "ar" ? "بعد" : "After";
+
+  return [
+    {
+      alt: locale === "ar" ? "حالة فينير طبيعي قبل وبعد" : "Natural veneer smile before and after",
+      images: [
+        { src: "/media/cases/instagram/20/image-11.webp", label: before },
+        { src: "/media/cases/instagram/20/image-12.webp", label: after }
+      ]
+    },
+    {
+      alt: locale === "ar" ? "نتيجة فينير زيركون قبل وبعد" : "Zircon veneer result before and after",
+      images: [
+        { src: "/media/cases/instagram/20/image-22.webp", label: before },
+        { src: "/media/cases/instagram/20/image-21.webp", label: after }
+      ]
+    },
+    {
+      alt: locale === "ar" ? "تحسين شكل الابتسامة قبل وبعد" : "Smile shape enhancement before and after",
+      images: [
+        { src: "/media/cases/instagram/20/image-16.webp", label: before },
+        { src: "/media/cases/instagram/20/image-15.webp", label: after }
+      ]
+    }
+  ];
 }
 
 function ServiceIcon({ name }: { name: string }) {

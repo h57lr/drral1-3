@@ -37,7 +37,7 @@ export function Hero({ locale }: { locale: Locale }) {
           </div>
           <div className="hero-note">
             <strong>{locale === "ar" ? "نتائج طبيعية" : "Natural results"}</strong>
-            <span>{locale === "ar" ? "هوليوود سمايل، فينير، زيركون وزراعة بتخطيط يراعي تفاصيل الوجه." : "Hollywood smile, veneers, zircon, and implants planned around your facial details."}</span>
+            <span>{locale === "ar" ? "ابتسامة طبيعية تمنحك ثقة والقوة، فينير، زيركون وزراعة الاسنان بتخطيط  دقيق يراعي تفاصيل تصميم الوجه" : "Hollywood smile, veneers, zircon, and implants planned around your facial details."}</span>
           </div>
         </div>
       </div>

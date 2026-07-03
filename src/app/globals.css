@@ -1219,7 +1219,7 @@ select {
 }
 
 .journal-card.featured {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(260px, 0.52fr) minmax(0, 0.48fr);
   background:
     radial-gradient(circle at 12% 8%, rgba(193, 162, 103, 0.24), transparent 18rem),
     linear-gradient(135deg, var(--teal-dark), var(--ink));
@@ -1234,11 +1234,13 @@ select {
 
 .journal-image {
   min-height: 280px;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
 }
 
 .journal-card.featured .journal-image {
-  min-height: 420px;
+  min-height: 320px;
+  aspect-ratio: 16 / 10;
 }
 
 .journal-image img {

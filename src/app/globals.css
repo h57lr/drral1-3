@@ -442,6 +442,11 @@ select {
   transform: translateX(-0.18em);
 }
 
+[dir="rtl"] .hero-title-main {
+  display: inline-block;
+  font-size: 0.92em;
+}
+
 [dir="rtl"] .hero-copy .lead {
   margin-top: 44px;
 }

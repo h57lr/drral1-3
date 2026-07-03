@@ -76,6 +76,10 @@ select {
   padding: 64px 0;
 }
 
+.section.services-preview-tight {
+  padding-top: 28px;
+}
+
 .smile-reels-section {
   margin: 40px 0;
   background:
@@ -1724,6 +1728,10 @@ a:focus-visible .read-more,
 
 .page-hero {
   padding: 76px 0 46px;
+}
+
+.services-page-hero {
+  padding-bottom: 22px;
 }
 
 .page-hero .lead {

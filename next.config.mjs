@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/:locale(en|ar)/services/hollywood-smile-jordan",
+        destination: "/:locale/services/veneers-in-jordan",
+        permanent: true
+      }
+    ];
+  },
   async headers() {
     return [
       {

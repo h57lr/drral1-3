@@ -154,9 +154,9 @@ function JourneyIcon({ name }: { name: string }) {
   );
 }
 
-export function ServicesPreview({ locale }: { locale: Locale }) {
+export function ServicesPreview({ locale, tight = false }: { locale: Locale; tight?: boolean }) {
   return (
-    <section className="section">
+    <section className={`section${tight ? " services-preview-tight" : ""}`}>
       <div className="container">
         <SectionHead
           eyebrow={locale === "ar" ? "الخدمات الأساسية" : "Signature Services"}

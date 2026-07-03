@@ -192,36 +192,36 @@ export const doctorProfileHighlight = {
 
 export const services: Service[] = [
   {
-    slug: "hollywood-smile-jordan",
+    slug: "veneers-in-jordan",
     title: {
-      en: "Hollywood Smile in Jordan",
-      ar: "ابتسامة هوليوود في الأردن"
+      en: "Veneers in Jordan",
+      ar: "الفينير في الأردن"
     },
     navTitle: {
-      en: "Hollywood Smile",
-      ar: "ابتسامة هوليوود"
+      en: "Veneers",
+      ar: "الفينير"
     },
     description: {
-      en: "A complete smile transformation designed around facial harmony, natural tooth proportions, and a refined cosmetic finish.",
-      ar: "تحويل كامل للابتسامة بتصميم يراعي تناسق الوجه، نسب الأسنان الطبيعية، واللمسة الجمالية الراقية."
+      en: "Premium porcelain veneers in Jordan and Amman planned for natural shape, refined shade, smile harmony, and long-lasting cosmetic confidence.",
+      ar: "فينير بورسلان راقٍ في الأردن وعمّان بتخطيط يراعي الشكل الطبيعي، اللون المناسب، تناسق الابتسامة، والثبات الجمالي طويل المدى."
     },
-    keywords: ["Hollywood Smile Jordan", "Hollywood Smile Amman", "smile makeover Jordan"],
+    keywords: ["Veneers in Jordan", "Veneers in Amman", "porcelain veneers Jordan", "natural veneers Amman"],
     bullets: {
-      en: ["Digital smile planning", "Natural shade selection", "Face-led proportions", "Photo and video case review"],
-      ar: ["تخطيط رقمي للابتسامة", "اختيار لون طبيعي", "تصميم متناسق مع الوجه", "مراجعة الحالات بالصور والفيديو"]
+      en: ["Porcelain veneers in Amman", "Natural shade and texture", "Minimal-prep planning", "Before-and-after case review"],
+      ar: ["فينير بورسلان في عمّان", "لون وملمس طبيعي", "تخطيط بتحضير محافظ", "مراجعة حالات قبل وبعد"]
     },
     process: {
-      en: ["Private consultation", "Smile analysis", "Digital design", "Treatment planning", "Final reveal"],
-      ar: ["استشارة خاصة", "تحليل الابتسامة", "تصميم رقمي", "خطة علاج", "النتيجة النهائية"]
+      en: ["Photo review and consultation", "Smile and bite analysis", "Digital veneer design", "Trial and conservative preparation", "Final veneer bonding"],
+      ar: ["مراجعة الصور والاستشارة", "تحليل الابتسامة والعضة", "تصميم الفينير رقمياً", "التجربة والتحضير المحافظ", "تثبيت الفينير النهائي"]
     },
     faqs: {
       en: [
-        { question: "Will my smile look natural?", answer: "The goal is a refined smile that fits your face, skin tone, and personality rather than an artificial one-shade look." },
-        { question: "Can I get an estimate online?", answer: "Yes. Send photos on WhatsApp for initial guidance, then confirm the plan during consultation." }
+        { question: "Are veneers in Jordan suitable for international patients?", answer: "Yes. Many patients begin with a WhatsApp photo review, then confirm the veneer plan, timeline, and visit sequence during consultation in Amman." },
+        { question: "Can veneers look natural?", answer: "Yes. Natural veneers depend on proportion, texture, translucency, and shade selection rather than a flat or overly white result." }
       ],
       ar: [
-        { question: "هل ستكون الابتسامة طبيعية؟", answer: "الهدف هو ابتسامة راقية تناسب الوجه ولون البشرة والشخصية، وليس مظهراً اصطناعياً بلون واحد." },
-        { question: "هل يمكن معرفة التقدير عبر الإنترنت؟", answer: "نعم. يمكن إرسال الصور عبر واتساب للحصول على توجيه أولي ثم تأكيد الخطة في الاستشارة." }
+        { question: "هل الفينير في الأردن مناسب للمرضى القادمين من الخارج؟", answer: "نعم. يبدأ كثير من المرضى بمراجعة الصور عبر واتساب، ثم يتم تأكيد خطة الفينير والمدة وتسلسل الزيارات أثناء الاستشارة في عمّان." },
+        { question: "هل يمكن أن يبدو الفينير طبيعياً؟", answer: "نعم. يعتمد الفينير الطبيعي على النسب والملمس والشفافية واختيار اللون، وليس على نتيجة بيضاء مسطحة أو مبالغ فيها." }
       ]
     }
   },
@@ -523,7 +523,7 @@ const editorialAuthor = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "hollywood-smile-guide",
-    relatedService: "hollywood-smile-jordan",
+    relatedService: "veneers-in-jordan",
     title: { en: "The Complete Hollywood Smile Guide (2026)", ar: "الدليل الكامل لهوليوود سمايل 2026" },
     seoTitle: { en: "The Complete Hollywood Smile Guide (2026) | Jordan", ar: "الدليل الكامل لهوليوود سمايل 2026 | الأردن" },
     metaDescription: { en: "Learn what a Hollywood Smile is, cost factors in Jordan, veneers vs crowns, zircon vs Emax, treatment timeline, pain, recovery, and consultation steps.", ar: "تعرف على هوليوود سمايل في الأردن، عوامل التكلفة، الفينير مقابل التيجان، الزيركون مقابل إيماكس، المدة، الألم، التعافي وخطوات الاستشارة." },
@@ -625,7 +625,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "dental-tourism-jordan",
-    relatedService: "hollywood-smile-jordan",
+    relatedService: "veneers-in-jordan",
     title: { en: "Dental Tourism in Jordan: Complete Patient Guide", ar: "السياحة العلاجية للأسنان في الأردن: دليل المريض الكامل" },
     seoTitle: { en: "Dental Tourism in Jordan: Complete Patient Guide", ar: "السياحة العلاجية للأسنان في الأردن: دليل المريض الكامل" },
     metaDescription: { en: "Plan dental tourism in Jordan with guidance on safety, costs, hotels, treatment duration, recovery, attractions, FAQs, and patient journey timeline.", ar: "خطط للسياحة العلاجية للأسنان في الأردن مع معلومات السلامة، التكلفة، الفنادق، مدة العلاج، التعافي، المعالم، الأسئلة والجدول الزمني." },

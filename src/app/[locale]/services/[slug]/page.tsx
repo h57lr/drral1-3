@@ -13,9 +13,20 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale: raw, slug } = await params;
   const locale = isLocale(raw) ? raw : "en";
   const service = getService(slug);
+  const title = service?.slug === "veneers-in-jordan" && locale === "en" ? "Veneers in Jordan | Veneers in Amman" : service?.title[locale] ?? "Service";
+  const description = service?.description[locale];
+
   return {
-    title: service?.title[locale] ?? "Service",
-    description: service?.description[locale]
+    title,
+    description,
+    keywords: service?.keywords,
+    alternates: service ? { canonical: `/${locale}/services/${service.slug}` } : undefined,
+    openGraph: service ? {
+      title,
+      description,
+      type: "website",
+      url: `/${locale}/services/${service.slug}`
+    } : undefined
   };
 }
 

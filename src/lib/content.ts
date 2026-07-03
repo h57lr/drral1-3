@@ -122,12 +122,28 @@ export const doctorProfileHighlight = {
     imageAlt: "Dr. Ali Alheneiti, cosmetic dentist in Amman, Jordan",
     signature: "Dr. Ali Alheneiti",
     specialty: "Cosmetic Dentistry",
-    trustNote: "Figures reflect clinic positioning and public review signals. Individual outcomes may vary.",
-    stats: [
-      { value: "850+", label: "Hollywood / Veneer Cases" },
-      { value: "Patients", label: "from GCC & Europe" },
-      { value: "98%", label: "Patient Satisfaction" },
-      { value: "4.9★", label: "Google Rating" }
+    trustNote: "A planned, natural, and comfortable smile transformation experience — not just veneers.",
+    scoreCards: [
+      {
+        icon: "✨",
+        title: "Smile Design First",
+        text: "Every case starts with facial harmony, tooth shape, and natural smile planning."
+      },
+      {
+        icon: "🪞",
+        title: "Natural-Looking Results",
+        text: "Designed to enhance your smile without making it look artificial or overdone."
+      },
+      {
+        icon: "🧳",
+        title: "GCC Patient Journey",
+        text: "Clear planning for patients visiting Jordan for veneers or Hollywood Smile treatment."
+      },
+      {
+        icon: "🤝",
+        title: "Doctor-Led Consultation",
+        text: "Your smile plan is reviewed with professional guidance before treatment begins."
+      }
     ]
   },
   ar: {
@@ -138,12 +154,28 @@ export const doctorProfileHighlight = {
     imageAlt: "الدكتور علي الحنيطي، طبيب تجميل أسنان في عمّان، الأردن",
     signature: "د. علي الحنيطي",
     specialty: "طب تجميل الأسنان",
-    trustNote: "تعكس الأرقام مؤشرات العيادة والتقييمات العامة. قد تختلف النتائج من حالة لأخرى.",
-    stats: [
-      { value: "+850", label: "حالة هوليوود سمايل وفينير" },
-      { value: "مرضى", label: "من الخليج وأوروبا" },
-      { value: "98%", label: "رضا المرضى" },
-      { value: "4.9★", label: "تقييم Google" }
+    trustNote: "تجربة تحول ابتسامة مخططة، طبيعية، ومريحة — وليست مجرد فينير.",
+    scoreCards: [
+      {
+        icon: "✨",
+        title: "تصميم الابتسامة أولاً",
+        text: "كل حالة تبدأ بدراسة تناسق الوجه، شكل الأسنان، وطبيعة الابتسامة."
+      },
+      {
+        icon: "🪞",
+        title: "نتائج طبيعية المظهر",
+        text: "ابتسامة محسّنة بدون مظهر مصطنع أو مبالغ فيه."
+      },
+      {
+        icon: "🧳",
+        title: "تجربة مخصصة لمرضى الخليج",
+        text: "تخطيط واضح للمرضى القادمين إلى الأردن لعلاج الفينير أو هوليوود سمايل."
+      },
+      {
+        icon: "🤝",
+        title: "استشارة بإشراف الطبيب",
+        text: "تتم مراجعة خطة ابتسامتك بإرشاد مهني قبل بدء العلاج."
+      }
     ]
   }
 } satisfies Record<Locale, {
@@ -155,7 +187,7 @@ export const doctorProfileHighlight = {
   signature: string;
   specialty: string;
   trustNote: string;
-  stats: { value: string; label: string }[];
+  scoreCards: { icon: string; title: string; text: string }[];
 }>;
 
 export const services: Service[] = [

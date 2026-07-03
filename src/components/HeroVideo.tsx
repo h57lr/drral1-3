@@ -21,7 +21,7 @@ export function HeroVideo() {
       loop
       muted
       playsInline
-      preload="auto"
+      preload="metadata"
       onCanPlay={() => void videoRef.current?.play().catch(() => undefined)}
     >
       <source src="/media/reels/reel-01.mp4" type="video/mp4" />

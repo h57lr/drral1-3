@@ -88,16 +88,18 @@ export function DoctorProfileHighlight({ locale }: { locale: Locale }) {
           </h2>
           <p className="lead">{content.body}</p>
 
-          <ul className="doctor-score-grid" aria-label={locale === "ar" ? "إحصائيات الثقة" : "Trust score cards"}>
-            {content.stats.map((stat) => (
-              <li className="doctor-score-card" key={`${stat.value}-${stat.label}`} aria-label={`${stat.value} ${stat.label}`}>
-                <strong dir={/[A-Za-z0-9+%★&]/.test(stat.value) ? "ltr" : undefined}><bdi>{stat.value}</bdi></strong>
-                <span>{stat.label}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="doctor-profile-note">{content.trustNote}</p>
         </div>
+
+        <ul className="doctor-journey-grid" aria-label={locale === "ar" ? "بطاقات تجربة الابتسامة" : "Smile journey score cards"}>
+          {content.scoreCards.map((card) => (
+            <li className="doctor-journey-card" key={card.title}>
+              <span className="doctor-journey-icon" aria-hidden="true">{card.icon}</span>
+              <strong>{card.title}</strong>
+              <span>{card.text}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="doctor-profile-note doctor-journey-note">{content.trustNote}</p>
       </div>
     </section>
   );

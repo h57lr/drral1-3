@@ -651,6 +651,17 @@ select {
   white-space: nowrap;
 }
 
+[dir="rtl"] .doctor-profile-copy .section-title {
+  max-width: 640px;
+  font-size: clamp(2.15rem, 4.35vw, 4.25rem);
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+[dir="rtl"] .doctor-profile-copy .script {
+  white-space: normal;
+}
+
 .doctor-profile-copy .lead {
   max-width: 660px;
   margin: 26px 0 0;

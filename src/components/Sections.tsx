@@ -240,7 +240,7 @@ function SmileReelTransformations({ locale }: { locale: Locale }) {
             <p className="eyebrow">{locale === "ar" ? "تحولات الابتسامة" : "Smile Transformations"}</p>
             <h2 className="section-title">
               {locale === "ar" ? (
-                <>مراجع حقيقية <span className="script">قبل وبعد</span>.</>
+                <>حالات مراجع حقيقية <span className="script">قبل وبعد</span>.</>
               ) : (
                 <>Real <span className="script">before</span> &amp;<br />after references.</>
               )}
@@ -248,7 +248,7 @@ function SmileReelTransformations({ locale }: { locale: Locale }) {
           </div>
           <p className="lead">
             {locale === "ar"
-              ? "شاهد ثلاث ريلز مختارة توضح اللون، الشكل، وتناسق الابتسامة مع الوجه قبل اختيار مسار الاستشارة المناسب."
+              ? "شاهد الحالات التالية التي توضح اللون، الشكل، وتناسق الابتسامة مع الوجه قبل اختيار مسار الاستشارة المناسب."
               : "Watch three selected reels showing shade, shape, and facial harmony before choosing the right consultation path."}
           </p>
         </div>

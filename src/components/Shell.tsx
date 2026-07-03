@@ -19,7 +19,6 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
           </Link>
           <nav className="nav" aria-label="Primary navigation">
             <Link href={`/${locale}/services`}>{nav.services}</Link>
-            <Link href={`/${locale}/cases`}>{nav.cases}</Link>
             <Link href={`/${locale}/reels`}>{nav.reels}</Link>
             <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
             <Link href={`/${locale}/blog`}>{nav.blog}</Link>
@@ -33,7 +32,6 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
               <summary aria-label={locale === "ar" ? "فتح القائمة" : "Open menu"}>{locale === "ar" ? "القائمة" : "Menu"}</summary>
               <nav className="mobile-nav" aria-label="Mobile navigation">
                 <Link href={`/${locale}/services`}>{nav.services}</Link>
-                <Link href={`/${locale}/cases`}>{nav.cases}</Link>
                 <Link href={`/${locale}/reels`}>{nav.reels}</Link>
                 <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
                 <Link href={`/${locale}/blog`}>{nav.blog}</Link>

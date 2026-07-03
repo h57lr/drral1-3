@@ -83,7 +83,7 @@ export const dictionary = {
     nav: {
       services: "Services",
       cases: "Cases",
-      reels: "Reels",
+      reels: "Transformations",
       testimonials: "Reviews",
       blog: "Blog",
       about: "About",
@@ -99,7 +99,7 @@ export const dictionary = {
     nav: {
       services: "الخدمات",
       cases: "الحالات",
-      reels: "الريلز",
+      reels: "التحولات",
       testimonials: "التقييمات",
       blog: "المدونة",
       about: "عن الدكتور",

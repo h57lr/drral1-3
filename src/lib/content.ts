@@ -5,9 +5,20 @@ export type Service = {
   title: Record<Locale, string>;
   navTitle: Record<Locale, string>;
   description: Record<Locale, string>;
+  seoTitle: Record<Locale, string>;
+  metaDescription: Record<Locale, string>;
+  heroEyebrow: Record<Locale, string>;
+  heroIntro: Record<Locale, string>;
+  trustPhrase: Record<Locale, string>;
   keywords: string[];
   bullets: Record<Locale, string[]>;
-  process: Record<Locale, string[]>;
+  intro: Record<Locale, { heading: string; body: string[]; note?: string }>;
+  candidates: Record<Locale, string[]>;
+  process: Record<Locale, { title: string; text: string }[]>;
+  benefits: Record<Locale, { icon: string; title: string; text: string }[]>;
+  whyChoose: Record<Locale, { title: string; text: string }[]>;
+  cases: Record<Locale, { title: string; text: string }[]>;
+  related: string[];
   faqs: Record<Locale, { question: string; answer: string }[]>;
 };
 
@@ -192,196 +203,205 @@ export const doctorProfileHighlight = {
 
 export const services: Service[] = [
   {
-    slug: "veneers-in-jordan",
-    title: {
-      en: "Veneers in Jordan",
-      ar: "الفينير في الأردن"
-    },
-    navTitle: {
-      en: "Veneers",
-      ar: "الفينير"
-    },
+    slug: "dental-veneers-jordan",
+    title: { en: "Dental Veneers in Jordan", ar: "فينير الأسنان في الأردن" },
+    navTitle: { en: "Dental Veneers", ar: "فينير الأسنان" },
     description: {
-      en: "Premium porcelain veneers in Jordan and Amman planned for natural shape, refined shade, smile harmony, and long-lasting cosmetic confidence.",
-      ar: "فينير بورسلان راقٍ في الأردن وعمّان بتخطيط يراعي الشكل الطبيعي، اللون المناسب، تناسق الابتسامة، والثبات الجمالي طويل المدى."
+      en: "Natural looking veneers planned around your face, smile shape, and aesthetic goals.",
+      ar: "فينير طبيعي المظهر يتم تخطيطه حول ملامح وجهك، شكل ابتسامتك، وأهدافك الجمالية."
     },
-    keywords: ["Veneers in Jordan", "Veneers in Amman", "porcelain veneers Jordan", "natural veneers Amman"],
+    seoTitle: { en: "Dental Veneers in Jordan | Natural Veneers in Amman", ar: "فينير الأسنان في الأردن | فينير طبيعي في عمّان" },
+    metaDescription: {
+      en: "Dental veneers in Jordan with Dr. Ali in Amman. Natural smile planning, zircon veneers guidance, candidate assessment, process, benefits, FAQs, and consultation booking.",
+      ar: "فينير الأسنان في الأردن مع الدكتور علي في عمّان. تخطيط ابتسامة طبيعي، توجيه حول فينير الزيركون، تقييم الحالة، الخطوات، المزايا والأسئلة الشائعة."
+    },
+    heroEyebrow: { en: "Cosmetic Dentistry in Jordan", ar: "طب تجميل الأسنان في الأردن" },
+    heroIntro: {
+      en: "A refined veneer experience for patients who want brighter, better shaped teeth without an artificial or overdone look.",
+      ar: "تجربة فينير راقية لمن يرغبون بأسنان أكثر تناسقاً وإشراقاً دون مظهر صناعي أو مبالغ فيه."
+    },
+    trustPhrase: { en: "Doctor-led veneer consultation in Amman, Jordan", ar: "استشارة فينير بإشراف الطبيب في عمّان، الأردن" },
+    keywords: ["Dental Veneers in Jordan", "Veneers in Jordan", "Zircon veneers in Jordan", "Cosmetic Dentistry in Jordan", "Dental Clinic in Amman"],
     bullets: {
-      en: ["Porcelain veneers in Amman", "Natural shade and texture", "Minimal-prep planning", "Before-and-after case review"],
-      ar: ["فينير بورسلان في عمّان", "لون وملمس طبيعي", "تخطيط بتحضير محافظ", "مراجعة حالات قبل وبعد"]
+      en: ["Natural veneer smile planning", "Zircon veneers guidance", "Face-balanced shape and shade", "Conservative aesthetic approach"],
+      ar: ["تخطيط فينير طبيعي", "توجيه حول فينير الزيركون", "شكل ولون متناسقان مع الوجه", "نهج تجميلي محافظ"]
+    },
+    intro: {
+      en: {
+        heading: "A premium veneer plan, not a one-shade template.",
+        body: [
+          "Dental veneers are thin custom restorations designed to improve tooth shape, shade, spacing, worn edges, and overall smile harmony while keeping the result natural in conversation and photography.",
+          "With Dr. Ali, veneer planning begins with the face, lips, gum line, bite, and the personality of the smile. The goal is refinement and confidence, not a copied smile."
+        ],
+        note: "Zircon veneers and stronger ceramic options can be discussed inside the same plan when masking power, durability, or old restorations require a different material choice."
+      },
+      ar: {
+        heading: "خطة فينير راقية وليست لوناً واحداً جاهزاً.",
+        body: [
+          "فينير الأسنان هو قشور أو ترميمات رقيقة مخصصة لتحسين شكل الأسنان، لونها، الفراغات بينها، الحواف المتآكلة، وتناسق الابتسامة مع الحفاظ على مظهر طبيعي في الحديث والصور.",
+          "مع الدكتور علي يبدأ تخطيط الفينير من الوجه، الشفاه، خط اللثة، العضة، وطابع الابتسامة. الهدف هو نتيجة مصقولة وواثقة وليست ابتسامة منسوخة."
+        ],
+        note: "يمكن مناقشة فينير الزيركون أو الخيارات الخزفية الأقوى ضمن الخطة نفسها عندما تحتاج الحالة إلى إخفاء لون داكن، متانة أعلى، أو استبدال تركيبات قديمة."
+      }
+    },
+    candidates: {
+      en: ["Discolored teeth that do not respond well to whitening", "Gaps between teeth", "Uneven tooth shape or size", "Worn or chipped edges", "Patients who want a natural looking smile design", "Patients interested in zircon veneers or premium veneer materials"],
+      ar: ["تصبغات لا تستجيب جيداً للتبييض", "فراغات بين الأسنان", "اختلاف في شكل أو حجم الأسنان", "حواف متآكلة أو مكسورة", "من يرغبون بتصميم ابتسامة طبيعي", "المهتمون بفينير الزيركون أو مواد الفينير الفاخرة"]
     },
     process: {
-      en: ["Photo review and consultation", "Smile and bite analysis", "Digital veneer design", "Trial and conservative preparation", "Final veneer bonding"],
-      ar: ["مراجعة الصور والاستشارة", "تحليل الابتسامة والعضة", "تصميم الفينير رقمياً", "التجربة والتحضير المحافظ", "تثبيت الفينير النهائي"]
-    },
-    faqs: {
       en: [
-        { question: "Are veneers in Jordan suitable for international patients?", answer: "Yes. Many patients begin with a WhatsApp photo review, then confirm the veneer plan, timeline, and visit sequence during consultation in Amman." },
-        { question: "Can veneers look natural?", answer: "Yes. Natural veneers depend on proportion, texture, translucency, and shade selection rather than a flat or overly white result." }
+        { title: "Smile consultation", text: "Facial assessment, photos, goals, gum line, and bite are reviewed before any design decision." },
+        { title: "Shape and material planning", text: "Shade, texture, ceramic type, and zircon veneer suitability are selected around the case." },
+        { title: "Smile preview", text: "Digital smile design or preview may be used to clarify the desired direction where available." },
+        { title: "Preparation and fitting", text: "Tooth preparation is planned conservatively, followed by try-in, fit, and refinement." },
+        { title: "Final review", text: "The final veneer result is reviewed with bite and aftercare guidance." }
       ],
       ar: [
-        { question: "هل الفينير في الأردن مناسب للمرضى القادمين من الخارج؟", answer: "نعم. يبدأ كثير من المرضى بمراجعة الصور عبر واتساب، ثم يتم تأكيد خطة الفينير والمدة وتسلسل الزيارات أثناء الاستشارة في عمّان." },
-        { question: "هل يمكن أن يبدو الفينير طبيعياً؟", answer: "نعم. يعتمد الفينير الطبيعي على النسب والملمس والشفافية واختيار اللون، وليس على نتيجة بيضاء مسطحة أو مبالغ فيها." }
+        { title: "استشارة الابتسامة", text: "تتم مراجعة ملامح الوجه، الصور، الهدف الجمالي، خط اللثة والعضة قبل أي قرار تصميمي." },
+        { title: "تخطيط الشكل والمادة", text: "يتم اختيار اللون، الملمس، نوع الخزف، ومدى ملاءمة فينير الزيركون حسب الحالة." },
+        { title: "معاينة الابتسامة", text: "يمكن استخدام تصميم أو معاينة رقمية لتوضيح الاتجاه الجمالي عندما يكون ذلك متاحاً." },
+        { title: "التحضير والتركيب", text: "يتم التخطيط للتحضير بشكل محافظ ثم تجربة الفينير والتأكد من الملاءمة والتفاصيل." },
+        { title: "المراجعة النهائية", text: "تتم مراجعة النتيجة النهائية مع إرشادات العضة والعناية." }
       ]
-    }
-  },
-  {
-    slug: "zircon-veneers-amman",
-    title: {
-      en: "Zircon and Veneers in Amman",
-      ar: "الزيركون والفينير في عمان"
     },
-    navTitle: {
-      en: "Zircon & Veneers",
-      ar: "زيركون وفينير"
-    },
-    description: {
-      en: "Premium ceramic restorations for patients who want brighter, balanced, and durable smile aesthetics.",
-      ar: "تركيبات خزفية راقية لمن يرغبون بابتسامة أكثر إشراقاً وتوازناً ومتانة."
-    },
-    keywords: ["zircon veneers Jordan", "veneers Amman", "natural veneers Jordan"],
-    bullets: {
-      en: ["Porcelain veneers", "Zircon crowns", "Smile shade design", "Minimal-prep planning"],
-      ar: ["فينير بورسلان", "تيجان زيركون", "تصميم لون الابتسامة", "تخطيط بأقل تحضير ممكن"]
-    },
-    process: {
-      en: ["Case evaluation", "Shade and shape design", "Preparation", "Trial and fitting", "Final bonding"],
-      ar: ["تقييم الحالة", "تصميم اللون والشكل", "التحضير", "التجربة والتركيب", "التثبيت النهائي"]
-    },
-    faqs: {
+    benefits: {
       en: [
-        { question: "Veneers or zircon?", answer: "The right choice depends on tooth structure, bite, color goals, and whether strength or minimal preparation is the priority." },
-        { question: "How long do veneers last?", answer: "With good planning and care, premium veneers can last many years with regular follow-up." }
+        { icon: "spark", title: "Natural transformation", text: "A visible smile upgrade designed to still feel like you." },
+        { icon: "shade", title: "Improved shape and shade", text: "Refine color, length, edges, and surface character together." },
+        { icon: "balance", title: "Better symmetry", text: "Create a calmer relationship between teeth, lips, and gums." },
+        { icon: "face", title: "Face-balanced planning", text: "The design is adapted to facial proportions and smile movement." }
       ],
       ar: [
-        { question: "فينير أم زيركون؟", answer: "يعتمد الاختيار على بنية الأسنان، العضة، هدف اللون، وما إذا كانت الأولوية للمتانة أو التحضير الأقل." },
-        { question: "كم يدوم الفينير؟", answer: "مع التخطيط الجيد والعناية والمتابعة، يمكن أن يدوم الفينير عالي الجودة لسنوات طويلة." }
+        { icon: "spark", title: "تحول طبيعي", text: "تحسين واضح للابتسامة مع الحفاظ على مظهر يشبهك." },
+        { icon: "shade", title: "تحسين الشكل واللون", text: "تنسيق اللون والطول والحواف وملمس السطح معاً." },
+        { icon: "balance", title: "تناسق أفضل", text: "علاقة أهدأ بين الأسنان والشفاه واللثة." },
+        { icon: "face", title: "تخطيط حول الوجه", text: "يتم تكييف التصميم مع نسب الوجه وحركة الابتسامة." }
       ]
-    }
-  },
-  {
-    slug: "dental-implants-jordan",
-    title: {
-      en: "Teeth Implants in Jordan",
-      ar: "زراعة الأسنان في الأردن"
     },
-    navTitle: {
-      en: "Teeth Implants",
-      ar: "زراعة الأسنان"
-    },
-    description: {
-      en: "Implant solutions planned for strength, facial balance, chewing comfort, and a natural-looking final smile.",
-      ar: "حلول زراعة مخططة للقوة، توازن الوجه، راحة المضغ، وابتسامة نهائية طبيعية."
-    },
-    keywords: ["dental implants Jordan", "teeth implants Amman", "implant dentist Jordan"],
-    bullets: {
-      en: ["Single implants", "Implant crowns", "Full smile planning", "Post-treatment follow-up"],
-      ar: ["زراعة سن واحد", "تيجان على الزراعة", "تخطيط كامل للابتسامة", "متابعة بعد العلاج"]
-    },
-    process: {
-      en: ["Scan and diagnosis", "Implant planning", "Surgical placement", "Healing phase", "Final restoration"],
-      ar: ["تصوير وتشخيص", "تخطيط الزراعة", "وضع الزرعة", "مرحلة الالتئام", "التركيب النهائي"]
-    },
-    faqs: {
+    whyChoose: {
       en: [
-        { question: "Are implants suitable for medical tourism?", answer: "Many patients plan implant treatment in stages. WhatsApp consultation helps estimate timing before travel." },
-        { question: "Is the result cosmetic too?", answer: "Yes. Implant planning should consider the gum line, tooth shape, and the smile as a whole." }
+        { title: "Doctor-led consultation", text: "Your veneer plan is reviewed with clear clinical guidance before treatment begins." },
+        { title: "Aesthetic restraint", text: "Dr. Ali focuses on natural looking results and avoids the bulky, overly white effect many patients fear." },
+        { title: "Premium patient experience", text: "Patients from Jordan, the EU, and GCC receive calm planning, appointment coordination, and realistic expectations." }
       ],
       ar: [
-        { question: "هل الزراعة مناسبة للسياحة العلاجية؟", answer: "يمكن تخطيط علاج الزراعة على مراحل، وتساعد استشارة واتساب في تقدير التوقيت قبل السفر." },
-        { question: "هل النتيجة جمالية أيضاً؟", answer: "نعم. يجب أن يراعي تخطيط الزراعة خط اللثة وشكل السن والابتسامة ككل." }
+        { title: "استشارة بإشراف الطبيب", text: "تتم مراجعة خطة الفينير بتوجيه سريري واضح قبل بدء العلاج." },
+        { title: "ذوق جمالي محافظ", text: "يركز الدكتور علي على النتائج الطبيعية ويتجنب المظهر السميك أو الأبيض المبالغ فيه." },
+        { title: "تجربة مريض راقية", text: "يحصل المرضى من الأردن وأوروبا والخليج على تخطيط هادئ، تنسيق مواعيد، وتوقعات واقعية." }
+      ]
+    },
+    cases: {
+      en: [{ title: "Natural Veneer Smile", text: "Soft brightness with facial harmony." }, { title: "Zircon Veneer Result", text: "A stronger material direction when clinically suitable." }, { title: "Smile Shape Enhancement", text: "Edges, proportions, and symmetry refined together." }],
+      ar: [{ title: "ابتسامة فينير طبيعية", text: "إشراقة ناعمة بتناسق مع الوجه." }, { title: "نتيجة فينير زيركون", text: "خيار مادة أقوى عندما يناسب الحالة." }, { title: "تحسين شكل الابتسامة", text: "تنسيق الحواف والنسب والتماثل معاً." }]
+    },
+    related: ["teeth-whitening-amman", "gummy-smile-treatment-jordan", "orthodontics-amman"],
+    faqs: {
+      en: [
+        { question: "Are dental veneers painful?", answer: "Most veneer steps are managed with local anesthesia when needed. Some temporary sensitivity can occur, but the process is planned to be comfortable and controlled." },
+        { question: "How long do veneers last?", answer: "Well-planned veneers can last many years with good hygiene, bite protection when advised, and regular reviews. Longevity depends on habits and clinical condition." },
+        { question: "Can veneers look natural?", answer: "Yes. Natural veneers depend on proportion, texture, translucency, edge design, and choosing a shade that suits the face rather than the brightest possible color." },
+        { question: "Can veneers fix gaps or uneven teeth?", answer: "Veneers can improve small gaps, uneven shapes, worn edges, and selected alignment concerns. Larger bite or crowding issues may need orthodontics first." },
+        { question: "What is the difference between veneers and zircon veneers?", answer: "Traditional porcelain or Emax-style veneers are often selected for lifelike translucency. Zircon options may be useful when strength or masking darker teeth is important." },
+        { question: "Can veneers be whitened later?", answer: "No. Ceramic veneers do not whiten like natural teeth, so shade planning should be done carefully before bonding." },
+        { question: "How much do dental veneers cost in Jordan?", answer: "Cost depends on the number of teeth, material, gum condition, old restorations, bite needs, and lab planning. A consultation is needed for a responsible estimate." }
+      ],
+      ar: [
+        { question: "هل فينير الأسنان مؤلم؟", answer: "تتم أغلب خطوات الفينير بتخدير موضعي عند الحاجة. قد تحدث حساسية مؤقتة، لكن الخطة تهدف إلى تجربة مريحة ومسيطر عليها." },
+        { question: "كم يدوم الفينير؟", answer: "يمكن أن يدوم الفينير المخطط جيداً لسنوات طويلة مع العناية، وحماية العضة عند الحاجة، والمتابعة المنتظمة. يعتمد العمر على العادات وحالة الفم." },
+        { question: "هل يمكن أن يبدو الفينير طبيعياً؟", answer: "نعم. يعتمد الفينير الطبيعي على النسب والملمس والشفافية وتصميم الحواف واختيار لون يناسب الوجه وليس فقط اللون الأفتح." },
+        { question: "هل يعالج الفينير الفراغات أو عدم انتظام الأسنان؟", answer: "يمكن للفينير تحسين الفراغات الصغيرة، اختلاف الشكل، الحواف المتآكلة وبعض مشاكل الاصطفاف البسيطة. أما الحالات الأكبر فقد تحتاج تقويماً أولاً." },
+        { question: "ما الفرق بين الفينير وفينير الزيركون؟", answer: "غالباً تستخدم أنواع خزفية مثل إيماكس للشفافية الطبيعية، بينما قد يناسب الزيركون الحالات التي تحتاج متانة أو قدرة أعلى على إخفاء لون الأسنان." },
+        { question: "هل يمكن تبييض الفينير لاحقاً؟", answer: "لا. الخزف لا يتبيّض مثل الأسنان الطبيعية، لذلك يجب اختيار اللون بعناية قبل التثبيت." },
+        { question: "كم تكلفة فينير الأسنان في الأردن؟", answer: "تختلف التكلفة حسب عدد الأسنان، المادة، حالة اللثة، التركيبات القديمة، العضة، ومستوى التخطيط المخبري. الاستشارة ضرورية لتقدير مسؤول." }
       ]
     }
   },
   {
     slug: "teeth-whitening-amman",
-    title: {
-      en: "Teeth Whitening in Amman",
-      ar: "تبييض الأسنان في عمان"
+    title: { en: "Teeth Whitening in Amman", ar: "تبييض الأسنان في عمّان" },
+    navTitle: { en: "Teeth Whitening", ar: "تبييض الأسنان" },
+    description: { en: "A brighter smile refresh with professional guidance and a clean, natural looking result.", ar: "تجديد لإشراقة الابتسامة بإرشاد مهني ونتيجة نظيفة وطبيعية المظهر." },
+    seoTitle: { en: "Teeth Whitening in Amman | Professional Whitening Jordan", ar: "تبييض الأسنان في عمّان | تبييض احترافي في الأردن" },
+    metaDescription: { en: "Professional teeth whitening in Amman with Dr. Ali. Learn suitability, sensitivity checks, process, benefits, costs, FAQs, and when veneers may be a better option.", ar: "تبييض الأسنان الاحترافي في عمّان مع الدكتور علي. تعرف على الملاءمة، الحساسية، الخطوات، المزايا، التكلفة ومتى يكون الفينير خياراً أفضل." },
+    heroEyebrow: { en: "Smile Refresh in Amman", ar: "تجديد الابتسامة في عمّان" },
+    heroIntro: { en: "Professional whitening helps reduce stains and refresh your smile color while keeping the result clean, measured, and natural.", ar: "يساعد التبييض الاحترافي على تقليل التصبغات وتجديد لون الابتسامة مع نتيجة نظيفة ومتزنة وطبيعية." },
+    trustPhrase: { en: "Professional whitening guidance in Amman, Jordan", ar: "توجيه احترافي للتبييض في عمّان، الأردن" },
+    keywords: ["Teeth Whitening in Amman", "Teeth Whitening in Jordan", "Dental Clinic in Amman", "Cosmetic Dentistry in Jordan"],
+    bullets: { en: ["Shade assessment", "Sensitivity-aware planning", "Professional whitening session", "Maintenance guidance"], ar: ["تقييم درجة اللون", "خطة تراعي الحساسية", "جلسة تبييض احترافية", "إرشادات للحفاظ على النتيجة"] },
+    intro: {
+      en: { heading: "A conservative way to brighten your smile.", body: ["Teeth whitening is a professional treatment designed to reduce stains and brighten natural teeth under clinical guidance.", "It can be ideal when the tooth shape is already pleasing and the main concern is dullness from coffee, tea, tobacco, age, or lifestyle staining."] },
+      ar: { heading: "طريقة محافظة لإشراقة أكثر.", body: ["تبييض الأسنان علاج احترافي يهدف إلى تقليل التصبغات وتفتيح لون الأسنان الطبيعية تحت إشراف سريري.", "قد يكون مناسباً عندما يكون شكل الأسنان جيداً وتكون المشكلة الأساسية هي بهتان اللون بسبب القهوة أو الشاي أو التدخين أو العوامل اليومية."] }
     },
-    navTitle: {
-      en: "Whitening",
-      ar: "تبييض الأسنان"
-    },
-    description: {
-      en: "A brighter smile option for patients who want a clean, refreshed look without changing tooth shape.",
-      ar: "خيار لابتسامة أكثر إشراقاً لمن يريدون مظهراً نظيفاً ومنتعشاً دون تغيير شكل الأسنان."
-    },
-    keywords: ["teeth whitening Amman", "teeth whitening Jordan"],
-    bullets: {
-      en: ["Professional whitening", "Stain assessment", "Sensitivity-aware planning", "Maintenance advice"],
-      ar: ["تبييض احترافي", "تقييم التصبغات", "خطة تراعي الحساسية", "نصائح للحفاظ على النتيجة"]
-    },
-    process: {
-      en: ["Assessment", "Shade recording", "Whitening session", "Aftercare"],
-      ar: ["تقييم", "تسجيل درجة اللون", "جلسة التبييض", "العناية بعد الجلسة"]
-    },
-    faqs: {
-      en: [{ question: "Is whitening enough for every smile?", answer: "Whitening improves color only. Veneers or zircon may be better if shape, gaps, or old restorations are the concern." }],
-      ar: [{ question: "هل التبييض يكفي لكل ابتسامة؟", answer: "التبييض يحسن اللون فقط. قد يكون الفينير أو الزيركون أفضل إذا كان القلق من الشكل أو الفراغات أو التركيبات القديمة." }]
-    }
+    candidates: { en: ["Stained or dull looking teeth", "Patients preparing for an event or photo session", "Patients wanting a quick smile refresh", "Coffee, tea, or tobacco staining", "Patients who want improvement without changing tooth shape", "Patients who need assessment before veneers"], ar: ["أسنان متصبغة أو باهتة", "التحضير لمناسبة أو جلسة تصوير", "من يرغبون بتجديد سريع للابتسامة", "تصبغات القهوة أو الشاي أو التدخين", "من يريدون تحسين اللون دون تغيير شكل الأسنان", "من يحتاجون تقييماً قبل الفينير"] },
+    process: { en: [{ title: "Shade assessment", text: "Current shade, staining pattern, and smile goals are reviewed." }, { title: "Sensitivity check", text: "Gums, enamel, fillings, and sensitivity history are assessed before treatment." }, { title: "Whitening session", text: "Professional whitening is performed with controlled timing and monitoring." }, { title: "Result review", text: "The final shade direction is discussed realistically after the session." }, { title: "Maintenance advice", text: "You receive guidance on diet, habits, and follow-up whitening timing." }], ar: [{ title: "تقييم اللون", text: "تتم مراجعة درجة اللون الحالية ونمط التصبغ والهدف الجمالي." }, { title: "فحص الحساسية", text: "يتم تقييم اللثة والمينا والحشوات وتاريخ الحساسية قبل العلاج." }, { title: "جلسة التبييض", text: "يتم التبييض الاحترافي بتوقيت ومراقبة مناسبين." }, { title: "مراجعة النتيجة", text: "تتم مناقشة درجة اللون النهائية بتوقعات واقعية بعد الجلسة." }, { title: "إرشادات الحفاظ", text: "تحصل على نصائح حول الطعام والعادات وتوقيت التبييض لاحقاً." }] },
+    benefits: { en: [{ icon: "spark", title: "Brighter appearance", text: "Refresh your smile color without changing tooth shape." }, { icon: "shade", title: "Professional guidance", text: "Shade goals are reviewed with clinical judgment." }, { icon: "clock", title: "Quick refresh", text: "Often suitable before events, photos, or smile planning." }, { icon: "leaf", title: "Conservative improvement", text: "A non-restorative option for natural teeth." }], ar: [{ icon: "spark", title: "مظهر أكثر إشراقاً", text: "تجديد لون الابتسامة دون تغيير شكل الأسنان." }, { icon: "shade", title: "توجيه مهني", text: "يتم تقييم هدف اللون برؤية سريرية." }, { icon: "clock", title: "تجديد سريع", text: "مناسب غالباً قبل المناسبات أو الصور أو تخطيط الابتسامة." }, { icon: "leaf", title: "تحسين محافظ", text: "خيار غير ترميمي للأسنان الطبيعية." }] },
+    whyChoose: { en: [{ title: "Honest suitability check", text: "Dr. Ali helps you understand whether whitening is enough or whether veneers may better address shape, gaps, or old restorations." }, { title: "Natural shade philosophy", text: "The goal is a brighter smile that still suits your face and skin tone." }, { title: "Clear aftercare", text: "You leave with guidance to reduce sensitivity risk and maintain the result responsibly." }], ar: [{ title: "تقييم صادق للملاءمة", text: "يساعدك الدكتور علي على معرفة ما إذا كان التبييض كافياً أو أن الفينير أنسب لمشاكل الشكل أو الفراغات أو التركيبات القديمة." }, { title: "فلسفة لون طبيعية", text: "الهدف ابتسامة أكثر إشراقاً لكنها ما زالت مناسبة للوجه ولون البشرة." }, { title: "عناية واضحة بعد الجلسة", text: "تحصل على إرشادات لتقليل الحساسية والحفاظ على النتيجة بمسؤولية." }] },
+    cases: { en: [{ title: "Brighter Smile Refresh", text: "A cleaner shade direction." }, { title: "Shade Improvement", text: "Visible color lift with restraint." }, { title: "Natural Whitening Result", text: "Brightness that still feels natural." }], ar: [{ title: "ابتسامة أكثر إشراقاً", text: "اتجاه لون أنظف." }, { title: "تحسين درجة اللون", text: "تفتيح واضح بدون مبالغة." }, { title: "نتيجة تبييض طبيعية", text: "إشراقة ما زالت تبدو طبيعية." }] },
+    related: ["dental-veneers-jordan", "gummy-smile-treatment-jordan"],
+    faqs: { en: [{ question: "Is teeth whitening safe?", answer: "Professional whitening is considered safe for suitable patients when gums, enamel, restorations, and sensitivity are assessed first." }, { question: "How long do whitening results last?", answer: "Results vary with diet, oral hygiene, smoking, and maintenance. Coffee, tea, and tobacco can shorten the result." }, { question: "Will teeth whitening cause sensitivity?", answer: "Some temporary sensitivity can occur. A professional assessment helps reduce risk and guide aftercare." }, { question: "Is professional whitening better than home whitening?", answer: "Professional whitening allows clinical supervision, controlled materials, and shade guidance. Home products may be slower or less predictable." }, { question: "Who is not suitable for teeth whitening?", answer: "Patients with active decay, gum inflammation, severe sensitivity, or visible restorations on front teeth may need another plan first." }, { question: "Can I whiten my teeth before veneers?", answer: "Yes, whitening may be recommended before veneers so the final shade can be planned around a brighter natural tooth color." }, { question: "How much does teeth whitening cost in Amman?", answer: "Cost depends on the whitening method, clinical needs, and whether preparatory cleaning or other care is required." }], ar: [{ question: "هل تبييض الأسنان آمن؟", answer: "يعد التبييض الاحترافي آمناً للحالات المناسبة عند تقييم اللثة والمينا والتركيبات والحساسية أولاً." }, { question: "كم تدوم نتيجة التبييض؟", answer: "تختلف النتيجة حسب الطعام والعناية والتدخين والمتابعة. القهوة والشاي والتدخين قد يقللون مدة النتيجة." }, { question: "هل يسبب التبييض حساسية؟", answer: "قد تحدث حساسية مؤقتة لدى بعض المرضى. التقييم المهني يساعد على تقليل الخطر وتوجيه العناية." }, { question: "هل التبييض الاحترافي أفضل من التبييض المنزلي؟", answer: "يتيح التبييض الاحترافي إشرافاً سريرياً ومواداً مضبوطة وتوجيهاً للون، بينما قد تكون المنتجات المنزلية أبطأ أو أقل توقعاً." }, { question: "من لا يناسبه تبييض الأسنان؟", answer: "قد يحتاج من لديهم تسوس نشط أو التهاب لثة أو حساسية شديدة أو تركيبات أمامية ظاهرة إلى خطة أخرى أولاً." }, { question: "هل يمكن تبييض الأسنان قبل الفينير؟", answer: "نعم، قد يُنصح بالتبييض قبل الفينير حتى يتم تخطيط اللون النهائي حول لون طبيعي أكثر إشراقاً." }, { question: "كم تكلفة تبييض الأسنان في عمّان؟", answer: "تعتمد التكلفة على طريقة التبييض واحتياجات الحالة وما إذا كان هناك تنظيف أو علاج تحضيري مطلوب." }] }
   },
   {
-    slug: "facing-to-veneers-jordan",
-    title: {
-      en: "Facing to Veneers in Jordan",
-      ar: "من الفيسنج إلى الفينير في الأردن"
-    },
-    navTitle: {
-      en: "Facing to Veneers",
-      ar: "من الفيسنج للفينير"
-    },
-    description: {
-      en: "A focused cosmetic page for patients replacing old facing or composite work with natural-looking veneers planned for texture, shape, and smile harmony.",
-      ar: "صفحة جمالية مخصصة لمن يرغبون باستبدال الفيسنج أو الحشوات التجميلية القديمة بفينير طبيعي يراعي الملمس والشكل وتناسق الابتسامة."
-    },
-    keywords: ["facing to veneers Jordan", "replace facing with veneers", "veneers after composite Jordan"],
-    bullets: {
-      en: ["Old facing assessment", "Veneer texture planning", "Natural shade correction", "Before and after documentation"],
-      ar: ["تقييم الفيسنج القديم", "تخطيط ملمس الفينير", "تصحيح لون طبيعي", "توثيق قبل وبعد"]
-    },
-    process: {
-      en: ["Assess old work", "Plan veneer design", "Remove and prepare conservatively", "Trial smile", "Final veneers"],
-      ar: ["تقييم العمل القديم", "تصميم الفينير", "إزالة وتحضير محافظ", "تجربة الابتسامة", "الفينير النهائي"]
-    },
-    faqs: {
-      en: [
-        { question: "Can old facing be replaced with veneers?", answer: "Yes, many patients replace older composite facing with porcelain veneers for improved color stability, texture, and a more refined smile shape." },
-        { question: "Will the teeth look bulky?", answer: "The design should account for existing tooth shape and old material thickness so the final veneers look balanced, not heavy." }
-      ],
-      ar: [
-        { question: "هل يمكن استبدال الفيسنج القديم بالفينير؟", answer: "نعم، يستبدل الكثير من المرضى الفيسنج أو الكومبوزت القديم بفينير بورسلان لتحسين ثبات اللون والملمس وشكل الابتسامة." },
-        { question: "هل ستبدو الأسنان سميكة؟", answer: "يجب أن يراعي التصميم شكل الأسنان الحالي وسماكة المادة القديمة حتى تبدو النتيجة متوازنة وغير ثقيلة." }
-      ]
-    }
+    slug: "dental-implants-amman",
+    title: { en: "Dental Implants in Amman", ar: "زراعة الأسنان في عمّان" },
+    navTitle: { en: "Dental Implants", ar: "زراعة الأسنان" },
+    description: { en: "A stable, natural looking solution for replacing missing teeth with careful planning and doctor led guidance.", ar: "حل ثابت وطبيعي المظهر لتعويض الأسنان المفقودة بتخطيط دقيق وتوجيه بإشراف الطبيب." },
+    seoTitle: { en: "Dental Implants in Amman | Teeth Implants Jordan", ar: "زراعة الأسنان في عمّان | زراعة الأسنان في الأردن" },
+    metaDescription: { en: "Dental implants in Amman with Dr. Ali. Learn implant suitability, planning, process, benefits, cost factors, cases, FAQs, and consultation steps.", ar: "زراعة الأسنان في عمّان مع الدكتور علي. تعرف على الملاءمة، التخطيط، الخطوات، المزايا، عوامل التكلفة، الحالات والأسئلة الشائعة." },
+    heroEyebrow: { en: "Restorative Dentistry in Amman", ar: "تعويض الأسنان في عمّان" },
+    heroIntro: { en: "Implant planning should restore comfort, chewing confidence, and the final smile line while respecting bone, gum, and bite conditions.", ar: "يجب أن تعيد خطة الزراعة الراحة والثقة في المضغ وخط الابتسامة مع احترام حالة العظم واللثة والعضة." },
+    trustPhrase: { en: "Dental implant assessment in Amman, Jordan", ar: "تقييم زراعة الأسنان في عمّان، الأردن" },
+    keywords: ["Dental Implants in Amman", "Dental Implants in Jordan", "Teeth Implants in Jordan", "Dental Clinic in Amman"],
+    bullets: { en: ["Single or multiple tooth replacement", "Digital planning guidance", "Implant crown aesthetics", "Long-term care planning"], ar: ["تعويض سن واحد أو عدة أسنان", "توجيه بالتخطيط الرقمي", "جمالية تاج الزراعة", "تخطيط عناية طويلة المدى"] },
+    intro: { en: { heading: "Stable tooth replacement with careful diagnosis.", body: ["Dental implants are a long-term tooth replacement option designed to restore chewing comfort, stability, and smile confidence.", "A responsible implant plan considers bone volume, gum health, medical history, bite forces, and the final crown appearance before treatment begins."] }, ar: { heading: "تعويض ثابت للأسنان بتشخيص دقيق.", body: ["زراعة الأسنان خيار طويل المدى لتعويض الأسنان المفقودة بهدف استعادة راحة المضغ، الثبات، والثقة بالابتسامة.", "الخطة المسؤولة تراعي كمية العظم، صحة اللثة، التاريخ الطبي، قوى العضة، وشكل التاج النهائي قبل البدء."] } },
+    candidates: { en: ["Missing one or more teeth", "Loose or uncomfortable dentures", "Difficulty chewing", "Desire for a stable tooth replacement", "Need for professional assessment of bone and gum condition"], ar: ["فقدان سن واحد أو أكثر", "أطقم متحركة غير مريحة أو غير ثابتة", "صعوبة في المضغ", "الرغبة بتعويض ثابت للأسنان", "الحاجة لتقييم مهني للعظم واللثة"] },
+    process: { en: [{ title: "Consultation", text: "Dental, gum, bite, and medical factors are reviewed." }, { title: "Digital imaging", text: "Imaging and records help determine bone condition and treatment direction." }, { title: "Implant planning", text: "Placement, timing, restoration type, and visit sequence are discussed." }, { title: "Crown restoration", text: "The implant crown or prosthetic is planned to look and function naturally." }, { title: "Follow-up care", text: "Long-term cleaning, maintenance, and review expectations are explained." }], ar: [{ title: "الاستشارة", text: "تتم مراجعة الأسنان واللثة والعضة والعوامل الطبية." }, { title: "التصوير الرقمي", text: "تساعد الصور والسجلات على تقييم العظم واتجاه العلاج." }, { title: "تخطيط الزراعة", text: "تتم مناقشة مكان الزرعة والتوقيت ونوع التعويض وتسلسل الزيارات." }, { title: "ترميم التاج", text: "يتم تخطيط تاج الزراعة أو التعويض ليبدو ويعمل بشكل طبيعي." }, { title: "المتابعة", text: "تشرح تعليمات التنظيف والصيانة والمراجعات طويلة المدى." }] },
+    benefits: { en: [{ icon: "anchor", title: "Stable replacement", text: "A fixed option for missing teeth when the case is suitable." }, { icon: "natural", title: "Natural restoration", text: "The crown is planned around neighboring teeth and smile line." }, { icon: "bite", title: "Chewing comfort", text: "Implants can improve confidence while eating." }, { icon: "calendar", title: "Long-term planning", text: "Treatment is staged with follow-up and maintenance in mind." }], ar: [{ icon: "anchor", title: "تعويض ثابت", text: "خيار ثابت للأسنان المفقودة عندما تكون الحالة مناسبة." }, { icon: "natural", title: "ترميم طبيعي", text: "يتم تخطيط التاج حول الأسنان المجاورة وخط الابتسامة." }, { icon: "bite", title: "راحة في المضغ", text: "قد تساعد الزراعة على تحسين الثقة أثناء الأكل." }, { icon: "calendar", title: "تخطيط طويل المدى", text: "يتم ترتيب العلاج مع مراعاة المتابعة والصيانة." }] },
+    whyChoose: { en: [{ title: "Planning before treatment", text: "Dr. Ali emphasizes diagnosis and sequencing rather than rushing implant placement." }, { title: "Aesthetic final restoration", text: "The implant crown is planned with gum contour, shade, and smile harmony in mind." }, { title: "EU & GCC coordination", text: "Patients visiting Jordan receive clear timing guidance, staged expectations, and professional follow-up direction." }], ar: [{ title: "التخطيط قبل العلاج", text: "يركز الدكتور علي على التشخيص وترتيب المراحل بدلاً من التسرع في وضع الزرعة." }, { title: "تعويض نهائي جمالي", text: "يتم تخطيط تاج الزراعة مع مراعاة خط اللثة واللون وتناسق الابتسامة." }, { title: "تنسيق لمرضى أوروبا والخليج", text: "يحصل المرضى القادمون إلى الأردن على توجيه واضح حول المدة والمراحل والمتابعة." }] },
+    cases: { en: [{ title: "Single Tooth Implant", text: "One missing tooth restored with a planned crown." }, { title: "Full Smile Restoration", text: "Implants integrated into a broader smile plan." }, { title: "Implant Crown Result", text: "A crown designed for shade and gum harmony." }], ar: [{ title: "زراعة سن واحد", text: "تعويض سن مفقود بتاج مخطط." }, { title: "ترميم الابتسامة", text: "دمج الزراعة ضمن خطة ابتسامة أوسع." }, { title: "نتيجة تاج الزراعة", text: "تاج مصمم ليناسب اللون واللثة." }] },
+    related: ["orthodontics-amman", "dental-veneers-jordan"],
+    faqs: { en: [{ question: "What are dental implants?", answer: "Dental implants are artificial tooth roots placed in the jawbone to support a crown, bridge, or prosthetic replacement." }, { question: "How long do dental implants last?", answer: "Implants can last many years with proper planning, hygiene, maintenance, and healthy gum and bone conditions. The crown may need future replacement." }, { question: "Is dental implant treatment painful?", answer: "Implant treatment is typically performed with local anesthesia. Some soreness can occur after treatment and is discussed during consultation." }, { question: "Who is a good candidate for dental implants?", answer: "Good candidates usually have healthy gums, suitable bone, controlled medical conditions, and realistic expectations after assessment." }, { question: "Can implants replace one or multiple teeth?", answer: "Yes. Implants can replace a single tooth, multiple teeth, or support larger prosthetic solutions depending on the case." }, { question: "How much do dental implants cost in Amman?", answer: "Cost depends on imaging, implant system, number of implants, bone or gum needs, crown type, and visit sequence." }, { question: "How long does the implant process take?", answer: "Timing varies by bone condition, healing needs, and restoration type. Some cases are staged over multiple visits." }], ar: [{ question: "ما هي زراعة الأسنان؟", answer: "زراعة الأسنان جذور صناعية توضع في عظم الفك لدعم تاج أو جسر أو تعويض سني." }, { question: "كم تدوم زراعة الأسنان؟", answer: "يمكن أن تدوم الزراعة لسنوات طويلة مع التخطيط والعناية والصيانة وصحة اللثة والعظم. قد يحتاج التاج إلى تغيير لاحقاً." }, { question: "هل زراعة الأسنان مؤلمة؟", answer: "تتم الزراعة غالباً بتخدير موضعي. قد يحدث انزعاج بسيط بعد العلاج ويتم شرحه أثناء الاستشارة." }, { question: "من هو المرشح المناسب للزراعة؟", answer: "عادة يحتاج المرشح إلى لثة صحية، عظم مناسب، حالات طبية مسيطر عليها، وتوقعات واقعية بعد التقييم." }, { question: "هل تعوض الزراعة سناً واحداً أو عدة أسنان؟", answer: "نعم، يمكن أن تعوض سناً واحداً أو عدة أسنان أو تدعم تعويضات أكبر حسب الحالة." }, { question: "كم تكلفة زراعة الأسنان في عمّان؟", answer: "تعتمد التكلفة على التصوير، نظام الزراعة، عدد الزرعات، حاجة العظم أو اللثة، نوع التاج، وتسلسل الزيارات." }, { question: "كم تستغرق عملية الزراعة؟", answer: "تختلف المدة حسب حالة العظم والحاجة للالتئام ونوع التعويض. بعض الحالات تتم على مراحل وزيارات متعددة." }] }
   },
   {
-    slug: "gummy-smile-treatment",
-    title: {
-      en: "Gummy Smile Treatment",
-      ar: "علاج الابتسامة اللثوية"
-    },
-    navTitle: {
-      en: "Gummy Smile",
-      ar: "الابتسامة اللثوية"
-    },
-    description: {
-      en: "Aesthetic gum-line correction to create a more balanced smile while preserving natural expression.",
-      ar: "تصحيح جمالي لخط اللثة للحصول على ابتسامة أكثر توازناً مع الحفاظ على التعبير الطبيعي."
-    },
-    keywords: ["gummy smile Jordan", "gummy smile treatment Amman"],
-    bullets: {
-      en: ["Gum-line analysis", "Smile proportion planning", "Conservative correction", "Natural final look"],
-      ar: ["تحليل خط اللثة", "تخطيط نسب الابتسامة", "تصحيح محافظ", "مظهر نهائي طبيعي"]
-    },
-    process: {
-      en: ["Assessment", "Cause identification", "Treatment selection", "Follow-up"],
-      ar: ["تقييم", "تحديد السبب", "اختيار العلاج", "متابعة"]
-    },
-    faqs: {
-      en: [{ question: "What causes a gummy smile?", answer: "It may be related to gum position, tooth proportions, lip movement, or jaw structure. The cause determines treatment." }],
-      ar: [{ question: "ما سبب الابتسامة اللثوية؟", answer: "قد ترتبط بمكان اللثة أو نسب الأسنان أو حركة الشفاه أو بنية الفك، والسبب يحدد العلاج." }]
-    }
+    slug: "orthodontics-amman",
+    title: { en: "Orthodontics in Amman", ar: "تقويم الأسنان في عمّان" },
+    navTitle: { en: "Orthodontics", ar: "تقويم الأسنان" },
+    description: { en: "Improve alignment, bite balance, and smile harmony through a personalized orthodontic plan.", ar: "تحسين اصطفاف الأسنان وتوازن العضة وتناسق الابتسامة من خلال خطة تقويم شخصية." },
+    seoTitle: { en: "Orthodontics in Amman | Braces & Aligners Jordan", ar: "تقويم الأسنان في عمّان | تقويم وشفاف في الأردن" },
+    metaDescription: { en: "Orthodontics in Amman with Dr. Ali. Learn braces and aligner suitability, bite assessment, process, benefits, costs, FAQs, and cosmetic smile planning links.", ar: "تقويم الأسنان في عمّان مع الدكتور علي. تعرف على ملاءمة التقويم والشفاف، تقييم العضة، الخطوات، المزايا، التكلفة والأسئلة الشائعة." },
+    heroEyebrow: { en: "Alignment & Bite Planning", ar: "تخطيط الاصطفاف والعضة" },
+    heroIntro: { en: "Orthodontics can create a healthier foundation for your smile, whether the goal is alignment, bite balance, or preparation for future cosmetic treatment.", ar: "يمكن للتقويم أن يصنع أساساً أفضل للابتسامة سواء كان الهدف الاصطفاف أو توازن العضة أو التحضير لعلاج تجميلي لاحق." },
+    trustPhrase: { en: "Personalized orthodontic assessment in Amman, Jordan", ar: "تقييم تقويم مخصص في عمّان، الأردن" },
+    keywords: ["Orthodontics in Amman", "Orthodontics in Jordan", "braces Amman", "clear aligners Jordan", "Dental Clinic in Amman"],
+    bullets: { en: ["Crowding and spacing assessment", "Bite balance planning", "Braces or aligner guidance", "Retention and progress reviews"], ar: ["تقييم التزاحم والفراغات", "تخطيط توازن العضة", "توجيه بين التقويم والشفاف", "متابعة وتثبيت النتيجة"] },
+    intro: { en: { heading: "Alignment that supports beauty and function.", body: ["Orthodontics treats crowded teeth, spacing, bite issues, and alignment concerns using braces or aligner-based planning where suitable.", "For cosmetic dentistry, orthodontics can also prepare a stronger foundation before veneers, implants, or full smile design."] }, ar: { heading: "اصطفاف يدعم الجمال والوظيفة.", body: ["يعالج تقويم الأسنان التزاحم، الفراغات، مشاكل العضة، وعدم انتظام الاصطفاف باستخدام التقويم أو الشفاف عندما يكون مناسباً.", "في طب التجميل، قد يساعد التقويم أيضاً على تحضير أساس أقوى قبل الفينير أو الزراعة أو تصميم الابتسامة الكامل."] } },
+    candidates: { en: ["Crowded teeth", "Gaps between teeth", "Bite alignment issues", "Adults or teens considering braces or clear aligners", "Patients preparing for veneers or smile design"], ar: ["تزاحم الأسنان", "فراغات بين الأسنان", "مشاكل في العضة", "البالغون أو المراهقون المهتمون بالتقويم أو الشفاف", "التحضير للفينير أو تصميم الابتسامة"] },
+    process: { en: [{ title: "Smile and bite assessment", text: "Alignment, bite, facial smile line, and concerns are reviewed." }, { title: "Diagnostic records", text: "Scans, photos, or records support accurate planning." }, { title: "Plan selection", text: "Braces, aligners, or staged treatment are discussed based on suitability." }, { title: "Treatment journey", text: "Progress is followed through scheduled adjustments or aligner reviews." }, { title: "Retention guidance", text: "Retainers and maintenance protect the final alignment." }], ar: [{ title: "تقييم الابتسامة والعضة", text: "يتم فحص الاصطفاف والعضة وخط الابتسامة والملاحظات الأساسية." }, { title: "السجلات التشخيصية", text: "تدعم الصور أو المسح أو السجلات دقة التخطيط." }, { title: "اختيار الخطة", text: "تتم مناقشة التقويم أو الشفاف أو العلاج المرحلي حسب الملاءمة." }, { title: "رحلة العلاج", text: "تتم متابعة التقدم عبر مراجعات وتعديلات مجدولة." }, { title: "إرشادات التثبيت", text: "تساعد المثبتات والمتابعة على حماية الاصطفاف النهائي." }] },
+    benefits: { en: [{ icon: "align", title: "Straighter alignment", text: "Improve crowding, spacing, and smile order." }, { icon: "bite", title: "Better bite balance", text: "Support comfort, function, and long-term planning." }, { icon: "foundation", title: "Smile design foundation", text: "Prepare teeth for veneers or aesthetic work when needed." }, { icon: "spark", title: "Confident appearance", text: "A more balanced smile can feel easier to show." }], ar: [{ icon: "align", title: "اصطفاف أكثر انتظاماً", text: "تحسين التزاحم والفراغات وترتيب الابتسامة." }, { icon: "bite", title: "توازن أفضل للعضة", text: "دعم الراحة والوظيفة والتخطيط طويل المدى." }, { icon: "foundation", title: "أساس لتصميم الابتسامة", text: "تحضير الأسنان للفينير أو العلاج الجمالي عند الحاجة." }, { icon: "spark", title: "مظهر أكثر ثقة", text: "ابتسامة أكثر توازناً وأسهل في الظهور." }] },
+    whyChoose: { en: [{ title: "Cosmetic-aware planning", text: "Dr. Ali connects alignment decisions with the final smile goal, not just tooth movement." }, { title: "Clear guidance", text: "You receive an honest discussion of braces, aligner suitability, timing, and commitment." }, { title: "Conservative sequencing", text: "Orthodontics may reduce the amount of restorative work needed later." }], ar: [{ title: "تخطيط يراعي التجميل", text: "يربط الدكتور علي قرارات الاصطفاف بهدف الابتسامة النهائي وليس فقط حركة الأسنان." }, { title: "توجيه واضح", text: "تحصل على نقاش صريح حول التقويم والشفاف والمدة والالتزام المطلوب." }, { title: "تسلسل محافظ", text: "قد يقلل التقويم من الحاجة إلى تدخلات ترميمية أكبر لاحقاً." }] },
+    cases: { en: [{ title: "Aligned Smile", text: "Cleaner tooth order and smile rhythm." }, { title: "Bite Balance Improvement", text: "A more stable functional foundation." }, { title: "Crowding Correction", text: "Spacing and crowding reviewed with care." }], ar: [{ title: "ابتسامة متناسقة", text: "ترتيب أنظف للأسنان وإيقاع أجمل للابتسامة." }, { title: "تحسين توازن العضة", text: "أساس وظيفي أكثر ثباتاً." }, { title: "تصحيح تزاحم الأسنان", text: "مراجعة التزاحم والفراغات بعناية." }] },
+    related: ["dental-veneers-jordan", "gummy-smile-treatment-jordan", "dental-implants-amman"],
+    faqs: { en: [{ question: "Do adults need braces or aligners?", answer: "Adults can benefit from orthodontics when alignment, spacing, bite, or cosmetic planning requires tooth movement." }, { question: "How long does orthodontic treatment take?", answer: "Timing depends on complexity, appliance type, compliance, and bite goals. A consultation is needed for a realistic estimate." }, { question: "Are clear aligners suitable for every case?", answer: "No. Clear aligners can work well for selected cases, but some bite or movement needs may be better managed with braces." }, { question: "How often are follow up visits needed?", answer: "Follow-up frequency depends on the treatment type and stage. Regular reviews help keep progress on track." }, { question: "What problems can orthodontics correct?", answer: "Orthodontics can improve crowding, spacing, rotated teeth, and many bite concerns including overbite, open bite, crossbite, or midline issues." }, { question: "How much does orthodontic treatment cost in Jordan?", answer: "Cost depends on complexity, appliance choice, records, treatment duration, and retention needs." }, { question: "Can orthodontics improve my smile before veneers?", answer: "Yes. Aligning teeth before veneers can sometimes create a more conservative and natural final veneer plan." }], ar: [{ question: "هل يحتاج البالغون إلى التقويم أو الشفاف؟", answer: "يمكن للبالغين الاستفادة من التقويم عندما يحتاج الاصطفاف أو الفراغات أو العضة أو التخطيط الجمالي إلى حركة أسنان." }, { question: "كم تستغرق مدة التقويم؟", answer: "تعتمد المدة على تعقيد الحالة ونوع الجهاز والالتزام وأهداف العضة. الاستشارة ضرورية لتقدير واقعي." }, { question: "هل الشفاف مناسب لكل الحالات؟", answer: "لا. قد يناسب الشفاف حالات محددة، بينما قد تحتاج بعض حركات الأسنان أو مشاكل العضة إلى تقويم ثابت." }, { question: "كم مرة أحتاج زيارات متابعة؟", answer: "تعتمد المتابعة على نوع العلاج ومرحلته. المراجعات المنتظمة تساعد على استمرار التقدم." }, { question: "ما المشاكل التي يعالجها التقويم؟", answer: "يمكن للتقويم تحسين التزاحم والفراغات ودوران الأسنان وكثير من مشاكل العضة مثل العضة العميقة أو المفتوحة أو المعكوسة أو انحراف الخط المتوسط." }, { question: "كم تكلفة تقويم الأسنان في الأردن؟", answer: "تعتمد التكلفة على تعقيد الحالة ونوع الجهاز والسجلات ومدة العلاج وحاجة التثبيت." }, { question: "هل يمكن للتقويم تحسين ابتسامتي قبل الفينير؟", answer: "نعم. قد يساعد اصطفاف الأسنان قبل الفينير على خطة أكثر محافظة وطبيعية." }] }
+  },
+  {
+    slug: "gummy-smile-treatment-jordan",
+    title: { en: "Gummy Smile Treatment in Jordan", ar: "علاج الابتسامة اللثوية في الأردن" },
+    navTitle: { en: "Gummy Smile Treatment", ar: "علاج الابتسامة اللثوية" },
+    description: { en: "Create a more balanced smile by improving the relationship between the teeth, gums, and facial expression.", ar: "ابتسامة أكثر توازناً عبر تحسين العلاقة بين الأسنان واللثة وتعابير الوجه." },
+    seoTitle: { en: "Gummy Smile Treatment in Jordan | Amman Smile Balance", ar: "علاج الابتسامة اللثوية في الأردن | توازن الابتسامة في عمّان" },
+    metaDescription: { en: "Gummy smile treatment in Jordan with Dr. Ali. Learn causes, Botox, laser gum contouring, orthodontic options, candidate assessment, FAQs, and consultation steps.", ar: "علاج الابتسامة اللثوية في الأردن مع الدكتور علي. تعرف على الأسباب، البوتوكس، تعديل اللثة بالليزر، التقويم، تقييم الحالة والأسئلة الشائعة." },
+    heroEyebrow: { en: "Smile Balance in Jordan", ar: "توازن الابتسامة في الأردن" },
+    heroIntro: { en: "A gummy smile is treated best when the real cause is identified first, then the most conservative suitable option is selected.", ar: "تُعالج الابتسامة اللثوية بشكل أفضل عندما يتم تحديد السبب الحقيقي أولاً ثم اختيار الخيار المحافظ المناسب." },
+    trustPhrase: { en: "Gum-to-smile assessment in Amman, Jordan", ar: "تقييم علاقة اللثة بالابتسامة في عمّان، الأردن" },
+    keywords: ["Gummy Smile Treatment in Jordan", "gummy smile Amman", "laser gum contouring Jordan", "gummy smile Botox Jordan", "Cosmetic Dentistry in Jordan"],
+    bullets: { en: ["Cause-based diagnosis", "Gum-to-tooth balance", "Botox, laser, or orthodontic guidance", "Natural expression planning"], ar: ["تشخيص مبني على السبب", "توازن اللثة مع الأسنان", "توجيه بين البوتوكس أو الليزر أو التقويم", "تخطيط يحافظ على التعبير الطبيعي"] },
+    intro: { en: { heading: "Treat the cause, not just the gum line.", body: ["Gummy smile treatment improves excessive gum display through the right treatment plan based on the cause.", "The cause may relate to gum tissue, tooth proportions, lip movement, tooth eruption, bite, or jaw position. The right choice may be Botox, laser gum contouring, orthodontics, restorative planning, or referral for a more advanced approach."] }, ar: { heading: "علاج السبب وليس خط اللثة فقط.", body: ["يعالج علاج الابتسامة اللثوية ظهور اللثة الزائد من خلال خطة مناسبة مبنية على السبب.", "قد يرتبط السبب بنسيج اللثة، نسب الأسنان، حركة الشفاه، بزوغ الأسنان، العضة، أو موضع الفك. قد يكون الخيار بوتوكس أو تعديل اللثة بالليزر أو تقويم أو تخطيط ترميمي أو إحالة لعلاج أكثر تقدماً."] } },
+    candidates: { en: ["Excessive gum display when smiling", "Short looking teeth due to gum visibility", "Uneven gum line", "Smile imbalance caused by gum display", "Patients unsure whether they need Botox, laser gum contouring, orthodontics, or another option"], ar: ["ظهور زائد للثة عند الابتسام", "أسنان تبدو قصيرة بسبب ظهور اللثة", "خط لثة غير منتظم", "اختلال في الابتسامة بسبب ظهور اللثة", "من لا يعرفون هل يحتاجون بوتوكس أو ليزر لثة أو تقويم أو خياراً آخر"] },
+    process: { en: [{ title: "Smile assessment", text: "Gum display, lip movement, tooth proportions, and facial expression are reviewed." }, { title: "Cause identification", text: "The main reason for the gummy smile is clarified before recommending treatment." }, { title: "Treatment selection", text: "Botox, laser gum contouring, orthodontics, restorative planning, or other options are discussed." }, { title: "Treatment execution", text: "The selected approach is performed with natural smile balance in mind." }, { title: "Review", text: "Healing, symmetry, and smile expression are reviewed after treatment." }], ar: [{ title: "تقييم الابتسامة", text: "تتم مراجعة ظهور اللثة وحركة الشفاه ونسب الأسنان وتعبير الوجه." }, { title: "تحديد السبب", text: "يتم توضيح السبب الأساسي قبل اقتراح العلاج." }, { title: "اختيار العلاج", text: "تتم مناقشة البوتوكس أو ليزر اللثة أو التقويم أو التخطيط الترميمي أو خيارات أخرى." }, { title: "تنفيذ العلاج", text: "يتم تنفيذ الخيار المناسب مع مراعاة توازن الابتسامة الطبيعي." }, { title: "المراجعة", text: "تتم مراجعة الالتئام والتماثل وتعبير الابتسامة بعد العلاج." }] },
+    benefits: { en: [{ icon: "balance", title: "Better gum-to-tooth ratio", text: "A calmer relationship between visible gum and teeth." }, { icon: "smile", title: "Improved harmony", text: "The smile frame can feel more balanced." }, { icon: "natural", title: "Natural expression", text: "Planning aims to avoid a frozen or artificial look." }, { icon: "target", title: "Cause-based treatment", text: "The approach is selected after understanding why the gum shows." }], ar: [{ icon: "balance", title: "نسبة أفضل بين اللثة والأسنان", text: "علاقة أهدأ بين اللثة الظاهرة والأسنان." }, { icon: "smile", title: "تناسق أفضل", text: "إطار الابتسامة يصبح أكثر توازناً." }, { icon: "natural", title: "تعبير طبيعي", text: "التخطيط يهدف لتجنب مظهر متجمد أو صناعي." }, { icon: "target", title: "علاج مبني على السبب", text: "يتم اختيار الطريقة بعد فهم سبب ظهور اللثة." }] },
+    whyChoose: { en: [{ title: "Cause-first consultation", text: "Dr. Ali explains whether your case is related to gum, lip, bite, tooth shape, or jaw proportions." }, { title: "Conservative aesthetic restraint", text: "Treatment is selected to improve balance without removing more tissue or changing expression unnecessarily." }, { title: "Connected smile planning", text: "Gummy smile treatment can be coordinated with veneers, whitening, or orthodontics when a complete smile plan is needed." }], ar: [{ title: "استشارة تبدأ بالسبب", text: "يوضح الدكتور علي ما إذا كانت الحالة مرتبطة باللثة أو الشفاه أو العضة أو شكل الأسنان أو نسب الفك." }, { title: "نهج جمالي محافظ", text: "يتم اختيار العلاج لتحسين التوازن دون إزالة نسيج أكثر من اللازم أو تغيير التعبير بلا حاجة." }, { title: "تخطيط ابتسامة مترابط", text: "يمكن تنسيق علاج الابتسامة اللثوية مع الفينير أو التبييض أو التقويم عند الحاجة لخطة كاملة." }] },
+    cases: { en: [{ title: "Balanced Gum Line", text: "A cleaner frame around the teeth." }, { title: "Natural Smile Frame", text: "A more relaxed relationship between lip, teeth, and gums." }, { title: "Gum Display Improvement", text: "Reduced visual dominance of gum display." }], ar: [{ title: "خط لثة متوازن", text: "إطار أنظف حول الأسنان." }, { title: "إطار ابتسامة طبيعي", text: "علاقة أهدأ بين الشفاه والأسنان واللثة." }, { title: "تحسين ظهور اللثة", text: "تقليل سيطرة اللثة بصرياً على الابتسامة." }] },
+    related: ["dental-veneers-jordan", "orthodontics-amman", "teeth-whitening-amman"],
+    faqs: { en: [{ question: "What causes a gummy smile?", answer: "A gummy smile may be caused by excess gum tissue, short-looking teeth, lip movement, tooth eruption, bite issues, or jaw proportions." }, { question: "How is a gummy smile treated?", answer: "Treatment depends on the cause and may include Botox, laser gum contouring, orthodontics, restorative planning, or more advanced surgical options." }, { question: "Is gummy smile treatment painful?", answer: "Comfort depends on the selected treatment. Many options are performed with local measures or minimal discomfort, but the details are discussed during consultation." }, { question: "Can Botox help a gummy smile?", answer: "Botox may help when excessive gum display is mainly related to a hyperactive upper lip, but it is not suitable for every cause." }, { question: "Is laser gum contouring suitable for everyone?", answer: "No. Laser gum contouring is suitable only when gum tissue and tooth proportions allow it. Some cases need orthodontics or another plan." }, { question: "How much does gummy smile treatment cost in Jordan?", answer: "Cost depends on the cause and chosen treatment method, such as Botox, gum contouring, orthodontics, or combined planning." }, { question: "How do I know which treatment is right for my gummy smile?", answer: "A consultation with photos and examination is the best way to identify the cause and choose a safe, natural-looking approach." }], ar: [{ question: "ما سبب الابتسامة اللثوية؟", answer: "قد تنتج الابتسامة اللثوية عن زيادة نسيج اللثة، قصر مظهر الأسنان، حركة الشفاه، بزوغ الأسنان، مشاكل العضة أو نسب الفك." }, { question: "كيف يتم علاج الابتسامة اللثوية؟", answer: "يعتمد العلاج على السبب وقد يشمل البوتوكس أو تعديل اللثة بالليزر أو التقويم أو التخطيط الترميمي أو خيارات جراحية متقدمة." }, { question: "هل علاج الابتسامة اللثوية مؤلم؟", answer: "تعتمد الراحة على نوع العلاج المختار. كثير من الخيارات تتم بإجراءات مريحة أو انزعاج بسيط، ويتم شرح التفاصيل في الاستشارة." }, { question: "هل يساعد البوتوكس في علاج الابتسامة اللثوية؟", answer: "قد يساعد البوتوكس عندما يكون سبب ظهور اللثة الأساسي هو حركة زائدة في الشفة العلوية، لكنه لا يناسب كل الأسباب." }, { question: "هل ليزر اللثة مناسب للجميع؟", answer: "لا. يناسب تعديل اللثة بالليزر الحالات التي تسمح فيها كمية اللثة ونسب الأسنان بذلك. بعض الحالات تحتاج تقويماً أو خطة أخرى." }, { question: "كم تكلفة علاج الابتسامة اللثوية في الأردن؟", answer: "تعتمد التكلفة على السبب وطريقة العلاج المختارة مثل البوتوكس أو تعديل اللثة أو التقويم أو الخطة المشتركة." }, { question: "كيف أعرف العلاج المناسب لابتسامتي اللثوية؟", answer: "الاستشارة مع الصور والفحص هي أفضل طريقة لتحديد السبب واختيار نهج آمن وطبيعي المظهر." }] }
   }
 ];
 
@@ -523,7 +543,7 @@ const editorialAuthor = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "hollywood-smile-guide",
-    relatedService: "veneers-in-jordan",
+    relatedService: "dental-veneers-jordan",
     title: { en: "The Complete Hollywood Smile Guide (2026)", ar: "الدليل الكامل لهوليوود سمايل 2026" },
     seoTitle: { en: "The Complete Hollywood Smile Guide (2026) | Jordan", ar: "الدليل الكامل لهوليوود سمايل 2026 | الأردن" },
     metaDescription: { en: "Learn what a Hollywood Smile is, cost factors in Jordan, veneers vs crowns, zircon vs Emax, treatment timeline, pain, recovery, and consultation steps.", ar: "تعرف على هوليوود سمايل في الأردن، عوامل التكلفة، الفينير مقابل التيجان، الزيركون مقابل إيماكس، المدة، الألم، التعافي وخطوات الاستشارة." },
@@ -563,7 +583,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "why-veneers",
-    relatedService: "zircon-veneers-amman",
+    relatedService: "dental-veneers-jordan",
     title: { en: "Why Veneers Are the Best Cosmetic Dental Treatment", ar: "لماذا يعد الفينير من أفضل علاجات تجميل الأسنان" },
     seoTitle: { en: "Why Veneers Are the Best Cosmetic Dental Treatment", ar: "لماذا يعد الفينير أفضل علاج تجميلي للأسنان" },
     metaDescription: { en: "Compare veneers with whitening, bonding, crowns, orthodontics, composite veneers, zircon, and Emax. Learn benefits, longevity, maintenance, and ideal candidates.", ar: "قارن الفينير مع التبييض، البوندنج، التيجان، التقويم، كومبوزت فينير، الزيركون وإيماكس، وتعرف على المزايا والعمر والعناية." },
@@ -595,7 +615,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "veneers-dr-ali-jordan",
-    relatedService: "zircon-veneers-amman",
+    relatedService: "dental-veneers-jordan",
     title: { en: "Why Patients Choose Dr. Ali for Veneers in Jordan", ar: "لماذا يختار المرضى الدكتور علي للفينير في الأردن" },
     seoTitle: { en: "Why Patients Choose Dr. Ali for Veneers in Jordan", ar: "لماذا يختار المرضى الدكتور علي للفينير في الأردن" },
     metaDescription: { en: "Discover why patients choose Dr. Ali for veneers in Jordan: Digital Smile Design, premium materials, natural results, international patient support, and follow-up care.", ar: "اكتشف لماذا يختار المرضى الدكتور علي للفينير في الأردن: تصميم رقمي، مواد فاخرة، نتائج طبيعية، دعم المرضى الدوليين والمتابعة." },
@@ -625,7 +645,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "dental-tourism-jordan",
-    relatedService: "veneers-in-jordan",
+    relatedService: "dental-veneers-jordan",
     title: { en: "Dental Tourism in Jordan: Complete Patient Guide", ar: "السياحة العلاجية للأسنان في الأردن: دليل المريض الكامل" },
     seoTitle: { en: "Dental Tourism in Jordan: Complete Patient Guide", ar: "السياحة العلاجية للأسنان في الأردن: دليل المريض الكامل" },
     metaDescription: { en: "Plan dental tourism in Jordan with guidance on safety, costs, hotels, treatment duration, recovery, attractions, FAQs, and patient journey timeline.", ar: "خطط للسياحة العلاجية للأسنان في الأردن مع معلومات السلامة، التكلفة، الفنادق، مدة العلاج، التعافي، المعالم، الأسئلة والجدول الزمني." },
@@ -655,8 +675,35 @@ export const blogPosts: BlogPost[] = [
   }
 ];
 
+export const serviceSlugAliases: Record<string, string> = {
+  "dental-veneers-in-jordan": "dental-veneers-jordan",
+  "veneers-in-amman": "dental-veneers-jordan",
+  "veneers-in-jordan": "dental-veneers-jordan",
+  veneers: "dental-veneers-jordan",
+  "zircon-veneers-amman": "dental-veneers-jordan",
+  "zircon-veneers-jordan": "dental-veneers-jordan",
+  "zircon-and-veneers": "dental-veneers-jordan",
+  "facing-to-veneers-jordan": "dental-veneers-jordan",
+  "teeth-whitening-jordan": "teeth-whitening-amman",
+  "teeth-whitening-in-amman-jordan": "teeth-whitening-amman",
+  "dental-implants-jordan": "dental-implants-amman",
+  "dental-implants-in-amman-jordan": "dental-implants-amman",
+  "teeth-implants": "dental-implants-amman",
+  "teeth-implants-jordan": "dental-implants-amman",
+  "orthodontics-jordan": "orthodontics-amman",
+  "orthodontics-in-amman-jordan": "orthodontics-amman",
+  "gummy-smile-treatment": "gummy-smile-treatment-jordan",
+  "gummy-smile-jordan": "gummy-smile-treatment-jordan",
+  "gummy-smile": "gummy-smile-treatment-jordan"
+};
+
+export function getCanonicalServiceSlug(slug: string) {
+  return serviceSlugAliases[slug] ?? slug;
+}
+
 export function getService(slug: string) {
-  return services.find((service) => service.slug === slug);
+  const canonicalSlug = getCanonicalServiceSlug(slug);
+  return services.find((service) => service.slug === canonicalSlug);
 }
 
 export function getPost(slug: string) {

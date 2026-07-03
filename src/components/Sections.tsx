@@ -163,8 +163,8 @@ export function ServicesPreview({ locale, tight = false }: { locale: Locale; tig
           title={locale === "ar" ? "خيارات تجميل الأسنان بخطة واضحة ومظهر طبيعي." : "Cosmetic dentistry options with a clear plan and natural finish."}
           text={locale === "ar" ? "تعرف على العلاجات الأساسية ثم انتقل إلى استشارة خاصة مبنية على صورك وهدفك الجمالي." : "Explore signature treatments, then move into a private consultation based on your photos and smile goals."}
         />
-        <div className="card-grid">
-          {services.slice(0, 3).map((service) => (
+        <div className="card-grid services-grid">
+          {services.map((service) => (
             <Link className="service-card" key={service.slug} href={`/${locale}/services/${service.slug}`}>
               <span className="pill">{service.keywords[0]}</span>
               <h3>{service.navTitle[locale]}</h3>

@@ -17,7 +17,7 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
             <strong>{site.brand[locale]}</strong>
             <span>{site.specialty[locale]}</span>
           </Link>
-          <nav className="nav" aria-label="Primary navigation">
+          <nav className="nav" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"}>
             <Link href={`/${locale}/services`}>{nav.services}</Link>
             <Link href={`/${locale}/transformations`}>{nav.reels}</Link>
             <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
@@ -30,7 +30,7 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
             <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{dict.cta}</a>
             <details className="mobile-menu">
               <summary aria-label={locale === "ar" ? "فتح القائمة" : "Open menu"}>{locale === "ar" ? "القائمة" : "Menu"}</summary>
-              <nav className="mobile-nav" aria-label="Mobile navigation">
+              <nav className="mobile-nav" aria-label={locale === "ar" ? "تنقل الهاتف" : "Mobile navigation"}>
                 <Link href={`/${locale}/services`}>{nav.services}</Link>
                 <Link href={`/${locale}/transformations`}>{nav.reels}</Link>
                 <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
@@ -62,7 +62,7 @@ function Footer({ locale }: { locale: Locale }) {
           </div>
           <div>
             <h4>{dict.nav.services}</h4>
-            {services.slice(0, 4).map((service) => (
+            {services.map((service) => (
               <Link key={service.slug} href={`/${locale}/services/${service.slug}`}>{service.navTitle[locale]}</Link>
             ))}
           </div>

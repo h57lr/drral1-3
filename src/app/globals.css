@@ -566,6 +566,7 @@ select {
   position: relative;
   display: grid;
   align-content: start;
+  justify-items: center;
   min-height: 210px;
   padding: clamp(18px, 2.2vw, 24px);
   overflow: hidden;
@@ -575,6 +576,7 @@ select {
     radial-gradient(circle at 18% 8%, rgba(193, 162, 103, 0.13), transparent 9rem),
     linear-gradient(145deg, rgba(255, 250, 241, 0.92), rgba(248, 243, 232, 0.7));
   box-shadow: 0 22px 58px -48px rgba(23, 33, 31, 0.55);
+  text-align: center;
   transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
 }
 
@@ -602,8 +604,17 @@ select {
   border: 1px solid rgba(193, 162, 103, 0.22);
   border-radius: 999px;
   background: rgba(255, 250, 241, 0.74);
+  color: var(--teal-dark);
   box-shadow: inset 0 0 0 7px rgba(185, 201, 155, 0.12), 0 14px 30px -24px rgba(23, 33, 31, 0.7);
-  font-size: 1.2rem;
+}
+
+.doctor-journey-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.65;
 }
 
 .doctor-journey-card strong {

@@ -93,7 +93,7 @@ export function DoctorProfileHighlight({ locale }: { locale: Locale }) {
         <ul className="doctor-journey-grid" aria-label={locale === "ar" ? "بطاقات تجربة الابتسامة" : "Smile journey score cards"}>
           {content.scoreCards.map((card) => (
             <li className="doctor-journey-card" key={card.title}>
-              <span className="doctor-journey-icon" aria-hidden="true">{card.icon}</span>
+              <span className="doctor-journey-icon" aria-hidden="true"><JourneyIcon name={card.icon} /></span>
               <strong>{card.title}</strong>
               <span>{card.text}</span>
             </li>
@@ -102,6 +102,55 @@ export function DoctorProfileHighlight({ locale }: { locale: Locale }) {
         <p className="doctor-profile-note doctor-journey-note">{content.trustNote}</p>
       </div>
     </section>
+  );
+}
+
+function JourneyIcon({ name }: { name: string }) {
+  const common = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+  };
+
+  if (name === "natural") {
+    return (
+      <svg {...common}>
+        <path d="M7.8 4.8h8.4c.9 0 1.6.7 1.6 1.6v11.2c0 .9-.7 1.6-1.6 1.6H7.8c-.9 0-1.6-.7-1.6-1.6V6.4c0-.9.7-1.6 1.6-1.6Z" />
+        <path d="M9 8.1c1.9-1.1 4.1-1.1 6 0" />
+        <path d="M9.2 15.1c1.7 1.4 3.9 1.4 5.6 0" />
+        <path d="M12 10.2v3.1" />
+      </svg>
+    );
+  }
+
+  if (name === "journey") {
+    return (
+      <svg {...common}>
+        <path d="M8.2 7.5V6.3c0-1 .8-1.8 1.8-1.8h4c1 0 1.8.8 1.8 1.8v1.2" />
+        <path d="M5.8 7.5h12.4c.9 0 1.6.7 1.6 1.6v7.8c0 .9-.7 1.6-1.6 1.6H5.8c-.9 0-1.6-.7-1.6-1.6V9.1c0-.9.7-1.6 1.6-1.6Z" />
+        <path d="M4.6 12.2h14.8" />
+        <path d="M9.2 12.2v1.5c0 .5.4.9.9.9h3.8c.5 0 .9-.4.9-.9v-1.5" />
+      </svg>
+    );
+  }
+
+  if (name === "consultation") {
+    return (
+      <svg {...common}>
+        <path d="M7.2 12.9 9 11.1c.8-.8 2-.8 2.8 0l.4.4" />
+        <path d="m12.2 11.5.4-.4c.8-.8 2-.8 2.8 0l1.4 1.4" />
+        <path d="m8.1 13.8 3.1 3.1c.5.5 1.3.5 1.8 0l3.1-3.1" />
+        <path d="M6.4 8.8h11.2" />
+        <path d="M12 4.6a7.4 7.4 0 1 0 0 14.8 7.4 7.4 0 0 0 0-14.8Z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...common}>
+      <path d="M12 4.2c1.4 3.2 3.2 5 6.4 6.4-3.2 1.4-5 3.2-6.4 6.4-1.4-3.2-3.2-5-6.4-6.4 3.2-1.4 5-3.2 6.4-6.4Z" />
+      <path d="M18.2 3.8c.5 1.2 1.2 1.9 2.4 2.4-1.2.5-1.9 1.2-2.4 2.4-.5-1.2-1.2-1.9-2.4-2.4 1.2-.5 1.9-1.2 2.4-2.4Z" />
+    </svg>
   );
 }
 
@@ -256,21 +305,27 @@ export function ReelsShowcase({ locale, full = false }: { locale: Locale; full?:
 }
 
 export function AboutPreview({ locale }: { locale: Locale }) {
+  const content = doctorProfileHighlight[locale];
+  const titleParts = content.title.split(content.accent);
+
   return (
-    <section className="section">
-      <div className="container split">
-        <div className="portrait-card" aria-hidden="true" />
-        <div>
-          <p className="eyebrow">{locale === "ar" ? "عن الدكتور" : "About Dr. Ali"}</p>
-          <h2 className="section-title">{locale === "ar" ? "نهج طبي وجمالي لابتسامات تبدو طبيعية." : "A medical and aesthetic approach to natural-looking smiles."}</h2>
-          <p className="lead">
-            {locale === "ar"
-              ? "يجمع الدكتور علي بين التخطيط الطبي الدقيق والحس الجمالي الهادئ لمساعدة المرضى على اختيار لون وشكل ابتسامة يناسب الوجه ولا يبدو مصطنعاً."
-              : "Dr. Ali combines precise clinical planning with restrained aesthetic taste to help patients choose a smile shape and shade that fits the face without looking artificial."}
-          </p>
-          <div className="button-row">
-            <Link className="button secondary" href={`/${locale}/about`}>{locale === "ar" ? "تعرف على الدكتور" : "Meet Dr. Ali"}</Link>
+    <section className="section doctor-profile-section" aria-labelledby="about-doctor-title">
+      <div className="container doctor-profile-panel about-doctor-panel">
+        <div className="doctor-profile-media">
+          <img src="/media/profile-pic.jpg" alt={content.imageAlt} loading="lazy" />
+          <div className="doctor-profile-signature" aria-label={`${content.signature}, ${content.specialty}`}>
+            <strong>{content.signature}</strong>
+            <span>{content.specialty}</span>
           </div>
+        </div>
+        <div className="doctor-profile-copy">
+          <p className="eyebrow">{content.eyebrow}</p>
+          <h2 className="section-title" id="about-doctor-title">
+            {titleParts[0]}
+            <span className="script">{content.accent}</span>
+            {titleParts[1] ?? ""}
+          </h2>
+          <p className="lead">{content.body}</p>
         </div>
       </div>
     </section>

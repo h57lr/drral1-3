@@ -125,22 +125,22 @@ export const doctorProfileHighlight = {
     trustNote: "A planned, natural, and comfortable smile transformation experience — not just veneers.",
     scoreCards: [
       {
-        icon: "✨",
+        icon: "design",
         title: "Smile Design First",
         text: "Every case starts with facial harmony, tooth shape, and natural smile planning."
       },
       {
-        icon: "🪞",
+        icon: "natural",
         title: "Natural-Looking Results",
         text: "Designed to enhance your smile without making it look artificial or overdone."
       },
       {
-        icon: "🧳",
-        title: "GCC Patient Journey",
+        icon: "journey",
+        title: "EU & GCC Patient Journey",
         text: "Clear planning for patients visiting Jordan for veneers or Hollywood Smile treatment."
       },
       {
-        icon: "🤝",
+        icon: "consultation",
         title: "Doctor-Led Consultation",
         text: "Your smile plan is reviewed with professional guidance before treatment begins."
       }
@@ -157,22 +157,22 @@ export const doctorProfileHighlight = {
     trustNote: "تجربة تحول ابتسامة مخططة، طبيعية، ومريحة — وليست مجرد فينير.",
     scoreCards: [
       {
-        icon: "✨",
+        icon: "design",
         title: "تصميم الابتسامة أولاً",
         text: "كل حالة تبدأ بدراسة تناسق الوجه، شكل الأسنان، وطبيعة الابتسامة."
       },
       {
-        icon: "🪞",
+        icon: "natural",
         title: "نتائج طبيعية المظهر",
         text: "ابتسامة محسّنة بدون مظهر مصطنع أو مبالغ فيه."
       },
       {
-        icon: "🧳",
-        title: "تجربة مخصصة لمرضى الخليج",
+        icon: "journey",
+        title: "تجربة مخصصة لمرضى أوروبا والخليج",
         text: "تخطيط واضح للمرضى القادمين إلى الأردن لعلاج الفينير أو هوليوود سمايل."
       },
       {
-        icon: "🤝",
+        icon: "consultation",
         title: "استشارة بإشراف الطبيب",
         text: "تتم مراجعة خطة ابتسامتك بإرشاد مهني قبل بدء العلاج."
       }

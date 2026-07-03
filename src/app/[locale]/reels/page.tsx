@@ -9,7 +9,7 @@ export default async function ReelsPage({ params }: { params: Promise<{ locale: 
   const locale = (isLocale(raw) ? raw : "en") as Locale;
   return (
     <main>
-      <section className="page-hero"><div className="container"><p className="eyebrow">{locale === "ar" ? "ريلز" : "Reels"}</p><h1 className="display">{locale === "ar" ? "لقطات من تجربة الابتسامة" : "Moments from the smile experience"}</h1><p className="lead">{locale === "ar" ? "فيديوهات قصيرة تعرض التعليم، الحالات، ولحظات المرضى بطريقة قريبة وسهلة." : "Short videos showing education, cases, and patient moments in an approachable way."}</p></div></section>
+      <section className="page-hero"><div className="container"><p className="eyebrow">{locale === "ar" ? "ريلز" : "Reels"}</p><h1 className="display">{locale === "ar" ? "ابتسامة واثقة. ثقة عالية" : "Moments from the smile experience"}</h1><p className="lead">{locale === "ar" ? "لحظات تحوّل حقيقية. فيديوهات قصيرة توثق خطوات العلاج، حالات المرضى، وفرحتهم بالابتسامة التي منحتهم ثقة لا توصف" : "Short videos showing education, cases, and patient moments in an approachable way."}</p></div></section>
       <ReelsShowcase locale={locale} full />
       <FinalCta locale={locale} />
     </main>

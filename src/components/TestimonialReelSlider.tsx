@@ -30,8 +30,8 @@ const testimonialSlides: TestimonialSlide[] = [
     posterSrc: "/media/posters/reel-08.jpg",
     title: { en: "From Consultation to Confidence", ar: "من الاستشارة إلى الثقة" },
     quote: {
-      en: "Short, authentic reels from the clinic experience and final smile transformation.",
-      ar: "ريلز قصيرة وحقيقية من تجربة العيادة وتحول الابتسامة النهائي."
+      en: "Every new smile I design is not just a change in appearance; it is the rewriting of an entire life story in front of my eyes. Seeing a patient’s confidence return fills my heart with unmatched joy — this is my true purpose.",
+      ar: "كل ابتسامة جديدة أرسمها ليست مجرد تغيير في المظهر، بل هي إعادة كتابة لقصة حياة كاملة أمام عيني. لحظة رؤيتي لثقة المريض وقد عادت إليه تجعل قلبي يمتلئ بفرح لا يضاهيه فرح، فهذه هي رسالتي الحقيقية."
     },
     meta: { en: "Smile transformation · Patient story", ar: "تحول ابتسامة · قصة مريض" }
   },
@@ -41,8 +41,8 @@ const testimonialSlides: TestimonialSlide[] = [
     posterSrc: "/media/posters/reel-05.jpg",
     title: { en: "A New Smile Moment", ar: "لحظة ابتسامة جديدة" },
     quote: {
-      en: "A warm patient reel highlighting the emotional side of a refined smile transformation.",
-      ar: "ريل دافئ يبرز الجانب الإنساني والعاطفي لتحول ابتسامة راقٍ."
+      en: "A warm patient moment highlighting the emotional side of a refined smile transformation.",
+      ar: "لحظة مريض دافئة تبرز الجانب الإنساني والعاطفي لتحول ابتسامة راقٍ."
     },
     meta: { en: "Patient moment · Smile reveal", ar: "لحظة مريض · كشف الابتسامة" }
   },
@@ -52,10 +52,10 @@ const testimonialSlides: TestimonialSlide[] = [
     posterSrc: "/media/posters/reel-10.jpg",
     title: { en: "Confidence in Motion", ar: "ثقة تتحرك" },
     quote: {
-      en: "A short testimonial reel that reflects the confidence patients feel after thoughtful smile design.",
+      en: "A short patient testimonial that reflects the confidence patients feel after thoughtful smile design.",
       ar: "شهادة قصيرة تعكس الثقة التي يشعر بها المرضى بعد تصميم ابتسامة مدروس."
     },
-    meta: { en: "Testimonial reel · Cosmetic dentistry", ar: "شهادة مريض · تجميل الأسنان" }
+    meta: { en: "Patient testimonial · Cosmetic dentistry", ar: "شهادة مريض · تجميل الأسنان" }
   },
   {
     id: "testimonial-reel-11",
@@ -63,8 +63,8 @@ const testimonialSlides: TestimonialSlide[] = [
     posterSrc: "/media/posters/reel-11.jpg",
     title: { en: "Trust the Transformation", ar: "ثقة في التحول" },
     quote: {
-      en: "An authentic patient experience reel designed to feel premium, trustworthy, and personal.",
-      ar: "ريل تجربة مريض حقيقية بطابع راقٍ وموثوق وشخصي."
+      en: "Seeing my new smile in the mirror felt like getting back a part of my spirit that had been missing for years. It was one of the happiest moments of my life.",
+      ar: "لما شفت ابتسامتي الجديدة في المرآة كانت كفيلة بإعادة روحي التي ضاعت سنين وكانت من أكبر الفرحات في حياتي."
     },
     meta: { en: "Real patient story", ar: "قصة مريض حقيقية" }
   },

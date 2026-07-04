@@ -2934,24 +2934,20 @@ a:focus-visible .read-more,
   }
 
   .testimonial-stage {
-    min-height: 0;
+    min-height: clamp(720px, 176vw, 840px);
     border-radius: 30px;
   }
 
   .testimonial-slide {
-    position: relative;
-    inset: auto;
-    display: none;
+    position: absolute;
+    inset: 0;
+    display: grid;
     align-content: start;
     padding: 18px;
-    opacity: 1;
-    filter: none;
-    transform: none;
   }
 
   .testimonial-slide.active {
-    display: grid;
-    transform: none;
+    transform: scale(1) translateY(0);
   }
 
   .testimonial-video-shell {

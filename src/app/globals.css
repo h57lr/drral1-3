@@ -2109,6 +2109,17 @@ a:focus-visible .read-more,
   min-height: 384px;
 }
 
+.service-hero-visual.service-media-orthodontics-amman {
+  justify-self: center;
+  width: min(100%, 520px);
+  min-height: 360px;
+}
+
+.service-hero-visual.service-media-orthodontics-amman .service-hero-carousel,
+.service-hero-visual.service-media-orthodontics-amman .service-hero-carousel-slide {
+  min-height: 324px;
+}
+
 .service-hero-image {
   width: 100%;
   height: auto;
@@ -2785,6 +2796,16 @@ a:focus-visible .read-more,
     min-height: 354px;
   }
 
+  .service-hero-visual.service-media-orthodontics-amman {
+    width: min(100%, 500px);
+    min-height: 340px;
+  }
+
+  .service-hero-visual.service-media-orthodontics-amman .service-hero-carousel,
+  .service-hero-visual.service-media-orthodontics-amman .service-hero-carousel-slide {
+    min-height: 304px;
+  }
+
   .service-case-grid.single .service-case-visual {
     min-height: 400px;
   }
@@ -3227,6 +3248,16 @@ a:focus-visible .read-more,
   .service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel,
   .service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel-slide {
     min-height: 304px;
+  }
+
+  .service-hero-visual.service-media-orthodontics-amman {
+    width: min(100%, 340px);
+    min-height: 260px;
+  }
+
+  .service-hero-visual.service-media-orthodontics-amman .service-hero-carousel,
+  .service-hero-visual.service-media-orthodontics-amman .service-hero-carousel-slide {
+    min-height: 224px;
   }
 
   .service-hero-carousel {

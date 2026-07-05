@@ -54,6 +54,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
   const labels = getServiceLabels(locale);
   const heroMedia = getServiceHeroMedia(service.slug, locale);
   const caseMedia = getServiceCaseMedia(service.slug, locale);
+  const hideJourneyAndCases = service.slug === "teeth-whitening-amman" || service.slug === "orthodontics-amman";
   const visibleCases = service.slug === "dental-implants-amman" ? service.cases[locale].slice(0, 1) : service.cases[locale];
   const faqSchema = {
     "@context": "https://schema.org",
@@ -130,7 +131,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      {service.slug !== "teeth-whitening-amman" ? (
+      {!hideJourneyAndCases ? (
         <section className="section compact">
           <div className="container">
             <SectionHead eyebrow={labels.processEyebrow} title={labels.processTitle} text={labels.processText} />
@@ -162,7 +163,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      {service.slug !== "teeth-whitening-amman" ? (
+      {!hideJourneyAndCases ? (
         <>
           <section className="section compact">
             <div className="container service-why-panel">
@@ -192,7 +193,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         </>
       ) : null}
 
-      {service.slug !== "teeth-whitening-amman" ? (
+      {!hideJourneyAndCases ? (
         <section className="section compact">
           <div className="container">
             <SectionHead eyebrow={labels.casesEyebrow} title={labels.casesTitle} text={labels.casesText} />
@@ -308,6 +309,27 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
         {
           src: "/media/yellow_teeth_after.webp",
           label: locale === "ar" ? "بعد" : "After"
+        }
+      ]
+    };
+  }
+
+  if (slug === "orthodontics-amman") {
+    return {
+      type: "carousel" as const,
+      alt: locale === "ar" ? "تقويم الأسنان والشفاف مع الدكتور علي" : "Orthodontics braces and aligners with Dr. Ali",
+      images: [
+        {
+          src: "/media/Transparent-Teeth-Braces_and_aligner_1.webp",
+          label: locale === "ar" ? "تقويم شفاف" : "Aligners"
+        },
+        {
+          src: "/media/Transparent-Teeth-Braces_and_aligner_2.webp",
+          label: locale === "ar" ? "تقويم الأسنان" : "Braces"
+        },
+        {
+          src: "/media/Transparent-Teeth-Braces_and_aligner_3.webp",
+          label: locale === "ar" ? "ابتسامة مثالية" : "Perfect Smile"
         }
       ]
     };

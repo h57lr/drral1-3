@@ -312,8 +312,8 @@ function getServiceCaseMedia(slug: string, locale: Locale) {
     {
       alt: locale === "ar" ? "حالة فينير طبيعي قبل وبعد" : "Natural veneer smile before and after",
       images: [
-        { src: "/media/cases/instagram/20/image-11.webp", label: before },
-        { src: "/media/cases/instagram/20/image-12.webp", label: after }
+        { src: "/media/cases/instagram/20/image-11.webp", label: "", splitLabels: { before, after } },
+        { src: "/media/cases/instagram/20/image-12.webp", label: "", splitLabels: { before, after } }
       ]
     },
     {

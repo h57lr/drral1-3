@@ -72,7 +72,7 @@ export function DoctorProfileHighlight({ locale }: { locale: Locale }) {
     <section className="section doctor-profile-section" aria-labelledby="doctor-profile-title">
       <div className="container doctor-profile-panel">
         <div className="doctor-profile-media">
-          <img src="/media/profile-pic.jpg" alt={content.imageAlt} loading="lazy" />
+          <img src="/media/doctor-profile/dr-ali-alheneiti-cosmetic-dentist-amman-jordan.webp" alt={content.imageAlt} loading="lazy" />
           <div className="doctor-profile-signature" aria-label={`${content.signature}, ${content.specialty}`}>
             <strong>{content.signature}</strong>
             <span>{content.specialty}</span>
@@ -312,7 +312,7 @@ export function AboutPreview({ locale }: { locale: Locale }) {
     <section className="section doctor-profile-section" aria-labelledby="about-doctor-title">
       <div className="container doctor-profile-panel about-doctor-panel">
         <div className="doctor-profile-media">
-          <img src="/media/profile-pic.jpg" alt={content.imageAlt} loading="lazy" />
+          <img src="/media/doctor-profile/dr-ali-alheneiti-cosmetic-dentist-amman-jordan.webp" alt={content.imageAlt} loading="lazy" />
           <div className="doctor-profile-signature" aria-label={`${content.signature}, ${content.specialty}`}>
             <strong>{content.signature}</strong>
             <span>{content.specialty}</span>
@@ -464,15 +464,33 @@ export function SectionHead({ eyebrow, title, text }: { eyebrow: string; title: 
 }
 
 export function CaseCard({ item, locale }: { item: CaseMedia; locale: Locale }) {
-  const slot = item.id.startsWith("ig-") ? item.id.replace("ig-", "") : null;
   const carouselOverrides: Record<string, string[]> = {
-    "ig-03": ["04", "05"].map((image) => `/media/cases/instagram/20/image-${image}.jpg`),
-    "ig-13": ["07", "06"].map((image) => `/media/cases/instagram/20/image-${image}.jpeg`),
+    "ig-07": [
+      "/media/smile-case-images/layered-smile-transformation-before-jordan.webp",
+      "/media/smile-case-images/layered-smile-transformation-after-jordan.webp"
+    ],
+    "ig-13": [
+      "/media/smile-case-images/dental-veneers-before-smile-case-jordan.webp",
+      "/media/smile-case-images/dental-veneers-after-smile-case-jordan.webp"
+    ],
+    "ig-14": [
+      "/media/smile-case-images/second-full-face-smile-before-jordan.webp",
+      "/media/smile-case-images/second-full-face-smile-after-jordan.webp"
+    ],
+    "ig-15": [
+      "/media/smile-case-images/facing-to-veneers-before-jordan.webp",
+      "/media/smile-case-images/facing-to-veneers-after-jordan.webp"
+    ],
+    "ig-16": [
+      "/media/smile-case-images/male-veneer-texture-before-jordan.webp",
+      "/media/smile-case-images/male-veneer-texture-after-jordan.webp"
+    ],
+    "ig-18": [
+      "/media/smile-case-images/male-facing-to-veneers-before-jordan.webp",
+      "/media/smile-case-images/male-facing-to-veneers-after-jordan.webp"
+    ]
   };
-  const carouselImages = carouselOverrides[item.id]
-    ?? (item.type === "before-after" && slot
-    ? ["01", "03"].map((image) => `/media/cases/instagram/${slot}/image-${image}.jpg`)
-    : []);
+  const carouselImages = carouselOverrides[item.id] ?? [];
   const isPortraitCarousel = item.id === "ig-13";
 
   return (

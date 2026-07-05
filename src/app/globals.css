@@ -1632,7 +1632,7 @@ a:focus-visible .read-more,
   border-radius: 34px 34px 48% 48%;
   background:
     linear-gradient(145deg, rgba(47, 111, 106, 0.14), rgba(185, 201, 155, 0.28)),
-    url("https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=85") center/cover;
+    url("/media/doctor-profile/dr-ali-alheneiti-cosmetic-dentist-amman-jordan.webp") center/cover;
   box-shadow: var(--shadow);
 }
 

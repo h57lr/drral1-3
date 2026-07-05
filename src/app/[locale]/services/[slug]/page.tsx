@@ -286,11 +286,11 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
       alt: locale === "ar" ? "حالة فينير أسنان قبل وبعد مع الدكتور علي" : "Dental veneers before and after case with Dr. Ali",
       images: [
         {
-          src: "/media/cases/instagram/20/image-07.webp",
+          src: "/media/smile-case-images/dental-veneers-before-smile-case-jordan.webp",
           label: locale === "ar" ? "قبل" : "Before"
         },
         {
-          src: "/media/cases/instagram/20/image-06.webp",
+          src: "/media/smile-case-images/dental-veneers-after-smile-case-jordan.webp",
           label: locale === "ar" ? "بعد" : "After"
         }
       ]
@@ -303,11 +303,11 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
       alt: locale === "ar" ? "تبييض الأسنان قبل وبعد مع الدكتور علي" : "Teeth whitening before and after with Dr. Ali",
       images: [
         {
-          src: "/media/yellow_teeth_before.webp",
+          src: "/media/service-images/teeth-whitening-before-yellow-teeth-amman.webp",
           label: locale === "ar" ? "قبل" : "Before"
         },
         {
-          src: "/media/yellow_teeth_after.webp",
+          src: "/media/service-images/teeth-whitening-after-bright-smile-amman.webp",
           label: locale === "ar" ? "بعد" : "After"
         }
       ]
@@ -320,15 +320,15 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
       alt: locale === "ar" ? "تقويم الأسنان والشفاف مع الدكتور علي" : "Orthodontics braces and aligners with Dr. Ali",
       images: [
         {
-          src: "/media/Transparent-Teeth-Braces_and_aligner_1.webp",
+          src: "/media/service-images/orthodontics-clear-aligners-amman.webp",
           label: locale === "ar" ? "تقويم شفاف" : "Aligners"
         },
         {
-          src: "/media/Transparent-Teeth-Braces_and_aligner_2.webp",
+          src: "/media/service-images/orthodontics-teeth-braces-amman.webp",
           label: locale === "ar" ? "تقويم الأسنان" : "Braces"
         },
         {
-          src: "/media/Transparent-Teeth-Braces_and_aligner_3.webp",
+          src: "/media/service-images/orthodontics-perfect-smile-result-amman.webp",
           label: locale === "ar" ? "ابتسامة مثالية" : "Perfect Smile"
         }
       ]
@@ -341,11 +341,11 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
       alt: locale === "ar" ? "علاج الابتسامة اللثوية قبل وبعد مع الدكتور علي" : "Gummy smile treatment before and after with Dr. Ali",
       images: [
         {
-          src: "/media/gummy-smile-treatment-before.webp",
+          src: "/media/service-images/gummy-smile-treatment-before-jordan.webp",
           label: locale === "ar" ? "قبل" : "Before"
         },
         {
-          src: "/media/gummy-smile-treatment-after.webp",
+          src: "/media/service-images/gummy-smile-treatment-after-jordan.webp",
           label: locale === "ar" ? "بعد" : "After"
         }
       ]
@@ -357,12 +357,12 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
   return locale === "ar"
     ? {
       type: "image" as const,
-      src: "/media/dental_implants_infographic_arabic.png",
+      src: "/media/service-images/dental-implants-infographic-arabic-amman.webp",
       alt: "إنفوجرافيك يوضح زراعة الأسنان في عمّان مع الدكتور علي"
     }
     : {
       type: "image" as const,
-      src: "/media/dental_implants_infographic_english.png",
+      src: "/media/service-images/dental-implants-infographic-english-amman.webp",
       alt: "Dental implants infographic for Dr. Ali in Amman"
     };
 }
@@ -376,10 +376,10 @@ function getServiceCaseMedia(slug: string, locale: Locale) {
       {
         alt: locale === "ar" ? "حالة زراعة سن واحد وتاج نهائي" : "Single tooth implant case and final crown",
         images: [
-          { src: "/media/implant_case_top_1.webp", label: locale === "ar" ? "البداية" : "Initial" },
-          { src: "/media/implant_case_top_2.webp", label: locale === "ar" ? "التخطيط" : "Planning" },
-          { src: "/media/implant_case_top_2_xray.webp", label: locale === "ar" ? "الأشعة" : "X-ray" },
-          { src: "/media/implant_case_top_final.webp", label: locale === "ar" ? "النتيجة" : "Final" }
+          { src: "/media/service-images/single-tooth-implant-initial-case-amman.webp", label: locale === "ar" ? "البداية" : "Initial" },
+          { src: "/media/service-images/single-tooth-implant-planning-case-amman.webp", label: locale === "ar" ? "التخطيط" : "Planning" },
+          { src: "/media/service-images/single-tooth-implant-xray-case-amman.webp", label: locale === "ar" ? "الأشعة" : "X-ray" },
+          { src: "/media/service-images/single-tooth-implant-final-crown-result-amman.webp", label: locale === "ar" ? "النتيجة" : "Final" }
         ]
       }
     ];
@@ -391,22 +391,22 @@ function getServiceCaseMedia(slug: string, locale: Locale) {
     {
       alt: locale === "ar" ? "حالة فينير طبيعي قبل وبعد" : "Natural veneer smile before and after",
       images: [
-        { src: "/media/cases/instagram/20/image-11.webp", label: "", splitLabels: { before, after } },
-        { src: "/media/cases/instagram/20/image-12.webp", label: "", splitLabels: { before, after } }
+        { src: "/media/smile-case-images/natural-veneers-before-after-comparison-front.webp", label: "", splitLabels: { before, after } },
+        { src: "/media/smile-case-images/natural-veneers-before-after-comparison-closeup.webp", label: "", splitLabels: { before, after } }
       ]
     },
     {
       alt: locale === "ar" ? "نتيجة فينير زيركون قبل وبعد" : "Zircon veneer result before and after",
       images: [
-        { src: "/media/cases/instagram/20/image-22.webp", label: before },
-        { src: "/media/cases/instagram/20/image-21.webp", label: after }
+        { src: "/media/smile-case-images/zircon-veneers-before-smile-jordan.webp", label: before },
+        { src: "/media/smile-case-images/zircon-veneers-after-smile-jordan.webp", label: after }
       ]
     },
     {
       alt: locale === "ar" ? "تحسين شكل الابتسامة قبل وبعد" : "Smile shape enhancement before and after",
       images: [
-        { src: "/media/cases/instagram/20/image-16.webp", label: before },
-        { src: "/media/cases/instagram/20/image-15.webp", label: after }
+        { src: "/media/smile-case-images/smile-shape-enhancement-before-jordan.webp", label: before },
+        { src: "/media/smile-case-images/smile-shape-enhancement-after-jordan.webp", label: after }
       ]
     }
   ];

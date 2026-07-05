@@ -272,7 +272,7 @@ function ServiceFinalCta({ locale }: { locale: Locale }) {
         <p className="lead">{locale === "ar" ? "احجز استشارتك واحصل على توجيه واضح قبل بدء العلاج." : "Book a consultation and receive clear guidance before starting your treatment."}</p>
         <div className="button-row">
           <Link className="button pistachio" href={`/${locale}/contact`}>{locale === "ar" ? "احجز استشارة" : "Book Consultation"}</Link>
-          <a className="button secondary" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "تواصل عبر واتساب" : "WhatsApp Consultation"}</a>
+          <a className="button secondary" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "احجز عبر واتساب" : "Book on WhatsApp"}</a>
         </div>
       </div>
     </section>
@@ -430,7 +430,7 @@ function ServiceIcon({ name }: { name: string }) {
 function getServiceLabels(locale: Locale) {
   return locale === "ar" ? {
     book: "احجز استشارة",
-    whatsapp: "تواصل عبر واتساب",
+    whatsapp: "احجز عبر واتساب",
     trustAria: "مؤشرات الثقة",
     introduction: "شرح العلاج",
     candidatesEyebrow: "لمن يناسب؟",
@@ -459,7 +459,7 @@ function getServiceLabels(locale: Locale) {
     relatedText: "روابط داخلية تساعدك على فهم الصورة الكاملة قبل الحجز."
   } : {
     book: "Book Consultation",
-    whatsapp: "WhatsApp Consultation",
+    whatsapp: "Book on WhatsApp",
     trustAria: "Trust markers",
     introduction: "Treatment Introduction",
     candidatesEyebrow: "Who is it for?",

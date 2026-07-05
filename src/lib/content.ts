@@ -100,7 +100,7 @@ export const dictionary = {
       about: "About",
       contact: "Contact"
     },
-    cta: "Send Photos on WhatsApp",
+    cta: "Book on WhatsApp",
     viewCases: "View Transformations",
     finalCtaTitle: "Start with a private smile consultation.",
     finalCtaText: "Send your photos on WhatsApp and Dr. Ali's team will guide you toward the right cosmetic treatment without publishing prices online.",
@@ -116,7 +116,7 @@ export const dictionary = {
       about: "عن الدكتور",
       contact: "تواصل"
     },
-    cta: "أرسل الصور عبر واتساب",
+    cta: "احجز عبر واتساب",
     viewCases: "شاهد التحولات",
     finalCtaTitle: "ابدئي باستشارة خاصة لابتسامتك.",
     finalCtaText: "أرسلي صورك عبر واتساب وسيقوم فريق الدكتور علي بإرشادك للعلاج التجميلي المناسب بدون عرض الأسعار علناً.",

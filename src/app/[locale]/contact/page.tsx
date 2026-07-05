@@ -15,7 +15,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <p className="eyebrow">{locale === "ar" ? "الحجز" : "Booking"}</p>
           <h1 className="display">{locale === "ar" ? "استشارة خاصة" : "Private consultation"}</h1>
           <p className="lead">{locale === "ar" ? "الأسعار والتفاصيل عبر واتساب بعد مراجعة الصور والهدف الجمالي." : "Pricing and details are handled privately on WhatsApp after reviewing photos and cosmetic goals."}</p>
-          <div className="button-row"><a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a><a className="button secondary" href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></div>
+          <div className="button-row"><a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "احجز عبر واتساب" : "Book on WhatsApp"}</a><a className="button secondary" href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></div>
         </div>
       </section>
       <FinalCta locale={locale} />

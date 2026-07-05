@@ -85,7 +85,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             </div>
           </div>
 
-          <div className={`service-hero-visual${heroMedia ? ` has-image has-${heroMedia.type}` : ""}`} aria-hidden={heroMedia ? undefined : "true"}>
+          <div className={`service-hero-visual service-media-${service.slug}${heroMedia ? ` has-image has-${heroMedia.type}` : ""}`} aria-hidden={heroMedia ? undefined : "true"}>
             {heroMedia?.type === "image" ? (
               <img className="service-hero-image" src={heroMedia.src} alt={heroMedia.alt} />
             ) : heroMedia?.type === "carousel" ? (
@@ -281,6 +281,23 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
         },
         {
           src: "/media/cases/instagram/20/image-06.webp",
+          label: locale === "ar" ? "بعد" : "After"
+        }
+      ]
+    };
+  }
+
+  if (slug === "teeth-whitening-amman") {
+    return {
+      type: "carousel" as const,
+      alt: locale === "ar" ? "تبييض الأسنان قبل وبعد مع الدكتور علي" : "Teeth whitening before and after with Dr. Ali",
+      images: [
+        {
+          src: "/media/yellow_teeth_before.webp",
+          label: locale === "ar" ? "قبل" : "Before"
+        },
+        {
+          src: "/media/yellow_teeth_after.webp",
           label: locale === "ar" ? "بعد" : "After"
         }
       ]

@@ -2098,6 +2098,17 @@ a:focus-visible .read-more,
   min-height: 520px;
 }
 
+.service-hero-visual.service-media-teeth-whitening-amman {
+  justify-self: center;
+  width: min(100%, 420px);
+  min-height: 420px;
+}
+
+.service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel,
+.service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel-slide {
+  min-height: 384px;
+}
+
 .service-hero-image {
   width: 100%;
   height: auto;
@@ -2755,6 +2766,16 @@ a:focus-visible .read-more,
     min-height: 430px;
   }
 
+  .service-hero-visual.service-media-teeth-whitening-amman {
+    width: min(100%, 390px);
+    min-height: 390px;
+  }
+
+  .service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel,
+  .service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel-slide {
+    min-height: 354px;
+  }
+
   .service-visual-card.floating {
     left: 22px;
   }
@@ -3183,6 +3204,16 @@ a:focus-visible .read-more,
   .service-hero-carousel,
   .service-hero-carousel-slide {
     min-height: 360px;
+  }
+
+  .service-hero-visual.service-media-teeth-whitening-amman {
+    width: min(100%, 340px);
+    min-height: 340px;
+  }
+
+  .service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel,
+  .service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel-slide {
+    min-height: 304px;
   }
 
   .service-hero-carousel {

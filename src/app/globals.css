@@ -84,7 +84,7 @@ select {
   padding-top: 28px;
 }
 
-.smile-reels-section {
+.smile-videos-section {
   margin: 40px 0;
   background:
     radial-gradient(circle at 18% 16%, rgba(47, 111, 106, 0.28), transparent 24rem),
@@ -478,7 +478,7 @@ select {
   overflow: hidden;
   border-radius: 36px;
   background-color: var(--ink);
-  background-image: url("/media/posters/reel-01.jpg");
+  background-image: url("/media/video-posters/dr-ali-veneers-patient-result-poster.jpg");
   background-position: center;
   background-size: cover;
   box-shadow: var(--shadow);
@@ -1132,7 +1132,7 @@ select {
   line-height: 1.62;
 }
 
-.smile-reels-head {
+.smile-videos-head {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.58fr);
   gap: 42px;
@@ -1140,26 +1140,26 @@ select {
   margin-bottom: 44px;
 }
 
-.smile-reels-section .eyebrow {
+.smile-videos-section .eyebrow {
   color: rgba(255, 250, 241, 0.78);
 }
 
-.smile-reels-section .lead {
+.smile-videos-section .lead {
   color: rgba(255, 250, 241, 0.76);
 }
 
-.smile-reels-section .script {
+.smile-videos-section .script {
   color: #86b7a0;
 }
 
-.smile-reel-grid {
+.smile-video-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
   align-items: start;
 }
 
-.smile-reel-card {
+.smile-video-card {
   position: relative;
   max-width: 360px;
   overflow: hidden;
@@ -1170,14 +1170,14 @@ select {
   isolation: isolate;
 }
 
-.smile-reel-card video {
+.smile-video-card video {
   width: 100%;
   aspect-ratio: 9 / 12;
   height: auto;
   object-fit: cover;
 }
 
-.smile-reel-overlay {
+.smile-video-overlay {
   position: absolute;
   inset: auto 0 0;
   padding: 54px 22px 20px;
@@ -1186,7 +1186,7 @@ select {
   pointer-events: none;
 }
 
-.smile-reel-overlay h3 {
+.smile-video-overlay h3 {
   margin: 0 0 6px;
   font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
   font-size: clamp(1.25rem, 2vw, 1.75rem);
@@ -1195,14 +1195,14 @@ select {
   line-height: 1;
 }
 
-.smile-reel-overlay p {
+.smile-video-overlay p {
   margin: 0;
   color: rgba(255, 250, 241, 0.76);
   font-size: 0.82rem;
   line-height: 1.45;
 }
 
-.smile-reels-note {
+.smile-videos-note {
   margin: 20px 0 0;
   color: rgba(255, 250, 241, 0.62);
   font-size: 0.86rem;
@@ -1235,7 +1235,7 @@ select {
   content: "→";
 }
 
-.reel-row {
+.transformation-video-row {
   display: grid;
   grid-template-columns: repeat(5, minmax(180px, 1fr));
   gap: 16px;
@@ -1252,7 +1252,7 @@ select {
   font-weight: 800;
 }
 
-.reel-card {
+.transformation-video-card {
   min-width: 190px;
   overflow: hidden;
   border: 1px solid rgba(255, 250, 241, 0.75);
@@ -1262,7 +1262,7 @@ select {
   scroll-snap-align: start;
 }
 
-.reel-frame {
+.transformation-video-frame {
   position: relative;
   aspect-ratio: 9 / 16;
   background:
@@ -1270,21 +1270,21 @@ select {
     linear-gradient(135deg, rgba(47, 111, 106, 0.5), rgba(185, 201, 155, 0.45));
 }
 
-.reel-frame video,
-.reel-frame img {
+.transformation-video-frame video,
+.transformation-video-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.reel-overlay {
+.transformation-video-overlay {
   position: absolute;
   inset: auto 0 0;
   padding: 18px;
   color: var(--pearl);
 }
 
-.reel-overlay h3 {
+.transformation-video-overlay h3 {
   margin: 0 0 7px;
   font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
   font-size: 1.22rem;
@@ -1292,14 +1292,14 @@ select {
   letter-spacing: -0.04em;
 }
 
-.reel-overlay p {
+.transformation-video-overlay p {
   margin: 0;
   color: rgba(255, 250, 241, 0.78);
   font-size: 0.82rem;
   line-height: 1.45;
 }
 
-.reel-link {
+.transformation-video-link {
   display: inline-flex;
   margin-top: 10px;
   background-image: linear-gradient(90deg, currentColor, currentColor);
@@ -1312,8 +1312,8 @@ select {
   transition: background-size 320ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 190ms ease, color 190ms ease;
 }
 
-.reel-link:hover,
-.reel-link:focus-visible {
+.transformation-video-link:hover,
+.transformation-video-link:focus-visible {
   background-size: 100% 1px;
   color: var(--pearl);
   transform: translateX(3px);
@@ -2745,7 +2745,7 @@ a:focus-visible .read-more,
   .hero-grid,
   .service-hero-grid,
   .section-head,
-  .smile-reels-head,
+  .smile-videos-head,
   .journal-head,
   .article-hero-grid,
   .article-layout,
@@ -2850,7 +2850,7 @@ a:focus-visible .read-more,
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .smile-reel-grid {
+  .smile-video-grid {
     grid-template-columns: repeat(3, minmax(210px, 1fr));
     gap: 16px;
   }
@@ -3169,27 +3169,27 @@ a:focus-visible .read-more,
     text-align: start;
   }
 
-  .smile-reels-section {
+  .smile-videos-section {
     margin: 18px 0;
     padding-block: 58px;
   }
 
-  .smile-reels-head {
+  .smile-videos-head {
     gap: 18px;
     margin-bottom: 26px;
     text-align: center;
   }
 
-  .smile-reels-head .eyebrow {
+  .smile-videos-head .eyebrow {
     justify-content: center;
   }
 
-  .smile-reels-head .lead {
+  .smile-videos-head .lead {
     max-width: 34rem;
     margin: 0 auto;
   }
 
-  .smile-reel-grid {
+  .smile-video-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
     width: 100%;
@@ -3199,7 +3199,7 @@ a:focus-visible .read-more,
     padding: 0;
   }
 
-  .smile-reel-card {
+  .smile-video-card {
     width: 100%;
     min-width: 0;
     max-width: 100%;
@@ -3208,25 +3208,25 @@ a:focus-visible .read-more,
     border-radius: 16px;
   }
 
-  .smile-reel-card video {
+  .smile-video-card video {
     width: 100%;
     height: 100%;
     aspect-ratio: auto;
     object-fit: cover;
   }
 
-  .smile-reel-overlay {
+  .smile-video-overlay {
     padding: 34px 8px 8px;
   }
 
-  .smile-reel-overlay h3 {
+  .smile-video-overlay h3 {
     margin-bottom: 0;
     font-size: clamp(0.72rem, 2.8vw, 0.96rem);
     line-height: 1.05;
     letter-spacing: -0.035em;
   }
 
-  .smile-reel-overlay p {
+  .smile-video-overlay p {
     display: none;
   }
 
@@ -3415,7 +3415,7 @@ a:focus-visible .read-more,
     font-size: clamp(1.55rem, 8vw, 2.28rem);
   }
 
-  .reel-row {
+  .transformation-video-row {
     grid-template-columns: repeat(5, 76vw);
     margin-inline-end: -16px;
     padding-inline-end: 16px;

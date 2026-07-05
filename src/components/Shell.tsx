@@ -19,7 +19,7 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
           </Link>
           <nav className="nav" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"}>
             <Link href={`/${locale}/services`}>{nav.services}</Link>
-            <Link href={`/${locale}/transformations`}>{nav.reels}</Link>
+            <Link href={`/${locale}/transformations`}>{nav.transformations}</Link>
             <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
             <Link href={`/${locale}/blog`}>{nav.blog}</Link>
             <Link href={`/${locale}/about`}>{nav.about}</Link>
@@ -32,7 +32,7 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
               <summary aria-label={locale === "ar" ? "فتح القائمة" : "Open menu"}>{locale === "ar" ? "القائمة" : "Menu"}</summary>
               <nav className="mobile-nav" aria-label={locale === "ar" ? "تنقل الهاتف" : "Mobile navigation"}>
                 <Link href={`/${locale}/services`}>{nav.services}</Link>
-                <Link href={`/${locale}/transformations`}>{nav.reels}</Link>
+                <Link href={`/${locale}/transformations`}>{nav.transformations}</Link>
                 <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
                 <Link href={`/${locale}/blog`}>{nav.blog}</Link>
                 <Link href={`/${locale}/about`}>{nav.about}</Link>
@@ -69,7 +69,7 @@ function Footer({ locale }: { locale: Locale }) {
           <div>
             <h4>{locale === "ar" ? "روابط" : "Explore"}</h4>
             <Link href={`/${locale}/cases`}>{dict.nav.cases}</Link>
-            <Link href={`/${locale}/transformations`}>{dict.nav.reels}</Link>
+            <Link href={`/${locale}/transformations`}>{dict.nav.transformations}</Link>
             <Link href={`/${locale}/blog`}>{dict.nav.blog}</Link>
             <Link href={`/${locale}/contact`}>{dict.nav.contact}</Link>
           </div>

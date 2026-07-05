@@ -96,7 +96,7 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
             <section className="article-cta-box">
               <p className="eyebrow">{locale === "ar" ? "استشارة خاصة" : "Private Consultation"}</p>
               <h2>{locale === "ar" ? "هل تفكر بابتسامة جديدة؟" : "Thinking about a new smile?"}</h2>
-              <p>{locale === "ar" ? "أرسل صورك عبر واتساب للحصول على توجيه أولي حول الخيارات، المدة، والخطوة التالية." : "Send your smile photos on WhatsApp for initial guidance on options, timing, and next steps."}</p>
+              <p>{locale === "ar" ? "احجز عبر واتساب لبدء استشارة خاصة تساعدك على فهم الخيارات، المدة، والخطوة التالية بثقة." : "Book on WhatsApp to start a private consultation with guidance on options, timing, and the next step."}</p>
               <a className="button pistachio" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "احجز عبر واتساب" : "Book on WhatsApp"}</a>
             </section>
 

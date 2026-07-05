@@ -27,7 +27,7 @@ export type CaseMedia = {
   title: Record<Locale, string>;
   slug: string;
   treatment: "hollywood-smile" | "zircon-veneers" | "implants" | "whitening" | "gummy-smile" | "testimonial";
-  type: "before-after" | "reel" | "testimonial";
+  type: "before-after" | "transformation-video" | "testimonial";
   videoSrc?: string;
   assetReady?: boolean;
   trimStartSeconds?: number;
@@ -72,7 +72,7 @@ export type BlogPost = {
 };
 
 export const site = {
-  whatsapp: "https://wa.me/962000000000",
+  whatsapp: "http://wa.me/962790169494",
   instagram: "https://www.instagram.com/ali_alheneiti/",
   googleReview: "https://g.page/r/CQplNDBUe0xKEAE/review",
   address: {
@@ -94,7 +94,7 @@ export const dictionary = {
     nav: {
       services: "Services",
       cases: "Cases",
-      reels: "Transformations",
+      transformations: "Transformations",
       testimonials: "Reviews",
       blog: "Blog",
       about: "About",
@@ -103,14 +103,14 @@ export const dictionary = {
     cta: "Book on WhatsApp",
     viewCases: "View Transformations",
     finalCtaTitle: "Start with a private smile consultation.",
-    finalCtaText: "Send your photos on WhatsApp and Dr. Ali's team will guide you toward the right cosmetic treatment without publishing prices online.",
-    reelsNotice: "Selected educational reels and patient moments from Dr. Ali's smile-design work."
+    finalCtaText: "Book your private WhatsApp consultation and let Dr. Ali's team guide you toward the right cosmetic treatment with clear, discreet next steps.",
+    transformationVideosNotice: "Selected educational smile transformation videos and patient moments from Dr. Ali's cosmetic dentistry work."
   },
   ar: {
     nav: {
       services: "الخدمات",
       cases: "الحالات",
-      reels: "التحولات",
+      transformations: "التحولات",
       testimonials: "التقييمات",
       blog: "المدونة",
       about: "عن الدكتور",
@@ -119,8 +119,8 @@ export const dictionary = {
     cta: "احجز عبر واتساب",
     viewCases: "شاهد التحولات",
     finalCtaTitle: "ابدئي باستشارة خاصة لابتسامتك.",
-    finalCtaText: "أرسلي صورك عبر واتساب وسيقوم فريق الدكتور علي بإرشادك للعلاج التجميلي المناسب بدون عرض الأسعار علناً.",
-    reelsNotice: "مختارات من الريلز التعليمية ولحظات المرضى من أعمال تصميم الابتسامة لدى الدكتور علي."
+    finalCtaText: "احجز استشارتك الخاصة عبر واتساب ودع فريق الدكتور علي يرشدك للخطوة التجميلية الأنسب بوضوح وخصوصية.",
+    transformationVideosNotice: "مختارات من فيديوهات تحولات الابتسامة ولحظات المرضى من أعمال تجميل الأسنان لدى الدكتور علي."
   }
 } satisfies Record<Locale, unknown>;
 
@@ -452,10 +452,10 @@ export const cases: CaseMedia[] = [
   }
 ];
 
-const providedInstagramMedia: Omit<CaseMedia, "videoSrc" | "posterSrc" | "assetReady">[] = [
-  { id: "ig-01", slug: "case-reel-cw-k2axilyg", treatment: "hollywood-smile", type: "reel", title: { en: "Perfect Veneers", ar: "فينير مثالي" }, caption: { en: "A refined veneer result with clean shape, shade harmony, and a natural smile line.", ar: "نتيجة فينير راقية بتناسق الشكل واللون وخط ابتسامة طبيعي." }, alt: { en: "Perfect veneers cosmetic dentistry reel", ar: "ريل فينير مثالي لتجميل الأسنان" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/Cw-K2axIlYg/" },
-  { id: "ig-02", slug: "trimmed-case-reel-cw-k69jobtx", treatment: "hollywood-smile", type: "reel", title: { en: "Confident Smile", ar: "ابتسامة واثقة" }, caption: { en: "A premium smile-design moment focused on confidence, balance, and natural brightness.", ar: "لحظة تصميم ابتسامة راقية تركز على الثقة والتوازن والإشراقة الطبيعية." }, alt: { en: "Confident smile design reel", ar: "ريل تصميم ابتسامة واثقة" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/Cw-K69JoBtX/" },
-  { id: "ig-03", slug: "carousel-smile-dz7xqb", treatment: "zircon-veneers", type: "reel", title: { en: "Hollywood Smile", ar: "هوليوود سمايل" }, caption: { en: "A polished smile transformation with premium facial harmony.", ar: "تحول ابتسامة مصقول بتناغم فاخر مع ملامح الوجه." }, alt: { en: "Hollywood Smile transformation reel", ar: "ريل تحول هوليوود سمايل" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DZ7XQb_CP83/?img_index=1" },
+const providedTransformationMedia: Omit<CaseMedia, "videoSrc" | "posterSrc" | "assetReady">[] = [
+  { id: "ig-01", slug: "veneers-smile-transformation-cw-k2axilyg", treatment: "hollywood-smile", type: "transformation-video", title: { en: "Perfect Veneers", ar: "فينير مثالي" }, caption: { en: "A refined veneer result with clean shape, shade harmony, and a natural smile line.", ar: "نتيجة فينير راقية بتناسق الشكل واللون وخط ابتسامة طبيعي." }, alt: { en: "Perfect veneers cosmetic dentistry transformation video", ar: "فيديو تحول فينير مثالي لتجميل الأسنان" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/Cw-K2axIlYg/" },
+  { id: "ig-02", slug: "confident-smile-transformation-cw-k69jobtx", treatment: "hollywood-smile", type: "transformation-video", title: { en: "Confident Smile", ar: "ابتسامة واثقة" }, caption: { en: "A premium smile-design moment focused on confidence, balance, and natural brightness.", ar: "لحظة تصميم ابتسامة راقية تركز على الثقة والتوازن والإشراقة الطبيعية." }, alt: { en: "Confident smile design transformation video", ar: "فيديو تصميم ابتسامة واثقة" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/Cw-K69JoBtX/" },
+  { id: "ig-03", slug: "hollywood-smile-transformation-dz7xqb", treatment: "zircon-veneers", type: "transformation-video", title: { en: "Hollywood Smile", ar: "هوليوود سمايل" }, caption: { en: "A polished smile transformation with premium facial harmony.", ar: "تحول ابتسامة مصقول بتناغم فاخر مع ملامح الوجه." }, alt: { en: "Hollywood Smile transformation video", ar: "فيديو تحول هوليوود سمايل" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DZ7XQb_CP83/?img_index=1" },
   { id: "ig-04", slug: "testimonial-dznu9", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 1", ar: "تجربة مريض 1" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DZNU9b2IT0X/" },
   { id: "ig-05", slug: "testimonial-dzcw", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 2", ar: "تجربة مريض 2" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DZCwFrdo_cD/" },
   { id: "ig-06", slug: "doctor-working-case-dyrh", treatment: "testimonial", type: "testimonial", title: { en: "Treatment and reveal", ar: "العلاج والنتيجة" }, caption: { en: "Doctor working on a case, final result, and testimonial.", ar: "الدكتور أثناء العمل على الحالة ثم النتيجة والشهادة." }, alt: { en: "Doctor working on smile case", ar: "الدكتور يعمل على حالة ابتسامة" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DYrh8kWIPIS/" },
@@ -464,29 +464,44 @@ const providedInstagramMedia: Omit<CaseMedia, "videoSrc" | "posterSrc" | "assetR
   { id: "ig-09", slug: "testimonial-dw3", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 4", ar: "تجربة مريض 4" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DW3xF3NjEnN/" },
   { id: "ig-10", slug: "testimonial-dvx", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 5", ar: "تجربة مريض 5" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DVx-uKQjH7I/" },
   { id: "ig-11", slug: "testimonial-dvmi", treatment: "testimonial", type: "testimonial", title: { en: "Patient testimonial 6", ar: "تجربة مريض 6" }, caption: { en: "Video testimonial from Instagram.", ar: "فيديو شهادة من إنستغرام." }, alt: { en: "Patient testimonial video", ar: "فيديو تجربة مريض" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DVMIhJsDKJ4/" },
-  { id: "ig-12", slug: "after-only-case-dt2", treatment: "hollywood-smile", type: "reel", title: { en: "After-only smile case", ar: "حالة نتيجة فقط" }, caption: { en: "Attractive after-only reel case.", ar: "ريل جذاب يعرض النتيجة فقط." }, alt: { en: "After only smile result reel", ar: "ريل نتيجة ابتسامة فقط" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DT2uW2xDNZK/" },
+  { id: "ig-12", slug: "after-only-smile-result-dt2", treatment: "hollywood-smile", type: "transformation-video", title: { en: "After-only smile case", ar: "حالة نتيجة فقط" }, caption: { en: "Attractive after-only smile transformation video.", ar: "فيديو جذاب يعرض نتيجة الابتسامة فقط." }, alt: { en: "After only smile result transformation video", ar: "فيديو نتيجة ابتسامة فقط" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DT2uW2xDNZK/" },
   { id: "ig-13", slug: "full-face-before-after-dtu", treatment: "zircon-veneers", type: "before-after", title: { en: "Full-face before and after", ar: "قبل وبعد مع ظهور الوجه" }, caption: { en: "Before and after carousel with full-face context.", ar: "كاروسيل قبل وبعد مع ظهور الوجه كاملاً." }, alt: { en: "Full face before and after carousel", ar: "كاروسيل قبل وبعد للوجه كامل" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DTu0d-xjFDx/?img_index=1" },
   { id: "ig-14", slug: "full-face-before-after-dua", treatment: "zircon-veneers", type: "before-after", title: { en: "Full-face before and after 2", ar: "قبل وبعد مع ظهور الوجه 2" }, caption: { en: "Second full-face before and after carousel.", ar: "كاروسيل ثانٍ قبل وبعد مع ظهور الوجه." }, alt: { en: "Second full face before and after carousel", ar: "كاروسيل ثانٍ قبل وبعد" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DUAjPT_jB8P/?img_index=1" },
   { id: "ig-15", slug: "facing-to-veneers-dog", treatment: "zircon-veneers", type: "before-after", title: { en: "Facing to veneers", ar: "من الفيسنج إلى الفينير" }, caption: { en: "Before facing, after veneers. Featured on the facing-to-veneers SEO page.", ar: "قبل فيسنج وبعد فينير. حالة أساسية لصفحة من الفيسنج إلى الفينير." }, alt: { en: "Facing to veneers before and after", ar: "قبل وبعد من الفيسنج إلى الفينير" }, isFeatured: true, sourceUrl: "https://www.instagram.com/p/DOGWCVMCGVH/?img_index=1" },
   { id: "ig-16", slug: "male-texture-case-dj1", treatment: "zircon-veneers", type: "before-after", title: { en: "Male texture detail case", ar: "حالة رجل مع تفاصيل الملمس" }, caption: { en: "Male case showing tooth texture details.", ar: "حالة رجل تظهر تفاصيل ملمس الأسنان." }, alt: { en: "Male veneer texture case", ar: "حالة فينير لرجل مع تفاصيل الملمس" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DJ1JpwvIzZD/?img_index=1" },
-  { id: "ig-17", slug: "facing-to-veneers-djuc", treatment: "zircon-veneers", type: "reel", title: { en: "Facing to veneers 2", ar: "من الفيسنج إلى الفينير 2" }, caption: { en: "Second facing-to-veneers case reel.", ar: "ريل الحالة الثانية من الفيسنج إلى الفينير." }, alt: { en: "Facing to veneers reel", ar: "ريل من الفيسنج إلى الفينير" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DJucmWnoPxG/" },
+  { id: "ig-17", slug: "facing-to-veneers-video-djuc", treatment: "zircon-veneers", type: "transformation-video", title: { en: "Facing to veneers 2", ar: "من الفيسنج إلى الفينير 2" }, caption: { en: "Second facing-to-veneers smile transformation video.", ar: "فيديو الحالة الثانية من الفيسنج إلى الفينير." }, alt: { en: "Facing to veneers transformation video", ar: "فيديو من الفيسنج إلى الفينير" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DJucmWnoPxG/" },
   { id: "ig-18", slug: "male-facing-to-veneers-dig", treatment: "zircon-veneers", type: "before-after", title: { en: "Male facing to veneers", ar: "رجل من الفيسنج إلى الفينير" }, caption: { en: "Male case moving from facing to veneers.", ar: "حالة رجل من الفيسنج إلى الفينير." }, alt: { en: "Male facing to veneers before and after", ar: "حالة رجل قبل وبعد من الفيسنج إلى الفينير" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DIgG3l4IGN_/?img_index=1" },
-  { id: "ig-19", slug: "case-reel-db3", treatment: "hollywood-smile", type: "reel", title: { en: "Soft Smile Reveal", ar: "كشف ابتسامة ناعم" }, caption: { en: "A premium smile-design reveal with natural brightness.", ar: "كشف ابتسامة راقٍ بإشراقة طبيعية." }, alt: { en: "Soft Hollywood Smile reveal reel", ar: "ريل كشف ابتسامة هوليوود ناعمة" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DB3hWNLoijl/" }
+  { id: "ig-19", slug: "soft-hollywood-smile-reveal-db3", treatment: "hollywood-smile", type: "transformation-video", title: { en: "Soft Smile Reveal", ar: "كشف ابتسامة ناعم" }, caption: { en: "A premium smile-design reveal with natural brightness.", ar: "كشف ابتسامة راقٍ بإشراقة طبيعية." }, alt: { en: "Soft Hollywood Smile reveal transformation video", ar: "فيديو كشف ابتسامة هوليوود ناعمة" }, isFeatured: false, sourceUrl: "https://www.instagram.com/p/DB3hWNLoijl/" }
 ];
 
-const downloadedVideoSlots = new Set(["01", "02", "04", "05", "06", "08", "09", "10", "11", "12", "17"]);
-const mediaSlotOverrides: Record<string, string> = {
-  "ig-01": "04",
-  "ig-02": "08",
-  "ig-03": "04"
+const transformationAssetMap: Record<string, { videoSrc?: string; posterSrc: string }> = {
+  "ig-01": { videoSrc: "/media/smile-transformation-videos/smile-design-veneers-jordan.mp4", posterSrc: "/media/video-posters/smile-design-veneers-jordan-poster.jpg" },
+  "ig-02": { videoSrc: "/media/smile-transformation-videos/confident-hollywood-smile-patient-story.mp4", posterSrc: "/media/video-posters/confident-hollywood-smile-patient-story-poster.jpg" },
+  "ig-03": { videoSrc: "/media/smile-transformation-videos/smile-design-veneers-jordan.mp4", posterSrc: "/media/video-posters/smile-design-veneers-jordan-poster.jpg" },
+  "ig-04": { videoSrc: "/media/smile-transformation-videos/smile-design-veneers-jordan.mp4", posterSrc: "/media/video-posters/smile-design-veneers-jordan-poster.jpg" },
+  "ig-05": { videoSrc: "/media/smile-transformation-videos/veneers-smile-reveal-patient-moment.mp4", posterSrc: "/media/video-posters/veneers-smile-reveal-patient-moment-poster.jpg" },
+  "ig-06": { videoSrc: "/media/smile-transformation-videos/zircon-veneers-smile-transformation-jordan.mp4", posterSrc: "/media/video-posters/dental-veneers-before-after-preview-poster.jpg" },
+  "ig-07": { posterSrc: "/media/video-posters/layered-smile-transformation-case-poster.jpg" },
+  "ig-08": { videoSrc: "/media/smile-transformation-videos/confident-hollywood-smile-patient-story.mp4", posterSrc: "/media/video-posters/confident-hollywood-smile-patient-story-poster.jpg" },
+  "ig-09": { videoSrc: "/media/smile-transformation-videos/cosmetic-dentistry-patient-testimonial.mp4", posterSrc: "/media/video-posters/cosmetic-dentistry-patient-testimonial-poster.jpg" },
+  "ig-10": { videoSrc: "/media/smile-transformation-videos/dental-veneers-patient-testimonial-jordan.mp4", posterSrc: "/media/video-posters/dental-veneers-patient-testimonial-poster.jpg" },
+  "ig-11": { videoSrc: "/media/smile-transformation-videos/smile-transformation-patient-review-jordan.mp4", posterSrc: "/media/video-posters/smile-transformation-patient-review-poster.jpg" },
+  "ig-12": { videoSrc: "/media/smile-transformation-videos/hollywood-smile-veneers-result.mp4", posterSrc: "/media/video-posters/hollywood-smile-veneers-result-poster.jpg" },
+  "ig-13": { posterSrc: "/media/video-posters/full-face-smile-before-after-poster.jpg" },
+  "ig-14": { posterSrc: "/media/video-posters/second-full-face-smile-before-after-poster.jpg" },
+  "ig-15": { posterSrc: "/media/video-posters/facing-to-veneers-before-after-poster.jpg" },
+  "ig-16": { posterSrc: "/media/video-posters/male-veneer-texture-detail-poster.jpg" },
+  "ig-17": { videoSrc: "/media/smile-transformation-videos/facing-to-veneers-smile-design-result.mp4", posterSrc: "/media/video-posters/facing-to-veneers-smile-design-result-poster.jpg" },
+  "ig-18": { posterSrc: "/media/video-posters/male-facing-to-veneers-before-after-poster.jpg" },
+  "ig-19": { posterSrc: "/media/video-posters/soft-hollywood-smile-reveal-poster.jpg" }
 };
 
-export const reels: CaseMedia[] = providedInstagramMedia.map((item, index) => {
-  const number = mediaSlotOverrides[item.id] ?? String(index + 1).padStart(2, "0");
+export const transformationMedia: CaseMedia[] = providedTransformationMedia.map((item) => {
+  const asset = transformationAssetMap[item.id];
   return {
     ...item,
-    videoSrc: downloadedVideoSlots.has(number) ? `/media/reels/reel-${number}.mp4` : undefined,
-    posterSrc: `/media/posters/reel-${number}.jpg`,
+    videoSrc: asset?.videoSrc,
+    posterSrc: asset?.posterSrc ?? "/media/video-posters/dr-ali-veneers-patient-result-poster.jpg",
     assetReady: true
   };
 });
@@ -559,7 +574,7 @@ export const blogPosts: BlogPost[] = [
     introduction: {
       en: [
         "A Hollywood Smile is not simply a bright set of teeth. In premium cosmetic dentistry, it is a planned smile makeover that studies facial proportions, lip movement, tooth display, gum balance, personality, and long-term function before choosing veneers, crowns, whitening, orthodontics, or a combination of treatments.",
-        "Patients searching for Hollywood Smile Jordan or Hollywood Smile Cost Jordan often want a clear answer before booking. The honest answer is that cost and timeline depend on tooth condition, material choice, number of teeth, bite, gum health, and the level of digital planning required. This guide explains what to expect before you send photos or schedule a consultation."
+        "Patients searching for Hollywood Smile Jordan or Hollywood Smile Cost Jordan often want a clear answer before booking. The honest answer is that cost and timeline depend on tooth condition, material choice, number of teeth, bite, gum health, and the level of digital planning required. This guide explains what to expect before booking your private WhatsApp consultation."
       ],
       ar: [
         "هوليوود سمايل ليست مجرد أسنان بيضاء. في طب التجميل الراقي هي خطة ابتسامة تدرس تناسق الوجه، حركة الشفاه، ظهور الأسنان، خط اللثة، الشخصية، والوظيفة قبل اختيار الفينير أو التيجان أو التبييض أو التقويم أو الدمج بينها.",
@@ -578,7 +593,7 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       { question: { en: "How long does a Hollywood Smile last?", ar: "كم تدوم هوليوود سمايل؟" }, answer: { en: "With good planning, oral hygiene, bite protection when needed, and regular checkups, premium ceramic veneers or crowns can last many years. Longevity depends on habits and clinical condition.", ar: "مع التخطيط الجيد والعناية وحماية العضة عند الحاجة والمتابعة المنتظمة، يمكن أن تدوم القشور أو التيجان الخزفية لسنوات طويلة حسب العادات والحالة." } },
       { question: { en: "Is a Hollywood Smile painful?", ar: "هل هوليوود سمايل مؤلمة؟" }, answer: { en: "Most steps are performed with local anesthesia when needed. Temporary sensitivity can happen, but significant pain is not expected in a well-managed case.", ar: "تتم أغلب الخطوات بتخدير موضعي عند الحاجة. قد تحدث حساسية مؤقتة لكن الألم الشديد غير متوقع في الحالة المدارة جيداً." } },
-      { question: { en: "Can I start with photos on WhatsApp?", ar: "هل يمكن البدء بالصور عبر واتساب؟" }, answer: { en: "Yes. Photos can help the clinic give initial direction, but final diagnosis, cost, and material choice require an in-person examination.", ar: "نعم، تساعد الصور في إعطاء توجيه أولي، لكن التشخيص النهائي والتكلفة واختيار المادة يحتاجون فحصاً في العيادة." } }
+      { question: { en: "Can I book my first step on WhatsApp?", ar: "هل يمكن حجز الخطوة الأولى عبر واتساب؟" }, answer: { en: "Yes. A private WhatsApp consultation helps the clinic understand your goals and guide the next step, while final diagnosis, cost, and material choice require an in-person examination.", ar: "نعم. تساعد الاستشارة الخاصة عبر واتساب العيادة على فهم هدفك وتوجيهك للخطوة التالية، بينما يحتاج التشخيص النهائي والتكلفة واختيار المادة إلى فحص في العيادة." } }
     ]
   },
   {
@@ -662,14 +677,14 @@ export const blogPosts: BlogPost[] = [
     sections: [
       { id: "why-jordan", heading: { en: "Why Choose Jordan for Dental Treatment?", ar: "لماذا تختار الأردن لعلاج الأسنان؟" }, body: { en: ["Jordan combines medical reputation, hospitality, regional accessibility, and experienced clinicians. Amman is easy to reach from many Gulf and European cities, and patients often appreciate the direct communication and personal approach.", "For cosmetic dentistry, the destination matters because patients need both technical quality and a comfortable environment for photos, trials, follow-up, and recovery."], ar: ["يجمع الأردن بين السمعة الطبية والضيافة وسهولة الوصول الإقليمي وخبرة الأطباء. عمّان قريبة من مدن خليجية وأوروبية كثيرة ويقدر المرضى التواصل المباشر والاهتمام الشخصي.", "في تجميل الأسنان، الوجهة مهمة لأن المريض يحتاج جودة تقنية وبيئة مريحة للصور والتجارب والمتابعة والتعافي."] } },
       { id: "safety-cost", heading: { en: "Safety, Costs, and Treatment Quality", ar: "السلامة والتكلفة وجودة العلاج" }, body: { en: ["Safety begins with diagnosis, sterilization standards, material selection, and honest planning. Patients should avoid choosing only by the lowest package price and should ask what is included: consultation, imaging, temporary restorations, laboratory work, final bonding, reviews, and night guard if needed.", "Costs vary by number of teeth, material, gum treatment, replacement of old work, complexity, and timeline. A photo-based estimate is useful, but the final plan requires a clinical exam."], ar: ["تبدأ السلامة بالتشخيص ومعايير التعقيم واختيار المواد والتخطيط الصادق. يجب ألا يختار المريض بناء على أقل باقة فقط، بل يسأل عما يشمله السعر: الاستشارة، الصور، المؤقتات، المختبر، التثبيت، المراجعات، والواقي الليلي عند الحاجة.", "تختلف التكلفة حسب عدد الأسنان والمادة وعلاج اللثة واستبدال العمل القديم والتعقيد والمدة. التقدير عبر الصور مفيد لكن الخطة النهائية تحتاج فحصاً سريرياً."] } },
-      { id: "planning", heading: { en: "Travel Planning, Hotels, and Visit Duration", ar: "تخطيط السفر والفنادق ومدة الزيارة" }, body: { en: ["Before booking flights, send photos, describe your goals, share medical history, and mention available dates. The clinic can then advise whether your case may fit a short trip or requires staged treatment.", "Choose accommodation with easy access to the clinic, predictable transportation, and enough rest time between visits. Airport pickup and accommodation guidance can make the first day easier, especially for international patients visiting Jordan for the first time."], ar: ["قبل حجز الطيران، أرسل الصور، اشرح أهدافك، شارك التاريخ الطبي، واذكر التواريخ المتاحة. يمكن للعيادة بعدها توجيهك إن كانت الحالة تناسب رحلة قصيرة أو تحتاج مراحل.", "اختر سكناً قريباً من العيادة مع مواصلات سهلة ووقت راحة كاف بين الزيارات. يساعد تنسيق استقبال المطار وإرشادات السكن في جعل اليوم الأول أسهل خاصة لمن يزور الأردن لأول مرة."] } },
+      { id: "planning", heading: { en: "Travel Planning, Hotels, and Visit Duration", ar: "تخطيط السفر والفنادق ومدة الزيارة" }, body: { en: ["Before booking flights, start with a private WhatsApp consultation, describe your smile goals, share medical history, and mention available dates. The clinic can then advise whether your case may fit a short trip or requires staged treatment.", "Choose accommodation with easy access to the clinic, predictable transportation, and enough rest time between visits. Airport pickup and accommodation guidance can make the first day easier, especially for international patients visiting Jordan for the first time."], ar: ["قبل حجز الطيران، ابدأ باستشارة خاصة عبر واتساب، اشرح هدف ابتسامتك، شارك التاريخ الطبي، واذكر التواريخ المتاحة. يمكن للعيادة بعدها توجيهك إن كانت الحالة تناسب رحلة قصيرة أو تحتاج مراحل.", "اختر سكناً قريباً من العيادة مع مواصلات سهلة ووقت راحة كاف بين الزيارات. يساعد تنسيق استقبال المطار وإرشادات السكن في جعل اليوم الأول أسهل خاصة لمن يزور الأردن لأول مرة."] } },
       { id: "duration-recovery", heading: { en: "Treatment Duration and Recovery", ar: "مدة العلاج والتعافي" }, body: { en: ["Veneers and Hollywood Smile treatment may involve consultation, records, preparation, temporary phase, try-in, final bonding, and review. Some patients complete care quickly; others need gum treatment, whitening, orthodontic preparation, or replacement of old restorations first.", "Recovery is usually light for cosmetic dentistry, but patients should plan for temporary sensitivity, bite adaptation, and careful eating during the temporary phase. Follow the clinic's instructions closely."], ar: ["قد يشمل الفينير وهوليوود سمايل الاستشارة والسجلات والتحضير والمرحلة المؤقتة والتجربة والتثبيت والمراجعة. بعض المرضى ينهون بسرعة، وآخرون يحتاجون علاج لثة أو تبييض أو تحضير تقويمي أو استبدال تركيبات قديمة أولاً.", "التعافي في تجميل الأسنان غالباً بسيط، لكن يجب توقع حساسية مؤقتة والتعود على العضة والحذر في الأكل خلال المؤقتات مع الالتزام بتعليمات العيادة."] } },
       { id: "attractions", heading: { en: "Local Attractions and Comfortable Recovery", ar: "المعالم المحلية والتعافي المريح" }, body: { en: ["Many patients combine treatment with quiet time in Amman, cafes, shopping, or short cultural visits when clinically appropriate. More demanding trips such as Petra or the Dead Sea should be planned around appointment timing and recovery comfort.", "Avoid overloading the schedule. A premium dental tourism experience should feel organized, not rushed."], ar: ["يجمع كثير من المرضى العلاج مع وقت هادئ في عمّان أو المقاهي أو التسوق أو زيارات ثقافية قصيرة عندما يكون ذلك مناسباً طبياً. الرحلات الأطول مثل البتراء أو البحر الميت يجب تنسيقها حول المواعيد والراحة.", "تجنب ازدحام الجدول. التجربة العلاجية الراقية يجب أن تكون منظمة وليست مستعجلة."] } },
       { id: "timeline", heading: { en: "Patient Journey Timeline", ar: "الجدول الزمني لرحلة المريض" }, body: { en: ["Step one is remote orientation: photos, goals, health information, and travel dates. Step two is clinical diagnosis in Amman. Step three is smile design and treatment planning. Step four is preparation or preliminary care. Step five is try-in, bonding, and final review.", "After returning home, keep communication open for questions and attend local hygiene visits as recommended. Long-term success depends on maintenance as much as the initial treatment."], ar: ["الخطوة الأولى هي التوجيه عن بعد: الصور والأهداف والمعلومات الصحية وتواريخ السفر. الثانية التشخيص السريري في عمّان. الثالثة تصميم الابتسامة وخطة العلاج. الرابعة التحضير أو العلاج الأولي. الخامسة التجربة والتثبيت والمراجعة.", "بعد العودة إلى بلدك، حافظ على التواصل للأسئلة والتزم بجلسات التنظيف والمتابعة حسب التوصية. النجاح طويل المدى يعتمد على الصيانة بقدر العلاج الأولي."] } }
     ],
     faqs: [
       { question: { en: "Is dental tourism in Jordan safe?", ar: "هل السياحة العلاجية للأسنان في الأردن آمنة؟" }, answer: { en: "It can be safe when you choose a qualified clinic, receive proper diagnosis, understand the treatment plan, and allow enough time for follow-up.", ar: "يمكن أن تكون آمنة عند اختيار عيادة مؤهلة والحصول على تشخيص صحيح وفهم خطة العلاج وتوفير وقت كاف للمتابعة." } },
-      { question: { en: "How long should I stay in Jordan for veneers?", ar: "كم يجب أن أبقى في الأردن للفينير؟" }, answer: { en: "The stay depends on case complexity and visit sequence. Send photos and travel dates first, then confirm timing after examination.", ar: "تعتمد مدة الإقامة على تعقيد الحالة وتسلسل الزيارات. أرسل الصور وتواريخ السفر أولاً ثم يتم تأكيد المدة بعد الفحص." } },
+      { question: { en: "How long should I stay in Jordan for veneers?", ar: "كم يجب أن أبقى في الأردن للفينير؟" }, answer: { en: "The stay depends on case complexity and visit sequence. Book a private WhatsApp consultation with your travel dates first, then confirm timing after examination.", ar: "تعتمد مدة الإقامة على تعقيد الحالة وتسلسل الزيارات. احجز استشارة خاصة عبر واتساب مع تواريخ السفر أولاً ثم يتم تأكيد المدة بعد الفحص." } },
       { question: { en: "Can I visit Petra or the Dead Sea during treatment?", ar: "هل يمكن زيارة البتراء أو البحر الميت أثناء العلاج؟" }, answer: { en: "Often yes, but plan attractions around appointments, temporary restorations, and comfort. Avoid exhausting trips immediately after longer visits.", ar: "غالباً نعم، لكن خطط الرحلات حول المواعيد والمؤقتات والراحة، وتجنب الرحلات المرهقة مباشرة بعد الجلسات الطويلة." } }
     ]
   }

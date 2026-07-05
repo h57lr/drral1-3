@@ -14,9 +14,9 @@ type TestimonialSlide = {
 
 const testimonialSlides: TestimonialSlide[] = [
   {
-    id: "testimonial-reel-04",
-    videoSrc: "/media/reels/reel-04.mp4",
-    posterSrc: "/media/posters/reel-04.jpg",
+    id: "testimonial-smile-design-veneers-jordan",
+    videoSrc: "/media/smile-transformation-videos/smile-design-veneers-jordan.mp4",
+    posterSrc: "/media/video-posters/smile-design-veneers-jordan-poster.jpg",
     title: { en: "A Smile That Feels Like You", ar: "ابتسامة تشبهك" },
     quote: {
       en: "A real patient moment showing the confidence that follows careful smile-design planning.",
@@ -25,9 +25,9 @@ const testimonialSlides: TestimonialSlide[] = [
     meta: { en: "Patient experience · Veneers", ar: "تجربة مريض · فينير" }
   },
   {
-    id: "testimonial-reel-08",
-    videoSrc: "/media/reels/reel-08.mp4",
-    posterSrc: "/media/posters/reel-08.jpg",
+    id: "testimonial-confident-hollywood-smile-patient-story",
+    videoSrc: "/media/smile-transformation-videos/confident-hollywood-smile-patient-story.mp4",
+    posterSrc: "/media/video-posters/confident-hollywood-smile-patient-story-poster.jpg",
     title: { en: "From Consultation to Confidence", ar: "من الاستشارة إلى الثقة" },
     quote: {
       en: "Every new smile I design is not just a change in appearance; it is the rewriting of an entire life story in front of my eyes. Seeing a patient’s confidence return fills my heart with unmatched joy — this is my true purpose.",
@@ -36,9 +36,9 @@ const testimonialSlides: TestimonialSlide[] = [
     meta: { en: "Smile transformation · Patient story", ar: "تحول ابتسامة · قصة مريض" }
   },
   {
-    id: "testimonial-reel-05",
-    videoSrc: "/media/reels/reel-05.mp4",
-    posterSrc: "/media/posters/reel-05.jpg",
+    id: "testimonial-veneers-smile-reveal-patient-moment",
+    videoSrc: "/media/smile-transformation-videos/veneers-smile-reveal-patient-moment.mp4",
+    posterSrc: "/media/video-posters/veneers-smile-reveal-patient-moment-poster.jpg",
     title: { en: "A New Smile Moment", ar: "لحظة ابتسامة جديدة" },
     quote: {
       en: "A warm patient moment highlighting the emotional side of a refined smile transformation.",
@@ -47,9 +47,9 @@ const testimonialSlides: TestimonialSlide[] = [
     meta: { en: "Patient moment · Smile reveal", ar: "لحظة مريض · كشف الابتسامة" }
   },
   {
-    id: "testimonial-reel-10",
-    videoSrc: "/media/reels/reel-10.mp4",
-    posterSrc: "/media/posters/reel-10.jpg",
+    id: "testimonial-dental-veneers-patient-testimonial-jordan",
+    videoSrc: "/media/smile-transformation-videos/dental-veneers-patient-testimonial-jordan.mp4",
+    posterSrc: "/media/video-posters/dental-veneers-patient-testimonial-poster.jpg",
     title: { en: "Confidence in Motion", ar: "ثقة تتحرك" },
     quote: {
       en: "A short patient testimonial that reflects the confidence patients feel after thoughtful smile design.",
@@ -58,9 +58,9 @@ const testimonialSlides: TestimonialSlide[] = [
     meta: { en: "Patient testimonial · Cosmetic dentistry", ar: "شهادة مريض · تجميل الأسنان" }
   },
   {
-    id: "testimonial-reel-11",
-    videoSrc: "/media/reels/reel-11.mp4",
-    posterSrc: "/media/posters/reel-11.jpg",
+    id: "testimonial-smile-transformation-patient-review-jordan",
+    videoSrc: "/media/smile-transformation-videos/smile-transformation-patient-review-jordan.mp4",
+    posterSrc: "/media/video-posters/smile-transformation-patient-review-poster.jpg",
     title: { en: "Trust the Transformation", ar: "ثقة في التحول" },
     quote: {
       en: "Seeing my new smile in the mirror felt like getting back a part of my spirit that had been missing for years. It was one of the happiest moments of my life.",
@@ -69,9 +69,9 @@ const testimonialSlides: TestimonialSlide[] = [
     meta: { en: "Real patient story", ar: "قصة مريض حقيقية" }
   },
   {
-    id: "testimonial-reel-04-refined",
-    videoSrc: "/media/reels/reel-04.mp4",
-    posterSrc: "/media/posters/reel-04.jpg",
+    id: "testimonial-smile-design-veneers-refined",
+    videoSrc: "/media/smile-transformation-videos/smile-design-veneers-jordan.mp4",
+    posterSrc: "/media/video-posters/smile-design-veneers-jordan-poster.jpg",
     title: { en: "Natural, Bright, Confident", ar: "طبيعية، مشرقة، واثقة" },
     quote: {
       en: "The best smile transformations look polished, personal, and comfortable in real life.",
@@ -81,7 +81,7 @@ const testimonialSlides: TestimonialSlide[] = [
   }
 ];
 
-export function TestimonialReelSlider({ locale }: { locale: Locale }) {
+export function TestimonialVideoSlider({ locale }: { locale: Locale }) {
   const [active, setActive] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
@@ -115,6 +115,7 @@ export function TestimonialReelSlider({ locale }: { locale: Locale }) {
                 ref={(node) => { videoRefs.current[index] = node; }}
                 src={slide.videoSrc}
                 poster={slide.posterSrc}
+                aria-label={`${slide.title[locale]} - ${slide.meta[locale]}`}
                 muted
                 playsInline
                 preload="metadata"

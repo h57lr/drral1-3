@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { CaseCarousel } from "@/components/CaseCarousel";
 import { HeroVideo } from "@/components/HeroVideo";
-import { TestimonialReelSlider } from "@/components/TestimonialReelSlider";
-import { blogPosts, cases, dictionary, doctorProfileHighlight, reels, reviews, services, site, type CaseMedia } from "@/lib/content";
+import { TestimonialVideoSlider } from "@/components/TestimonialVideoSlider";
+import { blogPosts, cases, dictionary, doctorProfileHighlight, reviews, services, site, transformationMedia, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
 export function Hero({ locale }: { locale: Locale }) {
@@ -27,13 +27,13 @@ export function Hero({ locale }: { locale: Locale }) {
           </div>
           <p className="cta-note">
             {locale === "ar"
-              ? "أرسل صور الابتسامة بسرية لتحصل على توجيه أولي حول الخيارات، الوقت، والخطوة التالية."
-              : "Send smile photos privately for initial guidance on options, timing, and next steps."}
+              ? "احجز عبر واتساب وابدأ استشارة خاصة تمنحك وضوحاً حول الخيارات، الوقت، والخطوة التالية."
+              : "Book on WhatsApp to start a private consultation with clear guidance on options, timing, and next steps."}
           </p>
         </div>
-        <div className="hero-media" aria-hidden="true">
+        <div className="hero-media" aria-label={locale === "ar" ? "فيديوهات نتائج ابتسامة وفينير مع الدكتور علي" : "Veneers and smile transformation result videos by Dr. Ali"}>
           <div className="hero-card">
-            <HeroVideo />
+            <HeroVideo locale={locale} />
           </div>
           <div className="hero-note">
             <strong>{locale === "ar" ? "نتائج طبيعية" : "Natural results"}</strong>
@@ -180,12 +180,12 @@ export function ServicesPreview({ locale, tight = false }: { locale: Locale; tig
   );
 }
 
-export function CaseShowcase({ locale, full = false, variant = "cases" }: { locale: Locale; full?: boolean; variant?: "cases" | "reels" }) {
-  if (variant === "reels") {
-    return <SmileReelTransformations locale={locale} />;
+export function CaseShowcase({ locale, full = false, variant = "cases" }: { locale: Locale; full?: boolean; variant?: "cases" | "transformationVideos" }) {
+  if (variant === "transformationVideos") {
+    return <SmileTransformationVideos locale={locale} />;
   }
 
-  const instagramCases = reels.filter((item) => item.type === "before-after");
+  const instagramCases = transformationMedia.filter((item) => item.type === "before-after");
   const list = full ? [...instagramCases, ...cases] : [...instagramCases.slice(0, 4), ...cases.slice(0, 1)];
   return (
     <section className="section">
@@ -204,38 +204,38 @@ export function CaseShowcase({ locale, full = false, variant = "cases" }: { loca
   );
 }
 
-const smileReelTransformations = [
+const smileTransformationVideos = [
   {
     id: "perfect-veneers",
-    videoSrc: "/media/reels/reel-02.mp4#t=1.8",
-    posterSrc: "/media/posters/reel-02.jpg",
+    videoSrc: "/media/smile-transformation-videos/natural-dental-veneers-before-after.mp4#t=1.8",
+    posterSrc: "/media/video-posters/natural-dental-veneers-before-after-poster.jpg",
     title: { en: "Perfect Veneers", ar: "فينير مثالي" },
     caption: { en: "Balanced shape, soft brightness, natural finish.", ar: "شكل متوازن، إشراقة ناعمة، ونتيجة طبيعية." },
-    alt: { en: "Perfect veneers transformation reel", ar: "ريل تحول فينير مثالي" }
+    alt: { en: "Perfect veneers smile transformation video", ar: "فيديو تحول ابتسامة فينير مثالي" }
   },
   {
     id: "hollywood-smile",
-    videoSrc: "/media/reels/reel-12.mp4",
-    posterSrc: "/media/posters/reel-12.jpg",
+    videoSrc: "/media/smile-transformation-videos/hollywood-smile-veneers-result.mp4",
+    posterSrc: "/media/video-posters/hollywood-smile-veneers-result-poster.jpg",
     title: { en: "Hollywood Smile", ar: "هوليوود سمايل" },
     caption: { en: "Premium harmony with a camera-ready finish.", ar: "تناغم فاخر ولمسة ناعمة." },
-    alt: { en: "Hollywood Smile transformation reel", ar: "ريل هوليوود سمايل" }
+    alt: { en: "Hollywood Smile veneers transformation video", ar: "فيديو تحول هوليوود سمايل وفينير" }
   },
   {
     id: "confident-smile",
-    videoSrc: "/media/reels/reel-17.mp4#t=2.5",
-    posterSrc: "/media/posters/reel-17.jpg",
+    videoSrc: "/media/smile-transformation-videos/facing-to-veneers-smile-design-result.mp4#t=2.5",
+    posterSrc: "/media/video-posters/facing-to-veneers-smile-design-result-poster.jpg",
     title: { en: "Confident Smile", ar: "ابتسامة واثقة" },
     caption: { en: "A polished result designed around the face.", ar: "نتيجة راقية مصممة حول ملامح الوجه." },
-    alt: { en: "Confident smile patient reel", ar: "ريل ابتسامة واثقة" }
+    alt: { en: "Confident patient smile transformation video", ar: "فيديو تحول ابتسامة واثقة" }
   }
 ] as const;
 
-function SmileReelTransformations({ locale }: { locale: Locale }) {
+function SmileTransformationVideos({ locale }: { locale: Locale }) {
   return (
-    <section className="section smile-reels-section">
+    <section className="section smile-videos-section">
       <div className="container">
-        <div className="smile-reels-head">
+        <div className="smile-videos-head">
           <div>
             <p className="eyebrow">{locale === "ar" ? "تحولات الابتسامة" : "Smile Transformations"}</p>
             <h2 className="section-title">
@@ -249,13 +249,13 @@ function SmileReelTransformations({ locale }: { locale: Locale }) {
           <p className="lead">
             {locale === "ar"
               ? "شاهد الحالات التالية التي توضح اللون، الشكل، وتناسق الابتسامة مع الوجه قبل اختيار مسار الاستشارة المناسب."
-              : "Watch three selected reels showing shade, shape, and facial harmony before choosing the right consultation path."}
+              : "Watch three selected smile transformation videos showing shade, shape, and facial harmony before choosing the right consultation path."}
           </p>
         </div>
 
-        <div className="smile-reel-grid" aria-label={locale === "ar" ? "ريلز تحولات الابتسامة" : "Smile transformation reels"}>
-          {smileReelTransformations.map((item) => (
-            <article className="smile-reel-card" key={item.id}>
+        <div className="smile-video-grid" aria-label={locale === "ar" ? "فيديوهات تحولات الابتسامة" : "Smile transformation videos"}>
+          {smileTransformationVideos.map((item) => (
+            <article className="smile-video-card" key={item.id}>
               <video
                 src={item.videoSrc}
                 poster={item.posterSrc}
@@ -266,14 +266,14 @@ function SmileReelTransformations({ locale }: { locale: Locale }) {
                 playsInline
                 preload="metadata"
               />
-              <div className="smile-reel-overlay">
+              <div className="smile-video-overlay">
                 <h3>{item.title[locale]}</h3>
                 <p>{item.caption[locale]}</p>
               </div>
             </article>
           ))}
         </div>
-        <p className="smile-reels-note">
+        <p className="smile-videos-note">
           {locale === "ar" ? "نتائج مرضى حقيقية. بطابع متناغم مع تصميم الابتسامة بدقة لاعطاءها بصمة فريدة وطبيعية للوجه" : "Actual patient results. Individual outcomes may vary."}
         </p>
       </div>
@@ -281,8 +281,8 @@ function SmileReelTransformations({ locale }: { locale: Locale }) {
   );
 }
 
-export function ReelsShowcase({ locale, full = false, tight = false }: { locale: Locale; full?: boolean; tight?: boolean }) {
-  const list = full ? reels : reels.slice(0, 5);
+export function TransformationVideosShowcase({ locale, full = false, tight = false }: { locale: Locale; full?: boolean; tight?: boolean }) {
+  const list = full ? transformationMedia : transformationMedia.slice(0, 5);
   return (
     <section className={`section testimonials-media-section${tight ? " testimonials-media-tight" : ""}`}>
       <div className="container">
@@ -294,11 +294,11 @@ export function ReelsShowcase({ locale, full = false, tight = false }: { locale:
         {full ? (
           <>
             <p className="scroll-hint">{locale === "ar" ? "اسحب لمشاهدة المزيد" : "Swipe to see more"}</p>
-            <div className="reel-row">
-              {list.map((item) => <ReelCard key={item.id} item={item} locale={locale} />)}
+            <div className="transformation-video-row">
+              {list.map((item) => <TransformationVideoCard key={item.id} item={item} locale={locale} />)}
             </div>
           </>
-        ) : <TestimonialReelSlider locale={locale} />}
+        ) : <TestimonialVideoSlider locale={locale} />}
       </div>
     </section>
   );
@@ -334,8 +334,8 @@ export function AboutPreview({ locale }: { locale: Locale }) {
 
 export function Process({ locale }: { locale: Locale }) {
   const steps = locale === "ar"
-    ? ["أرسل الصور بسرية", "مراجعة الحالة", "خطة وتوقيت مبدئي", "زيارة للتشخيص النهائي"]
-    : ["Send photos privately", "Case review", "Initial plan and timing", "Clinic diagnosis"];
+    ? ["احجز عبر واتساب", "مراجعة الحالة", "خطة وتوقيت مبدئي", "زيارة للتشخيص النهائي"]
+    : ["Book on WhatsApp", "Case review", "Initial plan and timing", "Clinic diagnosis"];
   return (
     <section className="section compact">
       <div className="container">
@@ -495,21 +495,21 @@ export function CaseCard({ item, locale }: { item: CaseMedia; locale: Locale }) 
   );
 }
 
-export function ReelCard({ item, locale }: { item: CaseMedia; locale: Locale }) {
+export function TransformationVideoCard({ item, locale }: { item: CaseMedia; locale: Locale }) {
   const videoSrc = item.videoSrc && item.trimStartSeconds ? `${item.videoSrc}#t=${item.trimStartSeconds}` : item.videoSrc;
   return (
-    <article className="reel-card">
-      <div className="reel-frame">
+    <article className="transformation-video-card">
+      <div className="transformation-video-frame">
         {item.assetReady && videoSrc ? (
-          <video src={videoSrc} poster={item.posterSrc} muted playsInline preload="none" controls />
+          <video src={videoSrc} poster={item.posterSrc} aria-label={item.alt[locale]} muted playsInline preload="none" controls />
         ) : item.assetReady ? (
           <img src={item.posterSrc} alt={item.alt[locale]} />
         ) : null}
-        <div className="reel-overlay">
+        <div className="transformation-video-overlay">
           <span className="pill">{item.type}</span>
           <h3>{item.title[locale]}</h3>
           <p>{item.caption[locale]}</p>
-          {item.sourceUrl ? <a className="reel-link" href={item.sourceUrl} target="_blank" rel="noopener noreferrer">Instagram</a> : null}
+          {item.sourceUrl ? <a className="transformation-video-link" href={item.sourceUrl} target="_blank" rel="noopener noreferrer">Instagram</a> : null}
         </div>
       </div>
     </article>

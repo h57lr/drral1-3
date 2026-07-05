@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BlogPreview, CaseShowcase, DoctorProfileHighlight, FinalCta, Hero, Process, ReelsShowcase, Reviews, ServicesPreview } from "@/components/Sections";
+import { BlogPreview, CaseShowcase, DoctorProfileHighlight, FinalCta, Hero, Process, Reviews, ServicesPreview, TransformationVideosShowcase } from "@/components/Sections";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -19,11 +19,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <main>
       <Hero locale={locale} />
       <DoctorProfileHighlight locale={locale} />
-      <CaseShowcase locale={locale} variant="reels" />
+      <CaseShowcase locale={locale} variant="transformationVideos" />
       <ServicesPreview locale={locale} />
       <Process locale={locale} />
       <Reviews locale={locale} />
-      <ReelsShowcase locale={locale} />
+      <TransformationVideosShowcase locale={locale} />
       <BlogPreview locale={locale} />
       <FinalCta locale={locale} />
     </main>

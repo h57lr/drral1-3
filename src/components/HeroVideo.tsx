@@ -1,41 +1,47 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { Locale } from "@/lib/i18n";
 
 const heroVideos = [
   {
-    src: "/media/reels/reel-01.mp4",
-    poster: "/media/posters/reel-01.jpg",
+    src: "/media/smile-transformation-videos/dr-ali-veneers-patient-result.mp4",
+    poster: "/media/video-posters/dr-ali-veneers-patient-result-poster.jpg",
+    label: { en: "Dr. Ali veneers patient smile result", ar: "نتيجة فينير لمريض مع الدكتور علي" },
     startAt: 0,
     duration: 4.8
   },
   {
-    src: "/media/reel-02.mp4",
-    poster: "/media/posters/reel-02.jpg",
+    src: "/media/hero-videos/hollywood-smile-veneers-result-jordan.mp4",
+    poster: "/media/video-posters/natural-dental-veneers-before-after-poster.jpg",
+    label: { en: "Hollywood smile veneers result in Jordan", ar: "نتيجة هوليوود سمايل وفينير في الأردن" },
     startAt: 7,
     duration: 2.5
   },
   {
-    src: "/media/reel-06.mp4",
-    poster: "/media/posters/reel-06.jpg",
+    src: "/media/hero-videos/dental-veneers-before-after-preview-jordan.mp4",
+    poster: "/media/video-posters/dental-veneers-before-after-preview-poster.jpg",
+    label: { en: "Dental veneers before and after preview", ar: "معاينة قبل وبعد لفينير الأسنان" },
     startAt: 7.5,
     duration: 4
   },
   {
-    src: "/media/reel-04.mp4",
-    poster: "/media/posters/reel-04.jpg",
+    src: "/media/hero-videos/smile-design-veneers-treatment-preview.mp4",
+    poster: "/media/video-posters/smile-design-veneers-jordan-poster.jpg",
+    label: { en: "Smile design veneers treatment preview", ar: "معاينة تصميم ابتسامة وفينير" },
     startAt: 7,
     duration: 2.5
   },
   {
-    src: "/media/reel-05.mp4",
-    poster: "/media/posters/reel-05.jpg",
+    src: "/media/hero-videos/natural-veneers-smile-reveal-jordan.mp4",
+    poster: "/media/video-posters/veneers-smile-reveal-patient-moment-poster.jpg",
+    label: { en: "Natural veneers smile reveal in Jordan", ar: "كشف ابتسامة فينير طبيعية في الأردن" },
     startAt: 3.5,
     duration: 4
   }
 ];
 
-export function HeroVideo() {
+export function HeroVideo({ locale }: { locale: Locale }) {
   const [active, setActive] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
@@ -80,13 +86,14 @@ export function HeroVideo() {
   }, [active]);
 
   return (
-    <div className="hero-video-slider" aria-hidden="true">
+    <div className="hero-video-slider" role="group" aria-label={locale === "ar" ? "فيديوهات تحولات ابتسامة تجميلية مع الدكتور علي" : "Cosmetic smile transformation videos by Dr. Ali"}>
       {heroVideos.map((item, index) => (
         <video
           className={`hero-video-slide${index === active ? " active" : ""}`}
           key={item.src}
           ref={(node) => { videoRefs.current[index] = node; }}
           poster={item.poster}
+          aria-label={item.label[locale]}
           muted
           playsInline
           preload="metadata"

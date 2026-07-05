@@ -16,9 +16,9 @@ const heroVideos = [
     duration: 2.5
   },
   {
-    src: "/media/reel-03.mp4",
-    poster: "/media/posters/reel-03.jpg",
-    startAt: 2.3,
+    src: "/media/reel-06.mp4",
+    poster: "/media/posters/reel-06.jpg",
+    startAt: 7.5,
     duration: 4
   },
   {

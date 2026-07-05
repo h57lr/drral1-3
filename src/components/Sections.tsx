@@ -218,7 +218,7 @@ const smileReelTransformations = [
     videoSrc: "/media/reels/reel-12.mp4",
     posterSrc: "/media/posters/reel-12.jpg",
     title: { en: "Hollywood Smile", ar: "هوليوود سمايل" },
-    caption: { en: "Premium harmony with a camera-ready finish.", ar: "تناغم فاخر ولمسة جاهزة للكاميرا." },
+    caption: { en: "Premium harmony with a camera-ready finish.", ar: "تناغم فاخر ولمسة ناعمة." },
     alt: { en: "Hollywood Smile transformation reel", ar: "ريل هوليوود سمايل" }
   },
   {
@@ -274,7 +274,7 @@ function SmileReelTransformations({ locale }: { locale: Locale }) {
           ))}
         </div>
         <p className="smile-reels-note">
-          {locale === "ar" ? "نتائج مرضى حقيقية. قد تختلف النتائج الفردية حسب كل حالة." : "Actual patient results. Individual outcomes may vary."}
+          {locale === "ar" ? "نتائج مرضى حقيقية. بطابع متناغم مع تصميم الابتسامة بدقة لاعطاءها بصمة فريدة وطبيعية للوجه" : "Actual patient results. Individual outcomes may vary."}
         </p>
       </div>
     </section>

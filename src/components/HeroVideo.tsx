@@ -36,7 +36,7 @@ const heroVideos = [
     src: "/media/hero-videos/natural-veneers-smile-reveal-jordan.mp4",
     poster: "/media/video-posters/veneers-smile-reveal-patient-moment-poster.jpg",
     label: { en: "Natural veneers smile reveal in Jordan", ar: "كشف ابتسامة فينير طبيعية في الأردن" },
-    startAt: 3.5,
+    startAt: 5,
     duration: 4
   }
 ];

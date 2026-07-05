@@ -54,6 +54,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
   const labels = getServiceLabels(locale);
   const heroMedia = getServiceHeroMedia(service.slug, locale);
   const caseMedia = getServiceCaseMedia(service.slug, locale);
+  const visibleCases = service.slug === "dental-implants-amman" ? service.cases[locale].slice(0, 1) : service.cases[locale];
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -129,20 +130,22 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      <section className="section compact">
-        <div className="container">
-          <SectionHead eyebrow={labels.processEyebrow} title={labels.processTitle} text={labels.processText} />
-          <div className="service-timeline">
-            {service.process[locale].map((step, index) => (
-              <article className="service-step-card" key={step.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </article>
-            ))}
+      {service.slug !== "teeth-whitening-amman" ? (
+        <section className="section compact">
+          <div className="container">
+            <SectionHead eyebrow={labels.processEyebrow} title={labels.processTitle} text={labels.processText} />
+            <div className="service-timeline">
+              {service.process[locale].map((step, index) => (
+                <article className="service-step-card" key={step.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="section compact service-dark-section">
         <div className="container">
@@ -159,55 +162,61 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      <section className="section compact">
-        <div className="container service-why-panel">
-          <div className="service-why-copy">
-            <p className="eyebrow">{labels.whyEyebrow}</p>
-            <h2 className="section-title">{labels.whyTitle}</h2>
-            <p className="lead">{labels.whyText}</p>
-          </div>
-          <div className="service-why-list">
-            {service.whyChoose[locale].map((item) => (
-              <article key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section compact service-journey-section">
-        <div className="container service-journey-card">
-          <p className="eyebrow">{labels.travelEyebrow}</p>
-          <h2>{labels.travelTitle}</h2>
-          <p>{labels.travelText}</p>
-        </div>
-      </section>
-
-      <section className="section compact">
-        <div className="container">
-          <SectionHead eyebrow={labels.casesEyebrow} title={labels.casesTitle} text={labels.casesText} />
-          <div className="service-case-grid">
-            {service.cases[locale].map((item, index) => {
-              const media = caseMedia[index];
-
-              return (
-                <article className="service-case-card" key={item.title}>
-                  <div className={`service-case-visual${media ? " has-carousel" : ""}`}>
-                    {media ? <ServiceCaseCarousel images={media.images} alt={media.alt} /> : null}
-                    <span className="service-case-number">{String(index + 1).padStart(2, "0")}</span>
-                  </div>
-                  <div>
+      {service.slug !== "teeth-whitening-amman" ? (
+        <>
+          <section className="section compact">
+            <div className="container service-why-panel">
+              <div className="service-why-copy">
+                <p className="eyebrow">{labels.whyEyebrow}</p>
+                <h2 className="section-title">{labels.whyTitle}</h2>
+                <p className="lead">{labels.whyText}</p>
+              </div>
+              <div className="service-why-list">
+                {service.whyChoose[locale].map((item) => (
+                  <article key={item.title}>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
-                  </div>
-                </article>
-              );
-            })}
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="section compact service-journey-section">
+            <div className="container service-journey-card">
+              <p className="eyebrow">{labels.travelEyebrow}</p>
+              <h2>{labels.travelTitle}</h2>
+              <p>{labels.travelText}</p>
+            </div>
+          </section>
+        </>
+      ) : null}
+
+      {service.slug !== "teeth-whitening-amman" ? (
+        <section className="section compact">
+          <div className="container">
+            <SectionHead eyebrow={labels.casesEyebrow} title={labels.casesTitle} text={labels.casesText} />
+            <div className={`service-case-grid${visibleCases.length === 1 ? " single" : ""}`}>
+              {visibleCases.map((item, index) => {
+                const media = caseMedia[index];
+
+                return (
+                  <article className="service-case-card" key={item.title}>
+                    <div className={`service-case-visual${media ? " has-carousel" : ""}`}>
+                      {media ? <ServiceCaseCarousel images={media.images} alt={media.alt} /> : null}
+                      {service.slug !== "dental-implants-amman" ? <span className="service-case-number">{String(index + 1).padStart(2, "0")}</span> : null}
+                    </div>
+                    <div>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="section compact service-soft-section">
         <div className="container">
@@ -320,10 +329,24 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
 }
 
 function getServiceCaseMedia(slug: string, locale: Locale) {
-  if (slug !== "dental-veneers-jordan") return [];
-
   const before = locale === "ar" ? "قبل" : "Before";
   const after = locale === "ar" ? "بعد" : "After";
+
+  if (slug === "dental-implants-amman") {
+    return [
+      {
+        alt: locale === "ar" ? "حالة زراعة سن واحد وتاج نهائي" : "Single tooth implant case and final crown",
+        images: [
+          { src: "/media/implant_case_top_1.webp", label: locale === "ar" ? "البداية" : "Initial" },
+          { src: "/media/implant_case_top_2.webp", label: locale === "ar" ? "التخطيط" : "Planning" },
+          { src: "/media/implant_case_top_2_xray.webp", label: locale === "ar" ? "الأشعة" : "X-ray" },
+          { src: "/media/implant_case_top_final.webp", label: locale === "ar" ? "النتيجة" : "Final" }
+        ]
+      }
+    ];
+  }
+
+  if (slug !== "dental-veneers-jordan") return [];
 
   return [
     {

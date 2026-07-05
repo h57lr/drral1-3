@@ -2313,6 +2313,11 @@ a:focus-visible .read-more,
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.service-case-grid.single {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+
 .service-check-card,
 .service-step-card,
 .service-benefit-card,
@@ -2468,6 +2473,10 @@ a:focus-visible .read-more,
   background:
     linear-gradient(135deg, rgba(47, 111, 106, 0.26), rgba(185, 201, 155, 0.48)),
     var(--stone);
+}
+
+.service-case-grid.single .service-case-visual {
+  min-height: 440px;
 }
 
 .service-case-visual::before,
@@ -2774,6 +2783,10 @@ a:focus-visible .read-more,
   .service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel,
   .service-hero-visual.service-media-teeth-whitening-amman .service-hero-carousel-slide {
     min-height: 354px;
+  }
+
+  .service-case-grid.single .service-case-visual {
+    min-height: 400px;
   }
 
   .service-visual-card.floating {
@@ -3257,6 +3270,10 @@ a:focus-visible .read-more,
 
   .service-case-visual {
     min-height: 180px;
+  }
+
+  .service-case-grid.single .service-case-visual {
+    min-height: 280px;
   }
 
   .service-card h3,

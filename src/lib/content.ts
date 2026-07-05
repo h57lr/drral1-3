@@ -76,8 +76,8 @@ export const site = {
   instagram: "https://www.instagram.com/ali_alheneiti/",
   googleReview: "https://g.page/r/CQplNDBUe0xKEAE/review",
   address: {
-    en: "Amman, Jordan",
-    ar: "عمان، الأردن"
+    en: "Our Location: Amman, 4th Circle, next to the French Embassy.",
+    ar: "الموقع: عمان -الدوار الرابع-بجانب السفاره الفرنسيه"
   },
   brand: {
     en: "Dr. Ali Alheneiti",

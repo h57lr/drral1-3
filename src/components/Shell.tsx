@@ -14,8 +14,8 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
       <header className="site-header">
         <div className="container header-inner">
           <Link className="brand" href={`/${locale}`} aria-label={site.brand[locale]}>
-            <strong>{site.brand[locale]}</strong>
-            <span>{site.specialty[locale]}</span>
+            <img className="brand-logo" src="/media/brand/dr-ali-alheneiti-logo.webp" alt={site.brand[locale]} />
+            <span>Cosmetic Dentistry</span>
           </Link>
           <nav className="nav" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"}>
             <Link href={`/${locale}/services`}>{nav.services}</Link>
@@ -57,7 +57,7 @@ function Footer({ locale }: { locale: Locale }) {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <h3>{site.brand[locale]}</h3>
+            <img className="footer-logo" src="/media/brand/dr-ali-alheneiti-logo.webp" alt={site.brand[locale]} />
             <p>{locale === "ar" ? "ابتسامات طبيعية مصممة بدقة وذوق جمالي راقٍ في عمان، الأردن." : "Natural smile transformations designed with precision and luxury aesthetics in Amman, Jordan."}</p>
           </div>
           <div>

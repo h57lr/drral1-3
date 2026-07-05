@@ -54,7 +54,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
   const labels = getServiceLabels(locale);
   const heroMedia = getServiceHeroMedia(service.slug, locale);
   const caseMedia = getServiceCaseMedia(service.slug, locale);
-  const hideJourneyAndCases = service.slug === "teeth-whitening-amman" || service.slug === "orthodontics-amman";
+  const hideJourneyAndCases = ["teeth-whitening-amman", "orthodontics-amman", "gummy-smile-treatment-jordan"].includes(service.slug);
   const visibleCases = service.slug === "dental-implants-amman" ? service.cases[locale].slice(0, 1) : service.cases[locale];
   const faqSchema = {
     "@context": "https://schema.org",
@@ -330,6 +330,23 @@ function getServiceHeroMedia(slug: string, locale: Locale) {
         {
           src: "/media/Transparent-Teeth-Braces_and_aligner_3.webp",
           label: locale === "ar" ? "ابتسامة مثالية" : "Perfect Smile"
+        }
+      ]
+    };
+  }
+
+  if (slug === "gummy-smile-treatment-jordan") {
+    return {
+      type: "carousel" as const,
+      alt: locale === "ar" ? "علاج الابتسامة اللثوية قبل وبعد مع الدكتور علي" : "Gummy smile treatment before and after with Dr. Ali",
+      images: [
+        {
+          src: "/media/gummy-smile-treatment-before.webp",
+          label: locale === "ar" ? "قبل" : "Before"
+        },
+        {
+          src: "/media/gummy-smile-treatment-after.webp",
+          label: locale === "ar" ? "بعد" : "After"
         }
       ]
     };

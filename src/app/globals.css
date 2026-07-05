@@ -2120,6 +2120,17 @@ a:focus-visible .read-more,
   min-height: 324px;
 }
 
+.service-hero-visual.service-media-gummy-smile-treatment-jordan {
+  justify-self: center;
+  width: min(100%, 390px);
+  min-height: 560px;
+}
+
+.service-hero-visual.service-media-gummy-smile-treatment-jordan .service-hero-carousel,
+.service-hero-visual.service-media-gummy-smile-treatment-jordan .service-hero-carousel-slide {
+  min-height: 524px;
+}
+
 .service-hero-image {
   width: 100%;
   height: auto;
@@ -2806,6 +2817,16 @@ a:focus-visible .read-more,
     min-height: 304px;
   }
 
+  .service-hero-visual.service-media-gummy-smile-treatment-jordan {
+    width: min(100%, 360px);
+    min-height: 520px;
+  }
+
+  .service-hero-visual.service-media-gummy-smile-treatment-jordan .service-hero-carousel,
+  .service-hero-visual.service-media-gummy-smile-treatment-jordan .service-hero-carousel-slide {
+    min-height: 484px;
+  }
+
   .service-case-grid.single .service-case-visual {
     min-height: 400px;
   }
@@ -3258,6 +3279,16 @@ a:focus-visible .read-more,
   .service-hero-visual.service-media-orthodontics-amman .service-hero-carousel,
   .service-hero-visual.service-media-orthodontics-amman .service-hero-carousel-slide {
     min-height: 224px;
+  }
+
+  .service-hero-visual.service-media-gummy-smile-treatment-jordan {
+    width: min(100%, 320px);
+    min-height: 460px;
+  }
+
+  .service-hero-visual.service-media-gummy-smile-treatment-jordan .service-hero-carousel,
+  .service-hero-visual.service-media-gummy-smile-treatment-jordan .service-hero-carousel-slide {
+    min-height: 424px;
   }
 
   .service-hero-carousel {

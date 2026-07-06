@@ -24,7 +24,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
       </section>
       <section className="section compact">
         <div className="container">
-          <SectionHead eyebrow={locale === "ar" ? "دليل المرضى" : "Patient Guides"} title={locale === "ar" ? "مقالات مصممة بثقة ووضوح." : "Editorial guides with clarity and confidence."} text={locale === "ar" ? "كل مقال يوضح الخيارات ويربطك بالخدمة المناسبة والخطوة التالية." : "Each guide explains treatment options and connects you to the right service and next step."} />
+          <SectionHead eyebrow={locale === "ar" ? "دليل المرضى" : "Patient Guides"} title={locale === "ar" ? "ثقة في كل معلومة، راحة في كل قرار" : "Trusted knowledge. Peaceful decisions."} text={locale === "ar" ? "كل مقال يوضح الخيارات ويربطك بالخدمة المناسبة والخطوة التالية." : "Each guide explains treatment options and connects you to the right service and next step."} />
           <div className="journal-grid listing">
             {blogPosts.map((post) => (
               <Link className="journal-card" key={post.slug} href={`/${locale}/${post.slug}`}>

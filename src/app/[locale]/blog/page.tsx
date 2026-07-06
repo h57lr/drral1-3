@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FinalCta, SectionHead } from "@/components/Sections";
-import { blogPosts } from "@/lib/content";
+import { blogPosts, getCoverImage, getReadTime } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
@@ -28,9 +28,9 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
           <div className="journal-grid listing">
             {blogPosts.map((post) => (
               <Link className="journal-card" key={post.slug} href={`/${locale}/${post.slug}`}>
-                <div className="journal-image"><img src={post.coverImage} alt={post.coverAlt[locale]} loading="lazy" /></div>
+                <div className="journal-image"><img src={getCoverImage(post, locale)} alt={post.coverAlt[locale]} loading="lazy" /></div>
                 <div className="journal-card-copy">
-                <div className="journal-meta"><span className="pill">{post.category[locale]}</span><span>{post.readTime}</span></div>
+                <div className="journal-meta"><span className="pill">{post.category[locale]}</span><span>{getReadTime(post, locale)}</span></div>
                 <h3>{post.title[locale]}</h3>
                 <p>{post.excerpt[locale]}</p>
                 <span className="read-more">{locale === "ar" ? "اقرأ المقال →" : "Read More →"}</span>

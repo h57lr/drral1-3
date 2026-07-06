@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogArticlePage } from "@/components/BlogArticlePage";
-import { blogPosts, getPost } from "@/lib/content";
+import { blogPosts, getCoverImage, getPost } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: post.seoTitle[locale],
       description: post.metaDescription[locale],
       type: "article",
-      images: [{ url: post.coverImage, alt: post.coverAlt[locale] }]
+      images: [{ url: getCoverImage(post, locale), alt: post.coverAlt[locale] }]
     } : undefined
   };
 }

@@ -1,4 +1,5 @@
 import type { Locale } from "./i18n";
+import { seoBlogPosts } from "./seoBlogPosts";
 
 export type Service = {
   slug: string;
@@ -55,24 +56,36 @@ export type BlogPost = {
   h1: Record<Locale, string>;
   excerpt: Record<Locale, string>;
   category: Record<Locale, string>;
-  readTime: string;
-  coverImage: string;
+  readTime: string | Record<Locale, string>;
+  coverImage: string | Record<Locale, string>;
   coverAlt: Record<Locale, string>;
   keywords: string[];
   lastUpdated: string;
   author: Record<Locale, { name: string; title: string; bio: string }>;
   introduction: Record<Locale, string[]>;
+  quickAnswer?: Record<Locale, string[]>;
+  ctaText?: Record<Locale, string>;
+  internalLinks?: { label: Record<Locale, string>; href: string; description: Record<Locale, string> }[];
+  suggestedImages?: { fileName: string; alt: Record<Locale, string> }[];
+  comparisonTables?: {
+    id: string;
+    afterSectionId: string;
+    title: Record<Locale, string>;
+    columns: Record<Locale, string[]>;
+    rows: { cells: Record<Locale, string[]> }[];
+  }[];
   sections: {
     id: string;
     heading: Record<Locale, string>;
     body: Record<Locale, string[]>;
+    subsections?: { heading: Record<Locale, string>; body: Record<Locale, string[]> }[];
   }[];
   faqs: { question: Record<Locale, string>; answer: Record<Locale, string> }[];
   relatedService: string;
 };
 
 export const site = {
-  whatsapp: "http://wa.me/962790169494",
+  whatsapp: "https://wa.me/962790169494",
   instagram: "https://www.instagram.com/ali_alheneiti/",
   googleReview: "https://g.page/r/CQplNDBUe0xKEAE/review",
   address: {
@@ -556,6 +569,7 @@ const editorialAuthor = {
 } satisfies BlogPost["author"];
 
 export const blogPosts: BlogPost[] = [
+  ...seoBlogPosts,
   {
     slug: "hollywood-smile-guide",
     relatedService: "dental-veneers-jordan",
@@ -723,4 +737,14 @@ export function getService(slug: string) {
 
 export function getPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
+}
+
+export function getReadTime(post: BlogPost, locale: Locale) {
+  if (typeof post.readTime !== "string") return post.readTime[locale];
+  if (locale === "ar") return post.readTime.replace("min read", "دقائق قراءة");
+  return post.readTime;
+}
+
+export function getCoverImage(post: BlogPost, locale: Locale) {
+  return typeof post.coverImage === "string" ? post.coverImage : post.coverImage[locale];
 }

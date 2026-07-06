@@ -1,11 +1,26 @@
 import Link from "next/link";
 import { FinalCta } from "@/components/Sections";
-import { blogPosts, site, type BlogPost } from "@/lib/content";
+import { blogPosts, getCoverImage, getReadTime, site, type BlogPost } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
 export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Locale }) {
   const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
   const articleUrl = `/${locale}/${post.slug}`;
+  const coverImage = getCoverImage(post, locale);
+  const localizedHref = (href: string) => href.startsWith("/services") || href === "/contact" ? `/${locale}${href}` : href;
+
+  const consultationCta = post.ctaText?.[locale] ?? (locale === "ar"
+    ? "لست متأكداً ما العلاج المناسب لحالتك؟ أرسل صور ابتسامتك عبر واتساب وسيقوم فريقنا بإرشادك."
+    : "Not sure which treatment fits your case? Send your smile photos on WhatsApp and our team will guide you.");
+
+  const ctaCard = (variant: "intro" | "cost" | "final") => (
+    <div className={`article-inline-cta ${variant === "final" ? "final" : ""}`}>
+      <p>{consultationCta}</p>
+      <a className="button pistachio" href={site.whatsapp} target="_blank" rel="noopener noreferrer">
+        {locale === "ar" ? "ابدأ عبر واتساب" : "Start on WhatsApp"}
+      </a>
+    </div>
+  );
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -27,10 +42,24 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
     ]
   };
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.h1[locale],
+    description: post.metaDescription[locale],
+    image: `https://alialheneiti.com${coverImage}`,
+    dateModified: post.lastUpdated,
+    author: { "@type": "Organization", name: post.author[locale].name },
+    publisher: { "@type": "Organization", name: site.brand[locale] },
+    mainEntityOfPage: `https://alialheneiti.com${articleUrl}`,
+    keywords: post.keywords.join(", ")
+  };
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
 
       <section className="article-hero">
         <div className="container article-hero-grid">
@@ -42,7 +71,7 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
               <span>/</span>
               <span>{post.category[locale]}</span>
             </nav>
-            <span className="pill">{post.category[locale]} · {post.readTime}</span>
+            <span className="pill">{post.category[locale]} · {getReadTime(post, locale)}</span>
             <h1 className="display">{post.h1[locale]}</h1>
             <p className="lead">{post.excerpt[locale]}</p>
             <div className="article-meta-row">
@@ -51,7 +80,7 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
             </div>
           </div>
           <div className="article-cover">
-            <img src={post.coverImage} alt={post.coverAlt[locale]} />
+            <img src={coverImage} alt={post.coverAlt[locale]} />
           </div>
         </div>
       </section>
@@ -86,10 +115,56 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
           <article className="article article-premium">
             {post.introduction[locale].map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
 
+            {ctaCard("intro")}
+
+            {post.quickAnswer && (
+              <section className="article-summary-box" aria-label={locale === "ar" ? "ملخص سريع" : "Quick answer"}>
+                <h2>{locale === "ar" ? "الخلاصة السريعة" : "Quick Answer"}</h2>
+                {post.quickAnswer[locale].map((item) => <p key={item}>{item}</p>)}
+              </section>
+            )}
+
+            {post.internalLinks && (
+              <section className="article-link-box" aria-label={locale === "ar" ? "روابط مفيدة" : "Helpful links"}>
+                <h2>{locale === "ar" ? "روابط مفيدة قبل اتخاذ القرار" : "Helpful Links Before You Decide"}</h2>
+                <div className="article-link-grid">
+                  {post.internalLinks.map((link) => (
+                    <Link className="article-link-card" href={localizedHref(link.href)} key={link.href}>
+                      <strong>{link.label[locale]}</strong>
+                      <span>{link.description[locale]}</span>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
             {post.sections.map((section) => (
               <section id={section.id} key={section.id}>
                 <h2>{section.heading[locale]}</h2>
                 {section.body[locale].map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                {section.subsections?.map((subsection) => (
+                  <div className="article-subsection" key={subsection.heading[locale]}>
+                    <h3>{subsection.heading[locale]}</h3>
+                    {subsection.body[locale].map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  </div>
+                ))}
+                {post.comparisonTables?.filter((table) => table.afterSectionId === section.id).map((table) => (
+                  <div className="article-table-card" key={table.id}>
+                    <h3>{table.title[locale]}</h3>
+                    <div className="article-table-wrap">
+                      <table>
+                        <caption>{table.title[locale]}</caption>
+                        <thead>
+                          <tr>{table.columns[locale].map((column) => <th key={column}>{column}</th>)}</tr>
+                        </thead>
+                        <tbody>
+                          {table.rows.map((row) => <tr key={row.cells[locale].join("-")}>{row.cells[locale].map((cell) => <td key={cell}>{cell}</td>)}</tr>)}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                ))}
+                {section.id.includes("cost") ? ctaCard("cost") : null}
               </section>
             ))}
 
@@ -106,7 +181,7 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
             <section className="article-cta-box">
               <p className="eyebrow">{locale === "ar" ? "استشارة خاصة" : "Private Consultation"}</p>
               <h2>{locale === "ar" ? "هل تفكر بابتسامة جديدة؟" : "Thinking about a new smile?"}</h2>
-              <p>{locale === "ar" ? "احجز عبر واتساب لبدء استشارة خاصة تساعدك على فهم الخيارات، المدة، والخطوة التالية بثقة." : "Book on WhatsApp to start a private consultation with guidance on options, timing, and the next step."}</p>
+              <p>{consultationCta}</p>
               <a className="button pistachio" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "احجز عبر واتساب" : "Book on WhatsApp"}</a>
             </section>
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CaseCarousel } from "@/components/CaseCarousel";
 import { HeroVideo } from "@/components/HeroVideo";
 import { TestimonialVideoSlider } from "@/components/TestimonialVideoSlider";
-import { blogPosts, cases, dictionary, doctorProfileHighlight, reviews, services, site, transformationMedia, type CaseMedia } from "@/lib/content";
+import { blogPosts, cases, dictionary, doctorProfileHighlight, getCoverImage, getReadTime, reviews, services, site, transformationMedia, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
 export function Hero({ locale }: { locale: Locale }) {
@@ -419,12 +419,12 @@ function JournalCard({ post, locale, reverse = false, featured = false }: { post
   return (
     <Link className={`journal-card ${reverse ? "reverse" : ""} ${featured ? "featured" : ""}`} href={`/${locale}/${post.slug}`}>
       <div className="journal-image">
-        <img src={post.coverImage} alt={post.coverAlt[locale]} loading="lazy" />
+        <img src={getCoverImage(post, locale)} alt={post.coverAlt[locale]} loading="lazy" />
       </div>
       <div className="journal-card-copy">
         <div className="journal-meta">
           <span className="pill">{post.category[locale]}</span>
-          <span>{post.readTime}</span>
+          <span>{getReadTime(post, locale)}</span>
         </div>
         <h3>{post.title[locale]}</h3>
         <p>{post.excerpt[locale]}</p>

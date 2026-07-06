@@ -1920,6 +1920,14 @@ a:focus-visible .read-more,
   letter-spacing: -0.04em;
 }
 
+.article h3 {
+  margin: 24px 0 10px;
+  color: var(--ink);
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
 .article p,
 .article li {
   color: var(--muted-ink);
@@ -1930,6 +1938,111 @@ a:focus-visible .read-more,
 .article-premium > p:first-of-type {
   color: var(--ink);
   font-size: clamp(1.12rem, 2vw, 1.34rem);
+}
+
+.article-inline-cta,
+.article-summary-box,
+.article-link-box,
+.article-table-card {
+  margin: 28px 0;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid rgba(23, 33, 31, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 250, 241, 0.82);
+  box-shadow: 0 18px 48px -40px rgba(23, 33, 31, 0.58);
+}
+
+.article-inline-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background:
+    radial-gradient(circle at 10% 0, rgba(185, 201, 155, 0.34), transparent 16rem),
+    rgba(255, 250, 241, 0.9);
+}
+
+.article-inline-cta p {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.article-summary-box h2,
+.article-link-box h2 {
+  margin-top: 0;
+}
+
+.article-summary-box p {
+  margin-bottom: 0;
+}
+
+.article-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.article-link-card {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid rgba(23, 33, 31, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.46);
+}
+
+.article-link-card strong {
+  color: var(--ink);
+  font-size: 0.96rem;
+  font-weight: 900;
+}
+
+.article-link-card span {
+  color: var(--muted-ink);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.article-table-wrap {
+  overflow-x: auto;
+}
+
+.article-table-card table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+}
+
+.article-table-card caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.article-table-card th,
+.article-table-card td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(23, 33, 31, 0.08);
+  text-align: start;
+  vertical-align: top;
+}
+
+.article-table-card th {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.article-table-card td {
+  color: var(--muted-ink);
+  font-size: 0.94rem;
+  line-height: 1.65;
 }
 
 .article-faq details {
@@ -3136,6 +3249,24 @@ a:focus-visible .read-more,
 
   .article-cover img {
     min-height: 320px;
+  }
+
+  .article h2 {
+    font-size: 1.62rem;
+    line-height: 1.12;
+  }
+
+  .article-inline-cta {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .article-inline-cta .button {
+    width: 100%;
+  }
+
+  .article-table-card table {
+    min-width: 560px;
   }
 
   .doctor-profile-panel {

@@ -1887,6 +1887,19 @@ a:focus-visible .read-more,
   line-height: 1.45;
 }
 
+.share-card a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.share-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  fill: currentColor;
+}
+
 .share-card a + a {
   margin-top: 8px;
 }

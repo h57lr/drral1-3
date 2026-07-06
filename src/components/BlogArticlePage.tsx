@@ -68,8 +68,18 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
             </div>
             <div className="share-card">
               <h2>{locale === "ar" ? "مشاركة" : "Social Share"}</h2>
-              <a href={`https://wa.me/?text=${encodeURIComponent(`https://alialheneiti.com${articleUrl}`)}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>
-              <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://alialheneiti.com${articleUrl}`)}&text=${encodeURIComponent(post.title[locale])}`} target="_blank" rel="noopener noreferrer">X / Twitter</a>
+              <a href="https://wa.me/962790169494" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <svg className="share-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M19.1 4.9A9.8 9.8 0 0 0 3.7 16.7L2.4 21.6l5-1.3a9.8 9.8 0 0 0 4.7 1.2h.1a9.8 9.8 0 0 0 6.9-16.6Zm-6.9 14.9h-.1a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3a8 8 0 1 1 6.9 3.7Zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.6.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4.1.6.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.2-.3-.2-.5-.3Z" />
+                </svg>
+                <span>WhatsApp</span>
+              </a>
+              <a href="https://www.instagram.com/ali_alheneiti" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg className="share-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M7.8 2.5h8.4c2.9 0 5.3 2.4 5.3 5.3v8.4c0 2.9-2.4 5.3-5.3 5.3H7.8c-2.9 0-5.3-2.4-5.3-5.3V7.8c0-2.9 2.4-5.3 5.3-5.3Zm0 1.8c-2 0-3.5 1.6-3.5 3.5v8.4c0 2 1.6 3.5 3.5 3.5h8.4c2 0 3.5-1.6 3.5-3.5V7.8c0-2-1.6-3.5-3.5-3.5H7.8Zm4.2 3.3a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 1.8a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Zm4.6-2.6a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1Z" />
+                </svg>
+                <span>Instagram</span>
+              </a>
             </div>
           </aside>
 

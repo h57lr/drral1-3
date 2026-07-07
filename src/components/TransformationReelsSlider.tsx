@@ -5,11 +5,13 @@ import type { Locale } from "@/lib/i18n";
 
 export type TransformationReelSlide = {
   id: string;
+  badge: Record<Locale, string>;
   title: Record<Locale, string>;
   caption: Record<Locale, string>;
   src: string;
   poster: string;
   alt: Record<Locale, string>;
+  startAtSeconds?: number;
 };
 
 const slideDuration = 8500;
@@ -31,13 +33,25 @@ export function TransformationReelsSlider({ locale, reels }: { locale: Locale; r
       if (!video) return;
 
       if (index === active) {
-        video.currentTime = 0;
-        void video.play().catch(() => undefined);
+        const startAt = reels[index]?.startAtSeconds ?? 0;
+        const playFromStartPoint = () => {
+          if (Math.abs(video.currentTime - startAt) > 0.25) {
+            video.currentTime = startAt;
+          }
+          void video.play().catch(() => undefined);
+        };
+
+        if (video.readyState >= 1) {
+          playFromStartPoint();
+        } else {
+          video.addEventListener("loadedmetadata", playFromStartPoint, { once: true });
+          video.load();
+        }
       } else {
         video.pause();
       }
     });
-  }, [active]);
+  }, [active, reels]);
 
   return (
     <div className="transformation-reels-slider" aria-roledescription="carousel" aria-label={locale === "ar" ? "فيديوهات تحولات الابتسامة" : "Smile transformation reels"}>
@@ -58,7 +72,7 @@ export function TransformationReelsSlider({ locale, reels }: { locale: Locale; r
               </video>
             </div>
             <div className="transformation-reels-copy-card">
-              <span className="pill">{locale === "ar" ? "فيديو حالة" : "Case Reel"}</span>
+              <span className="pill">{item.badge[locale]}</span>
               <h3>{item.title[locale]}</h3>
               <p>{item.caption[locale]}</p>
               <span className="transformation-reels-timing">{locale === "ar" ? "يتغير الفيديو كل ٨.٥ ثوانٍ" : "Slides every 8.5 seconds"}</span>

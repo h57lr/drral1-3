@@ -135,6 +135,7 @@ const transformationCases: TransformationCase[] = [
 const transformationReels: TransformationReelSlide[] = [
   {
     id: "smile-transformation-in-motion",
+    badge: { en: "Smile Reveal Magic", ar: "سحر إظهار الابتسامة" },
     title: { en: "Smile Transformation in Motion", ar: "تحوّل ابتسامة بالفيديو" },
     caption: { en: "A short real-case reel with a polished smile reveal.", ar: "ريل قصير لحالة حقيقية مع إظهار راقٍ للنتيجة." },
     src: "/media/transformations/reels/smile-transformation-in-motion-amman-01.mp4",
@@ -143,14 +144,17 @@ const transformationReels: TransformationReelSlide[] = [
   },
   {
     id: "natural-veneers-reel",
+    badge: { en: "Natural Confidence", ar: "ثقة طبيعية" },
     title: { en: "Natural Veneers Reel", ar: "فيديو فينير طبيعي" },
     caption: { en: "A vertical reel focused on natural shape and shade harmony.", ar: "فيديو عمودي يركّز على الشكل الطبيعي وتناسق اللون." },
     src: "/media/transformations/reels/natural-veneers-reel-jordan-02.mp4",
     poster: "/media/transformations/reels/posters/natural-veneers-reel-jordan-02-poster.jpg",
-    alt: { en: "Natural veneers smile transformation video in Jordan", ar: "فيديو تحوّل ابتسامة طبيعي بالفينير في الأردن" }
+    alt: { en: "Natural veneers smile transformation video in Jordan", ar: "فيديو تحوّل ابتسامة طبيعي بالفينير في الأردن" },
+    startAtSeconds: 5
   },
   {
     id: "hollywood-smile-video-result",
+    badge: { en: "Hollywood Glow", ar: "إشراقة هوليوود" },
     title: { en: "Hollywood Smile Result", ar: "نتيجة ابتسامة هوليوود" },
     caption: { en: "A refined result reel with a bright, camera-ready finish.", ar: "ريل نتيجة راقية بإشراقة جاهزة للكاميرا." },
     src: "/media/transformations/reels/hollywood-smile-video-result-amman-03.mp4",
@@ -159,14 +163,17 @@ const transformationReels: TransformationReelSlide[] = [
   },
   {
     id: "smile-design-reveal",
+    badge: { en: "Attractive Smile", ar: "ابتسامة جذابة" },
     title: { en: "Smile Design Reveal", ar: "إظهار تصميم الابتسامة" },
     caption: { en: "Motion-led storytelling for a balanced smile design result.", ar: "عرض بالفيديو لنتيجة تصميم ابتسامة متوازنة." },
     src: "/media/transformations/reels/smile-design-reveal-jordan-04.mp4",
     poster: "/media/transformations/reels/posters/smile-design-reveal-jordan-04-poster.jpg",
-    alt: { en: "Smile design reveal video in Jordan", ar: "فيديو إظهار تصميم الابتسامة في الأردن" }
+    alt: { en: "Smile design reveal video in Jordan", ar: "فيديو إظهار تصميم الابتسامة في الأردن" },
+    startAtSeconds: 3
   },
   {
     id: "confident-smile-transformation-reel",
+    badge: { en: "Confidence Transformation", ar: "تحوّل الثقة" },
     title: { en: "Confident Smile Moment", ar: "لحظة ابتسامة واثقة" },
     caption: { en: "A patient-focused reel that keeps the result elegant and natural.", ar: "فيديو يركّز على المريض والنتيجة بأسلوب طبيعي وأنيق." },
     src: "/media/transformations/reels/confident-smile-transformation-reel-05.mp4",
@@ -175,6 +182,7 @@ const transformationReels: TransformationReelSlide[] = [
   },
   {
     id: "dental-veneers-before-after-video",
+    badge: { en: "Veneers Glow Up", ar: "تألّق الفينير" },
     title: { en: "Veneers Before & After", ar: "فينير قبل وبعد" },
     caption: { en: "A clean vertical before-and-after video for smile transformation context.", ar: "فيديو عمودي نظيف قبل وبعد لسياق أوضح للتحوّل." },
     src: "/media/transformations/reels/dental-veneers-before-after-video-06.mp4",
@@ -183,6 +191,7 @@ const transformationReels: TransformationReelSlide[] = [
   },
   {
     id: "bright-natural-smile-video",
+    badge: { en: "Radiant Smile", ar: "ابتسامة مشرقة" },
     title: { en: "Bright Natural Smile", ar: "ابتسامة مشرقة وطبيعية" },
     caption: { en: "A soft reel showcasing brightness with a natural visual tone.", ar: "ريل ناعم يبرز الإشراقة بنبرة بصرية طبيعية." },
     src: "/media/transformations/reels/bright-natural-smile-video-amman-07.mp4",
@@ -191,6 +200,7 @@ const transformationReels: TransformationReelSlide[] = [
   },
   {
     id: "elegant-veneers-result-reel",
+    badge: { en: "Elegant Result", ar: "نتيجة أنيقة" },
     title: { en: "Elegant Veneers Result", ar: "نتيجة فينير أنيقة" },
     caption: { en: "A vertical case reel with a polished aesthetic result.", ar: "فيديو حالة عمودي بنتيجة جمالية مصقولة." },
     src: "/media/transformations/reels/elegant-veneers-result-reel-08.mp4",
@@ -319,7 +329,7 @@ export default async function TransformationsPage({ params }: { params: Promise<
         <div className="container">
           <div className="section-head transformations-reels-head">
             <div>
-              <p className="eyebrow">{locale === "ar" ? "فيديوهات قصيرة" : "Reels & Videos"}</p>
+              <p className="eyebrow">{locale === "ar" ? "نتائج تحوّل ساحرة" : "Magical Transformation Results"}</p>
               <h2 className="section-title" id="transformations-reels-title">
                 {locale === "ar" ? "تحوّلات الابتسامة بالفيديو" : "Smile Transformations in Motion"}
               </h2>

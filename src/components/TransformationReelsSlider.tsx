@@ -75,7 +75,6 @@ export function TransformationReelsSlider({ locale, reels }: { locale: Locale; r
               <span className="pill">{item.badge[locale]}</span>
               <h3>{item.title[locale]}</h3>
               <p>{item.caption[locale]}</p>
-              <span className="transformation-reels-timing">{locale === "ar" ? "يتغير الفيديو كل ٨.٥ ثوانٍ" : "Slides every 8.5 seconds"}</span>
             </div>
           </article>
         ))}

@@ -263,7 +263,7 @@ export default async function TransformationsPage({ params }: { params: Promise<
               <img src={heroPreviewCases[0].images[0]} alt={heroPreviewCases[0].alt[locale]} fetchPriority="high" />
             </div>
             <div className="hero-gallery-card secondary">
-              <img src={heroPreviewCases[1].images[0]} alt={heroPreviewCases[1].alt[locale]} loading="lazy" decoding="async" />
+              <img src={heroPreviewCases[1].images[1]} alt={heroPreviewCases[1].alt[locale]} loading="lazy" decoding="async" />
             </div>
             <div className="hero-gallery-note">
               <strong>{locale === "ar" ? "حالات حقيقية" : "Real cases"}</strong>

@@ -1826,6 +1826,21 @@ a:focus-visible .read-more,
   margin: 24px 0 0;
 }
 
+@media (min-width: 1041px) {
+  .transformations-hero-copy {
+    transform: translateY(-28px);
+  }
+
+  .transformations-hero-copy .eyebrow {
+    margin-bottom: 10px;
+  }
+
+  .transformations-hero-title.english-title {
+    font-size: clamp(3rem, 5.7vw, 6.05rem);
+    line-height: 0.9;
+  }
+}
+
 .transformations-hero-text {
   max-width: 690px;
   margin: 18px 0 28px;
@@ -2157,52 +2172,130 @@ a:focus-visible .read-more,
   color: rgba(255, 250, 241, 0.76);
 }
 
-.transformations-reels-grid {
+.transformation-reels-slider {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
-.transformation-reel-card {
+.transformation-reels-stage {
+  position: relative;
+  min-height: 690px;
   overflow: hidden;
   border: 1px solid rgba(255, 250, 241, 0.16);
-  border-radius: 28px;
-  background: rgba(8, 21, 22, 0.82);
-  box-shadow: 0 28px 70px -46px rgba(0, 0, 0, 0.9);
-  transition: transform 240ms ease, border-color 240ms ease;
+  border-radius: 42px;
+  background:
+    radial-gradient(circle at 22% 14%, rgba(185, 201, 155, 0.18), transparent 24rem),
+    linear-gradient(135deg, rgba(255, 250, 241, 0.08), rgba(8, 21, 22, 0.72));
+  box-shadow: 0 34px 90px -56px rgba(0, 0, 0, 0.92);
 }
 
-.transformation-reel-card:hover {
-  border-color: rgba(255, 250, 241, 0.34);
-  transform: translateY(-4px);
+.transformation-reels-slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.48fr) minmax(0, 0.52fr);
+  gap: clamp(24px, 5vw, 68px);
+  align-items: center;
+  padding: clamp(22px, 4vw, 58px);
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(18px);
+  transform: scale(0.96) translateY(22px);
+  transition: opacity 900ms ease, transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 900ms ease;
 }
 
-.transformation-reel-card video {
+.transformation-reels-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  filter: blur(0);
+  transform: scale(1) translateY(0);
+}
+
+.transformation-reels-video-shell {
+  position: relative;
+  width: min(100%, 360px);
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 250, 241, 0.28);
+  border-radius: 36px;
+  background: #081516;
+  box-shadow: 0 34px 82px -38px rgba(0, 0, 0, 0.9);
+}
+
+.transformation-reels-video-shell::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(8, 21, 22, 0.22));
+  content: "";
+  pointer-events: none;
+}
+
+.transformation-reels-video-shell video {
   width: 100%;
   aspect-ratio: 9 / 16;
   height: auto;
-  background: #081516;
   object-fit: cover;
 }
 
-.transformation-reel-copy {
-  padding: 16px 16px 18px;
+.transformation-reels-copy-card {
+  max-width: 560px;
 }
 
-.transformation-reel-copy h3 {
-  margin: 0 0 7px;
+.transformation-reels-copy-card h3 {
+  margin: 0 0 18px;
   font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
-  font-size: 1.2rem;
+  font-size: clamp(2.2rem, 4.8vw, 4.65rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
 }
 
-.transformation-reel-copy p {
+.transformation-reels-copy-card p {
   margin: 0;
-  color: rgba(255, 250, 241, 0.68);
-  font-size: 0.78rem;
-  line-height: 1.5;
+  color: rgba(255, 250, 241, 0.74);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.transformation-reels-timing {
+  display: inline-flex;
+  margin-top: 18px;
+  color: rgba(255, 250, 241, 0.5);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.transformation-reels-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.transformation-reels-dots button {
+  width: 44px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold) 0 50%, rgba(255, 250, 241, 0.22) 50% 100%);
+  background-position: 100% 50%;
+  background-size: 205% 100%;
+  cursor: pointer;
+  transition: transform 190ms ease, box-shadow 190ms ease, background-position 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.transformation-reels-dots button:hover,
+.transformation-reels-dots button:focus-visible {
+  background-position: 72% 50%;
+  box-shadow: 0 10px 24px -20px rgba(255, 250, 241, 0.72);
+  transform: translateY(-1px);
+}
+
+.transformation-reels-dots button.active {
+  background-position: 0% 50%;
+  transform: translateY(-1px);
 }
 
 .transformations-final-section {
@@ -3422,8 +3515,23 @@ a:focus-visible .read-more,
     aspect-ratio: 1;
   }
 
-  .transformations-reels-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .transformation-reels-stage {
+    min-height: 900px;
+  }
+
+  .transformation-reels-slide {
+    grid-template-columns: 1fr;
+    align-content: start;
+  }
+
+  .transformation-reels-video-shell {
+    width: min(100%, 330px);
+  }
+
+  .transformation-reels-copy-card {
+    max-width: 620px;
+    margin-inline: auto;
+    text-align: center;
   }
 
   .service-hero-visual {
@@ -3776,25 +3884,42 @@ a:focus-visible .read-more,
     margin: 18px 0;
   }
 
-  .transformations-reels-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+  .transformation-reels-stage {
+    min-height: clamp(760px, 178vw, 880px);
+    border-radius: 30px;
   }
 
-  .transformation-reel-card {
-    border-radius: 20px;
+  .transformation-reels-slide {
+    padding: 18px;
   }
 
-  .transformation-reel-copy {
-    padding: 12px;
+  .transformation-reels-slide.active {
+    transform: scale(1) translateY(0);
   }
 
-  .transformation-reel-copy h3 {
-    font-size: 1rem;
+  .transformation-reels-video-shell {
+    width: min(100%, 280px);
+    border-radius: 28px;
   }
 
-  .transformation-reel-copy p {
+  .transformation-reels-copy-card h3 {
+    margin-bottom: 12px;
+    font-size: clamp(1.8rem, 9.4vw, 2.72rem);
+    line-height: 1.02;
+  }
+
+  .transformation-reels-copy-card p {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .transformation-reels-timing {
     display: none;
+  }
+
+  .transformation-reels-dots button {
+    width: 30px;
+    height: 8px;
   }
 
   .transformations-final-cta {

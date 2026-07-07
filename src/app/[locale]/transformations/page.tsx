@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TransformationCaseCarousel } from "@/components/TransformationCaseCarousel";
+import { TransformationReelsSlider, type TransformationReelSlide } from "@/components/TransformationReelsSlider";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { site } from "@/lib/content";
 
@@ -12,15 +13,6 @@ type TransformationCase = {
   images: string[];
   alt: Record<Locale, string>;
   featured?: boolean;
-};
-
-type TransformationReel = {
-  id: string;
-  title: Record<Locale, string>;
-  caption: Record<Locale, string>;
-  src: string;
-  poster: string;
-  alt: Record<Locale, string>;
 };
 
 const caseImageSet = (caseNumber: number, fileBase: string, count: number) =>
@@ -140,7 +132,7 @@ const transformationCases: TransformationCase[] = [
   }
 ];
 
-const transformationReels: TransformationReel[] = [
+const transformationReels: TransformationReelSlide[] = [
   {
     id: "smile-transformation-in-motion",
     title: { en: "Smile Transformation in Motion", ar: "تحوّل ابتسامة بالفيديو" },
@@ -243,7 +235,7 @@ export default async function TransformationsPage({ params }: { params: Promise<
         <div className="container transformations-hero-grid">
           <div className="transformations-hero-copy">
             <p className="eyebrow">{locale === "ar" ? "حالات قبل وبعد" : "Transformations"}</p>
-            <h1 className="display" id="transformations-title">
+            <h1 className={`display transformations-hero-title ${locale === "en" ? "english-title" : ""}`} id="transformations-title">
               {locale === "ar" ? "حالات قبل وبعد" : "Transformations"}
             </h1>
             <p className="lead">
@@ -339,26 +331,7 @@ export default async function TransformationsPage({ params }: { params: Promise<
             </p>
           </div>
 
-          <div className="transformations-reels-grid">
-            {transformationReels.map((item) => (
-              <article className="transformation-reel-card" key={item.id}>
-                <video
-                  aria-label={item.alt[locale]}
-                  controls
-                  muted
-                  playsInline
-                  preload="none"
-                  poster={item.poster}
-                >
-                  <source src={item.src} type="video/mp4" />
-                </video>
-                <div className="transformation-reel-copy">
-                  <h3>{item.title[locale]}</h3>
-                  <p>{item.caption[locale]}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <TransformationReelsSlider locale={locale} reels={transformationReels} />
         </div>
       </section>
 

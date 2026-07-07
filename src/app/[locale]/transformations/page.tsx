@@ -92,8 +92,7 @@ const transformationCases: TransformationCase[] = [
     },
     badge: { en: "Smile Harmony", ar: "تناسق الابتسامة" },
     images: caseImageSet(6, "smile-harmony-makeover-jordan", 7),
-    alt: { en: "Dental smile design transformation by Dr. Ali Al Heneiti", ar: "تصميم ابتسامة طبيعي مع الدكتور علي الحنيطي" },
-    featured: true
+    alt: { en: "Dental smile design transformation by Dr. Ali Al Heneiti", ar: "تصميم ابتسامة طبيعي مع الدكتور علي الحنيطي" }
   },
   {
     id: "confident-smile-transformation",
@@ -236,7 +235,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function TransformationsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: raw } = await params;
   const locale = (isLocale(raw) ? raw : "en") as Locale;
-  const featuredCases = transformationCases.filter((item) => item.featured);
+  const heroPreviewCases = [transformationCases[0], transformationCases[5]];
 
   return (
     <main className="transformations-page">
@@ -269,10 +268,10 @@ export default async function TransformationsPage({ params }: { params: Promise<
 
           <div className="transformations-hero-gallery" aria-label={locale === "ar" ? "معاينة حالات تحوّل الابتسامة" : "Smile transformation case preview"}>
             <div className="hero-gallery-card primary">
-              <img src={featuredCases[0].images[0]} alt={featuredCases[0].alt[locale]} fetchPriority="high" />
+              <img src={heroPreviewCases[0].images[0]} alt={heroPreviewCases[0].alt[locale]} fetchPriority="high" />
             </div>
             <div className="hero-gallery-card secondary">
-              <img src={featuredCases[1].images[0]} alt={featuredCases[1].alt[locale]} loading="lazy" decoding="async" />
+              <img src={heroPreviewCases[1].images[0]} alt={heroPreviewCases[1].alt[locale]} loading="lazy" decoding="async" />
             </div>
             <div className="hero-gallery-note">
               <strong>{locale === "ar" ? "حالات حقيقية" : "Real cases"}</strong>

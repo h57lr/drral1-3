@@ -23,7 +23,7 @@ export function Hero({ locale }: { locale: Locale }) {
           </p>
           <div className="button-row">
             <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{dict.cta}</a>
-            <Link className="button secondary" href={`/${locale}/cases`}>{dict.viewCases}</Link>
+            <Link className="button secondary" href={`/${locale}/transformations`}>{dict.viewCases}</Link>
           </div>
           <p className="cta-note">
             {locale === "ar"

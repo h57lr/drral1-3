@@ -14,7 +14,7 @@ export function Hero({ locale }: { locale: Locale }) {
           <p className="eyebrow">{locale === "ar" ? "طب تجميل الأسنان في الأردن" : "Cosmetic Dentistry in Jordan"}</p>
           <h1 className="display">
             <span className="hero-title-main">{locale === "ar" ? "ابتسامة مصممة" : "Smile design"}</span><br />
-            <span className="script">{locale === "ar" ? <>بشكل <span className="hero-script-word">طبيعي</span></> : "with softness"}</span>
+            <span className="script">{locale === "ar" ? "بشكل طبيعي" : "with softness"}</span>
           </h1>
           <p className="lead">
             {locale === "ar"

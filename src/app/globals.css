@@ -253,6 +253,7 @@ select {
   display: grid;
   justify-items: center;
   gap: 3px;
+  text-align: center;
 }
 
 .brand-logo {
@@ -264,10 +265,16 @@ select {
 
 .brand span {
   color: var(--muted-ink);
+  direction: ltr;
+  display: block;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.13em;
+  line-height: 1.05;
+  text-align: center;
   text-transform: uppercase;
+  unicode-bidi: isolate;
+  white-space: nowrap;
 }
 
 .footer-logo {
@@ -456,12 +463,12 @@ select {
 
 [dir="rtl"] .hero-copy .display .script {
   margin-top: 0;
-  transform: translateX(-0.18em);
+  transform: none;
 }
 
 [dir="rtl"] .hero-script-word {
-  display: inline-block;
-  transform: translateX(-0.7em);
+  display: inline;
+  transform: none;
 }
 
 [dir="rtl"] .hero-title-main {

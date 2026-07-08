@@ -19,8 +19,8 @@ const testimonialSlides: TestimonialSlide[] = [
     posterSrc: "/media/video-posters/smile-design-veneers-jordan-poster.jpg",
     title: { en: "A Smile That Feels Like You", ar: "ابتسامة تشبهك" },
     quote: {
-      en: "A real patient moment showing the confidence that follows careful smile-design planning.",
-      ar: "لحظة مريض حقيقية تُظهر الثقة بعد تخطيط دقيق لتصميم الابتسامة."
+      en: "I used to hide my smile in every photo, after getting veneers, I honestly feel like myself again. My smile looks natural, clean, and gave me back so much confidence.",
+      ar: "كنت دايمًا أخبي ضحكتي بالصور. بعد الفينير حسّيت بثقة غير، ابتسامتي صارت طبيعية ومرتبة ورجّعتلي ثقتي بنفسي."
     },
     meta: { en: "Patient experience · Veneers", ar: "تجربة مريض · فينير" }
   },
@@ -30,8 +30,8 @@ const testimonialSlides: TestimonialSlide[] = [
     posterSrc: "/media/video-posters/confident-hollywood-smile-patient-story-poster.jpg",
     title: { en: "From Consultation to Confidence", ar: "من الاستشارة إلى الثقة" },
     quote: {
-      en: "Every new smile I design is not just a change in appearance; it is the rewriting of an entire life story in front of my eyes. Seeing a patient’s confidence return fills my heart with unmatched joy — this is my true purpose.",
-      ar: "كل ابتسامة جديدة أرسمها ليست مجرد تغيير في المظهر، بل هي إعادة كتابة لقصة حياة كاملة أمام عيني. لحظة رؤيتي لثقة المريض وقد عادت إليه تجعل قلبي يمتلئ بفرح لا يضاهيه فرح، فهذه هي رسالتي الحقيقية."
+      en: "For years, I never felt comfortable with my smile. After the veneers, I looked in the mirror and finally felt like my smile matched how I wanted to feel.",
+      ar: "سنين وانا مش مرتاح بابتسامتي. بعد الفينير، طلّعت بالمراية وحسيت لأول مرة إن ابتسامتي صارت تشبه الإحساس اللي كنت بدي أوصله الحمدلله وشكرا لدكتور علي من القلب"
     },
     meta: { en: "Smile transformation · Patient story", ar: "تحول ابتسامة · قصة مريض" }
   },
@@ -41,8 +41,8 @@ const testimonialSlides: TestimonialSlide[] = [
     posterSrc: "/media/video-posters/veneers-smile-reveal-patient-moment-poster.jpg",
     title: { en: "A New Smile Moment", ar: "لحظة ابتسامة جديدة" },
     quote: {
-      en: "A warm patient moment highlighting the emotional side of a refined smile transformation.",
-      ar: "لحظة مريض دافئة تبرز الجانب الإنساني والعاطفي لتحول ابتسامة راقٍ."
+      en: "I always wanted a softer, more feminine smile that felt like me. After the treatment, I started smiling more in photos and felt a quiet confidence I hadn’t felt in years.",
+      ar: "كنت دايما بدي ابتسامة انعم وانثوية وتشبهني. بعد العلاج صرت ابتسم بالصور اكثر، وحسيت بثقة هادية ما كنت حاسيتها من زمان."
     },
     meta: { en: "Patient moment · Smile reveal", ar: "لحظة مريض · كشف الابتسامة" }
   },
@@ -52,8 +52,8 @@ const testimonialSlides: TestimonialSlide[] = [
     posterSrc: "/media/video-posters/dental-veneers-patient-testimonial-poster.jpg",
     title: { en: "Confidence in Motion", ar: "ثقة تتحرك" },
     quote: {
-      en: "A short patient testimonial that reflects the confidence patients feel after thoughtful smile design.",
-      ar: "شهادة قصيرة تعكس الثقة التي يشعر بها المرضى بعد تصميم ابتسامة مدروس."
+      en: "I didn’t want a smile that looked too perfect or fake. I wanted something soft, feminine, and natural. After the treatment, I felt my whole face looked brighter, and I started smiling in photos without overthinking it. It gave me a kind of confidence that feels calm and real.",
+      ar: "ما كنت بدي ابتسامة تبين مثالية زيادة او مصطنعة. كنت بدي اشي ناعم، أنثوي، وطبيعي. بعد العلاج حسّيت وجهي كله صار افتح، وصرت أبتسم بالصور بدون ما أفكر كثير. رجعتلي ثقة هادية وحقيقية بنفسي."
     },
     meta: { en: "Patient testimonial · Cosmetic dentistry", ar: "شهادة مريض · تجميل الأسنان" }
   },
@@ -74,8 +74,8 @@ const testimonialSlides: TestimonialSlide[] = [
     posterSrc: "/media/video-posters/smile-design-veneers-jordan-poster.jpg",
     title: { en: "Natural, Bright, Confident", ar: "طبيعية، مشرقة، واثقة" },
     quote: {
-      en: "The best smile transformations look polished, personal, and comfortable in real life.",
-      ar: "أفضل تحولات الابتسامة تبدو راقية، شخصية، ومريحة في الحياة اليومية."
+      en: "I never realized how much my smile affected the way I carried myself. After the treatment, everything felt different. I became more comfortable meeting people, taking photos, and speaking without holding back. It honestly changed my daily life, and now I can’t wait for every reason to smile.",
+      ar: "ما كنت متخيل قديش ابتسامتي مأثرة على طريقتي وثقتي بنفسي. بعد العلاج حسيت كل إشي تغير. صرت أرتاح أكثر لما أقابل ناس، أتصور، وأحكي بدون ما أضل أحسبها. بصراحة غيّر حياتي اليومية، والان بستنى اي سبب عشان أبتسم."
     },
     meta: { en: "Real smile-design result", ar: "نتيجة تصميم ابتسامة حقيقية" }
   }

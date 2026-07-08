@@ -13,7 +13,7 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: st
     <main>
       <section className="section">
         <div className="container">
-          <SectionHead eyebrow="FAQ" title={locale === "ar" ? "أسئلة شائعة" : "Frequently asked questions"} text={locale === "ar" ? "إجابات مختصرة قبل التواصل عبر واتساب." : "Short answers before contacting on WhatsApp."} />
+          <SectionHead eyebrow="FAQ" title={locale === "ar" ? "أسئلة شائعة" : "Frequently asked questions"} text={locale === "ar" ? "إجابات مختصرة قبل حجز استشارتك." : "Short answers before booking your consultation."} />
           <div className="faq-list">{faqs.map((faq) => <article className="faq-item" key={faq.question}><h3>{faq.question}</h3><p>{faq.answer}</p></article>)}</div>
         </div>
       </section>

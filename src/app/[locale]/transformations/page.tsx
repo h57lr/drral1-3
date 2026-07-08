@@ -260,10 +260,10 @@ export default async function TransformationsPage({ params }: { params: Promise<
             </p>
             <div className="button-row">
               <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">
-                {locale === "ar" ? "احجز عبر واتساب" : "Book on WhatsApp"}
+                {locale === "ar" ? "احجز استشارتك" : "Book Your Consultation"}
               </a>
               <Link className="button secondary" href={`/${locale}/contact`}>
-                {locale === "ar" ? "طرق التواصل" : "Contact details"}
+                {locale === "ar" ? "تواصل مع العيادة" : "Contact the Clinic"}
               </Link>
             </div>
           </div>
@@ -353,12 +353,12 @@ export default async function TransformationsPage({ params }: { params: Promise<
           </h2>
           <p className="lead">
             {locale === "ar"
-              ? "احجز استشارتك عبر واتساب، وسيقوم الفريق بإرشادك إلى الخيارات الأنسب لحالتك."
-              : "Book a consultation on WhatsApp and our team will guide you through the best treatment options for your case."}
+              ? "احجز استشارتك وسيقوم الفريق بإرشادك إلى الخيارات الأنسب لحالتك."
+              : "Book your consultation and our team will guide you through the best treatment options for your case."}
           </p>
           <div className="button-row">
             <a className="button pistachio" href={site.whatsapp} target="_blank" rel="noopener noreferrer">
-              {locale === "ar" ? "احجز عبر واتساب" : "Book on WhatsApp"}
+              {locale === "ar" ? "احجز استشارتك" : "Book Your Consultation"}
             </a>
           </div>
         </div>

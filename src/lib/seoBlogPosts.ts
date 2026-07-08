@@ -14,8 +14,8 @@ const author = {
 } satisfies BlogPost["author"];
 
 const consultationCta = {
-  en: "Not sure which treatment fits your case? Send your smile photos on WhatsApp and our team will guide you with clear next steps.",
-  ar: "لست متأكداً ما العلاج المناسب لحالتك؟ أرسل صور ابتسامتك عبر واتساب وسيقوم فريقنا بإرشادك بخطوات واضحة."
+  en: "Not sure which treatment fits your case? Share your smile photos privately on WhatsApp and our team will guide the next step.",
+  ar: "لست متأكداً ما العلاج المناسب لحالتك؟ شارك صور ابتسامتك عبر واتساب بخصوصية وسيقوم الفريق بإرشادك للخطوة التالية."
 };
 
 export const seoBlogPosts: BlogPost[] = [
@@ -24,7 +24,7 @@ export const seoBlogPosts: BlogPost[] = [
     relatedService: "dental-veneers-jordan",
     title: { en: "Hollywood Smile in Jordan: Cost, Process, Types, and Natural Results", ar: "ابتسامة هوليود في الأردن: السعر، الخطوات، الأنواع، والنتائج الطبيعية" },
     seoTitle: { en: "Hollywood Smile in Jordan: Cost & Natural Results", ar: "ابتسامة هوليود في الأردن: السعر والنتائج الطبيعية" },
-    metaDescription: { en: "Guide to Hollywood Smile in Jordan: cost factors, veneers, whitening, implants, timeline, natural design, and WhatsApp consultation.", ar: "دليل ابتسامة هوليود في الأردن: عوامل السعر، الفينير، التبييض، الزراعة، المدة، النتيجة الطبيعية والاستشارة." },
+    metaDescription: { en: "Guide to Hollywood Smile in Jordan: cost factors, veneers, whitening, implants, timeline, natural design, and consultation planning.", ar: "دليل ابتسامة هوليود في الأردن: عوامل السعر، الفينير، التبييض، الزراعة، المدة، النتيجة الطبيعية والاستشارة." },
     h1: { en: "Hollywood Smile in Jordan: Cost, Process, Types, and Natural Results", ar: "ابتسامة هوليود في الأردن: السعر، الخطوات، الأنواع، والنتائج الطبيعية" },
     excerpt: { en: "A clear patient guide to Hollywood Smile in Jordan, including cost factors, treatment options, natural design, GCC timelines, and common mistakes to avoid.", ar: "دليل واضح لابتسامة هوليود في الأردن يشمل عوامل السعر، الخيارات العلاجية، التصميم الطبيعي، مدة مرضى الخليج، والأخطاء الشائعة." },
     category: { en: "Hollywood Smile", ar: "ابتسامة هوليود" },
@@ -42,14 +42,14 @@ export const seoBlogPosts: BlogPost[] = [
       ar: ["ابتسامة هوليود ليست باقة واحدة ثابتة، بل خطة تصميم ابتسامة قد تشمل الفينير، التبييض، التيجان، الزراعة، تعديل اللثة، التقويم أو الدمج بينها.", "يعتمد السعر في الأردن على عدد الأسنان، نوع المادة، حالة اللثة والعضة، التركيبات القديمة، التصوير، المختبر، وهل تحتاج الحالة إلى مراحل متعددة."]
     },
     ctaText: {
-      en: "Send your smile photos on WhatsApp and our team will guide you with the suitable veneer options and expected price range.",
-      ar: "أرسل صور الابتسامة عبر واتساب وسيقوم الفريق بإرشادك إلى خيارات الفينير المناسبة والتكلفة المتوقعة."
+      en: "Share your smile photos privately on WhatsApp for clear guidance on suitable options and next steps.",
+      ar: "شارك صور ابتسامتك عبر واتساب بخصوصية، وسيقوم الفريق بإرشادك إلى الخيارات المناسبة والخطوة التالية."
     },
     internalLinks: [
       { href: "/services/dental-veneers-jordan", label: { en: "Dental Veneers in Jordan", ar: "فينير الأسنان في الأردن" }, description: { en: "Natural veneer planning for smile design cases.", ar: "تخطيط فينير طبيعي لحالات تصميم الابتسامة." } },
       { href: "/services/teeth-whitening-amman", label: { en: "Teeth Whitening in Amman", ar: "تبييض الأسنان في عمّان" }, description: { en: "A conservative option when color is the main concern.", ar: "خيار محافظ عندما يكون اللون هو المشكلة الأساسية." } },
       { href: "/services/dental-implants-amman", label: { en: "Dental Implants in Amman", ar: "زراعة الأسنان في عمّان" }, description: { en: "For missing teeth inside a full smile plan.", ar: "للأسنان المفقودة ضمن خطة ابتسامة كاملة." } },
-      { href: "/contact", label: { en: "WhatsApp Consultation", ar: "استشارة واتساب" }, description: { en: "Share photos before booking your visit to Amman.", ar: "شارك صورك قبل حجز زيارتك إلى عمّان." } }
+      { href: "/contact", label: { en: "Book Your Consultation", ar: "احجز استشارتك" }, description: { en: "Share photos before booking your visit to Amman.", ar: "شارك صورك قبل حجز زيارتك إلى عمّان." } }
     ],
     suggestedImages: [
       { fileName: "hollywood-smile-jordan-natural-veneers.webp", alt: { en: "Natural Hollywood Smile veneers in Jordan", ar: "ابتسامة هوليود طبيعية بالفينير في الأردن" } },
@@ -105,8 +105,8 @@ export const seoBlogPosts: BlogPost[] = [
     author,
     quickAnswer: { en: ["Veneers can be an excellent option when natural teeth are healthy but need improvements in shape, shade, spacing, or proportions.", "Fake-looking veneers usually come from poor shade selection, bulky design, over-preparation, weak gum planning, or ignoring the bite."], ar: ["يمكن أن يكون الفينير خياراً ممتازاً عندما تكون الأسنان الطبيعية سليمة لكنها تحتاج تحسيناً في الشكل أو اللون أو الفراغات أو النسب.", "المظهر الصناعي غالباً ينتج عن اختيار لون غير مناسب، تصميم سميك، تحضير زائد، ضعف في تخطيط اللثة، أو تجاهل العضة."] },
     ctaText: {
-      en: "Send your smile photos on WhatsApp and our team will guide you with the suitable veneer options and expected price range.",
-      ar: "أرسل صور الابتسامة عبر واتساب وسيقوم الفريق بإرشادك إلى خيارات الفينير المناسبة والتكلفة المتوقعة."
+      en: "Share your smile photos privately on WhatsApp for clear guidance on suitable options and next steps.",
+      ar: "شارك صور ابتسامتك عبر واتساب بخصوصية، وسيقوم الفريق بإرشادك إلى الخيارات المناسبة والخطوة التالية."
     },
     internalLinks: [
       { href: "/services/dental-veneers-jordan", label: { en: "Dental Veneers in Jordan", ar: "فينير الأسنان في الأردن" }, description: { en: "Learn the veneer process, candidates, and FAQs.", ar: "تعرف على خطوات الفينير والمرشحين والأسئلة الشائعة." } },
@@ -198,11 +198,11 @@ export const seoBlogPosts: BlogPost[] = [
     lastUpdated: "2026-07-06",
     author,
     quickAnswer: { en: ["Dental implants replace missing teeth with an artificial root placed in the jawbone and a crown or prosthetic restoration above it.", "Pain is usually managed with local anesthesia, but recovery, timing, and cost depend on bone, gums, medical health, implant number, and restoration type."], ar: ["زراعة الأسنان تعوض الأسنان المفقودة بجذر صناعي يوضع في عظم الفك ثم تاج أو تعويض فوقه.", "يُدار الألم غالباً بالتخدير الموضعي، لكن الشفاء والمدة والتكلفة تعتمد على العظم واللثة والصحة العامة وعدد الزرعات ونوع التعويض."] },
-    ctaText: { en: "Missing a tooth or worried about implant timing? Send photos or X-rays on WhatsApp and our team will guide your next step.", ar: "لديك سن مفقود أو قلق من مدة الزراعة؟ أرسل الصور أو الأشعة عبر واتساب وسيقوم فريقنا بإرشادك للخطوة التالية." },
+    ctaText: { en: "Share your photos or X-rays on WhatsApp for clear implant guidance and next steps.", ar: "شارك الصور أو الأشعة عبر واتساب للحصول على توجيه واضح حول الزراعة والخطوة التالية." },
     internalLinks: [
       { href: "/services/dental-implants-amman", label: { en: "Dental Implants in Amman", ar: "زراعة الأسنان في عمّان" }, description: { en: "Implant assessment, process, benefits, and FAQs.", ar: "تقييم الزراعة، الخطوات، المزايا، والأسئلة." } },
       { href: "/services/dental-veneers-jordan", label: { en: "Dental Veneers in Jordan", ar: "فينير الأسنان في الأردن" }, description: { en: "For aesthetic improvement of existing teeth.", ar: "لتحسين جمال الأسنان الموجودة." } },
-      { href: "/contact", label: { en: "Book Consultation", ar: "احجز استشارة" }, description: { en: "Start with photos, X-rays, and treatment goals.", ar: "ابدأ بالصور والأشعة وهدف العلاج." } }
+      { href: "/contact", label: { en: "Book Your Consultation", ar: "احجز استشارتك" }, description: { en: "Start with photos, X-rays, and treatment goals.", ar: "ابدأ بالصور والأشعة وهدف العلاج." } }
     ],
     suggestedImages: [{ fileName: "dental-implants-amman-final-crown.webp", alt: { en: "Dental implants in Amman final crown", ar: "تاج زراعة الأسنان النهائي في عمّان" } }, { fileName: "dental-implant-xray-jordan-planning.webp", alt: { en: "Dental implant X-ray planning in Jordan", ar: "تخطيط زراعة الأسنان بالأشعة في الأردن" } }],
     comparisonTables: [{ id: "implant-alternatives", afterSectionId: "alternatives", title: { en: "Dental Implant vs Bridge vs Denture", ar: "الزراعة مقابل الجسر والطقم" }, columns: { en: ["Option", "May suit", "Important note"], ar: ["الخيار", "قد يناسب", "ملاحظة مهمة"] }, rows: [{ cells: { en: ["Implant", "Missing tooth with suitable bone and gum support", "Needs surgical planning and healing time"], ar: ["الزراعة", "سن مفقود مع عظم ولثة مناسبين", "تحتاج تخطيطاً جراحياً ووقت شفاء"] } }, { cells: { en: ["Bridge", "Missing tooth with neighboring teeth needing crowns", "May involve preparing adjacent teeth"], ar: ["الجسر", "سن مفقود مع أسنان مجاورة تحتاج تيجاناً", "قد يتطلب تحضير الأسنان المجاورة"] } }, { cells: { en: ["Denture", "Multiple missing teeth or temporary replacement", "May be removable and less stable"], ar: ["الطقم", "فقدان عدة أسنان أو تعويض مؤقت", "قد يكون متحركاً وأقل ثباتاً"] } }] }],

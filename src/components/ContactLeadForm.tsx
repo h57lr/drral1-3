@@ -30,10 +30,10 @@ const labels = {
     submit: "Submit Consultation Request",
     submitting: "Submitting...",
     helperPrefix: "Prefer a faster reply?",
-    helperLink: "WhatsApp us directly.",
+    helperLink: "WhatsApp Us",
     requiredError: "Please add your name, phone number, and treatment interest.",
     success: "Thank you. Your consultation request has been received. Dr. Ali's team will contact you soon.",
-    error: "Something went wrong. Please try again or contact us directly on WhatsApp."
+    error: "Something went wrong. Please try again or contact us on WhatsApp."
   },
   ar: {
     eyebrow: "طلب استشارة",
@@ -48,10 +48,10 @@ const labels = {
     submit: "إرسال طلب الاستشارة",
     submitting: "جارٍ الإرسال...",
     helperPrefix: "تفضّل رداً أسرع؟",
-    helperLink: "تواصل معنا مباشرة عبر واتساب.",
+    helperLink: "تواصل معنا عبر واتساب",
     requiredError: "يرجى إضافة الاسم ورقم الهاتف والعلاج المهتم به.",
     success: "شكراً لك. تم استلام طلب الاستشارة وسيتواصل معك فريق الدكتور علي قريباً.",
-    error: "حدث خطأ. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة عبر واتساب."
+    error: "حدث خطأ. يرجى المحاولة مرة أخرى أو تواصل معنا عبر واتساب."
   }
 } satisfies Record<Locale, Record<string, string>>;
 

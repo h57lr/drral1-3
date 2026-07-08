@@ -27,8 +27,8 @@ export function Hero({ locale }: { locale: Locale }) {
           </div>
           <p className="cta-note">
             {locale === "ar"
-              ? "احجز عبر واتساب وابدأ استشارة خاصة تمنحك وضوحاً حول الخيارات، الوقت، والخطوة التالية."
-              : "Book on WhatsApp to start a private consultation with clear guidance on options, timing, and next steps."}
+              ? "احجز استشارتك لتحصل على توجيه واضح حول الخيارات، الوقت، والخطوة التالية."
+              : "Book your consultation for clear guidance on options, timing, and next steps."}
           </p>
         </div>
         <div className="hero-media" aria-label={locale === "ar" ? "فيديوهات نتائج ابتسامة وفينير مع الدكتور علي" : "Veneers and smile transformation result videos by Dr. Ali"}>
@@ -334,8 +334,8 @@ export function AboutPreview({ locale }: { locale: Locale }) {
 
 export function Process({ locale }: { locale: Locale }) {
   const steps = locale === "ar"
-    ? ["احجز عبر واتساب", "مراجعة الحالة", "خطة وتوقيت مبدئي", "زيارة للتشخيص النهائي"]
-    : ["Book on WhatsApp", "Case review", "Initial plan and timing", "Clinic diagnosis"];
+    ? ["احجز استشارتك", "مراجعة الحالة", "خطة وتوقيت مبدئي", "زيارة للتشخيص النهائي"]
+    : ["Book Your Consultation", "Case review", "Initial plan and timing", "Clinic diagnosis"];
   return (
     <section className="section compact">
       <div className="container">
@@ -444,7 +444,7 @@ export function FinalCta({ locale }: { locale: Locale }) {
         <p className="lead">{dict.finalCtaText}</p>
         <div className="button-row">
           <a className="button pistachio" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{dict.cta}</a>
-          <Link className="button secondary" href={`/${locale}/contact`}>{locale === "ar" ? "طرق التواصل" : "Contact details"}</Link>
+          <Link className="button secondary" href={`/${locale}/contact`}>{locale === "ar" ? "تواصل مع العيادة" : "Contact the Clinic"}</Link>
         </div>
       </div>
     </section>

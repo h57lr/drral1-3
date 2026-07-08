@@ -10,14 +10,14 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
   const localizedHref = (href: string) => href.startsWith("/services") || href === "/contact" ? `/${locale}${href}` : href;
 
   const consultationCta = post.ctaText?.[locale] ?? (locale === "ar"
-    ? "لست متأكداً ما العلاج المناسب لحالتك؟ أرسل صور ابتسامتك عبر واتساب وسيقوم فريقنا بإرشادك."
-    : "Not sure which treatment fits your case? Send your smile photos on WhatsApp and our team will guide you.");
+    ? "لست متأكداً ما العلاج المناسب لحالتك؟ شارك صور ابتسامتك عبر واتساب بخصوصية وسيقوم الفريق بإرشادك للخطوة التالية."
+    : "Not sure which treatment fits your case? Share your smile photos privately on WhatsApp and our team will guide the next step.");
 
   const ctaCard = (variant: "intro" | "cost" | "final") => (
     <div className={`article-inline-cta ${variant === "final" ? "final" : ""}`}>
       <p>{consultationCta}</p>
       <a className="button pistachio" href={site.whatsapp} target="_blank" rel="noopener noreferrer">
-        {locale === "ar" ? "ابدأ عبر واتساب" : "Start on WhatsApp"}
+        {locale === "ar" ? "تواصل معنا عبر واتساب" : "WhatsApp Us"}
       </a>
     </div>
   );
@@ -182,7 +182,7 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
               <p className="eyebrow">{locale === "ar" ? "استشارة خاصة" : "Private Consultation"}</p>
               <h2>{locale === "ar" ? "هل تفكر بابتسامة جديدة؟" : "Thinking about a new smile?"}</h2>
               <p>{consultationCta}</p>
-              <a className="button pistachio" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "احجز عبر واتساب" : "Book on WhatsApp"}</a>
+              <a className="button pistachio" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "احجز استشارتك" : "Book Your Consultation"}</a>
             </section>
 
             <section className="author-box">

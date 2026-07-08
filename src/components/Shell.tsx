@@ -75,7 +75,7 @@ function Footer({ locale }: { locale: Locale }) {
           </div>
           <div>
             <h4>{locale === "ar" ? "تواصل" : "Contact"}</h4>
-            <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "تواصل معنا عبر واتساب" : "WhatsApp Us"}</a>
             <a href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href={site.googleReview} target="_blank" rel="noopener noreferrer">Google Reviews</a>
             <p>{site.address[locale]}</p>

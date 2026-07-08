@@ -269,10 +269,10 @@ function ServiceFinalCta({ locale }: { locale: Locale }) {
       <div className="container cta-panel service-final-cta">
         <p className="eyebrow">{locale === "ar" ? "ابدأ بخطة واضحة" : "Start with a clear plan"}</p>
         <h2 className="section-title">{locale === "ar" ? "هل أنت مستعد لتخطيط ابتسامتك مع الدكتور علي؟" : "Ready to plan your smile with Dr. Ali?"}</h2>
-        <p className="lead">{locale === "ar" ? "احجز استشارتك واحصل على توجيه واضح قبل بدء العلاج." : "Book a consultation and receive clear guidance before starting your treatment."}</p>
+        <p className="lead">{locale === "ar" ? "احجز استشارتك واحصل على توجيه واضح قبل بدء العلاج." : "Book your consultation and receive clear guidance before starting your treatment."}</p>
         <div className="button-row">
-          <Link className="button pistachio" href={`/${locale}/contact`}>{locale === "ar" ? "احجز استشارة" : "Book Consultation"}</Link>
-          <a className="button secondary" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "احجز عبر واتساب" : "Book on WhatsApp"}</a>
+          <Link className="button pistachio" href={`/${locale}/contact`}>{locale === "ar" ? "احجز استشارتك" : "Book Your Consultation"}</Link>
+          <a className="button secondary" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "تواصل معنا عبر واتساب" : "WhatsApp Us"}</a>
         </div>
       </div>
     </section>
@@ -429,8 +429,8 @@ function ServiceIcon({ name }: { name: string }) {
 
 function getServiceLabels(locale: Locale) {
   return locale === "ar" ? {
-    book: "احجز استشارة",
-    whatsapp: "احجز عبر واتساب",
+    book: "احجز استشارتك",
+    whatsapp: "تواصل معنا عبر واتساب",
     trustAria: "مؤشرات الثقة",
     introduction: "شرح العلاج",
     candidatesEyebrow: "لمن يناسب؟",
@@ -458,8 +458,8 @@ function getServiceLabels(locale: Locale) {
     relatedTitle: "خيارات أخرى قد تكمل خطة ابتسامتك.",
     relatedText: "روابط داخلية تساعدك على فهم الصورة الكاملة قبل الحجز."
   } : {
-    book: "Book Consultation",
-    whatsapp: "Book on WhatsApp",
+    book: "Book Your Consultation",
+    whatsapp: "WhatsApp Us",
     trustAria: "Trust markers",
     introduction: "Treatment Introduction",
     candidatesEyebrow: "Who is it for?",

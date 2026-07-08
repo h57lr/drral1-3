@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ContactLeadForm } from "@/components/ContactLeadForm";
 import { FinalCta } from "@/components/Sections";
 import { site } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -18,6 +19,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <div className="button-row"><a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "احجز عبر واتساب" : "Book on WhatsApp"}</a><a className="button secondary" href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></div>
         </div>
       </section>
+      <ContactLeadForm locale={locale} />
       <FinalCta locale={locale} />
     </main>
   );

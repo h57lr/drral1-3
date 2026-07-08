@@ -28,3 +28,4 @@ Thumbs.db
 # Local tool output
 *.tsbuildinfo
 public/media/browser-downloads/
+.vercel

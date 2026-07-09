@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LocaleClientEffects } from "@/components/LocaleClientEffects";
 import { LocaleSwitch } from "@/components/LocaleSwitch";
+import { ScrollTextReveal } from "@/components/ScrollTextReveal";
 import { dictionary, services, site } from "@/lib/content";
 import { getDirection, type Locale } from "@/lib/i18n";
 
@@ -11,6 +12,7 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
   return (
     <div className="site-shell" dir={getDirection(locale)}>
       <LocaleClientEffects locale={locale} />
+      <ScrollTextReveal />
       <header className="site-header">
         <div className="container header-inner">
           <Link className="brand" href={`/${locale}`} aria-label={site.brand[locale]}>

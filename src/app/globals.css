@@ -1447,11 +1447,25 @@ html.text-reveal-ready [data-text-reveal].is-text-revealed {
   pointer-events: none;
 }
 
+.testimonial-video-poster,
 .testimonial-video-shell video {
+  display: block;
   width: 100%;
   aspect-ratio: 9 / 16;
   height: auto;
   object-fit: cover;
+}
+
+.testimonial-video-shell video {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 360ms ease;
+}
+
+.testimonial-video-shell video.is-ready {
+  opacity: 1;
 }
 
 .testimonial-copy-card {

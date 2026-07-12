@@ -85,6 +85,7 @@ export function TestimonialVideoSlider({ locale }: { locale: Locale }) {
   const [active, setActive] = useState(0);
   const [isInView, setIsInView] = useState(false);
   const [loadedIndexes, setLoadedIndexes] = useState<Set<number>>(() => new Set([0]));
+  const [readyVideoIndexes, setReadyVideoIndexes] = useState<Set<number>>(() => new Set());
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
@@ -128,6 +129,12 @@ export function TestimonialVideoSlider({ locale }: { locale: Locale }) {
   useEffect(() => {
     if (isInView) {
       setLoadedIndexes((current) => current.has(active) ? current : new Set(current).add(active));
+      setReadyVideoIndexes((current) => {
+        if (!current.has(active)) return current;
+        const next = new Set(current);
+        next.delete(active);
+        return next;
+      });
     }
 
     videoRefs.current.forEach((video, index) => {
@@ -156,15 +163,19 @@ export function TestimonialVideoSlider({ locale }: { locale: Locale }) {
         {testimonialSlides.map((slide, index) => (
           <article className={`testimonial-slide ${index === active ? "active" : ""}`} key={slide.id} aria-hidden={index !== active}>
             <div className="testimonial-video-shell">
+              <img className="testimonial-video-poster" src={slide.posterSrc} alt="" aria-hidden="true" decoding="async" loading="lazy" />
               <video
                 ref={(node) => { videoRefs.current[index] = node; }}
-                poster={slide.posterSrc}
+                className={readyVideoIndexes.has(index) && index === active && isInView ? "is-ready" : ""}
                 aria-label={`${slide.title[locale]} - ${slide.meta[locale]}`}
                 autoPlay={index === active && isInView}
                 muted
                 playsInline
                 preload={index === active && isInView ? "metadata" : "none"}
                 loop
+                onPlaying={() => {
+                  setReadyVideoIndexes((current) => current.has(index) ? current : new Set(current).add(index));
+                }}
               >
                 {isInView && (index === active || loadedIndexes.has(index)) ? <source src={slide.videoSrc} type="video/mp4" /> : null}
               </video>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CaseCarousel } from "@/components/CaseCarousel";
 import { HeroVideo } from "@/components/HeroVideo";
+import { LazyAutoplayVideo } from "@/components/LazyAutoplayVideo";
 import { TestimonialVideoSlider } from "@/components/TestimonialVideoSlider";
 import { blogPosts, cases, dictionary, doctorProfileHighlight, getCoverImage, getReadTime, reviews, services, site, transformationMedia, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
@@ -256,16 +257,7 @@ function SmileTransformationVideos({ locale }: { locale: Locale }) {
         <div className="smile-video-grid" aria-label={locale === "ar" ? "فيديوهات تحولات الابتسامة" : "Smile transformation videos"}>
           {smileTransformationVideos.map((item) => (
             <article className="smile-video-card" key={item.id}>
-              <video
-                src={item.videoSrc}
-                poster={item.posterSrc}
-                aria-label={item.alt[locale]}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-              />
+              <LazyAutoplayVideo src={item.videoSrc} poster={item.posterSrc} ariaLabel={item.alt[locale]} />
               <div className="smile-video-overlay">
                 <h3>{item.title[locale]}</h3>
                 <p>{item.caption[locale]}</p>

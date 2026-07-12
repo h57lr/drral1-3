@@ -18,21 +18,57 @@ const slideDuration = 8500;
 
 export function TransformationReelsSlider({ locale, reels }: { locale: Locale; reels: TransformationReelSlide[] }) {
   const [active, setActive] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const [loadedIndexes, setLoadedIndexes] = useState<Set<number>>(() => new Set([0]));
+  const sliderRef = useRef<HTMLDivElement | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
+    const slider = sliderRef.current;
+
+    if (!slider) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(Boolean(entry?.isIntersecting));
+      },
+      {
+        rootMargin: "360px 0px",
+        threshold: 0.01
+      }
+    );
+
+    observer.observe(slider);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) return;
+
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % reels.length);
     }, slideDuration);
 
     return () => window.clearInterval(timer);
-  }, [reels.length]);
+  }, [isInView, reels.length]);
 
   useEffect(() => {
+    if (isInView) {
+      setLoadedIndexes((current) => current.has(active) ? current : new Set(current).add(active));
+    }
+
     videoRefs.current.forEach((video, index) => {
       if (!video) return;
 
-      if (index === active) {
+      if (index === active && isInView) {
         const startAt = reels[index]?.startAtSeconds ?? 0;
         const playFromStartPoint = () => {
           if (Math.abs(video.currentTime - startAt) > 0.25) {
@@ -51,10 +87,10 @@ export function TransformationReelsSlider({ locale, reels }: { locale: Locale; r
         video.pause();
       }
     });
-  }, [active, reels]);
+  }, [active, isInView, reels]);
 
   return (
-    <div className="transformation-reels-slider" aria-roledescription="carousel" aria-label={locale === "ar" ? "فيديوهات تحولات الابتسامة" : "Smile transformation reels"}>
+    <div ref={sliderRef} className="transformation-reels-slider" aria-roledescription="carousel" aria-label={locale === "ar" ? "فيديوهات تحولات الابتسامة" : "Smile transformation reels"}>
       <div className="transformation-reels-stage">
         {reels.map((item, index) => (
           <article className={`transformation-reels-slide ${index === active ? "active" : ""}`} key={item.id} aria-hidden={index !== active}>
@@ -64,11 +100,11 @@ export function TransformationReelsSlider({ locale, reels }: { locale: Locale; r
                 aria-label={item.alt[locale]}
                 muted
                 playsInline
-                preload={index === active ? "metadata" : "none"}
+                preload={index === active && isInView ? "metadata" : "none"}
                 poster={item.poster}
                 loop
               >
-                <source src={item.src} type="video/mp4" />
+                {isInView && (index === active || loadedIndexes.has(index)) ? <source src={item.src} type="video/mp4" /> : null}
               </video>
             </div>
             <div className="transformation-reels-copy-card">

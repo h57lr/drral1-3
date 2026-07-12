@@ -4121,7 +4121,7 @@ a:focus-visible .read-more,
   }
 
   .testimonial-stage {
-    min-height: clamp(720px, 176vw, 840px);
+    min-height: clamp(880px, 220vw, 1040px);
     border-radius: 30px;
   }
 
@@ -4129,6 +4129,10 @@ a:focus-visible .read-more,
     position: absolute;
     inset: 0;
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+    gap: clamp(24px, 7vw, 38px);
     align-content: start;
     padding: 18px;
   }
@@ -4143,8 +4147,12 @@ a:focus-visible .read-more,
   }
 
   .testimonial-copy-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
     max-width: none;
-    padding: 0 2px 8px;
+    margin-top: 4px;
+    padding: 0 2px 12px;
     text-align: start;
   }
 

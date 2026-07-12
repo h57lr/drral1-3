@@ -43,9 +43,12 @@ const heroVideos = [
 
 export function HeroVideo({ locale }: { locale: Locale }) {
   const [active, setActive] = useState(0);
+  const [loadedIndexes, setLoadedIndexes] = useState<Set<number>>(() => new Set([0]));
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
+    setLoadedIndexes((current) => current.has(active) ? current : new Set(current).add(active));
+
     const currentVideo = heroVideos[active];
     const video = videoRefs.current[active];
     let metadataHandler: (() => void) | null = null;
@@ -96,10 +99,10 @@ export function HeroVideo({ locale }: { locale: Locale }) {
           aria-label={item.label[locale]}
           muted
           playsInline
-          preload="metadata"
+          preload={index === active ? "metadata" : "none"}
           onEnded={() => setActive((current) => (current + 1) % heroVideos.length)}
         >
-          <source src={item.src} type="video/mp4" />
+          {index === active || loadedIndexes.has(index) ? <source src={item.src} type="video/mp4" /> : null}
         </video>
       ))}
     </div>

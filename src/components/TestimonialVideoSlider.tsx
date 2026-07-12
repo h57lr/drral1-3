@@ -83,44 +83,90 @@ const testimonialSlides: TestimonialSlide[] = [
 
 export function TestimonialVideoSlider({ locale }: { locale: Locale }) {
   const [active, setActive] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const [loadedIndexes, setLoadedIndexes] = useState<Set<number>>(() => new Set([0]));
+  const sliderRef = useRef<HTMLDivElement | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
+    const slider = sliderRef.current;
+
+    if (!slider) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(Boolean(entry?.isIntersecting));
+      },
+      {
+        rootMargin: "360px 0px",
+        threshold: 0.01
+      }
+    );
+
+    observer.observe(slider);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) return;
+
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % testimonialSlides.length);
     }, 5000);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [isInView]);
 
   useEffect(() => {
+    if (isInView) {
+      setLoadedIndexes((current) => current.has(active) ? current : new Set(current).add(active));
+    }
+
     videoRefs.current.forEach((video, index) => {
       if (!video) return;
-      if (index === active) {
-        video.currentTime = 0;
-        void video.play().catch(() => undefined);
+      if (index === active && isInView) {
+        const playFromStart = () => {
+          video.currentTime = 0;
+          void video.play().catch(() => undefined);
+        };
+
+        if (video.readyState >= 1) {
+          playFromStart();
+        } else {
+          video.addEventListener("loadedmetadata", playFromStart, { once: true });
+          video.load();
+        }
       } else {
         video.pause();
       }
     });
-  }, [active]);
+  }, [active, isInView]);
 
   return (
-    <div className="testimonial-slider" aria-roledescription="carousel" aria-label={locale === "ar" ? "شهادات المرضى" : "Patient testimonials"}>
+    <div ref={sliderRef} className="testimonial-slider" aria-roledescription="carousel" aria-label={locale === "ar" ? "شهادات المرضى" : "Patient testimonials"}>
       <div className="testimonial-stage">
         {testimonialSlides.map((slide, index) => (
           <article className={`testimonial-slide ${index === active ? "active" : ""}`} key={slide.id} aria-hidden={index !== active}>
             <div className="testimonial-video-shell">
               <video
                 ref={(node) => { videoRefs.current[index] = node; }}
-                src={slide.videoSrc}
                 poster={slide.posterSrc}
                 aria-label={`${slide.title[locale]} - ${slide.meta[locale]}`}
                 muted
                 playsInline
-                preload="metadata"
+                preload={index === active && isInView ? "metadata" : "none"}
                 loop
-              />
+              >
+                {isInView && (index === active || loadedIndexes.has(index)) ? <source src={slide.videoSrc} type="video/mp4" /> : null}
+              </video>
             </div>
             <div className="testimonial-copy-card">
               <span className="pill">{slide.meta[locale]}</span>

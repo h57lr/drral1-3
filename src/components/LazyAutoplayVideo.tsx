@@ -10,13 +10,15 @@ type LazyAutoplayVideoProps = {
 };
 
 export function LazyAutoplayVideo({ src, poster, ariaLabel, className }: LazyAutoplayVideoProps) {
+  const containerRef = useRef<HTMLSpanElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const container = containerRef.current;
+    if (!container) return;
 
     if (!("IntersectionObserver" in window)) {
       setShouldLoad(true);
@@ -41,7 +43,7 @@ export function LazyAutoplayVideo({ src, poster, ariaLabel, className }: LazyAut
       }
     );
 
-    observer.observe(video);
+    observer.observe(container);
 
     return () => {
       observer.disconnect();
@@ -52,6 +54,7 @@ export function LazyAutoplayVideo({ src, poster, ariaLabel, className }: LazyAut
     const video = videoRef.current;
     if (!video || !shouldLoad || !isVisible) {
       video?.pause();
+      setHasStarted(false);
       return;
     }
 
@@ -72,17 +75,23 @@ export function LazyAutoplayVideo({ src, poster, ariaLabel, className }: LazyAut
   }, [isVisible, shouldLoad]);
 
   return (
-    <video
-      ref={videoRef}
-      className={className}
-      poster={poster}
-      aria-label={ariaLabel}
-      loop
-      muted
-      playsInline
-      preload={shouldLoad ? "metadata" : "none"}
-    >
-      {shouldLoad ? <source src={src} type="video/mp4" /> : null}
-    </video>
+    <span ref={containerRef} className="lazy-autoplay-video">
+      <img src={poster} alt="" aria-hidden="true" decoding="async" loading="lazy" />
+      {shouldLoad ? (
+        <video
+          ref={videoRef}
+          className={`${className ?? ""}${hasStarted ? " is-ready" : ""}`.trim()}
+          aria-label={ariaLabel}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          onPlaying={() => setHasStarted(true)}
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+      ) : null}
+    </span>
   );
 }

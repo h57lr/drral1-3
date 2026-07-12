@@ -98,6 +98,7 @@ export function TransformationReelsSlider({ locale, reels }: { locale: Locale; r
               <video
                 ref={(node) => { videoRefs.current[index] = node; }}
                 aria-label={item.alt[locale]}
+                autoPlay={index === active && isInView}
                 muted
                 playsInline
                 preload={index === active && isInView ? "metadata" : "none"}

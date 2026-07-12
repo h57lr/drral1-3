@@ -1205,6 +1205,34 @@ html.text-reveal-ready [data-text-reveal].is-text-revealed {
   isolation: isolate;
 }
 
+.lazy-autoplay-video {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  background: var(--ink);
+}
+
+.lazy-autoplay-video img,
+.lazy-autoplay-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lazy-autoplay-video video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 360ms ease;
+}
+
+.lazy-autoplay-video video.is-ready {
+  opacity: 1;
+}
+
+.smile-video-card .lazy-autoplay-video,
 .smile-video-card video {
   width: 100%;
   aspect-ratio: 9 / 12;
@@ -4297,6 +4325,7 @@ a:focus-visible .read-more,
     border-radius: 16px;
   }
 
+  .smile-video-card .lazy-autoplay-video,
   .smile-video-card video {
     width: 100%;
     height: 100%;

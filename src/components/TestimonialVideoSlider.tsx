@@ -160,6 +160,7 @@ export function TestimonialVideoSlider({ locale }: { locale: Locale }) {
                 ref={(node) => { videoRefs.current[index] = node; }}
                 poster={slide.posterSrc}
                 aria-label={`${slide.title[locale]} - ${slide.meta[locale]}`}
+                autoPlay={index === active && isInView}
                 muted
                 playsInline
                 preload={index === active && isInView ? "metadata" : "none"}

@@ -97,6 +97,7 @@ export function HeroVideo({ locale }: { locale: Locale }) {
           ref={(node) => { videoRefs.current[index] = node; }}
           poster={item.poster}
           aria-label={item.label[locale]}
+          autoPlay={index === active}
           muted
           playsInline
           preload={index === active ? "metadata" : "none"}

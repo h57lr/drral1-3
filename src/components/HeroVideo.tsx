@@ -43,14 +43,20 @@ const heroVideos = [
 
 export function HeroVideo({ locale }: { locale: Locale }) {
   const [active, setActive] = useState(0);
-  const [loadedIndexes, setLoadedIndexes] = useState<Set<number>>(() => new Set([0]));
+  const [readyIndexes, setReadyIndexes] = useState<Set<number>>(() => new Set());
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
-    setLoadedIndexes((current) => current.has(active) ? current : new Set(current).add(active));
+    setReadyIndexes((current) => {
+      if (!current.has(active)) return current;
+      const next = new Set(current);
+      next.delete(active);
+      return next;
+    });
 
     const currentVideo = heroVideos[active];
     const video = videoRefs.current[active];
+    const nextVideo = videoRefs.current[(active + 1) % heroVideos.length];
     let metadataHandler: (() => void) | null = null;
 
     videoRefs.current.forEach((item, index) => {
@@ -73,7 +79,12 @@ export function HeroVideo({ locale }: { locale: Locale }) {
       } else {
         metadataHandler = playActiveVideo;
         video.addEventListener("loadedmetadata", metadataHandler, { once: true });
+        video.load();
       }
+    }
+
+    if (nextVideo && nextVideo.readyState < 1) {
+      nextVideo.load();
     }
 
     const timer = window.setTimeout(() => {
@@ -90,22 +101,29 @@ export function HeroVideo({ locale }: { locale: Locale }) {
 
   return (
     <div className="hero-video-slider" role="group" aria-label={locale === "ar" ? "فيديوهات تحولات ابتسامة تجميلية مع الدكتور علي" : "Cosmetic smile transformation videos by Dr. Ali"}>
-      {heroVideos.map((item, index) => (
-        <video
-          className={`hero-video-slide${index === active ? " active" : ""}`}
-          key={item.src}
-          ref={(node) => { videoRefs.current[index] = node; }}
-          poster={item.poster}
-          aria-label={item.label[locale]}
-          autoPlay={index === active}
-          muted
-          playsInline
-          preload={index === active ? "metadata" : "none"}
-          onEnded={() => setActive((current) => (current + 1) % heroVideos.length)}
-        >
-          {index === active || loadedIndexes.has(index) ? <source src={item.src} type="video/mp4" /> : null}
-        </video>
-      ))}
+      {heroVideos.map((item, index) => {
+        const shouldPrepare = index === active || index === (active + 1) % heroVideos.length;
+
+        return (
+          <video
+            className={`hero-video-slide${index === active ? " active" : ""}${readyIndexes.has(index) ? " is-ready" : ""}`}
+            key={item.src}
+            ref={(node) => { videoRefs.current[index] = node; }}
+            aria-label={item.label[locale]}
+            autoPlay={index === active}
+            controls={false}
+            controlsList="nodownload noplaybackrate noremoteplayback"
+            disablePictureInPicture
+            muted
+            playsInline
+            preload={shouldPrepare ? "auto" : "metadata"}
+            onEnded={() => setActive((current) => (current + 1) % heroVideos.length)}
+            onPlaying={() => setReadyIndexes((current) => current.has(index) ? current : new Set(current).add(index))}
+          >
+            <source src={item.src} type="video/mp4" />
+          </video>
+        );
+      })}
     </div>
   );
 }

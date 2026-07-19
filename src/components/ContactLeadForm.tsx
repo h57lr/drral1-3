@@ -2,6 +2,7 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import { site } from "@/lib/content";
+import { pushDataLayerEvent } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 
 type ContactLeadFormProps = {
@@ -9,12 +10,6 @@ type ContactLeadFormProps = {
 };
 
 type FormState = "idle" | "submitting" | "success" | "error";
-
-declare global {
-  interface Window {
-    dataLayer?: Array<Record<string, unknown>>;
-  }
-}
 
 const labels = {
   en: {
@@ -94,6 +89,11 @@ export function ContactLeadForm({ locale }: ContactLeadFormProps) {
     if (!fullName || !phoneNumber || !treatmentInterestedIn) {
       setStatus("error");
       setFeedback(copy.requiredError);
+      pushDataLayerEvent("form_submit_error", {
+        form_name: "contact_consultation_form",
+        form_location: "contact_page",
+        error_type: "validation_error"
+      });
       return;
     }
 
@@ -123,7 +123,7 @@ export function ContactLeadForm({ locale }: ContactLeadFormProps) {
         })
       });
 
-      const result = (await response.json().catch(() => null)) as { success?: boolean } | null;
+      const result = (await response.json().catch(() => null)) as { success?: boolean; submissionId?: string } | null;
 
       if (!response.ok || !result?.success) {
         throw new Error("Submission failed");
@@ -133,18 +133,28 @@ export function ContactLeadForm({ locale }: ContactLeadFormProps) {
       setFeedback(copy.success);
       form.reset();
 
-      window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({
-        event: "consultation_form_submit",
+      const leadPayload = {
         form_name: "contact_consultation_form",
         form_location: "contact_page",
         treatment_interested_in: treatmentInterestedIn,
-        language: locale,
+        lead_type: "contact_form",
+        lead_source: "contact_form",
+        submission_id: result.submissionId,
+        event_id: result.submissionId,
         page_url: pageUrl
-      });
+      };
+
+      pushDataLayerEvent("contact_form_submit", leadPayload);
+      pushDataLayerEvent("generate_lead", leadPayload);
     } catch {
       setStatus("error");
       setFeedback(copy.error);
+      pushDataLayerEvent("form_submit_error", {
+        form_name: "contact_consultation_form",
+        form_location: "contact_page",
+        treatment_interested_in: treatmentInterestedIn,
+        error_type: "api_error"
+      });
     }
   }
 

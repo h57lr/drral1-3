@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "https://alialheneiti.com/sitemap.xml"
+    sitemap: "https://dralialheneiti.com/sitemap.xml"
   };
 }

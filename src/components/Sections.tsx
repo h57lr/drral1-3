@@ -199,7 +199,7 @@ export function CaseShowcase({ locale, full = false, variant = "cases" }: { loca
         <div className="case-grid">
           {list.map((item) => <CaseCard key={item.id} item={item} locale={locale} />)}
         </div>
-        {!full ? <Link className="text-link" href={`/${locale}/cases`}>{locale === "ar" ? "شاهد جميع الحالات" : "View all transformations"}</Link> : null}
+        {!full ? <Link className="text-link" href={`/${locale}/transformations`}>{locale === "ar" ? "شاهد التحولات" : "View all transformations"}</Link> : null}
       </div>
     </section>
   );

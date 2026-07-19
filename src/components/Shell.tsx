@@ -70,7 +70,6 @@ function Footer({ locale }: { locale: Locale }) {
           </div>
           <div>
             <h4>{locale === "ar" ? "روابط" : "Explore"}</h4>
-            <Link href={`/${locale}/cases`}>{dict.nav.cases}</Link>
             <Link href={`/${locale}/transformations`}>{dict.nav.transformations}</Link>
             <Link href={`/${locale}/blog`}>{dict.nav.blog}</Link>
             <Link href={`/${locale}/contact`}>{dict.nav.contact}</Link>

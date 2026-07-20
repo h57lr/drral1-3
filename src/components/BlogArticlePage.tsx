@@ -3,6 +3,8 @@ import { FinalCta } from "@/components/Sections";
 import { blogPosts, getCoverImage, getReadTime, site, type BlogPost } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
+const siteUrl = "https://www.dralialheneiti.com";
+
 export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Locale }) {
   const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
   const articleUrl = `/${locale}/${post.slug}`;
@@ -36,9 +38,9 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: locale === "ar" ? "الرئيسية" : "Home", item: `https://alialheneiti.com/${locale}` },
-      { "@type": "ListItem", position: 2, name: locale === "ar" ? "المدونة" : "Dental Journal", item: `https://alialheneiti.com/${locale}/blog` },
-      { "@type": "ListItem", position: 3, name: post.title[locale], item: `https://alialheneiti.com${articleUrl}` }
+      { "@type": "ListItem", position: 1, name: locale === "ar" ? "الرئيسية" : "Home", item: `${siteUrl}/${locale}` },
+      { "@type": "ListItem", position: 2, name: locale === "ar" ? "المدونة" : "Dental Journal", item: `${siteUrl}/${locale}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title[locale], item: `${siteUrl}${articleUrl}` }
     ]
   };
 
@@ -47,11 +49,15 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
     "@type": "BlogPosting",
     headline: post.h1[locale],
     description: post.metaDescription[locale],
-    image: `https://alialheneiti.com${coverImage}`,
+    image: `${siteUrl}${coverImage}`,
     dateModified: post.lastUpdated,
     author: { "@type": "Organization", name: post.author[locale].name },
-    publisher: { "@type": "Organization", name: site.brand[locale] },
-    mainEntityOfPage: `https://alialheneiti.com${articleUrl}`,
+    publisher: {
+      "@type": "Organization",
+      name: site.brand[locale],
+      logo: { "@type": "ImageObject", url: `${siteUrl}/icon-512.png` }
+    },
+    mainEntityOfPage: `${siteUrl}${articleUrl}`,
     keywords: post.keywords.join(", ")
   };
 

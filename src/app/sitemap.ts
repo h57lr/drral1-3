@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogPosts, services } from "@/lib/content";
 
-const base = "https://dralialheneiti.com";
+const base = "https://www.dralialheneiti.com";
 const locales = ["en", "ar"];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -17,7 +17,7 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
         <div className="container header-inner">
           <Link className="brand" href={`/${locale}`} aria-label={site.brand[locale]}>
             <img className="brand-logo" src="/media/brand/dr-ali-alheneiti-logo.webp" alt={site.brand[locale]} />
-            <span>Cosmetic Dentistry</span>
+            <span>{locale === "ar" ? "تجميل الأسنان" : "Cosmetic Dentistry"}</span>
           </Link>
           <nav className="nav" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"}>
             <Link href={`/${locale}/services`}>{nav.services}</Link>
@@ -78,7 +78,7 @@ function Footer({ locale }: { locale: Locale }) {
             <h4>{locale === "ar" ? "تواصل" : "Contact"}</h4>
             <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "تواصل معنا عبر واتساب" : "WhatsApp Us"}</a>
             <a href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href={site.googleReview} target="_blank" rel="noopener noreferrer">Google Reviews</a>
+            <a href={site.googleReview} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "تقييمات Google" : "Google Reviews"}</a>
             <p>{site.address[locale]}</p>
           </div>
         </div>

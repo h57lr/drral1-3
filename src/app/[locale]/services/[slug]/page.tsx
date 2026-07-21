@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const service = getService(slug);
 
   if (!service) {
-    return { title: "Service" };
+    return { title: locale === "ar" ? "الخدمة" : "Service" };
   }
 
   return {
@@ -27,14 +27,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       canonical: `/${locale}/services/${service.slug}`,
       languages: {
         en: `/en/services/${service.slug}`,
-        ar: `/ar/services/${service.slug}`
+        ar: `/ar/services/${service.slug}`,
+        "x-default": `/en/services/${service.slug}`
       }
     },
     openGraph: {
       title: service.seoTitle[locale],
       description: service.metaDescription[locale],
       type: "website",
-      url: `/${locale}/services/${service.slug}`
+      url: `/${locale}/services/${service.slug}`,
+      locale: locale === "ar" ? "ar_JO" : "en_US"
     }
   };
 }

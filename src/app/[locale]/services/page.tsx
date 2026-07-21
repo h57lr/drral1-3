@@ -15,7 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       canonical: `/${locale}/services`,
       languages: {
         en: "/en/services",
-        ar: "/ar/services"
+        ar: "/ar/services",
+        "x-default": "/en/services"
       }
     },
     openGraph: {
@@ -24,7 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? "خمس خدمات أساسية بتخطيط راقٍ ومحتوى ثنائي اللغة للمرضى في الأردن والخليج وأوروبا."
         : "Five refined service pages with bilingual guidance for patients in Jordan, the GCC, and Europe.",
       type: "website",
-      url: `/${locale}/services`
+      url: `/${locale}/services`,
+      locale: locale === "ar" ? "ar_JO" : "en_US"
     }
   };
 }

@@ -13,13 +13,22 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = isLocale(raw) ? raw : "en";
   const post = getPost(slug);
   return {
-    title: post?.seoTitle[locale] ?? "Dental Journal",
+    title: post?.seoTitle[locale] ?? (locale === "ar" ? "مجلة تجميل الأسنان" : "Dental Journal"),
     description: post?.metaDescription[locale],
-    alternates: post ? { canonical: `/${locale}/${post.slug}` } : undefined,
+    alternates: post ? {
+      canonical: `/${locale}/${post.slug}`,
+      languages: {
+        en: `/en/${post.slug}`,
+        ar: `/ar/${post.slug}`,
+        "x-default": `/en/${post.slug}`
+      }
+    } : undefined,
     openGraph: post ? {
       title: post.seoTitle[locale],
       description: post.metaDescription[locale],
       type: "article",
+      url: `/${locale}/${post.slug}`,
+      locale: locale === "ar" ? "ar_JO" : "en_US",
       images: [{ url: getCoverImage(post, locale), alt: post.coverAlt[locale] }]
     } : undefined
   };

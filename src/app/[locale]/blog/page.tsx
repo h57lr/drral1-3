@@ -4,10 +4,34 @@ import { FinalCta, SectionHead } from "@/components/Sections";
 import { blogPosts, getCoverImage, getReadTime } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Dental Journal",
-  description: "Premium cosmetic dentistry articles about Hollywood Smile, veneers, dental tourism, and patient guides in Jordan."
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : "en";
+
+  return {
+    title: locale === "ar" ? "مجلة تجميل الأسنان" : "Dental Journal",
+    description: locale === "ar"
+      ? "مقالات وأدلة عن ابتسامة هوليود، الفينير، السياحة العلاجية للأسنان، وخيارات تجميل الأسنان في الأردن."
+      : "Premium cosmetic dentistry articles about Hollywood Smile, veneers, dental tourism, and patient guides in Jordan.",
+    alternates: {
+      canonical: `/${locale}/blog`,
+      languages: {
+        en: "/en/blog",
+        ar: "/ar/blog",
+        "x-default": "/en/blog"
+      }
+    },
+    openGraph: {
+      title: locale === "ar" ? "مجلة تجميل الأسنان" : "Dental Journal",
+      description: locale === "ar"
+        ? "أدلة واضحة تساعدك على فهم خيارات تجميل الأسنان قبل الاستشارة."
+        : "Clear patient guides for cosmetic dentistry decisions in Jordan.",
+      type: "website",
+      url: `/${locale}/blog`,
+      locale: locale === "ar" ? "ar_JO" : "en_US"
+    }
+  };
+}
 
 export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: raw } = await params;

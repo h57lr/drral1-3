@@ -6,8 +6,29 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale: raw } = await params;
   const locale = isLocale(raw) ? raw : "en";
   return {
-    title: locale === "ar" ? "الدكتور علي الحنيطي | تجميل الأسنان في الأردن" : "Cosmetic Dentist in Jordan",
-    description: locale === "ar" ? "ابتسامات هوليوود، فينير، زيركون وزراعة أسنان بتجربة فاخرة ثنائية اللغة." : "Hollywood smile, veneers, zircon, and dental implants with a premium bilingual cosmetic dentistry experience."
+    title: {
+      absolute: locale === "ar"
+        ? "طبيب تجميل أسنان في الأردن لابتسامات طبيعية - د. علي الحنيطي"
+        : "Cosmetic Dentist in Jordan for Natural Smiles | Dr. Ali Alheneiti"
+    },
+    description: locale === "ar" ? "ابتسامات هوليوود، فينير، زيركون وزراعة أسنان بتجربة فاخرة ثنائية اللغة." : "Hollywood smile, veneers, zircon, and dental implants with a premium bilingual cosmetic dentistry experience.",
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        en: "/en",
+        ar: "/ar",
+        "x-default": "/en"
+      }
+    },
+    openGraph: {
+      title: locale === "ar" ? "طبيب تجميل أسنان في الأردن لابتسامات طبيعية" : "Cosmetic Dentist in Jordan for Natural Smiles",
+      description: locale === "ar"
+        ? "ابتسامات هوليوود، فينير، زيركون وزراعة أسنان بتجربة فاخرة ثنائية اللغة."
+        : "Hollywood smile, veneers, zircon, and dental implants with a premium bilingual cosmetic dentistry experience.",
+      type: "website",
+      url: `/${locale}`,
+      locale: locale === "ar" ? "ar_JO" : "en_US"
+    }
   };
 }
 

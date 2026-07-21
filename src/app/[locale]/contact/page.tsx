@@ -4,7 +4,34 @@ import { FinalCta } from "@/components/Sections";
 import { site } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
 
-export const metadata: Metadata = { title: "Book Your Consultation", description: "Contact Dr. Ali Alheneiti for a private cosmetic dentistry consultation." };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : "en";
+
+  return {
+    title: locale === "ar" ? "احجز استشارتك" : "Book Your Consultation",
+    description: locale === "ar"
+      ? "تواصل مع د. علي الحنيطي لحجز استشارة خاصة في تجميل الأسنان وتصميم الابتسامة في عمّان."
+      : "Contact Dr. Ali Alheneiti for a private cosmetic dentistry consultation in Amman.",
+    alternates: {
+      canonical: `/${locale}/contact`,
+      languages: {
+        en: "/en/contact",
+        ar: "/ar/contact",
+        "x-default": "/en/contact"
+      }
+    },
+    openGraph: {
+      title: locale === "ar" ? "احجز استشارتك" : "Book Your Consultation",
+      description: locale === "ar"
+        ? "استشارة خاصة لتجميل الأسنان وتصميم الابتسامة في عمّان."
+        : "Private cosmetic dentistry consultation in Amman.",
+      type: "website",
+      url: `/${locale}/contact`,
+      locale: locale === "ar" ? "ar_JO" : "en_US"
+    }
+  };
+}
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: raw } = await params;

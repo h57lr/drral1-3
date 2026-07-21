@@ -214,14 +214,20 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = isLocale(raw) ? raw : "en";
 
   return {
-    title: {
-      absolute: locale === "ar"
-        ? "حالات قبل وبعد للأسنان في الأردن | تحوّلات ابتسامة حقيقية"
-        : "Smile Transformations in Jordan | Before & After Dental Cases"
-    },
+    title: locale === "ar"
+      ? "حالات قبل وبعد للأسنان في الأردن"
+      : "Smile Transformations in Jordan | Before & After Dental Cases",
     description: locale === "ar"
       ? "شاهد حالات حقيقية قبل وبعد لتصميم الابتسامة، الفينير، وابتسامة هوليوود مع الدكتور علي الحنيطي في الأردن، بنتائج طبيعية وراقية."
       : "Explore real smile transformations by Dr. Ali Al Heneiti, including veneers, Hollywood Smile, smile design, and natural-looking dental aesthetic results in Jordan.",
+    alternates: {
+      canonical: `/${locale}/transformations`,
+      languages: {
+        en: "/en/transformations",
+        ar: "/ar/transformations",
+        "x-default": "/en/transformations"
+      }
+    },
     openGraph: {
       title: locale === "ar" ? "حالات قبل وبعد للأسنان في الأردن" : "Smile Transformations in Jordan",
       description: locale === "ar"
@@ -229,6 +235,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         : "Real smile transformations and premium dental aesthetic cases by Dr. Ali Al Heneiti.",
       images: [transformationCases[0].images[0]],
       locale: locale === "ar" ? "ar_JO" : "en_US",
+      url: `/${locale}/transformations`,
       type: "website"
     }
   };

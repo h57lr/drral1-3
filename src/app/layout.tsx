@@ -25,10 +25,7 @@ const arabic = Noto_Kufi_Arabic({ subsets: ["arabic"], variable: "--font-arabic"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: "Dr. Ali Alheneiti | Cosmetic Dentistry in Jordan",
-    template: "%s | Dr. Ali Alheneiti"
-  },
+  title: "Dr. Ali Alheneiti | Cosmetic Dentistry in Jordan",
   description: "Premium cosmetic dentistry, Hollywood smile, veneers, zircon, and dental implants by Dr. Ali Alheneiti in Jordan.",
   icons: {
     icon: [

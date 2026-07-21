@@ -223,7 +223,7 @@ export const services: Service[] = [
       en: "Natural looking veneers planned around your face, smile shape, and aesthetic goals.",
       ar: "فينير طبيعي المظهر يتم تخطيطه حول ملامح وجهك، شكل ابتسامتك، وأهدافك الجمالية."
     },
-    seoTitle: { en: "Dental Veneers in Jordan | Natural Veneers in Amman", ar: "فينير الأسنان في الأردن | فينير طبيعي في عمّان" },
+    seoTitle: { en: "Dental Veneers in Jordan | Natural Veneers in Amman", ar: "فينير الأسنان في الأردن" },
     metaDescription: {
       en: "Dental veneers in Jordan with Dr. Ali in Amman. Natural smile planning, zircon veneers guidance, candidate assessment, process, benefits, FAQs, and consultation booking.",
       ar: "فينير الأسنان في الأردن مع الدكتور علي في عمّان. تخطيط ابتسامة طبيعي، توجيه حول فينير الزيركون، تقييم الحالة، الخطوات، المزايا والأسئلة الشائعة."

@@ -2686,6 +2686,8 @@ a:focus-visible .read-more,
 }
 
 .article {
+  width: 100%;
+  min-width: 0;
   max-width: 820px;
 }
 

@@ -282,7 +282,7 @@ function ServiceFinalCta({ locale }: { locale: Locale }) {
 }
 
 function getServiceHeroMedia(slug: string, locale: Locale) {
-  if (slug === "dental-veneers-jordan") {
+  if (slug === "dental-veneers-jordan" || slug === "dental-veneer-jordan") {
     return {
       type: "carousel" as const,
       alt: locale === "ar" ? "حالة فينير أسنان قبل وبعد مع الدكتور علي" : "Dental veneers before and after case with Dr. Ali",
@@ -387,7 +387,7 @@ function getServiceCaseMedia(slug: string, locale: Locale) {
     ];
   }
 
-  if (slug !== "dental-veneers-jordan") return [];
+  if (slug !== "dental-veneers-jordan" && slug !== "dental-veneer-jordan") return [];
 
   return [
     {
@@ -451,8 +451,8 @@ function getServiceLabels(locale: Locale) {
     travelTitle: "رحلة علاجية منظمة في الأردن.",
     travelText: "تخطيط واضح، تنسيق للمواعيد، وتوجيه مهني للمرضى القادمين إلى الأردن لعلاج الأسنان دون تحويل التجربة إلى سياحة مبالغ فيها.",
     casesEyebrow: "قبل وبعد",
-    casesTitle: "مساحة جاهزة لحالات حقيقية لاحقاً.",
-    casesText: "هذه البطاقات مصممة لتستبدل بصور حالات حقيقية عند توفرها مع الحفاظ على شكل الصفحة الراقي.",
+    casesTitle: "نتائج العلاج",
+    casesText: "أمثلة حقيقية قبل وبعد مخططة في العيادة.",
     faqEyebrow: "أسئلة شائعة",
     faqTitle: "إجابات واضحة قبل الاستشارة.",
     faqText: "أسئلة المرضى الأكثر شيوعاً بصياغة مهنية تساعد على اتخاذ القرار بثقة.",
@@ -480,8 +480,8 @@ function getServiceLabels(locale: Locale) {
     travelTitle: "Organized dental treatment planning in Jordan.",
     travelText: "Clear treatment planning, appointment coordination, and professional guidance for patients visiting Jordan for dental treatment — premium, calm, and not overly touristy.",
     casesEyebrow: "Before & After",
-    casesTitle: "A polished case area ready for real results.",
-    casesText: "These placeholders are designed to be replaced with approved real patient cases while keeping the page visually consistent.",
+    casesTitle: "Treatment Results",
+    casesText: "Real before-and-after examples planned at the clinic.",
     faqEyebrow: "FAQ",
     faqTitle: "Clear answers before consultation.",
     faqText: "Common patient questions answered in a professional, search-friendly way.",

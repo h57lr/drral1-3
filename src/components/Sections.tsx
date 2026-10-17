@@ -3,7 +3,7 @@ import { CaseCarousel } from "@/components/CaseCarousel";
 import { HeroVideo } from "@/components/HeroVideo";
 import { LazyAutoplayVideo } from "@/components/LazyAutoplayVideo";
 import { TestimonialVideoSlider } from "@/components/TestimonialVideoSlider";
-import { blogPosts, cases, dictionary, doctorProfileHighlight, getCoverImage, getReadTime, reviews, services, site, transformationMedia, type CaseMedia } from "@/lib/content";
+import { blogPosts, cases, dictionary, doctorProfileHighlight, getCoverImage, getReadTime, services, site, transformationMedia, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
 export function Hero({ locale }: { locale: Locale }) {
@@ -328,6 +328,9 @@ export function Process({ locale }: { locale: Locale }) {
   const steps = locale === "ar"
     ? ["احجز استشارتك", "مراجعة الحالة", "خطة وتوقيت مبدئي", "زيارة للتشخيص النهائي"]
     : ["Book Your Consultation", "Case review", "Initial plan and timing", "Clinic diagnosis"];
+  const descriptions = locale === "ar"
+    ? ["شارك أهدافك وصور ابتسامتك عبر واتساب للبدء.", "تتم مراجعة صورك واحتياجاتك قبل اقتراح خطة.", "تحصل على توضيح مبدئي للخيارات والتوقيت المتوقع.", "فحص سريري نهائي يؤكد خطة العلاج."]
+    : ["Share your goals and smile photos on WhatsApp to begin.", "Your photos and needs are reviewed before proposing a plan.", "You receive a clear outline of options and expected timing.", "A final in-clinic exam confirms the treatment plan."];
   return (
     <section className="section compact">
       <div className="container">
@@ -341,32 +344,8 @@ export function Process({ locale }: { locale: Locale }) {
             <div className="step" key={step}>
               <strong>{String(index + 1).padStart(2, "0")}</strong>
               <h3>{step}</h3>
-              <p>{locale === "ar" ? "خطوة بسيطة توضح ما تحتاجه، ما الصور المطلوبة، وكيف تبدأ بدون ضغط." : "A simple step that clarifies what is needed, which photos help, and how to start without pressure."}</p>
+              <p>{descriptions[index]}</p>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function Reviews({ locale }: { locale: Locale }) {
-  return (
-    <section className="section">
-      <div className="container">
-        <SectionHead
-          eyebrow={locale === "ar" ? "الثقة" : "Trust"}
-          title={locale === "ar" ? "ما يبحث عنه المرضى قبل اختيار طبيب التجميل." : "What patients look for before choosing a cosmetic dentist."}
-          text={locale === "ar" ? "محاور ثقة أساسية: وضوح الخطة، راحة التجربة، ونتيجة طبيعية. أضف التقييمات الأصلية بعد موافقة العميل." : "Core trust themes: a clear plan, comfortable experience, and natural result. Add verified reviews after client approval."}
-        />
-        <div className="card-grid">
-          {reviews.map((review) => (
-            <article className="review-card" key={review.id}>
-              <span className="pill">{review.treatment ?? review.source}</span>
-              <span className="quote-mark" aria-hidden="true">“</span>
-              <h3>{review.name}</h3>
-              <p>{review.text[locale]}</p>
-            </article>
           ))}
         </div>
       </div>

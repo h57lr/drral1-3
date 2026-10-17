@@ -2,13 +2,13 @@ import type { BlogPost } from "./content";
 
 const author = {
   en: {
-    name: "Dr. Ali Alheneiti Editorial Team",
-    title: "Cosmetic Dentistry · Amman, Jordan",
+    name: "Dr. Ali Alheneiti",
+    title: "Cosmetic Dentist · Amman, Jordan",
     bio: "Reviewed for patient clarity by a cosmetic dentistry team focused on natural veneers, Hollywood Smile planning, implants, and premium treatment journeys."
   },
   ar: {
-    name: "الفريق التحريري للدكتور علي الحنيطي",
-    title: "طب تجميل الأسنان · عمّان، الأردن",
+    name: "الدكتور علي الحنيطي",
+    title: "طبيب تجميل أسنان · عمّان، الأردن",
     bio: "محتوى مُراجع لراحة المريض ووضوح القرار، مع تركيز على الفينير الطبيعي، تصميم الابتسامة، زراعة الأسنان، وتجربة علاج راقية."
   }
 } satisfies BlogPost["author"];

@@ -39,15 +39,6 @@ export type CaseMedia = {
   sourceUrl?: string;
 };
 
-export type Review = {
-  id: string;
-  name: string;
-  rating: 1 | 2 | 3 | 4 | 5;
-  text: Record<Locale, string>;
-  source: "google" | "instagram" | "video" | "manual";
-  treatment?: string;
-};
-
 export type BlogPost = {
   slug: string;
   title: Record<Locale, string>;
@@ -223,7 +214,7 @@ export const services: Service[] = [
       en: "Natural looking veneers planned around your face, smile shape, and aesthetic goals.",
       ar: "فينير طبيعي المظهر يتم تخطيطه حول ملامح وجهك، شكل ابتسامتك، وأهدافك الجمالية."
     },
-    seoTitle: { en: "Dental Veneers in Jordan | Natural Veneers in Amman", ar: "فينير الأسنان في الأردن" },
+    seoTitle: { en: "Dental Veneers in Jordan", ar: "فينير الأسنان في الأردن" },
     metaDescription: {
       en: "Dental veneers in Jordan with Dr. Ali in Amman. Natural smile planning, zircon veneers guidance, candidate assessment, process, benefits, FAQs, and consultation booking.",
       ar: "فينير الأسنان في الأردن مع الدكتور علي في عمّان. تخطيط ابتسامة طبيعي، توجيه حول فينير الزيركون، تقييم الحالة، الخطوات، المزايا والأسئلة الشائعة."
@@ -330,11 +321,125 @@ export const services: Service[] = [
     }
   },
   {
+    slug: "dental-veneer-jordan",
+    title: { en: "Dental Veneer in Jordan", ar: "فينيرز الأسنان في الأردن" },
+    navTitle: { en: "Dental Veneer", ar: "فينيرز الأسنان" },
+    description: {
+      en: "A natural looking veneer planned around your face, smile shape, and aesthetic goals.",
+      ar: "فينيرز طبيعي المظهر يتم تخطيطه حول ملامح وجهك، شكل ابتسامتك، وأهدافك الجمالية."
+    },
+    seoTitle: { en: "Dental Veneer in Jordan", ar: "فينيرز الأسنان في الأردن" },
+    metaDescription: {
+      en: "Dental veneer in Jordan with Dr. Ali in Amman. Natural smile planning, zircon veneer guidance, candidate assessment, process, benefits, FAQs, and consultation booking.",
+      ar: "فينيرز الأسنان في الأردن مع الدكتور علي في عمّان. تخطيط ابتسامة طبيعي، توجيه حول فينيرز الزيركون، تقييم الحالة، الخطوات، المزايا والأسئلة الشائعة."
+    },
+    heroEyebrow: { en: "Cosmetic Dentistry in Jordan", ar: "طب تجميل الأسنان في الأردن" },
+    heroIntro: {
+      en: "A refined veneer experience for patients who want brighter, better shaped teeth without an artificial or overdone look.",
+      ar: "تجربة فينيرز راقية لمن يرغبون بأسنان أكثر تناسقاً وإشراقاً دون مظهر صناعي أو مبالغ فيه."
+    },
+    trustPhrase: { en: "Doctor-led veneer consultation in Amman, Jordan", ar: "استشارة فينيرز بإشراف الطبيب في عمّان، الأردن" },
+    keywords: ["Dental Veneer in Jordan", "Veneer in Jordan", "Zircon veneer in Jordan", "Cosmetic Dentistry in Jordan", "Dental Clinic in Amman"],
+    bullets: {
+      en: ["Natural veneer smile planning", "Zircon veneer guidance", "Face-balanced shape and shade", "Conservative aesthetic approach"],
+      ar: ["تخطيط فينيرز طبيعي", "توجيه حول فينيرز الزيركون", "شكل ولون متناسقان مع الوجه", "نهج تجميلي محافظ"]
+    },
+    intro: {
+      en: {
+        heading: "A premium veneer plan, not a one-shade template.",
+        body: [
+          "A dental veneer is a thin custom restoration designed to improve tooth shape, shade, spacing, worn edges, and overall smile harmony while keeping the result natural in conversation and photography.",
+          "With Dr. Ali, veneer planning begins with the face, lips, gum line, bite, and the personality of the smile. The goal is refinement and confidence, not a copied smile."
+        ],
+        note: "Zircon veneer and stronger ceramic options can be discussed inside the same plan when masking power, durability, or old restorations require a different material choice."
+      },
+      ar: {
+        heading: "خطة فينيرز راقية وليست لوناً واحداً جاهزاً.",
+        body: [
+          "فينيرز الأسنان هو قشور أو ترميمات رقيقة مخصصة لتحسين شكل الأسنان، لونها، الفراغات بينها، الحواف المتآكلة، وتناسق الابتسامة مع الحفاظ على مظهر طبيعي في الحديث والصور.",
+          "مع الدكتور علي يبدأ تخطيط الفينيرز من الوجه، الشفاه، خط اللثة، العضة، وطابع الابتسامة. الهدف هو نتيجة مصقولة وواثقة وليست ابتسامة منسوخة."
+        ],
+        note: "يمكن مناقشة فينيرز الزيركون أو الخيارات الخزفية الأقوى ضمن الخطة نفسها عندما تحتاج الحالة إلى إخفاء لون داكن، متانة أعلى، أو استبدال تركيبات قديمة."
+      }
+    },
+    candidates: {
+      en: ["Discolored teeth that do not respond well to whitening", "Gaps between teeth", "Uneven tooth shape or size", "Worn or chipped edges", "Patients who want a natural looking smile design", "Patients interested in zircon veneer or premium veneer materials"],
+      ar: ["تصبغات لا تستجيب جيداً للتبييض", "فراغات بين الأسنان", "اختلاف في شكل أو حجم الأسنان", "حواف متآكلة أو مكسورة", "من يرغبون بتصميم ابتسامة طبيعي", "المهتمون بفينيرز الزيركون أو مواد الفينيرز الفاخرة"]
+    },
+    process: {
+      en: [
+        { title: "Smile consultation", text: "Facial assessment, photos, goals, gum line, and bite are reviewed before any design decision." },
+        { title: "Shape and material planning", text: "Shade, texture, ceramic type, and zircon veneer suitability are selected around the case." },
+        { title: "Smile preview", text: "Digital smile design or preview may be used to clarify the desired direction where available." },
+        { title: "Preparation and fitting", text: "Tooth preparation is planned conservatively, followed by try-in, fit, and refinement." },
+        { title: "Final review", text: "The final veneer result is reviewed with bite and aftercare guidance." }
+      ],
+      ar: [
+        { title: "استشارة الابتسامة", text: "تتم مراجعة ملامح الوجه، الصور، الهدف الجمالي، خط اللثة والعضة قبل أي قرار تصميمي." },
+        { title: "تخطيط الشكل والمادة", text: "يتم اختيار اللون، الملمس، نوع الخزف، ومدى ملاءمة فينيرز الزيركون حسب الحالة." },
+        { title: "معاينة الابتسامة", text: "يمكن استخدام تصميم أو معاينة رقمية لتوضيح الاتجاه الجمالي عندما يكون ذلك متاحاً." },
+        { title: "التحضير والتركيب", text: "يتم التخطيط للتحضير بشكل محافظ ثم تجربة الفينيرز والتأكد من الملاءمة والتفاصيل." },
+        { title: "المراجعة النهائية", text: "تتم مراجعة النتيجة النهائية مع إرشادات العضة والعناية." }
+      ]
+    },
+    benefits: {
+      en: [
+        { icon: "spark", title: "Natural transformation", text: "A visible smile upgrade designed to still feel like you." },
+        { icon: "shade", title: "Improved shape and shade", text: "Refine color, length, edges, and surface character together." },
+        { icon: "balance", title: "Better symmetry", text: "Create a calmer relationship between teeth, lips, and gums." },
+        { icon: "face", title: "Face-balanced planning", text: "The design is adapted to facial proportions and smile movement." }
+      ],
+      ar: [
+        { icon: "spark", title: "تحول طبيعي", text: "تحسين واضح للابتسامة مع الحفاظ على مظهر يشبهك." },
+        { icon: "shade", title: "تحسين الشكل واللون", text: "تنسيق اللون والطول والحواف وملمس السطح معاً." },
+        { icon: "balance", title: "تناسق أفضل", text: "علاقة أهدأ بين الأسنان والشفاه واللثة." },
+        { icon: "face", title: "تخطيط حول الوجه", text: "يتم تكييف التصميم مع نسب الوجه وحركة الابتسامة." }
+      ]
+    },
+    whyChoose: {
+      en: [
+        { title: "Doctor-led consultation", text: "Your veneer plan is reviewed with clear clinical guidance before treatment begins." },
+        { title: "Aesthetic restraint", text: "Dr. Ali focuses on natural looking results and avoids the bulky, overly white effect many patients fear." },
+        { title: "Premium patient experience", text: "Patients from Jordan, the EU, and GCC receive calm planning, appointment coordination, and realistic expectations." }
+      ],
+      ar: [
+        { title: "استشارة بإشراف الطبيب", text: "تتم مراجعة خطة الفينيرز بتوجيه سريري واضح قبل بدء العلاج." },
+        { title: "ذوق جمالي محافظ", text: "يركز الدكتور علي على النتائج الطبيعية ويتجنب المظهر السميك أو الأبيض المبالغ فيه." },
+        { title: "تجربة مريض راقية", text: "يحصل المرضى من الأردن وأوروبا والخليج على تخطيط هادئ، تنسيق مواعيد، وتوقعات واقعية." }
+      ]
+    },
+    cases: {
+      en: [{ title: "Natural Veneer Smile", text: "Soft brightness with facial harmony." }, { title: "Zircon Veneer Result", text: "A stronger material direction when clinically suitable." }, { title: "Smile Shape Enhancement", text: "Edges, proportions, and symmetry refined together." }],
+      ar: [{ title: "ابتسامة فينيرز طبيعية", text: "إشراقة ناعمة بتناسق مع الوجه." }, { title: "نتيجة فينيرز زيركون", text: "خيار مادة أقوى عندما يناسب الحالة." }, { title: "تحسين شكل الابتسامة", text: "تنسيق الحواف والنسب والتماثل معاً." }]
+    },
+    related: ["teeth-whitening-amman", "gummy-smile-treatment-jordan", "orthodontics-amman"],
+    faqs: {
+      en: [
+        { question: "Is a dental veneer painful?", answer: "Most veneer steps are managed with local anesthesia when needed. Some temporary sensitivity can occur, but the process is planned to be comfortable and controlled." },
+        { question: "How long does a veneer last?", answer: "A well-planned veneer can last many years with good hygiene, bite protection when advised, and regular reviews. Longevity depends on habits and clinical condition." },
+        { question: "Can a veneer look natural?", answer: "Yes. A natural veneer depends on proportion, texture, translucency, edge design, and choosing a shade that suits the face rather than the brightest possible color." },
+        { question: "Can a veneer fix gaps or uneven teeth?", answer: "A veneer can improve small gaps, uneven shapes, worn edges, and selected alignment concerns. Larger bite or crowding issues may need orthodontics first." },
+        { question: "What is the difference between a veneer and a zircon veneer?", answer: "Traditional porcelain or Emax-style veneer is often selected for lifelike translucency. Zircon options may be useful when strength or masking darker teeth is important." },
+        { question: "Can a veneer be whitened later?", answer: "No. A ceramic veneer does not whiten like natural teeth, so shade planning should be done carefully before bonding." },
+        { question: "How much does a dental veneer cost in Jordan?", answer: "Cost depends on the number of teeth, material, gum condition, old restorations, bite needs, and lab planning. A consultation is needed for a responsible estimate." }
+      ],
+      ar: [
+        { question: "هل فينيرز الأسنان مؤلم؟", answer: "تتم أغلب خطوات الفينيرز بتخدير موضعي عند الحاجة. قد تحدث حساسية مؤقتة، لكن الخطة تهدف إلى تجربة مريحة ومسيطر عليها." },
+        { question: "كم يدوم الفينيرز؟", answer: "يمكن أن يدوم الفينيرز المخطط جيداً لسنوات طويلة مع العناية، وحماية العضة عند الحاجة، والمتابعة المنتظمة. يعتمد العمر على العادات وحالة الفم." },
+        { question: "هل يمكن أن يبدو الفينيرز طبيعياً؟", answer: "نعم. يعتمد الفينيرز الطبيعي على النسب والملمس والشفافية وتصميم الحواف واختيار لون يناسب الوجه وليس فقط اللون الأفتح." },
+        { question: "هل يعالج الفينيرز الفراغات أو عدم انتظام الأسنان؟", answer: "يمكن للفينيرز تحسين الفراغات الصغيرة، اختلاف الشكل، الحواف المتآكلة وبعض مشاكل الاصطفاف البسيطة. أما الحالات الأكبر فقد تحتاج تقويماً أولاً." },
+        { question: "ما الفرق بين الفينيرز وفينيرز الزيركون؟", answer: "غالباً تستخدم أنواع خزفية مثل إيماكس للشفافية الطبيعية، بينما قد يناسب الزيركون الحالات التي تحتاج متانة أو قدرة أعلى على إخفاء لون الأسنان." },
+        { question: "هل يمكن تبييض الفينيرز لاحقاً؟", answer: "لا. الخزف لا يتبيّض مثل الأسنان الطبيعية، لذلك يجب اختيار اللون بعناية قبل التثبيت." },
+        { question: "كم تكلفة فينيرز الأسنان في الأردن؟", answer: "تختلف التكلفة حسب عدد الأسنان، المادة، حالة اللثة، التركيبات القديمة، العضة، ومستوى التخطيط المخبري. الاستشارة ضرورية لتقدير مسؤول." }
+      ]
+    }
+  },
+  {
     slug: "teeth-whitening-amman",
     title: { en: "Teeth Whitening in Amman", ar: "تبييض الأسنان في عمّان" },
     navTitle: { en: "Teeth Whitening", ar: "تبييض الأسنان" },
     description: { en: "A brighter smile refresh with professional guidance and a clean, natural looking result.", ar: "تجديد لإشراقة الابتسامة بإرشاد مهني ونتيجة نظيفة وطبيعية المظهر." },
-    seoTitle: { en: "Teeth Whitening in Amman | Professional Whitening Jordan", ar: "تبييض الأسنان في عمّان | تبييض احترافي في الأردن" },
+    seoTitle: { en: "Teeth Whitening in Amman", ar: "تبييض الأسنان في عمّان" },
     metaDescription: { en: "Professional teeth whitening in Amman with Dr. Ali. Learn suitability, sensitivity checks, process, benefits, costs, FAQs, and when veneers may be a better option.", ar: "تبييض الأسنان الاحترافي في عمّان مع الدكتور علي. تعرف على الملاءمة، الحساسية، الخطوات، المزايا، التكلفة ومتى يكون الفينير خياراً أفضل." },
     heroEyebrow: { en: "Smile Refresh in Amman", ar: "تجديد الابتسامة في عمّان" },
     heroIntro: { en: "Professional whitening helps reduce stains and refresh your smile color while keeping the result clean, measured, and natural.", ar: "يساعد التبييض الاحترافي على تقليل التصبغات وتجديد لون الابتسامة مع نتيجة نظيفة ومتزنة وطبيعية." },
@@ -358,7 +463,7 @@ export const services: Service[] = [
     title: { en: "Dental Implants in Amman", ar: "زراعة الأسنان في عمّان" },
     navTitle: { en: "Dental Implants", ar: "زراعة الأسنان" },
     description: { en: "A stable, natural looking solution for replacing missing teeth with careful planning and doctor led guidance.", ar: "حل ثابت وطبيعي المظهر لتعويض الأسنان المفقودة بتخطيط دقيق وتوجيه بإشراف الطبيب." },
-    seoTitle: { en: "Dental Implants in Amman | Teeth Implants Jordan", ar: "زراعة الأسنان في عمّان | زراعة الأسنان في الأردن" },
+    seoTitle: { en: "Dental Implants in Amman", ar: "زراعة الأسنان في عمّان" },
     metaDescription: { en: "Dental implants in Amman with Dr. Ali. Learn implant suitability, planning, process, benefits, cost factors, cases, FAQs, and consultation steps.", ar: "زراعة الأسنان في عمّان مع الدكتور علي. تعرف على الملاءمة، التخطيط، الخطوات، المزايا، عوامل التكلفة، الحالات والأسئلة الشائعة." },
     heroEyebrow: { en: "Restorative Dentistry in Amman", ar: "تعويض الأسنان في عمّان" },
     heroIntro: { en: "Implant planning should restore comfort, chewing confidence, and the final smile line while respecting bone, gum, and bite conditions.", ar: "يجب أن تعيد خطة الزراعة الراحة والثقة في المضغ وخط الابتسامة مع احترام حالة العظم واللثة والعضة." },
@@ -379,7 +484,7 @@ export const services: Service[] = [
     title: { en: "Orthodontics in Amman", ar: "تقويم الأسنان في عمّان" },
     navTitle: { en: "Orthodontics", ar: "تقويم الأسنان" },
     description: { en: "Improve alignment, bite balance, and smile harmony through a personalized orthodontic plan.", ar: "تحسين اصطفاف الأسنان وتوازن العضة وتناسق الابتسامة من خلال خطة تقويم شخصية." },
-    seoTitle: { en: "Orthodontics in Amman | Braces & Aligners Jordan", ar: "تقويم الأسنان في عمّان | تقويم وشفاف في الأردن" },
+    seoTitle: { en: "Orthodontics in Amman", ar: "تقويم الأسنان في عمّان" },
     metaDescription: { en: "Orthodontics in Amman with Dr. Ali. Learn braces and aligner suitability, bite assessment, process, benefits, costs, FAQs, and cosmetic smile planning links.", ar: "تقويم الأسنان في عمّان مع الدكتور علي. تعرف على ملاءمة التقويم والشفاف، تقييم العضة، الخطوات، المزايا، التكلفة والأسئلة الشائعة." },
     heroEyebrow: { en: "Alignment & Bite Planning", ar: "تخطيط الاصطفاف والعضة" },
     heroIntro: { en: "Orthodontics can create a healthier foundation for your smile, whether the goal is alignment, bite balance, or preparation for future cosmetic treatment.", ar: "يمكن للتقويم أن يصنع أساساً أفضل للابتسامة سواء كان الهدف الاصطفاف أو توازن العضة أو التحضير لعلاج تجميلي لاحق." },
@@ -400,7 +505,7 @@ export const services: Service[] = [
     title: { en: "Gummy Smile Treatment in Jordan", ar: "علاج الابتسامة اللثوية في الأردن" },
     navTitle: { en: "Gummy Smile Treatment", ar: "علاج الابتسامة اللثوية" },
     description: { en: "Create a more balanced smile by improving the relationship between the teeth, gums, and facial expression.", ar: "ابتسامة أكثر توازناً عبر تحسين العلاقة بين الأسنان واللثة وتعابير الوجه." },
-    seoTitle: { en: "Gummy Smile Treatment in Jordan | Amman Smile Balance", ar: "علاج الابتسامة اللثوية في الأردن | توازن الابتسامة في عمّان" },
+    seoTitle: { en: "Gummy Smile Treatment in Jordan", ar: "علاج الابتسامة اللثوية في الأردن" },
     metaDescription: { en: "Gummy smile treatment in Jordan with Dr. Ali. Learn causes, Botox, laser gum contouring, orthodontic options, candidate assessment, FAQs, and consultation steps.", ar: "علاج الابتسامة اللثوية في الأردن مع الدكتور علي. تعرف على الأسباب، البوتوكس، تعديل اللثة بالليزر، التقويم، تقييم الحالة والأسئلة الشائعة." },
     heroEyebrow: { en: "Smile Balance in Jordan", ar: "توازن الابتسامة في الأردن" },
     heroIntro: { en: "A gummy smile is treated best when the real cause is identified first, then the most conservative suitable option is selected.", ar: "تُعالج الابتسامة اللثوية بشكل أفضل عندما يتم تحديد السبب الحقيقي أولاً ثم اختيار الخيار المحافظ المناسب." },
@@ -519,51 +624,15 @@ export const transformationMedia: CaseMedia[] = providedTransformationMedia.map(
   };
 });
 
-export const reviews: Review[] = [
-  {
-    id: "review-01",
-    name: "Clear consultation",
-    rating: 5,
-    source: "manual",
-    treatment: "Hollywood Smile",
-    text: {
-      en: "Patients should understand the likely options, timing, and next step before committing to treatment.",
-      ar: "من المهم أن يفهم المريض الخيارات المتوقعة، التوقيت، والخطوة التالية قبل الالتزام بالعلاج."
-    }
-  },
-  {
-    id: "review-02",
-    name: "Natural smile goals",
-    rating: 5,
-    source: "manual",
-    treatment: "Veneers",
-    text: {
-      en: "Shade, shape, and tooth texture should be planned around the face so the result feels refined, not artificial.",
-      ar: "يجب تخطيط اللون والشكل والملمس حول ملامح الوجه حتى تبدو النتيجة راقية وغير مصطنعة."
-    }
-  },
-  {
-    id: "review-03",
-    name: "Travel planning",
-    rating: 5,
-    source: "manual",
-    treatment: "Dental Implants",
-    text: {
-      en: "Patients traveling to Jordan need early clarity about visit count, timing, and follow-up expectations.",
-      ar: "يحتاج المرضى القادمون إلى الأردن إلى وضوح مبكر حول عدد الزيارات، التوقيت، والمتابعة."
-    }
-  }
-];
-
 const editorialAuthor = {
   en: {
-    name: "Dr. Ali Alheneiti Editorial Team",
-    title: "Cosmetic Dentistry · Amman, Jordan",
+    name: "Dr. Ali Alheneiti",
+    title: "Cosmetic Dentist · Amman, Jordan",
     bio: "Reviewed for clarity by a cosmetic dentistry team focused on natural veneers, Hollywood Smile planning, and premium patient experiences."
   },
   ar: {
-    name: "الفريق التحريري للدكتور علي الحنيطي",
-    title: "طب تجميل الأسنان · عمّان، الأردن",
+    name: "الدكتور علي الحنيطي",
+    title: "طبيب تجميل أسنان · عمّان، الأردن",
     bio: "محتوى مُراجع من فريق تجميل أسنان يركز على الفينير الطبيعي، تخطيط هوليوود سمايل، وتجربة المريض الراقية."
   }
 } satisfies BlogPost["author"];
@@ -574,7 +643,7 @@ export const blogPosts: BlogPost[] = [
     slug: "hollywood-smile-guide",
     relatedService: "dental-veneers-jordan",
     title: { en: "The Complete Hollywood Smile Guide (2026)", ar: "الدليل الكامل لهوليوود سمايل 2026" },
-    seoTitle: { en: "The Complete Hollywood Smile Guide (2026) | Jordan", ar: "الدليل الكامل لهوليوود سمايل 2026 | الأردن" },
+    seoTitle: { en: "The Complete Hollywood Smile Guide (2026)", ar: "الدليل الكامل لهوليوود سمايل 2026" },
     metaDescription: { en: "Learn what a Hollywood Smile is, cost factors in Jordan, veneers vs crowns, zircon vs Emax, treatment timeline, pain, recovery, and consultation steps.", ar: "تعرف على هوليوود سمايل في الأردن، عوامل التكلفة، الفينير مقابل التيجان، الزيركون مقابل إيماكس، المدة، الألم، التعافي وخطوات الاستشارة." },
     h1: { en: "The Complete Hollywood Smile Guide (2026)", ar: "الدليل الكامل لهوليوود سمايل 2026" },
     excerpt: { en: "A complete patient guide to Hollywood Smile Jordan planning, cost factors, materials, timeline, comfort, and realistic before-and-after expectations.", ar: "دليل شامل لتخطيط هوليوود سمايل في الأردن، عوامل التكلفة، المواد، المدة، الراحة، وتوقعات النتائج الواقعية." },

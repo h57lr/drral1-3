@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BlogPreview, CaseShowcase, DoctorProfileHighlight, FinalCta, Hero, Process, Reviews, ServicesPreview, TransformationVideosShowcase } from "@/components/Sections";
+import { BlogPreview, CaseShowcase, DoctorProfileHighlight, FinalCta, Hero, Process, ServicesPreview, TransformationVideosShowcase } from "@/components/Sections";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -27,7 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         : "Hollywood smile, veneers, zircon, and dental implants with a premium bilingual cosmetic dentistry experience.",
       type: "website",
       url: `/${locale}`,
-      locale: locale === "ar" ? "ar_JO" : "en_US"
+      locale: locale === "ar" ? "ar_JO" : "en_US",
+      images: [{ url: "/media/brand/dr-ali-alheneiti-logo.webp", alt: "Dr. Ali Alheneiti" }]
     }
   };
 }
@@ -43,7 +44,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <CaseShowcase locale={locale} variant="transformationVideos" />
       <ServicesPreview locale={locale} />
       <Process locale={locale} />
-      <Reviews locale={locale} />
       <TransformationVideosShowcase locale={locale} />
       <BlogPreview locale={locale} />
       <FinalCta locale={locale} />

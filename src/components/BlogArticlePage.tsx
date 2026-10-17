@@ -50,8 +50,9 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
     headline: post.h1[locale],
     description: post.metaDescription[locale],
     image: `${siteUrl}${coverImage}`,
+    datePublished: post.lastUpdated,
     dateModified: post.lastUpdated,
-    author: { "@type": "Organization", name: post.author[locale].name },
+    author: { "@type": "Person", name: post.author[locale].name, jobTitle: "Cosmetic Dentist" },
     publisher: {
       "@type": "Organization",
       name: site.brand[locale],

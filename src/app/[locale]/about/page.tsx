@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = isLocale(raw) ? raw : "en";
 
   return {
-    title: locale === "ar" ? "عن الطبيب" : "About",
+    title: { absolute: locale === "ar" ? "عن الدكتور علي الحنيطي — طبيب تجميل أسنان في عمّان" : "About Dr. Ali Alheneiti — Cosmetic Dentist in Amman, Jordan" },
     description: locale === "ar"
       ? "تعرف على د. علي الحنيطي ونهجه الراقي في تجميل الأسنان وتصميم الابتسامة الطبيعية في عمّان، الأردن."
       : "About Dr. Ali Alheneiti and his premium cosmetic dentistry approach in Amman, Jordan.",
@@ -20,13 +20,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       }
     },
     openGraph: {
-      title: locale === "ar" ? "عن الطبيب" : "About",
+      title: locale === "ar" ? "عن الدكتور علي الحنيطي — طبيب تجميل أسنان في عمّان" : "About Dr. Ali Alheneiti — Cosmetic Dentist in Amman, Jordan",
       description: locale === "ar"
         ? "نهج راقٍ في تجميل الأسنان وتصميم الابتسامة الطبيعية في الأردن."
         : "Premium cosmetic dentistry and natural smile design in Jordan.",
       type: "website",
       url: `/${locale}/about`,
-      locale: locale === "ar" ? "ar_JO" : "en_US"
+      locale: locale === "ar" ? "ar_JO" : "en_US",
+      images: [{ url: "/media/brand/dr-ali-alheneiti-logo.webp", alt: "Dr. Ali Alheneiti" }]
     }
   };
 }

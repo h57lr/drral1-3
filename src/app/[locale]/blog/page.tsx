@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = isLocale(raw) ? raw : "en";
 
   return {
-    title: locale === "ar" ? "مجلة تجميل الأسنان" : "Dental Journal",
+    title: locale === "ar" ? "دليل تجميل الأسنان — الفينير والزراعة وتصميم الابتسامة" : "Cosmetic Dentistry Guide — Veneers, Implants & Smile Design",
     description: locale === "ar"
       ? "مقالات وأدلة عن ابتسامة هوليود، الفينير، السياحة العلاجية للأسنان، وخيارات تجميل الأسنان في الأردن."
       : "Premium cosmetic dentistry articles about Hollywood Smile, veneers, dental tourism, and patient guides in Jordan.",
@@ -22,13 +22,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       }
     },
     openGraph: {
-      title: locale === "ar" ? "مجلة تجميل الأسنان" : "Dental Journal",
+      title: locale === "ar" ? "دليل تجميل الأسنان — الفينير والزراعة وتصميم الابتسامة" : "Cosmetic Dentistry Guide — Veneers, Implants & Smile Design",
       description: locale === "ar"
         ? "أدلة واضحة تساعدك على فهم خيارات تجميل الأسنان قبل الاستشارة."
         : "Clear patient guides for cosmetic dentistry decisions in Jordan.",
       type: "website",
       url: `/${locale}/blog`,
-      locale: locale === "ar" ? "ar_JO" : "en_US"
+      locale: locale === "ar" ? "ar_JO" : "en_US",
+      images: [{ url: "/media/brand/dr-ali-alheneiti-logo.webp", alt: "Dr. Ali Alheneiti" }]
     }
   };
 }

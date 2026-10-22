@@ -42,7 +42,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Hero locale={locale} />
       <DoctorProfileHighlight locale={locale} />
       <CaseShowcase locale={locale} variant="transformationVideos" />
-      <ServicesPreview locale={locale} />
+      <ServicesPreview locale={locale} excludeSlugs={["dental-veneer-jordan"]} />
       <Process locale={locale} />
       <TransformationVideosShowcase locale={locale} />
       <BlogPreview locale={locale} />

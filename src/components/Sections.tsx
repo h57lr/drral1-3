@@ -155,7 +155,8 @@ function JourneyIcon({ name }: { name: string }) {
   );
 }
 
-export function ServicesPreview({ locale, tight = false }: { locale: Locale; tight?: boolean }) {
+export function ServicesPreview({ locale, tight = false, excludeSlugs = [] }: { locale: Locale; tight?: boolean; excludeSlugs?: string[] }) {
+  const visibleServices = services.filter((service) => !excludeSlugs.includes(service.slug));
   return (
     <section className={`section${tight ? " services-preview-tight" : ""}`}>
       <div className="container">
@@ -165,7 +166,7 @@ export function ServicesPreview({ locale, tight = false }: { locale: Locale; tig
           text={locale === "ar" ? "تعرف على العلاجات الأساسية ثم انتقل إلى استشارة خاصة مبنية على صورك وهدفك الجمالي." : "Explore signature treatments, then move into a private consultation based on your photos and smile goals."}
         />
         <div className="card-grid services-grid">
-          {services.map((service) => (
+          {visibleServices.map((service) => (
             <Link className="service-card" key={service.slug} href={`/${locale}/services/${service.slug}`}>
               <span className="pill">{service.keywords[0]}</span>
               <h3>{service.navTitle[locale]}</h3>

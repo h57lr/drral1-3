@@ -5,6 +5,9 @@ export type Service = {
   slug: string;
   title: Record<Locale, string>;
   navTitle: Record<Locale, string>;
+  h1?: Record<Locale, string>;
+  heroDescription?: Record<Locale, string>;
+  absoluteSeoTitle?: Partial<Record<Locale, boolean>>;
   description: Record<Locale, string>;
   seoTitle: Record<Locale, string>;
   metaDescription: Record<Locale, string>;
@@ -210,13 +213,22 @@ export const services: Service[] = [
     slug: "dental-veneers-jordan",
     title: { en: "Dental Veneers in Jordan", ar: "فينير الأسنان في الأردن" },
     navTitle: { en: "Dental Veneers", ar: "فينير الأسنان" },
+    h1: {
+      en: "Get Your Natural-Looking Dental Veneers in Amman, Jordan",
+      ar: "فينير الأسنان في الأردن"
+    },
+    heroDescription: {
+      en: "Transform your smile with natural-looking porcelain veneers, personalized smile design, and careful treatment planning by Dr. Ali Alheneiti in Amman, Jordan.",
+      ar: "فينير طبيعي المظهر يتم تخطيطه حول ملامح وجهك، شكل ابتسامتك، وأهدافك الجمالية."
+    },
+    absoluteSeoTitle: { en: true },
     description: {
       en: "Natural looking veneers planned around your face, smile shape, and aesthetic goals.",
       ar: "فينير طبيعي المظهر يتم تخطيطه حول ملامح وجهك، شكل ابتسامتك، وأهدافك الجمالية."
     },
-    seoTitle: { en: "Dental Veneers in Jordan", ar: "فينير الأسنان في الأردن" },
+    seoTitle: { en: "Natural Dental Veneers in Amman, Jordan | Dr. Ali", ar: "فينير الأسنان في الأردن" },
     metaDescription: {
-      en: "Dental veneers in Jordan with Dr. Ali in Amman. Natural smile planning, zircon veneers guidance, candidate assessment, process, benefits, FAQs, and consultation booking.",
+      en: "Get natural-looking dental veneers in Amman, Jordan with Dr. Ali Alheneiti. Discover personalized smile design, porcelain veneers and book your consultation.",
       ar: "فينير الأسنان في الأردن مع الدكتور علي في عمّان. تخطيط ابتسامة طبيعي، توجيه حول فينير الزيركون، تقييم الحالة، الخطوات، المزايا والأسئلة الشائعة."
     },
     heroEyebrow: { en: "Cosmetic Dentistry in Jordan", ar: "طب تجميل الأسنان في الأردن" },

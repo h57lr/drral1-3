@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 
   return {
-    title: service.seoTitle[locale],
+    title: service.absoluteSeoTitle?.[locale] ? { absolute: service.seoTitle[locale] } : service.seoTitle[locale],
     description: service.metaDescription[locale],
     keywords: service.keywords,
     alternates: {
@@ -76,8 +76,8 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         <div className="container service-hero-grid">
           <div className="service-hero-copy">
             <p className="eyebrow">{service.heroEyebrow[locale]}</p>
-            <h1 className="display">{service.title[locale]}</h1>
-            <p className="lead">{service.description[locale]}</p>
+            <h1 className="display">{service.h1?.[locale] ?? service.title[locale]}</h1>
+            <p className="lead">{service.heroDescription?.[locale] ?? service.description[locale]}</p>
             <p className="service-hero-intro">{service.heroIntro[locale]}</p>
             <div className="button-row">
               <Link className="button" href={`/${locale}/contact`}>{labels.book}</Link>

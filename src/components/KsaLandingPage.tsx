@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { getKsaLandingContent, ksaSectionOrder, type KsaTreatment, type KsaVariant } from "@/components/KsaLandingContent";
+import { KsaStoryVideo } from "@/components/KsaStoryVideo";
 import type { Locale } from "@/lib/i18n";
 
 type KsaLandingPageProps = {
@@ -260,12 +261,12 @@ export function KsaLandingPage({ locale, treatment, variant }: KsaLandingPagePro
             <SectionHeading id="ksa-stories-title" eyebrow={shared.storiesEyebrow} title={shared.storiesTitle} text={shared.storiesText} />
             <p className="ksa-case-note"><span aria-hidden="true">◇</span>{locale === "ar" ? "النتائج وخطط العلاج تختلف من حالة إلى أخرى." : "Results and treatment plans vary by case."}</p>
           </div>
-          <figure className="ksa-story-video">
-            <video controls playsInline preload="none" poster="/media/video-posters/dental-veneers-patient-testimonial-poster.jpg" aria-label={shared.storiesCardTitle}>
-              <source src="/media/smile-transformation-videos/dental-veneers-patient-testimonial-jordan.mp4" type="video/mp4" />
-            </video>
-            <figcaption><span aria-hidden="true">▶</span>{shared.storiesCardTitle}</figcaption>
-          </figure>
+          <KsaStoryVideo
+            src="/media/smile-transformation-videos/dental-veneers-patient-testimonial-jordan.mp4"
+            poster="/media/video-posters/dental-veneers-patient-testimonial-poster.jpg"
+            caption={shared.storiesCardTitle}
+            ariaLabel={shared.storiesCardTitle}
+          />
         </div>
       </section>
     );

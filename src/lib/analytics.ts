@@ -82,7 +82,9 @@ export function getPageContext(): DataLayerPayload {
     language,
     page_type: topLevelPath,
     service_slug: topLevelPath === "services" ? pathAfterLocale[1] : undefined,
-    article_slug: ["blog"].includes(topLevelPath) ? pathAfterLocale[1] : undefined
+    article_slug: ["blog"].includes(topLevelPath) ? pathAfterLocale[1] : undefined,
+    ksa_treatment: topLevelPath === "ksa" ? pathAfterLocale[1] : undefined,
+    landing_variant: topLevelPath === "ksa" ? pathAfterLocale[2] : undefined
   };
 }
 

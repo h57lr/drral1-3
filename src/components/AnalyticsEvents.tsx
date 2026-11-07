@@ -9,6 +9,10 @@ function getElementText(element: Element) {
 }
 
 function inferClickLocation(element: Element) {
+  if (element.closest(".ksa-mobile-cta")) return "ksa_sticky_mobile_cta";
+  if (element.closest(".ksa-conversion-section")) return "ksa_lead_section";
+  if (element.closest(".ksa-hero")) return "ksa_hero";
+  if (element.closest(".ksa-section")) return "ksa_page_section";
   if (element.closest("header")) return "header";
   if (element.closest("footer")) return "footer";
   if (element.closest(".sticky-mobile-cta")) return "sticky_mobile_cta";
@@ -98,7 +102,6 @@ export function AnalyticsEvents() {
         };
 
         pushDataLayerEvent("whatsapp_click", payload);
-        pushDataLayerEvent("generate_lead", payload);
         return;
       }
 

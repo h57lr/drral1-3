@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { getKsaLandingContent, ksaSectionOrder, type KsaTreatment, type KsaVariant } from "@/components/KsaLandingContent";
 import { KsaStoryVideo } from "@/components/KsaStoryVideo";
+import { ServiceFadeCarousel } from "@/components/ServiceHeroCarousel";
 import type { Locale } from "@/lib/i18n";
 
 type KsaLandingPageProps = {
@@ -10,6 +11,12 @@ type KsaLandingPageProps = {
 };
 
 const whatsappNumber = "962790169494";
+
+// Female Case 1 hero carousel — scoped to three Clarity routes only.
+const clarityCarouselImages = [
+  { src: "/media/ksa/clarity-female-a.webp", label: "" },
+  { src: "/media/ksa/clarity-female-b.webp", label: "" }
+];
 
 const variantNames: Record<KsaVariant, Record<Locale, string>> = {
   natural: { ar: "التصميم الطبيعي", en: "natural-design" },
@@ -57,6 +64,8 @@ function Hero({ locale, treatment, variant }: KsaLandingPageProps) {
   const imageAlt = locale === "ar"
     ? (variant === "clarity" ? "استشارة تخطيط العلاج في عمّان" : "نتيجة ابتسامة في عمّان")
     : (variant === "clarity" ? "Treatment planning consultation in Amman" : "Smile result in Amman");
+  const useClarityCarousel = variant === "clarity" && !(locale === "en" && treatment === "veneers");
+  const carouselAlt = locale === "ar" ? "نتيجة ابتسامة لمريضة في عمّان" : "Patient smile result in Amman";
   const whatsappUrl = getKsaWhatsappUrl(locale, treatment, variant);
   const title = (
     <h1>
@@ -102,8 +111,17 @@ function Hero({ locale, treatment, variant }: KsaLandingPageProps) {
       <section className="ksa-hero ksa-hero--clarity" aria-labelledby="ksa-hero-title">
         <div className="ksa-container ksa-clarity-layout">
           <aside className="ksa-clarity-board" aria-label={shared.priceEyebrow}>
-            <div className="ksa-clarity-image">
-              <img src={media.src} alt={imageAlt} style={imageStyle} width="900" height="760" fetchPriority="high" />
+            <div className={`ksa-clarity-image${useClarityCarousel ? " ksa-clarity-image--carousel" : ""}`}>
+              {useClarityCarousel ? (
+                <ServiceFadeCarousel
+                  images={clarityCarouselImages}
+                  alt={carouselAlt}
+                  className="ksa-clarity-carousel"
+                  priority
+                />
+              ) : (
+                <img src={media.src} alt={imageAlt} style={imageStyle} width="900" height="760" fetchPriority="high" />
+              )}
             </div>
             <div className="ksa-clarity-price">
               <small>{content.treatment.priceTitle}</small>

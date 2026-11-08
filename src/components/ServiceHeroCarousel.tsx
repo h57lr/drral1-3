@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 type FadeCarouselImage = { src: string; label: string; splitLabels?: { before: string; after: string } };
 
-function ServiceFadeCarousel({ images, alt, className }: { images: FadeCarouselImage[]; alt: string; className: string }) {
+export function ServiceFadeCarousel({ images, alt, className, priority = false }: { images: FadeCarouselImage[]; alt: string; className: string; priority?: boolean }) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -22,7 +22,11 @@ function ServiceFadeCarousel({ images, alt, className }: { images: FadeCarouselI
       <div className={`${className}-track`}>
         {images.map((image, index) => (
           <figure className={`${className}-slide${active === index ? " active" : ""}`} key={image.src}>
-            <img src={image.src} alt={image.label ? `${alt} - ${image.label}` : alt} />
+            <img
+              src={image.src}
+              alt={image.label ? `${alt} - ${image.label}` : alt}
+              fetchPriority={priority && index === 0 ? "high" : undefined}
+            />
             {image.splitLabels ? (
               <>
                 <span className={`${className}-split-label before`}>{image.splitLabels.before}</span>

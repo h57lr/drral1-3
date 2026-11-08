@@ -5173,6 +5173,72 @@ a:focus-visible .read-more,
   min-height: 430px;
 }
 
+/* Scoped hero carousel for the three Clarity routes that use Female Case 1.
+   Matches the service hero carousel crossfade (720ms cubic-bezier(0.2,0.8,0.2,1)). */
+.ksa-clarity-image--carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.ksa-clarity-carousel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ksa-clarity-carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ksa-clarity-carousel-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ksa-clarity-carousel-slide.active {
+  opacity: 1;
+}
+
+.ksa-clarity-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.ksa-clarity-carousel figcaption {
+  display: none;
+}
+
+.ksa-clarity-carousel-dots {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 12px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ksa-clarity-carousel-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 0 0 1px rgba(20, 35, 31, 0.18);
+  transition: width 260ms ease, background 260ms ease;
+}
+
+.ksa-clarity-carousel-dots span.active {
+  width: 20px;
+  background: var(--ksa-gold);
+}
+
 .ksa-clarity-price {
   display: flex;
   flex-direction: column;

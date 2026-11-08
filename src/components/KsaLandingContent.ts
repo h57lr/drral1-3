@@ -290,28 +290,43 @@ const variants: Record<KsaVariant, Localized<{
   }
 };
 
-const heroMedia: Record<KsaTreatment, Record<KsaVariant, { src: string; position?: string }>> = {
+type KsaMedia = { src: string; position: string };
+
+// Hero and section media. Optimized WebP derivatives live in /media/ksa/.
+// Still photography only — no video posters with baked-in play buttons.
+const heroMedia: Record<KsaTreatment, Record<KsaVariant, KsaMedia>> = {
   veneers: {
-    natural: { src: "/media/video-posters/natural-dental-veneers-before-after-poster.jpg", position: "50% 45%" },
-    journey: { src: "/media/video-posters/smile-makeover-consultation-preview-poster.jpg", position: "50% 35%" },
-    clarity: { src: "/media/video-posters/male-veneer-texture-detail-poster.jpg", position: "50% 50%" }
+    natural: { src: "/media/ksa/hero-veneers-natural.webp", position: "50% 26%" },
+    journey: { src: "/media/ksa/hero-veneers-journey.webp", position: "50% 24%" },
+    clarity: { src: "/media/ksa/hero-clarity.webp", position: "50% 32%" }
   },
   "hollywood-smile": {
-    natural: { src: "/media/video-posters/soft-hollywood-smile-reveal-poster.jpg", position: "50% 45%" },
-    journey: { src: "/media/video-posters/hollywood-smile-veneers-result-poster.jpg", position: "50% 40%" },
-    clarity: { src: "/media/video-posters/facing-to-veneers-smile-design-result-poster.jpg", position: "50% 45%" }
+    natural: { src: "/media/ksa/hero-hollywood-natural.webp", position: "50% 24%" },
+    journey: { src: "/media/ksa/hero-hollywood-journey.webp", position: "50% 26%" },
+    clarity: { src: "/media/ksa/hero-clarity.webp", position: "50% 32%" }
   }
 };
 
-export function getKsaLandingContent(locale: Locale, treatment: KsaTreatment, variant: KsaVariant) {
-  const media = locale === "ar" && treatment === "hollywood-smile" && variant === "natural"
-    ? { src: "/media/smile-case-images/natural-veneers-before-after-comparison-front.webp", position: "50% 50%" }
-    : heroMedia[treatment][variant];
+// Treatment-explanation section image, per treatment.
+const treatmentMedia: Record<KsaTreatment, KsaMedia> = {
+  veneers: { src: "/media/ksa/treatment-veneers.webp", position: "50% 32%" },
+  "hollywood-smile": { src: "/media/ksa/treatment-hollywood.webp", position: "50% 34%" }
+};
 
+// Travel section background. English uses the localized dental-tourism graphic;
+// Arabic uses a neutral, text-free smile portrait (the graphic has baked English text).
+const travelMedia: Record<Locale, KsaMedia> = {
+  ar: { src: "/media/ksa/travel-ar.webp", position: "50% 38%" },
+  en: { src: "/media/service-images/dental-tourism-jordan-travel-planning.webp", position: "50% 45%" }
+};
+
+export function getKsaLandingContent(locale: Locale, treatment: KsaTreatment, variant: KsaVariant) {
   return {
     shared: shared[locale],
     treatment: treatmentContent[treatment][locale],
     variant: variants[variant][locale],
-    media
+    media: heroMedia[treatment][variant],
+    treatmentSectionMedia: treatmentMedia[treatment],
+    travelSectionMedia: travelMedia[locale]
   };
 }

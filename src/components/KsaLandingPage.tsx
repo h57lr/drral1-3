@@ -54,7 +54,9 @@ function Hero({ locale, treatment, variant }: KsaLandingPageProps) {
   const content = getKsaLandingContent(locale, treatment, variant);
   const { shared, media } = content;
   const imageStyle = { objectPosition: media.position } as CSSProperties;
-  const imageAlt = locale === "ar" ? `تخطيط ${content.treatment.shortName} في عمّان` : `${content.treatment.shortName} planning in Amman`;
+  const imageAlt = locale === "ar"
+    ? (variant === "clarity" ? "استشارة تخطيط العلاج في عمّان" : "نتيجة ابتسامة في عمّان")
+    : (variant === "clarity" ? "Treatment planning consultation in Amman" : "Smile result in Amman");
   const whatsappUrl = getKsaWhatsappUrl(locale, treatment, variant);
   const title = (
     <h1>
@@ -162,7 +164,14 @@ export function KsaLandingPage({ locale, treatment, variant }: KsaLandingPagePro
       <section className="ksa-section ksa-treatment-section" aria-labelledby="ksa-treatment-title">
         <div className="ksa-container ksa-treatment-layout">
           <div className="ksa-treatment-media">
-            <img src="/media/video-posters/smile-design-veneers-jordan-poster.jpg" alt={locale === "ar" ? "تخطيط مظهر الابتسامة في عمّان" : "Smile appearance planning in Amman"} width="900" height="760" loading="lazy" />
+            <img
+              src={content.treatmentSectionMedia.src}
+              alt={locale === "ar" ? "نتيجة ابتسامة بعد التخطيط في عمّان" : "Smile result after planning in Amman"}
+              style={{ objectPosition: content.treatmentSectionMedia.position }}
+              width="900"
+              height="760"
+              loading="lazy"
+            />
             <span>{content.treatment.shortName}</span>
           </div>
           <div>
@@ -240,7 +249,14 @@ export function KsaLandingPage({ locale, treatment, variant }: KsaLandingPagePro
     return (
       <section className="ksa-section ksa-travel-section" aria-labelledby="ksa-travel-title">
         <div className="ksa-travel-image" aria-hidden="true">
-          <img src="/media/service-images/dental-tourism-jordan-travel-planning.webp" alt="" width="1000" height="850" loading="lazy" />
+          <img
+            src={content.travelSectionMedia.src}
+            alt=""
+            style={{ objectPosition: content.travelSectionMedia.position }}
+            width="1000"
+            height="850"
+            loading="lazy"
+          />
         </div>
         <div className="ksa-container ksa-travel-layout">
           <div className="ksa-travel-copy">
@@ -263,7 +279,7 @@ export function KsaLandingPage({ locale, treatment, variant }: KsaLandingPagePro
           </div>
           <KsaStoryVideo
             src="/media/smile-transformation-videos/dental-veneers-patient-testimonial-jordan.mp4"
-            poster="/media/video-posters/dental-veneers-patient-testimonial-poster.jpg"
+            poster="/media/ksa/story-poster.webp"
             caption={shared.storiesCardTitle}
             ariaLabel={shared.storiesCardTitle}
           />

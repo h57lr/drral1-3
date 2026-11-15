@@ -8,13 +8,23 @@ const nextConfig = {
         permanent: true
       },
       {
-        source: "/:locale(en|ar)/services/hollywood-smile-jordan",
-        destination: "/:locale/services/veneers-in-jordan",
+        source: "/en/services/hollywood-smile-jordan",
+        destination: "/en/services/dental-veneers-jordan",
         permanent: true
       },
       {
-        source: "/:locale(en|ar)/reels",
-        destination: "/:locale/transformations",
+        source: "/ar/services/hollywood-smile-jordan",
+        destination: encodeURI("/ar/services/فينير-الأسنان-في-الأردن"),
+        permanent: true
+      },
+      {
+        source: "/en/reels",
+        destination: "/en/transformations",
+        permanent: true
+      },
+      {
+        source: "/ar/reels",
+        destination: encodeURI("/ar/تحولات-الابتسامة"),
         permanent: true
       }
     ];

@@ -1,7 +1,7 @@
 import type { Locale } from "./i18n";
 
 export const sectionSegments = {
-  services: { en: "services", ar: "الخدمات" },
+  services: { en: "services", ar: "services" },
   about: { en: "about", ar: "عن-الدكتور" },
   contact: { en: "contact", ar: "تواصل-معنا" },
   blog: { en: "blog", ar: "المدونة" },
@@ -86,27 +86,35 @@ export function resolveArabicRoute(rawPathname: string): ArabicResolution {
 
   if (a === "ksa") return null;
 
+  // Services now share the "services" segment for Arabic (Arabic slugs retained).
+  if (a === "services") {
+    if (rest.length === 2) {
+      const ar = serviceSlugs[b]?.ar;
+      if (ar && ar !== b) return { type: "redirect", path: `/ar/services/${ar}` };
+    }
+    return null;
+  }
+
+  // Legacy localized services segment -> final shared segment.
+  if (a === "الخدمات") {
+    if (rest.length === 1) return { type: "redirect", path: "/ar/services" };
+    if (rest.length === 2) {
+      const ar = serviceSlugs[b]?.ar ?? b;
+      return { type: "redirect", path: `/ar/services/${ar}` };
+    }
+    return null;
+  }
+
+  // Other Arabic section paths (rewrite to internal routes).
   const arKey = arSectionKey(a);
   if (arKey) {
-    if (arKey === "services") {
-      if (rest.length === 1) return { type: "rewrite", path: "/ar/services" };
-      if (rest.length === 2) return { type: "rewrite", path: `/ar/services/${b}` };
-      return null;
-    }
     if (rest.length === 1) return { type: "rewrite", path: `/ar/${sectionSegments[arKey].en}` };
     return null;
   }
 
+  // Old English Arabic section paths (redirect to Arabic).
   const enKey = enSectionKey(a);
   if (enKey) {
-    if (enKey === "services") {
-      if (rest.length === 1) return { type: "redirect", path: `/ar/${sectionSegments.services.ar}` };
-      if (rest.length === 2) {
-        const ar = serviceSlugs[b]?.ar;
-        if (ar) return { type: "redirect", path: `/ar/${sectionSegments.services.ar}/${ar}` };
-      }
-      return null;
-    }
     if (enKey === "blog") {
       if (rest.length === 1) return { type: "redirect", path: `/ar/${sectionSegments.blog.ar}` };
       if (rest.length === 2) {

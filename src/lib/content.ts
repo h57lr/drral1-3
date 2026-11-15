@@ -44,6 +44,7 @@ export type CaseMedia = {
 
 export type BlogPost = {
   slug: string;
+  localeSlug?: Record<Locale, string>;
   title: Record<Locale, string>;
   seoTitle: Record<Locale, string>;
   metaDescription: Record<Locale, string>;
@@ -55,6 +56,7 @@ export type BlogPost = {
   coverAlt: Record<Locale, string>;
   keywords: string[];
   lastUpdated: string;
+  datePublished?: string;
   author: Record<Locale, { name: string; title: string; bio: string }>;
   introduction: Record<Locale, string[]>;
   quickAnswer?: Record<Locale, string[]>;
@@ -725,32 +727,205 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "veneers-dr-ali-jordan",
+    localeSlug: { en: "best-veneers-doctor-amman-dr-ali-alheneiti", ar: "افضل-دكتور-فينير-عمان-علي-الحنيطي" },
     relatedService: "dental-veneers-jordan",
-    title: { en: "Why Patients Choose Dr. Ali for Veneers in Jordan", ar: "لماذا يختار المرضى الدكتور علي للفينير في الأردن" },
-    seoTitle: { en: "Why Patients Choose Dr. Ali for Veneers in Jordan", ar: "لماذا يختار المرضى الدكتور علي للفينير في الأردن" },
-    metaDescription: { en: "Discover why patients choose Dr. Ali for veneers in Jordan: Digital Smile Design, premium materials, natural results, international patient support, and follow-up care.", ar: "اكتشف لماذا يختار المرضى الدكتور علي للفينير في الأردن: تصميم رقمي، مواد فاخرة، نتائج طبيعية، دعم المرضى الدوليين والمتابعة." },
-    h1: { en: "Why Patients Choose Dr. Ali for Veneers in Jordan", ar: "لماذا يختار المرضى الدكتور علي للفينير في الأردن" },
-    excerpt: { en: "An inside look at Dr. Ali's veneer philosophy, digital planning, premium materials, patient journey, and why Jordan is trusted for smile transformations.", ar: "نظرة على فلسفة الدكتور علي في الفينير، التخطيط الرقمي، المواد الفاخرة، رحلة المريض، ولماذا الأردن وجهة موثوقة للابتسامة." },
+    title: { en: "Best Veneers Doctor in Amman: Why Choose Dr. Ali Alheneiti?", ar: "أفضل دكتور فينير في عمّان: لماذا تختار الدكتور علي الحنيطي؟" },
+    seoTitle: { en: "Best Veneers Doctor in Amman: Why Choose Dr. Ali Alheneiti?", ar: "أفضل دكتور فينير في عمّان: لماذا تختار الدكتور علي الحنيطي؟" },
+    metaDescription: {
+      en: "Looking for the best veneers doctor in Amman? Discover Dr. Ali Alheneiti's experience across 7,000+ cases and his approach to natural-looking smile design.",
+      ar: "تبحث عن أفضل دكتور فينير في عمّان؟ تعرّف على خبرة الدكتور علي الحنيطي التي تتجاوز ٧٬٠٠٠ حالة، ونهجه في تصميم ابتسامات طبيعية بتفاصيل مدروسة."
+    },
+    h1: { en: "Best Veneers Doctor in Amman: Why Choose Dr. Ali Alheneiti?", ar: "أفضل دكتور فينير في عمّان: لماذا تختار الدكتور علي الحنيطي؟" },
+    excerpt: {
+      en: "More than 7,000 completed cases and an approach centered on the details of your smile. Discover why Dr. Ali Alheneiti is worth considering for veneers in Amman.",
+      ar: "خبرة تتجاوز ٧٬٠٠٠ حالة، واهتمام بالتفاصيل التي تمنح الابتسامة طابعها الخاص. تعرّف على نهج الدكتور علي الحنيطي في تصميم الابتسامة في عمّان."
+    },
     category: { en: "Expert Advice", ar: "نصائح الخبراء" },
     readTime: "8 min read",
-    coverImage: "/media/doctor-profile/dr-ali-alheneiti-cosmetic-dentist-amman-jordan.webp",
+    coverImage: "/media/doctor-profile/dr-ali-alheneiti-veneers-amman.webp",
     coverAlt: { en: "Cosmetic dental clinic consultation for veneers in Jordan", ar: "استشارة في عيادة تجميل أسنان للفينير في الأردن" },
-    keywords: ["Best Veneers Jordan", "Dr Ali Veneers", "Hollywood Smile Jordan", "Dental Clinic Jordan", "Medical Tourism Jordan"],
-    lastUpdated: "2026-01-15",
+    keywords: ["Best Veneers Doctor in Amman", "Veneers Doctor Amman", "Dr Ali Veneers", "Natural Veneers Amman", "Veneers Consultation Jordan"],
+    lastUpdated: "2026-11-15",
+    datePublished: "2026-01-15",
     author: editorialAuthor,
-    introduction: { en: ["Choosing veneers is a personal decision. Patients are not only selecting ceramic; they are selecting a dentist's eye, planning process, laboratory standards, and follow-up philosophy. That is why searches such as Best Veneers Jordan and Dr Ali Veneers often focus on trust as much as price.", "Dr. Ali's approach centers on natural smile design, clear communication, and a calm premium experience for local and international patients."], ar: ["اختيار الفينير قرار شخصي. المريض لا يختار السيراميك فقط، بل يختار عين الطبيب، طريقة التخطيط، مستوى المختبر، وفلسفة المتابعة. لذلك تركز عمليات البحث عن أفضل فينير في الأردن والدكتور علي فينير على الثقة بقدر السعر.", "يركز نهج الدكتور علي على تصميم ابتسامة طبيعية، تواصل واضح، وتجربة راقية هادئة للمرضى المحليين والدوليين."] },
+    introduction: {
+      en: [
+        "A beautiful smile is not simply a set of white teeth. It is the relationship between shape, shade, proportions, and the features that make your face distinctive.",
+        "If you are searching for the best veneers doctor in Amman, you are likely looking for someone who understands that difference. You want a result that feels thoughtfully designed, with a clear explanation of the treatment and attention to the details that matter to you.",
+        "With more than 7,000 completed cases, Dr. Ali Alheneiti brings extensive practical experience to that conversation. His published approach emphasizes natural-looking smiles and planning around the individual."
+      ],
+      ar: [
+        "الابتسامة الجميلة ليست مجرد أسنان أكثر بياضاً. جمالها في تناسق الشكل واللون والنسب، وفي التفاصيل التي تجعلها منسجمة مع ملامحك وشخصيتك.",
+        "عندما تبحث عن أفضل دكتور فينير في عمّان، فأنت تبحث عن طبيب يفهم النتيجة التي تتمناها، ويهتم بتفاصيلها، ويشرح لك الخيارات بوضوح قبل اتخاذ القرار.",
+        "بخبرة تتجاوز ٧٬٠٠٠ حالة، يقدم الدكتور علي الحنيطي تجربة عملية واسعة، مع توجه في تصميم الابتسامة يركز على المظهر الطبيعي والتخطيط لكل شخص بصورة فردية."
+      ]
+    },
+    internalLinks: [
+      { label: { en: "Dental Veneers in Jordan", ar: "فينير الأسنان في الأردن" }, href: "/services/dental-veneers-jordan", description: { en: "Explore the veneers service, planning, and what to expect.", ar: "تعرّف على خدمة الفينير والتخطيط وما يمكن توقعه." } },
+      { label: { en: "Smile Transformations", ar: "تحولات الابتسامة" }, href: "/transformations", description: { en: "Review before-and-after smile transformation cases.", ar: "شاهد حالات تحول الابتسامة قبل وبعد." } },
+      { label: { en: "About Dr. Ali Alheneiti", ar: "عن الدكتور علي الحنيطي" }, href: "/about", description: { en: "Learn about the doctor's approach to natural smile design.", ar: "تعرّف على نهج الطبيب في تصميم الابتسامة الطبيعية." } },
+      { label: { en: "Book a Consultation", ar: "احجز استشارتك" }, href: "/contact", description: { en: "Contact the clinic to discuss your goals and next steps.", ar: "تواصل مع العيادة لمناقشة أهدافك والخطوة التالية." } }
+    ],
     sections: [
-      { id: "experience", heading: { en: "Doctor Experience and Cosmetic Eye", ar: "خبرة الطبيب والذوق التجميلي" }, body: { en: ["The difference between ordinary veneers and premium veneers is often in small decisions: edge length, line angles, texture, translucency, and how the smile looks when the patient speaks. Experience helps the dentist avoid over-bright, bulky, or artificial outcomes.", "Dr. Ali's philosophy favors smiles that enhance the face without overpowering it. The aim is confidence, not a generic template."], ar: ["الفرق بين الفينير العادي والفينير الفاخر غالباً في قرارات صغيرة: طول الحافة، زوايا الخطوط، الملمس، الشفافية، وكيف تبدو الابتسامة أثناء الكلام. الخبرة تساعد على تجنب النتائج السميكة أو المصطنعة.", "فلسفة الدكتور علي تفضل ابتسامة تعزز الوجه دون أن تطغى عليه. الهدف هو الثقة وليس قالباً موحداً."] } },
-      { id: "digital", heading: { en: "Digital Smile Design and Personalized Treatment", ar: "تصميم رقمي وخطة شخصية" }, body: { en: ["Digital Smile Design allows the team to study photos and facial references before choosing tooth shapes. It improves communication between patient, dentist, and laboratory, reducing guesswork.", "Personalization means the treatment plan may combine veneers, whitening, gum refinement, or replacement of older work. Not every tooth needs the same treatment."], ar: ["يسمح التصميم الرقمي بدراسة الصور وملامح الوجه قبل اختيار أشكال الأسنان. يحسن التواصل بين المريض والطبيب والمختبر ويقلل التخمين.", "الخطة الشخصية قد تجمع بين الفينير والتبييض وتعديل اللثة أو استبدال عمل قديم. ليس كل سن يحتاج العلاج نفسه."] } },
-      { id: "materials", heading: { en: "Premium Materials and Natural Results", ar: "مواد فاخرة ونتائج طبيعية" }, body: { en: ["Premium materials such as Emax or carefully selected zircon are chosen according to tooth color, strength needs, and aesthetic goals. Material selection is paired with laboratory artistry, shade communication, and trial evaluation.", "Natural results come from layering, surface texture, proportion, and shade control. Patients often want a bright smile, but the most elegant results avoid flat, opaque whiteness."], ar: ["تُختار المواد الفاخرة مثل إيماكس أو الزيركون المناسب حسب لون الأسنان واحتياجات القوة والهدف الجمالي. اختيار المادة يرتبط بفن المختبر وتواصل اللون وتجربة الشكل.", "النتائج الطبيعية تأتي من الطبقات والملمس والنسب وضبط اللون. يرغب المرضى غالباً بابتسامة مشرقة، لكن أرقى النتائج تتجنب البياض المسطح المعتم."] } },
-      { id: "international", heading: { en: "International Patient Journey", ar: "رحلة المريض الدولي" }, body: { en: ["International patients need clarity before arriving in Jordan. The journey often starts with WhatsApp photos, medical history, smile goals, and available travel dates. The clinic can guide visit timing, airport pickup coordination, accommodation guidance, and follow-up expectations when arranged in advance.", "A successful medical tourism Jordan experience depends on realistic scheduling. Some cases are completed within a short trip, while others require staged care or preparatory treatment."], ar: ["يحتاج المرضى القادمون من الخارج إلى وضوح قبل الوصول إلى الأردن. تبدأ الرحلة غالباً بصور واتساب، التاريخ الطبي، أهداف الابتسامة، وتواريخ السفر المتاحة. يمكن توجيه المريض حول توقيت الزيارات، تنسيق الاستقبال من المطار، إرشادات السكن، والمتابعة عند الترتيب مسبقاً.", "نجاح السياحة العلاجية في الأردن يعتمد على جدول واقعي. بعض الحالات تنجز خلال رحلة قصيرة، وأخرى تحتاج مراحل أو علاجاً تحضيرياً."] } },
-      { id: "jordan", heading: { en: "Why Jordan Is an Ideal Destination", ar: "لماذا الأردن وجهة مثالية" }, body: { en: ["Jordan is accessible for patients from the Gulf, Europe, and nearby regions. Amman offers strong medical infrastructure, bilingual communication, hospitality, and convenient travel logistics for cosmetic dental treatment.", "Patients choose Jordan when they want premium care with personal attention, cultural comfort, and a destination that is easy to plan around family or business travel."], ar: ["الأردن قريب ومناسب للمرضى من الخليج وأوروبا والمنطقة. توفر عمّان بنية طبية قوية، تواصلاً ثنائياً، ضيافة، وسهولة في تنظيم السفر لعلاج الأسنان التجميلي.", "يختار المرضى الأردن عندما يريدون رعاية راقية واهتماماً شخصياً ووجهة سهلة التخطيط مع العائلة أو العمل."] } },
-      { id: "proof", heading: { en: "Testimonials, Before & After Cases, and Follow-Up", ar: "الشهادات والحالات والمتابعة" }, body: { en: ["Testimonials and before-and-after cases help patients understand the clinic's aesthetic language. Look for cases with similar starting conditions, not only ideal examples.", "Follow-up care is part of the result. Bite checks, hygiene guidance, night guard recommendations, and maintenance visits help preserve veneers and patient comfort."], ar: ["تساعد الشهادات وصور قبل وبعد المريض على فهم الأسلوب الجمالي للعيادة. الأفضل البحث عن حالات تشبه البداية الخاصة بك وليس فقط الحالات المثالية.", "المتابعة جزء من النتيجة. فحص العضة، إرشادات العناية، توصية الواقي الليلي، وزيارات الصيانة تساعد في الحفاظ على الفينير وراحة المريض."] } }
+      {
+        id: "experience",
+        heading: { en: "Experience Across More Than 7,000 Cases", ar: "خبرة تتجاوز ٧٬٠٠٠ حالة" },
+        body: {
+          en: [
+            "Dr. Ali Alheneiti has completed more than 7,000 cases. For someone considering a change to their smile, that experience is an important part of getting to know the doctor behind the treatment.",
+            "The consultation is where this experience becomes relevant to you. It is an opportunity to discuss your starting point, explain what you want to change, and review examples that relate to your goals.",
+            "Ask about cases similar to yours. Understanding the choices behind a result can tell you more than looking at the final photograph alone."
+          ],
+          ar: [
+            "الخبرة، والأعمال السابقة، والاهتمام بالتفاصيل، ووضوح التواصل، كلها عناصر تستحق النظر عند اختيار طبيبك.",
+            "بالنسبة إلى الدكتور علي الحنيطي، تجمع تجربته بين أكثر من ٧٬٠٠٠ حالة ونهج جمالي يعرضه موقعه من خلال حالات وتحولات ابتسامة مختلفة.",
+            "الأهم بالنسبة إليك هو فهم مدى ملاءمة هذا النهج لذوقك واحتياجاتك. هل تبحث عن تغيير ناعم؟ أم ابتسامة أكثر إشراقاً؟ وما التفاصيل التي تريد الحفاظ عليها؟",
+            "هذه الأسئلة هي بداية الحوار حول ابتسامتك.",
+            "أنجز الدكتور علي الحنيطي أكثر من ٧٬٠٠٠ حالة، وهي خبرة عملية واسعة تستحق أن تكون جزءاً من تقييمك عند اختيار الطبيب.",
+            "خلال الاستشارة، يمكنك مناقشة ما ترغب في تغييره، وطلب الاطلاع على أمثلة مرتبطة باحتياجاتك، وفهم القرارات التي ساهمت في الوصول إلى النتائج المعروضة.",
+            "لا تكتفِ بالسؤال عن الصورة النهائية. اسأل عن نقطة البداية، وما الذي جرى اختياره في الخطة، ولماذا.",
+            "بهذه الطريقة، تصبح مشاهدة الأعمال السابقة خطوة مفيدة لفهم الخيارات المطروحة أمامك."
+          ]
+        }
+      },
+      {
+        id: "natural",
+        heading: { en: "Natural-Looking Veneers Begin With Personal Preferences", ar: "ابتسامة طبيعية تعبّر عنك" },
+        body: {
+          en: [
+            "“Natural” does not mean the same thing to every patient.",
+            "For one person, it means a subtle improvement that friends notice without immediately knowing what changed. For another, it means a brighter smile that still feels balanced and believable.",
+            "Dr. Ali’s published smile-design approach considers facial features, lips, gum line, bite, tooth shape, and shade. The purpose of that conversation is to move beyond choosing a color and explore the overall character of your smile.",
+            "Explain what you like, what you want to avoid, and how noticeable you want the change to be."
+          ],
+          ar: [
+            "معنى «الابتسامة الطبيعية» يختلف من شخص إلى آخر.",
+            "قد ترغب في تعديل بسيط يجعل ابتسامتك أكثر تناسقاً، مع الحفاظ على طابعها. وقد تفضل درجة بياض أوضح، بشرط أن تبدو النتيجة منسجمة مع وجهك.",
+            "يصف موقع الدكتور علي نهجاً يهتم بملامح الوجه، والشفتين، وخط اللثة، والعضة، وشكل الأسنان، ودرجة اللون.",
+            "لذلك، من المفيد أن تشرح ما تحبه في ابتسامتك الحالية، وما ترغب في تغييره، وما لا تريد الوصول إليه. كلما كانت تفضيلاتك أوضح، أصبح الحوار حول التصميم أكثر تحديداً."
+          ]
+        }
+      },
+      {
+        id: "shape",
+        heading: { en: "Attention to Shape, Shade, and Proportion", ar: "التفاصيل الصغيرة تستحق النقاش" },
+        body: {
+          en: [
+            "When reviewing a proposed smile design, the details deserve time.",
+            "Would you prefer softer or more defined tooth shapes? A gentle brightness or a more noticeable shade? What do you like about your current smile that you would want to preserve?",
+            "These questions help make your preferences clear. They also give the doctor an opportunity to explain how your expectations relate to the treatment options available after assessment.",
+            "A thoughtful consultation should leave you with a clearer understanding of the proposed direction."
+          ],
+          ar: [
+            "عند مناقشة تصميم الابتسامة، لا تجعل اللون هو السؤال الوحيد.",
+            "هل تفضل شكلاً ناعماً أم أكثر تحديداً؟ هل تبحث عن بياض هادئ أم تغيير ملحوظ؟ وما مقدار التغيير الذي يشعرك بالراحة؟",
+            "هذه التفاصيل تساعدك في التعبير عن ذوقك، وتمنح الطبيب فرصة لشرح علاقتها بالخيارات المناسبة بعد تقييم حالتك.",
+            "الاستشارة الجيدة تترك لديك تصوراً أوضح عن الاتجاه المقترح، والخطوات التي يتطلبها."
+          ]
+        }
+      },
+      {
+        id: "transformations",
+        heading: { en: "Explore Smile Transformations", ar: "شاهد تحولات الابتسامة بعين التفاصيل" },
+        body: {
+          en: [
+            "Dr. Ali’s transformation gallery offers a starting point for exploring his aesthetic approach.",
+            "Look beyond the difference in color. Notice the overall appearance of the smile, the shape of the teeth, and how the result relates to the person’s features.",
+            "Save examples that appeal to you and bring them into the consultation. Discuss what you like about each one, rather than requesting an exact copy of someone else’s smile.",
+            "Every patient has a different starting point, and individual results vary."
+          ],
+          ar: [
+            "يتيح لك معرض تحولات الابتسامة في الموقع التعرف إلى أمثلة من أعمال الدكتور علي.",
+            "تأمل أكثر من اختلاف اللون. انظر إلى شكل الأسنان، وتناسق الابتسامة، وعلاقتها بملامح الوجه.",
+            "احتفظ بالأمثلة التي تعجبك، ثم ناقش سبب إعجابك بها خلال الاستشارة. قد يكون ما يلفتك هو نعومة الشكل، أو درجة اللون، أو التغيير المتوازن في المظهر العام.",
+            "الهدف أن توضح ذوقك، مع مراعاة أن لكل شخص نقطة بداية مختلفة وأن النتائج تختلف من حالة إلى أخرى."
+          ]
+        }
+      },
+      {
+        id: "questions",
+        heading: { en: "What Should You Ask Before Choosing a Veneers Doctor?", ar: "كيف تختار دكتور الفينير المناسب لك؟" },
+        body: {
+          en: [
+            "When comparing options in Amman, use your consultation to ask:",
+            "• Are veneers appropriate for my situation?",
+            "• What alternatives should I consider?",
+            "• What changes would you recommend, and why?",
+            "• Can I see cases relevant to my concerns?",
+            "• How will we discuss shape, shade, and my expectations?",
+            "• What does the treatment involve, including its limitations and aftercare?",
+            "• What does the quoted cost include?",
+            "• What appointments and follow-up will I need?",
+            "The conversation should help you understand your options and make an informed decision."
+          ],
+          ar: [
+            "استخدم الاستشارة لطرح أسئلة واضحة:",
+            "• هل الفينير مناسب لحالتي؟",
+            "• ما البدائل التي يمكن مناقشتها؟",
+            "• ما التغييرات التي تقترحها، ولماذا؟",
+            "• هل يمكنني مشاهدة حالات مرتبطة باحتياجاتي؟",
+            "• كيف سنناقش الشكل واللون وتوقعاتي؟",
+            "• ما حدود العلاج ومتطلبات العناية بعده؟",
+            "• ماذا تشمل التكلفة؟",
+            "• ما المواعيد والمتابعة التي أحتاجها؟",
+            "وضوح الإجابات يساعدك على اتخاذ قرار تفهم تفاصيله وتشعر بالارتياح تجاهه."
+          ]
+        }
+      },
+      {
+        id: "visiting",
+        heading: { en: "Visiting Amman for Your Smile?", ar: "تخطط لزيارة عمّان من خارج الأردن؟" },
+        body: {
+          en: [
+            "If you are planning to visit Jordan, contact the clinic before arranging your trip.",
+            "Discuss your goals, the initial assessment process, and appointment availability. Ask the team to explain what can be discussed remotely and what requires an in-clinic examination.",
+            "Confirm your treatment schedule and follow-up arrangements before booking travel around the procedure."
+          ],
+          ar: [
+            "تواصل مع العيادة قبل ترتيب السفر لمناقشة أهدافك، وخطوات التقييم الأولي، والمواعيد المتاحة.",
+            "اسأل عمّا يمكن مناقشته قبل الزيارة، وما يحتاج إلى فحص داخل العيادة. واحرص على تأكيد الجدول المقترح وترتيبات المتابعة قبل حجز رحلة مرتبطة بالعلاج."
+          ]
+        }
+      },
+      {
+        id: "why-consider",
+        heading: { en: "Why Consider Dr. Ali Alheneiti?", ar: "لماذا قد تختار الدكتور علي الحنيطي؟" },
+        body: {
+          en: [
+            "Dr. Ali Alheneiti combines experience across more than 7,000 completed cases with a published approach that emphasizes natural-looking smile design.",
+            "For patients exploring veneers in Amman, his work provides an opportunity to discuss the details: the shape you prefer, the brightness you feel comfortable with, and the overall impression you want your smile to create.",
+            "Choosing your doctor is a personal decision. Start by reviewing the work, explaining your expectations, and understanding the proposed treatment."
+          ],
+          ar: [
+            "يجمع الدكتور علي الحنيطي بين خبرة تتجاوز ٧٬٠٠٠ حالة وتوجه يركز على الابتسامات الطبيعية والتفاصيل الجمالية.",
+            "إذا كنت تبحث عن الفينير في عمّان، يمكنك البدء بالتعرف إلى أعماله، وتحديد ما يهمك في النتيجة، ثم مناقشة الخيارات خلال استشارة شخصية.",
+            "اختيار الطبيب قرار يتعلق براحتك وثقتك وفهمك للخطة. امنح نفسك فرصة للسؤال، ومشاهدة الأعمال، وتوضيح توقعاتك."
+          ]
+        }
+      },
+      {
+        id: "conversation",
+        heading: { en: "Your Smile Starts With a Conversation", ar: "ابتسامتك تبدأ بحوار واضح" },
+        body: {
+          en: [
+            "A smile should feel personal, considered, and comfortable to share.",
+            "Book your consultation with Dr. Ali Alheneiti in Amman to discuss your goals, explore relevant cases, and understand your options.",
+            "Individual results vary. Treatment suitability and the final plan are determined through clinical assessment."
+          ],
+          ar: [
+            "الابتسامة التي تختارها تستحق الوقت والاهتمام بالتفاصيل.",
+            "احجز استشارتك مع الدكتور علي الحنيطي في عمّان لمناقشة أهدافك، والاطلاع على حالات ذات صلة، وفهم الخيارات المناسبة لك.",
+            "تختلف النتائج من شخص لآخر، وتُحدد ملاءمة العلاج والخطة النهائية بعد التقييم السريري."
+          ]
+        }
+      }
     ],
     faqs: [
-      { question: { en: "Does Dr. Ali treat international veneer patients?", ar: "هل يعالج الدكتور علي مرضى فينير من الخارج؟" }, answer: { en: "Yes. International patients can begin with photos and travel dates, then receive guidance on visit timing and preparation before arriving in Amman.", ar: "نعم، يمكن للمرضى الدوليين البدء بالصور وتواريخ السفر للحصول على توجيه حول الزيارات والتحضير قبل الوصول إلى عمّان." } },
-      { question: { en: "Will my veneers look natural?", ar: "هل سيبدو الفينير طبيعياً؟" }, answer: { en: "The goal is a smile that fits your face, skin tone, and personality. Shade and shape are customized rather than copied from a template.", ar: "الهدف ابتسامة تناسب الوجه ولون البشرة والشخصية. يتم تخصيص اللون والشكل بدلاً من نسخ قالب جاهز." } },
-      { question: { en: "Can the clinic help with travel planning?", ar: "هل تساعد العيادة في تخطيط السفر؟" }, answer: { en: "The team can provide guidance about timing, airport pickup coordination, accommodation suggestions, and follow-up expectations when arranged in advance.", ar: "يمكن للفريق تقديم إرشادات حول التوقيت، تنسيق استقبال المطار، اقتراحات السكن، وتوقعات المتابعة عند الترتيب مسبقاً." } }
+      { question: { en: "What should I look for when searching for the best veneers doctor in Amman?", ar: "ما الذي أبحث عنه عند اختيار أفضل دكتور فينير في عمّان؟" }, answer: { en: "Consider relevant experience, professional qualifications, documented results, clear communication, and how thoroughly your individual needs are assessed.", ar: "ابحث عن الخبرة ذات الصلة، والمؤهلات المهنية، والنتائج الموثقة، ووضوح التواصل، والاهتمام بتقييم احتياجاتك بصورة فردية." } },
+      { question: { en: "How many cases has Dr. Ali Alheneiti completed?", ar: "كم حالة أنجز الدكتور علي الحنيطي؟" }, answer: { en: "Dr. Ali Alheneiti has completed more than 7,000 cases.", ar: "أنجز الدكتور علي الحنيطي أكثر من ٧٬٠٠٠ حالة." } },
+      { question: { en: "Can I discuss a subtle, natural-looking result?", ar: "هل يمكنني طلب ابتسامة طبيعية وغير مبالغ فيها؟" }, answer: { en: "Yes. Explain your preferred level of brightness, shape, and overall change during the consultation. Bring reference images to help communicate your taste.", ar: "نعم. اشرح تفضيلاتك في الشكل واللون ومقدار التغيير الذي تريده خلال الاستشارة، ويمكنك إحضار صور مرجعية لتوضيح ذوقك." } },
+      { question: { en: "Where can I see Dr. Ali’s previous work?", ar: "أين يمكن مشاهدة أعمال الدكتور علي الحنيطي؟" }, answer: { en: "Visit the smile-transformation gallery on the website and ask the clinic about cases relevant to your goals.", ar: "يمكنك تصفح معرض تحولات الابتسامة في الموقع، وسؤال العيادة عن أمثلة مرتبطة بما ترغب في تغييره." } },
+      { question: { en: "Can I contact the clinic before traveling to Jordan?", ar: "هل يمكن التواصل مع العيادة قبل السفر إلى الأردن؟" }, answer: { en: "Yes. Contact the team to discuss consultation arrangements and appointment availability before planning your visit.", ar: "نعم. تواصل مع الفريق لمناقشة ترتيبات الاستشارة والمواعيد المتاحة قبل التخطيط للزيارة." } }
     ]
   },
   {
@@ -819,6 +994,32 @@ export function getService(slug: string) {
 export function getPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
 }
+
+export function getPostSlug(post: BlogPost, locale: Locale): string {
+  return post.localeSlug?.[locale] ?? post.slug;
+}
+
+export function getPostByLocaleSlug(slug: string, locale: Locale): BlogPost | undefined {
+  const decoded = (() => {
+    try {
+      return decodeURIComponent(slug);
+    } catch {
+      return slug;
+    }
+  })();
+  return blogPosts.find((post) => {
+    const localized = getPostSlug(post, locale);
+    return localized === slug || localized === decoded;
+  });
+}
+
+export const blogSlugAlternates: Record<string, string> = blogPosts.reduce<Record<string, string>>((acc, post) => {
+  if (post.localeSlug) {
+    acc[post.localeSlug.en] = post.localeSlug.ar;
+    acc[post.localeSlug.ar] = post.localeSlug.en;
+  }
+  return acc;
+}, {});
 
 export function getReadTime(post: BlogPost, locale: Locale) {
   if (typeof post.readTime !== "string") return post.readTime[locale];

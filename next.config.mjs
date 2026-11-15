@@ -3,6 +3,16 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/en/veneers-dr-ali-jordan",
+        destination: "/en/best-veneers-doctor-amman-dr-ali-alheneiti",
+        permanent: true
+      },
+      {
+        source: "/ar/veneers-dr-ali-jordan",
+        destination: encodeURI("/ar/افضل-دكتور-فينير-عمان-علي-الحنيطي"),
+        permanent: true
+      },
+      {
         source: "/:locale(en|ar)/services/hollywood-smile-jordan",
         destination: "/:locale/services/veneers-in-jordan",
         permanent: true

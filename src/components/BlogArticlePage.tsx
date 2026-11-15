@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { FinalCta } from "@/components/Sections";
-import { blogPosts, getCoverImage, getReadTime, site, type BlogPost } from "@/lib/content";
+import { blogPosts, getCoverImage, getPostSlug, getReadTime, site, type BlogPost } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
 const siteUrl = "https://www.dralialheneiti.com";
 
 export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Locale }) {
   const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
-  const articleUrl = `/${locale}/${post.slug}`;
+  const articleUrl = `/${locale}/${getPostSlug(post, locale)}`;
   const coverImage = getCoverImage(post, locale);
   const localizedHref = (href: string) => href.startsWith("/services") || href === "/contact" ? `/${locale}${href}` : href;
 
@@ -50,7 +50,7 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
     headline: post.h1[locale],
     description: post.metaDescription[locale],
     image: `${siteUrl}${coverImage}`,
-    datePublished: post.lastUpdated,
+    datePublished: post.datePublished ?? post.lastUpdated,
     dateModified: post.lastUpdated,
     author: { "@type": "Person", name: post.author[locale].name, jobTitle: "Cosmetic Dentist" },
     publisher: {
@@ -207,7 +207,7 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
               <h2>{locale === "ar" ? "مقالات ذات صلة" : "Related Articles"}</h2>
               <div className="related-grid">
                 {related.map((item) => (
-                  <Link className="related-card" href={`/${locale}/${item.slug}`} key={item.slug}>
+                  <Link className="related-card" href={`/${locale}/${getPostSlug(item, locale)}`} key={item.slug}>
                     <span className="pill">{item.category[locale]}</span>
                     <h3>{item.title[locale]}</h3>
                   </Link>

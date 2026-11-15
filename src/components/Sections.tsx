@@ -3,7 +3,7 @@ import { CaseCarousel } from "@/components/CaseCarousel";
 import { HeroVideo } from "@/components/HeroVideo";
 import { LazyAutoplayVideo } from "@/components/LazyAutoplayVideo";
 import { TestimonialVideoSlider } from "@/components/TestimonialVideoSlider";
-import { blogPosts, cases, dictionary, doctorProfileHighlight, getCoverImage, getReadTime, services, site, transformationMedia, type CaseMedia } from "@/lib/content";
+import { blogPosts, cases, dictionary, doctorProfileHighlight, getCoverImage, getPostSlug, getReadTime, services, site, transformationMedia, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 
 export function Hero({ locale }: { locale: Locale }) {
@@ -389,7 +389,7 @@ export function BlogPreview({ locale }: { locale: Locale }) {
 
 function JournalCard({ post, locale, reverse = false, featured = false }: { post: (typeof blogPosts)[number]; locale: Locale; reverse?: boolean; featured?: boolean }) {
   return (
-    <Link className={`journal-card ${reverse ? "reverse" : ""} ${featured ? "featured" : ""}`} href={`/${locale}/${post.slug}`}>
+    <Link className={`journal-card ${reverse ? "reverse" : ""} ${featured ? "featured" : ""}`} href={`/${locale}/${getPostSlug(post, locale)}`}>
       <div className="journal-image">
         <img src={getCoverImage(post, locale)} alt={post.coverAlt[locale]} loading="lazy" />
       </div>

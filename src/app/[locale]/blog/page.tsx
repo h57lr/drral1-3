@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FinalCta, SectionHead } from "@/components/Sections";
-import { blogPosts, getCoverImage, getReadTime } from "@/lib/content";
+import { blogPosts, getCoverImage, getPostSlug, getReadTime } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -52,7 +52,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
           <SectionHead eyebrow={locale === "ar" ? "دليل المرضى" : "Patient Guides"} title={locale === "ar" ? "ثقة في كل معلومة، راحة في كل قرار" : "Trusted knowledge. Peaceful decisions."} text={locale === "ar" ? "كل مقال يوضح الخيارات ويربطك بالخدمة المناسبة والخطوة التالية." : "Each guide explains treatment options and connects you to the right service and next step."} />
           <div className="journal-grid listing">
             {blogPosts.map((post) => (
-              <Link className="journal-card" key={post.slug} href={`/${locale}/${post.slug}`}>
+              <Link className="journal-card" key={post.slug} href={`/${locale}/${getPostSlug(post, locale)}`}>
                 <div className="journal-image"><img src={getCoverImage(post, locale)} alt={post.coverAlt[locale]} loading="lazy" /></div>
                 <div className="journal-card-copy">
                 <div className="journal-meta"><span className="pill">{post.category[locale]}</span><span>{getReadTime(post, locale)}</span></div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { LocaleClientEffects } from "@/components/LocaleClientEffects";
 import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { ScrollTextReveal } from "@/components/ScrollTextReveal";
-import { dictionary, services, site } from "@/lib/content";
+import { blogSlugAlternates, dictionary, services, site } from "@/lib/content";
 import { getDirection, type Locale } from "@/lib/i18n";
 
 export function Shell({ locale, children }: { locale: Locale; children: React.ReactNode }) {
@@ -28,7 +28,7 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
             <Link href={`/${locale}/contact`}>{nav.contact}</Link>
           </nav>
           <div className="header-actions">
-            <LocaleSwitch locale={locale} />
+            <LocaleSwitch locale={locale} alternates={blogSlugAlternates} />
             <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{dict.cta}</a>
             <details className="mobile-menu">
               <summary aria-label={locale === "ar" ? "فتح القائمة" : "Open menu"}>{locale === "ar" ? "القائمة" : "Menu"}</summary>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FinalCta } from "@/components/Sections";
 import { blogPosts, getCoverImage, getPostSlug, getReadTime, site, type BlogPost } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
+import { sectionPath, servicePath } from "@/lib/localized-routes";
 
 const siteUrl = "https://www.dralialheneiti.com";
 
@@ -9,7 +10,22 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
   const related = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
   const articleUrl = `/${locale}/${getPostSlug(post, locale)}`;
   const coverImage = getCoverImage(post, locale);
-  const localizedHref = (href: string) => href.startsWith("/services") || href === "/contact" ? `/${locale}${href}` : href;
+  const localizedHref = (href: string) => {
+    if (href.startsWith("/services/")) {
+      return servicePath(href.slice("/services/".length), locale);
+    }
+    const sectionMap: Record<string, "services" | "about" | "contact" | "blog" | "transformations" | "testimonials" | "faq"> = {
+      "/services": "services",
+      "/about": "about",
+      "/contact": "contact",
+      "/blog": "blog",
+      "/transformations": "transformations",
+      "/testimonials": "testimonials",
+      "/faq": "faq"
+    };
+    const key = sectionMap[href];
+    return key ? sectionPath(key, locale) : href;
+  };
 
   const consultationCta = post.ctaText?.[locale] ?? (locale === "ar"
     ? "لست متأكداً ما العلاج المناسب لحالتك؟ شارك صور ابتسامتك عبر واتساب بخصوصية وسيقوم الفريق بإرشادك للخطوة التالية."
@@ -39,7 +55,7 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: locale === "ar" ? "الرئيسية" : "Home", item: `${siteUrl}/${locale}` },
-      { "@type": "ListItem", position: 2, name: locale === "ar" ? "المدونة" : "Dental Journal", item: `${siteUrl}/${locale}/blog` },
+      { "@type": "ListItem", position: 2, name: locale === "ar" ? "المدونة" : "Dental Journal", item: `${siteUrl}${sectionPath("blog", locale)}` },
       { "@type": "ListItem", position: 3, name: post.title[locale], item: `${siteUrl}${articleUrl}` }
     ]
   };
@@ -74,7 +90,7 @@ export function BlogArticlePage({ post, locale }: { post: BlogPost; locale: Loca
             <nav className="breadcrumbs" aria-label={locale === "ar" ? "مسار الصفحة" : "Breadcrumbs"}>
               <Link href={`/${locale}`}>{locale === "ar" ? "الرئيسية" : "Home"}</Link>
               <span>/</span>
-              <Link href={`/${locale}/blog`}>{locale === "ar" ? "مجلة الدكتور علي" : "Dental Journal"}</Link>
+              <Link href={sectionPath("blog", locale)}>{locale === "ar" ? "مجلة الدكتور علي" : "Dental Journal"}</Link>
               <span>/</span>
               <span>{post.category[locale]}</span>
             </nav>

@@ -1,4 +1,5 @@
 import type { Locale } from "./i18n";
+import { getPostSlug as chartPostSlug, getServiceSlug as chartServiceSlug, postSlugs as postSlugChart } from "./localized-routes";
 import { seoBlogPosts } from "./seoBlogPosts";
 
 export type Service = {
@@ -44,7 +45,6 @@ export type CaseMedia = {
 
 export type BlogPost = {
   slug: string;
-  localeSlug?: Record<Locale, string>;
   title: Record<Locale, string>;
   seoTitle: Record<Locale, string>;
   metaDescription: Record<Locale, string>;
@@ -727,7 +727,6 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "veneers-dr-ali-jordan",
-    localeSlug: { en: "best-veneers-doctor-amman-dr-ali-alheneiti", ar: "افضل-دكتور-فينير-عمان-علي-الحنيطي" },
     relatedService: "dental-veneers-jordan",
     title: { en: "Best Veneers Doctor in Amman: Why Choose Dr. Ali Alheneiti?", ar: "أفضل دكتور فينير في عمّان: لماذا تختار الدكتور علي الحنيطي؟" },
     seoTitle: { en: "Best Veneers Doctor in Amman: Why Choose Dr. Ali Alheneiti?", ar: "أفضل دكتور فينير في عمّان: لماذا تختار الدكتور علي الحنيطي؟" },
@@ -996,7 +995,7 @@ export function getPost(slug: string) {
 }
 
 export function getPostSlug(post: BlogPost, locale: Locale): string {
-  return post.localeSlug?.[locale] ?? post.slug;
+  return chartPostSlug(post.slug, locale);
 }
 
 export function getPostByLocaleSlug(slug: string, locale: Locale): BlogPost | undefined {
@@ -1013,11 +1012,30 @@ export function getPostByLocaleSlug(slug: string, locale: Locale): BlogPost | un
   });
 }
 
-export const blogSlugAlternates: Record<string, string> = blogPosts.reduce<Record<string, string>>((acc, post) => {
-  if (post.localeSlug) {
-    acc[post.localeSlug.en] = post.localeSlug.ar;
-    acc[post.localeSlug.ar] = post.localeSlug.en;
-  }
+export function getServiceSlug(service: Service, locale: Locale): string {
+  return chartServiceSlug(service.slug, locale);
+}
+
+export function getServiceByLocaleSlug(slug: string, locale: Locale): Service | undefined {
+  const decoded = (() => {
+    try {
+      return decodeURIComponent(slug);
+    } catch {
+      return slug;
+    }
+  })();
+  const direct = services.find((service) => {
+    const localized = getServiceSlug(service, locale);
+    return localized === slug || localized === decoded;
+  });
+  if (direct) return direct;
+  const alias = serviceSlugAliases[slug] ?? serviceSlugAliases[decoded];
+  return alias ? services.find((service) => service.slug === alias) : undefined;
+}
+
+export const blogSlugAlternates: Record<string, string> = Object.values(postSlugChart).reduce<Record<string, string>>((acc, pair) => {
+  acc[pair.en] = pair.ar;
+  acc[pair.ar] = pair.en;
   return acc;
 }, {});
 

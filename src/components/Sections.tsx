@@ -5,6 +5,7 @@ import { LazyAutoplayVideo } from "@/components/LazyAutoplayVideo";
 import { TestimonialVideoSlider } from "@/components/TestimonialVideoSlider";
 import { blogPosts, cases, dictionary, doctorProfileHighlight, getCoverImage, getPostSlug, getReadTime, services, site, transformationMedia, type CaseMedia } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
+import { sectionPath, servicePath } from "@/lib/localized-routes";
 
 export function Hero({ locale }: { locale: Locale }) {
   const dict = dictionary[locale];
@@ -24,7 +25,7 @@ export function Hero({ locale }: { locale: Locale }) {
           </p>
           <div className="button-row">
             <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{dict.cta}</a>
-            <Link className="button secondary" href={`/${locale}/transformations`}>{dict.viewCases}</Link>
+            <Link className="button secondary" href={sectionPath("transformations", locale)}>{dict.viewCases}</Link>
           </div>
           <p className="cta-note">
             {locale === "ar"
@@ -167,7 +168,7 @@ export function ServicesPreview({ locale, tight = false, excludeSlugs = [] }: { 
         />
         <div className="card-grid services-grid">
           {visibleServices.map((service) => (
-            <Link className="service-card" key={service.slug} href={`/${locale}/services/${service.slug}`}>
+            <Link className="service-card" key={service.slug} href={servicePath(service.slug, locale)}>
               <span className="pill">{service.keywords[0]}</span>
               <h3>{service.navTitle[locale]}</h3>
               <p>{service.description[locale]}</p>
@@ -200,7 +201,7 @@ export function CaseShowcase({ locale, full = false, variant = "cases" }: { loca
         <div className="case-grid">
           {list.map((item) => <CaseCard key={item.id} item={item} locale={locale} />)}
         </div>
-        {!full ? <Link className="text-link" href={`/${locale}/transformations`}>{locale === "ar" ? "شاهد التحولات" : "View all transformations"}</Link> : null}
+        {!full ? <Link className="text-link" href={sectionPath("transformations", locale)}>{locale === "ar" ? "شاهد التحولات" : "View all transformations"}</Link> : null}
       </div>
     </section>
   );
@@ -370,7 +371,7 @@ export function BlogPreview({ locale }: { locale: Locale }) {
             <h2 className="section-title">{locale === "ar" ? "كل ما تحتاج معرفته قبل ابتسامتك الجديدة" : "Everything You Need to Know Before Your New Smile"}</h2>
             <p className="lead">{locale === "ar" ? "أدلة شاملة، ونصائح من الخبراء، ومقارنات بين العلاجات، وتجارب حقيقية تساعدك على اتخاذ القرار بثقة." : "Expert advice, treatment comparisons, real patient insights, and complete guides to help you choose your smile with confidence."}</p>
           </div>
-          <Link className="button secondary journal-cta" href={`/${locale}/blog`}>{locale === "ar" ? "عرض جميع المقالات →" : "View All Articles →"}</Link>
+          <Link className="button secondary journal-cta" href={sectionPath("blog", locale)}>{locale === "ar" ? "عرض جميع المقالات →" : "View All Articles →"}</Link>
         </div>
 
         <div className="journal-grid">
@@ -416,7 +417,7 @@ export function FinalCta({ locale }: { locale: Locale }) {
         <p className="lead">{dict.finalCtaText}</p>
         <div className="button-row">
           <a className="button pistachio" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{dict.cta}</a>
-          <Link className="button secondary" href={`/${locale}/contact`}>{locale === "ar" ? "تواصل مع العيادة" : "Contact the Clinic"}</Link>
+          <Link className="button secondary" href={sectionPath("contact", locale)}>{locale === "ar" ? "تواصل مع العيادة" : "Contact the Clinic"}</Link>
         </div>
       </div>
     </section>

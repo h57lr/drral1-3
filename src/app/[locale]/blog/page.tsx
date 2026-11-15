@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FinalCta, SectionHead } from "@/components/Sections";
 import { blogPosts, getCoverImage, getPostSlug, getReadTime } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { sectionPath } from "@/lib/localized-routes";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -14,11 +15,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? "مقالات وأدلة عن ابتسامة هوليود، الفينير، السياحة العلاجية للأسنان، وخيارات تجميل الأسنان في الأردن."
       : "Premium cosmetic dentistry articles about Hollywood Smile, veneers, dental tourism, and patient guides in Jordan.",
     alternates: {
-      canonical: `/${locale}/blog`,
+      canonical: sectionPath("blog", locale),
       languages: {
-        en: "/en/blog",
-        ar: "/ar/blog",
-        "x-default": "/en/blog"
+        en: sectionPath("blog", "en"),
+        ar: sectionPath("blog", "ar"),
+        "x-default": sectionPath("blog", "en")
       }
     },
     openGraph: {
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? "أدلة واضحة تساعدك على فهم خيارات تجميل الأسنان قبل الاستشارة."
         : "Clear patient guides for cosmetic dentistry decisions in Jordan.",
       type: "website",
-      url: `/${locale}/blog`,
+      url: sectionPath("blog", locale),
       locale: locale === "ar" ? "ar_JO" : "en_US",
       images: [{ url: "/media/brand/dr-ali-alheneiti-logo.webp", alt: "Dr. Ali Alheneiti" }]
     }

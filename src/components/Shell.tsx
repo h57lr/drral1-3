@@ -2,8 +2,9 @@ import Link from "next/link";
 import { LocaleClientEffects } from "@/components/LocaleClientEffects";
 import { LocaleSwitch } from "@/components/LocaleSwitch";
 import { ScrollTextReveal } from "@/components/ScrollTextReveal";
-import { blogSlugAlternates, dictionary, services, site } from "@/lib/content";
+import { dictionary, services, site } from "@/lib/content";
 import { getDirection, type Locale } from "@/lib/i18n";
+import { sectionPath, servicePath } from "@/lib/localized-routes";
 
 export function Shell({ locale, children }: { locale: Locale; children: React.ReactNode }) {
   const dict = dictionary[locale];
@@ -20,25 +21,25 @@ export function Shell({ locale, children }: { locale: Locale; children: React.Re
             <span>{locale === "ar" ? "تجميل الأسنان" : "Cosmetic Dentistry"}</span>
           </Link>
           <nav className="nav" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"}>
-            <Link href={`/${locale}/services`}>{nav.services}</Link>
-            <Link href={`/${locale}/transformations`}>{nav.transformations}</Link>
-            <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
-            <Link href={`/${locale}/blog`}>{nav.blog}</Link>
-            <Link href={`/${locale}/about`}>{nav.about}</Link>
-            <Link href={`/${locale}/contact`}>{nav.contact}</Link>
+            <Link href={sectionPath("services", locale)}>{nav.services}</Link>
+            <Link href={sectionPath("transformations", locale)}>{nav.transformations}</Link>
+            <Link href={sectionPath("testimonials", locale)}>{nav.testimonials}</Link>
+            <Link href={sectionPath("blog", locale)}>{nav.blog}</Link>
+            <Link href={sectionPath("about", locale)}>{nav.about}</Link>
+            <Link href={sectionPath("contact", locale)}>{nav.contact}</Link>
           </nav>
           <div className="header-actions">
-            <LocaleSwitch locale={locale} alternates={blogSlugAlternates} />
+            <LocaleSwitch locale={locale} />
             <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{dict.cta}</a>
             <details className="mobile-menu">
               <summary aria-label={locale === "ar" ? "فتح القائمة" : "Open menu"}>{locale === "ar" ? "القائمة" : "Menu"}</summary>
               <nav className="mobile-nav" aria-label={locale === "ar" ? "تنقل الهاتف" : "Mobile navigation"}>
-                <Link href={`/${locale}/services`}>{nav.services}</Link>
-                <Link href={`/${locale}/transformations`}>{nav.transformations}</Link>
-                <Link href={`/${locale}/testimonials`}>{nav.testimonials}</Link>
-                <Link href={`/${locale}/blog`}>{nav.blog}</Link>
-                <Link href={`/${locale}/about`}>{nav.about}</Link>
-                <Link href={`/${locale}/contact`}>{nav.contact}</Link>
+                <Link href={sectionPath("services", locale)}>{nav.services}</Link>
+                <Link href={sectionPath("transformations", locale)}>{nav.transformations}</Link>
+                <Link href={sectionPath("testimonials", locale)}>{nav.testimonials}</Link>
+                <Link href={sectionPath("blog", locale)}>{nav.blog}</Link>
+                <Link href={sectionPath("about", locale)}>{nav.about}</Link>
+                <Link href={sectionPath("contact", locale)}>{nav.contact}</Link>
               </nav>
             </details>
           </div>
@@ -65,14 +66,14 @@ function Footer({ locale }: { locale: Locale }) {
           <div>
             <h4>{dict.nav.services}</h4>
             {services.map((service) => (
-              <Link key={service.slug} href={`/${locale}/services/${service.slug}`}>{service.navTitle[locale]}</Link>
+              <Link key={service.slug} href={servicePath(service.slug, locale)}>{service.navTitle[locale]}</Link>
             ))}
           </div>
           <div>
             <h4>{locale === "ar" ? "روابط" : "Explore"}</h4>
-            <Link href={`/${locale}/transformations`}>{dict.nav.transformations}</Link>
-            <Link href={`/${locale}/blog`}>{dict.nav.blog}</Link>
-            <Link href={`/${locale}/contact`}>{dict.nav.contact}</Link>
+            <Link href={sectionPath("transformations", locale)}>{dict.nav.transformations}</Link>
+            <Link href={sectionPath("blog", locale)}>{dict.nav.blog}</Link>
+            <Link href={sectionPath("contact", locale)}>{dict.nav.contact}</Link>
           </div>
           <div>
             <h4>{locale === "ar" ? "تواصل" : "Contact"}</h4>

@@ -3,27 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { localeCookieMaxAge, localeCookieName, localeLabel, locales, otherLocale, type Locale } from "@/lib/i18n";
+import { translatePathSegments } from "@/lib/localized-routes";
 
-function decodeSegment(value: string) {
-  try {
-    return decodeURIComponent(value);
-  } catch {
-    return value;
-  }
-}
-
-export function LocaleSwitch({ locale, alternates = {} }: { locale: Locale; alternates?: Record<string, string> }) {
+export function LocaleSwitch({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const targetLocale = otherLocale(locale);
   const currentPathname = pathname ?? `/${locale}`;
   const segments = currentPathname.split("/").filter(Boolean);
   const pathSegments = locales.includes(segments[0] as Locale) ? segments.slice(1) : segments;
-  const lastSegment = pathSegments[pathSegments.length - 1];
-  const alternateLast = lastSegment ? alternates[decodeSegment(lastSegment)] : undefined;
-  const targetSegments = alternateLast && pathSegments.length > 0
-    ? [...pathSegments.slice(0, -1), alternateLast]
-    : pathSegments;
-  const href = `/${[targetLocale, ...targetSegments].join("/")}`;
+  const translated = translatePathSegments(pathSegments, locale, targetLocale);
+  const href = `/${[targetLocale, ...translated].join("/")}`;
 
   function rememberLocale() {
     document.cookie = `${localeCookieName}=${targetLocale}; path=/; max-age=${localeCookieMaxAge}; samesite=lax`;

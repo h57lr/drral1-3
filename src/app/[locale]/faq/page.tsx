@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FinalCta, SectionHead } from "@/components/Sections";
 import { services } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { sectionPath } from "@/lib/localized-routes";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -13,11 +14,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? "أسئلة شائعة حول الفينير، ابتسامة هوليود، تبييض الأسنان، زراعة الأسنان وتجميل الأسنان مع د. علي الحنيطي."
       : "Frequently asked questions about veneers, Hollywood Smile, whitening, implants, and cosmetic dentistry with Dr. Ali Alheneiti.",
     alternates: {
-      canonical: `/${locale}/faq`,
+      canonical: sectionPath("faq", locale),
       languages: {
-        en: "/en/faq",
-        ar: "/ar/faq",
-        "x-default": "/en/faq"
+        en: sectionPath("faq", "en"),
+        ar: sectionPath("faq", "ar"),
+        "x-default": sectionPath("faq", "en")
       }
     },
     openGraph: {
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? "إجابات مختصرة قبل حجز استشارتك في تجميل الأسنان."
         : "Short answers before booking your cosmetic dentistry consultation.",
       type: "website",
-      url: `/${locale}/faq`,
+      url: sectionPath("faq", locale),
       locale: locale === "ar" ? "ar_JO" : "en_US",
       images: [{ url: "/media/brand/dr-ali-alheneiti-logo.webp", alt: "Dr. Ali Alheneiti" }]
     }

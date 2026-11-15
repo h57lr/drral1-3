@@ -3,17 +3,21 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { SectionHead } from "@/components/Sections";
 import { ServiceCaseCarousel, ServiceHeroCarousel } from "@/components/ServiceHeroCarousel";
-import { getCanonicalServiceSlug, getService, services, site, type Service } from "@/lib/content";
+import { getCanonicalServiceSlug, getServiceByLocaleSlug, services, site, type Service } from "@/lib/content";
+import { getServiceSlug, sectionPath, servicePath } from "@/lib/localized-routes";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
-  return services.flatMap((service) => [{ locale: "en", slug: service.slug }, { locale: "ar", slug: service.slug }]);
+  return services.flatMap((service) => [
+    { locale: "en", slug: getServiceSlug(service.slug, "en") },
+    { locale: "ar", slug: getServiceSlug(service.slug, "ar") }
+  ]);
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { locale: raw, slug } = await params;
   const locale = isLocale(raw) ? raw : "en";
-  const service = getService(slug);
+  const service = getServiceByLocaleSlug(slug, locale);
 
   if (!service) {
     return { title: locale === "ar" ? "الخدمة" : "Service" };
@@ -24,18 +28,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: service.metaDescription[locale],
     keywords: service.keywords,
     alternates: {
-      canonical: `/${locale}/services/${service.slug}`,
+      canonical: servicePath(service.slug, locale),
       languages: {
-        en: `/en/services/${service.slug}`,
-        ar: `/ar/services/${service.slug}`,
-        "x-default": `/en/services/${service.slug}`
+        en: servicePath(service.slug, "en"),
+        ar: servicePath(service.slug, "ar"),
+        "x-default": servicePath(service.slug, "en")
       }
     },
     openGraph: {
       title: service.seoTitle[locale],
       description: service.metaDescription[locale],
       type: "website",
-      url: `/${locale}/services/${service.slug}`,
+      url: servicePath(service.slug, locale),
       locale: locale === "ar" ? "ar_JO" : "en_US"
     }
   };
@@ -44,14 +48,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function ServicePage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale: raw, slug } = await params;
   const locale = (isLocale(raw) ? raw : "en") as Locale;
-  const canonicalSlug = getCanonicalServiceSlug(slug);
-
-  if (canonicalSlug !== slug) {
-    redirect(`/${locale}/services/${canonicalSlug}`);
-  }
-
-  const service = getService(slug);
+  const service = getServiceByLocaleSlug(slug, locale);
   if (!service) notFound();
+
+  const canonicalSlug = getCanonicalServiceSlug(slug);
+  if (canonicalSlug !== slug) {
+    // encodeURI keeps the Location header ASCII-safe for Arabic service slugs.
+    redirect(encodeURI(servicePath(canonicalSlug, locale)));
+  }
 
   const labels = getServiceLabels(locale);
   const heroMedia = getServiceHeroMedia(service.slug, locale);
@@ -80,7 +84,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
             <p className="lead">{service.heroDescription?.[locale] ?? service.description[locale]}</p>
             <p className="service-hero-intro">{service.heroIntro[locale]}</p>
             <div className="button-row">
-              <Link className="button" href={`/${locale}/contact`}>{labels.book}</Link>
+              <Link className="button" href={sectionPath("contact", locale)}>{labels.book}</Link>
               <a className="button secondary" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{labels.whatsapp}</a>
             </div>
             <div className="service-trust-line" aria-label={labels.trustAria}>
@@ -253,7 +257,7 @@ function RelatedServices({ service, locale }: { service: Service; locale: Locale
         <SectionHead eyebrow={labels.relatedEyebrow} title={labels.relatedTitle} text={labels.relatedText} />
         <div className="card-grid service-related-grid">
           {relatedServices.map((item) => (
-            <Link className="service-card" href={`/${locale}/services/${item.slug}`} key={item.slug}>
+            <Link className="service-card" href={servicePath(item.slug, locale)} key={item.slug}>
               <span className="pill">{item.keywords[0]}</span>
               <h3>{item.title[locale]}</h3>
               <p>{item.description[locale]}</p>
@@ -273,7 +277,7 @@ function ServiceFinalCta({ locale }: { locale: Locale }) {
         <h2 className="section-title">{locale === "ar" ? "هل أنت مستعد لتخطيط ابتسامتك مع الدكتور علي؟" : "Ready to plan your smile with Dr. Ali?"}</h2>
         <p className="lead">{locale === "ar" ? "احجز استشارتك واحصل على توجيه واضح قبل بدء العلاج." : "Book your consultation and receive clear guidance before starting your treatment."}</p>
         <div className="button-row">
-          <Link className="button pistachio" href={`/${locale}/contact`}>{locale === "ar" ? "احجز استشارتك" : "Book Your Consultation"}</Link>
+          <Link className="button pistachio" href={sectionPath("contact", locale)}>{locale === "ar" ? "احجز استشارتك" : "Book Your Consultation"}</Link>
           <a className="button secondary" href={site.whatsapp} target="_blank" rel="noopener noreferrer">{locale === "ar" ? "تواصل معنا عبر واتساب" : "WhatsApp Us"}</a>
         </div>
       </div>

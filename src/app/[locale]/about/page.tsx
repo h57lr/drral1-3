@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AboutPreview, FinalCta, Process } from "@/components/Sections";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { sectionPath } from "@/lib/localized-routes";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -12,11 +13,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? "تعرف على د. علي الحنيطي ونهجه الراقي في تجميل الأسنان وتصميم الابتسامة الطبيعية في عمّان، الأردن."
       : "About Dr. Ali Alheneiti and his premium cosmetic dentistry approach in Amman, Jordan.",
     alternates: {
-      canonical: `/${locale}/about`,
+      canonical: sectionPath("about", locale),
       languages: {
-        en: "/en/about",
-        ar: "/ar/about",
-        "x-default": "/en/about"
+        en: sectionPath("about", "en"),
+        ar: sectionPath("about", "ar"),
+        "x-default": sectionPath("about", "en")
       }
     },
     openGraph: {
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? "نهج راقٍ في تجميل الأسنان وتصميم الابتسامة الطبيعية في الأردن."
         : "Premium cosmetic dentistry and natural smile design in Jordan.",
       type: "website",
-      url: `/${locale}/about`,
+      url: sectionPath("about", locale),
       locale: locale === "ar" ? "ar_JO" : "en_US",
       images: [{ url: "/media/brand/dr-ali-alheneiti-logo.webp", alt: "Dr. Ali Alheneiti" }]
     }

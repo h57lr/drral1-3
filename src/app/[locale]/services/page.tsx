@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ServicesPreview, FinalCta } from "@/components/Sections";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { sectionPath } from "@/lib/localized-routes";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -12,11 +13,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? "استكشف خدمات فينير الأسنان، تبييض الأسنان، زراعة الأسنان، تقويم الأسنان، وعلاج الابتسامة اللثوية مع الدكتور علي في عمّان."
       : "Explore Dr. Ali’s premium dental veneers, teeth whitening, dental implants, orthodontics, and gummy smile treatment pages in Amman, Jordan.",
     alternates: {
-      canonical: `/${locale}/services`,
+      canonical: sectionPath("services", locale),
       languages: {
-        en: "/en/services",
-        ar: "/ar/services",
-        "x-default": "/en/services"
+        en: sectionPath("services", "en"),
+        ar: sectionPath("services", "ar"),
+        "x-default": sectionPath("services", "en")
       }
     },
     openGraph: {
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? "خمس خدمات أساسية بتخطيط راقٍ ومحتوى ثنائي اللغة للمرضى في الأردن والخليج وأوروبا."
         : "Five refined service pages with bilingual guidance for patients in Jordan, the GCC, and Europe.",
       type: "website",
-      url: `/${locale}/services`,
+      url: sectionPath("services", locale),
       locale: locale === "ar" ? "ar_JO" : "en_US"
     }
   };

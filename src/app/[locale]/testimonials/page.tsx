@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FinalCta, TransformationVideosShowcase } from "@/components/Sections";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { sectionPath } from "@/lib/localized-routes";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -12,11 +13,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? "تجارب وثقة المرضى مع د. علي الحنيطي في تجميل الأسنان وتصميم الابتسامة الطبيعية."
       : "Trust themes and patient priorities for Dr. Ali Alheneiti cosmetic dentistry consultations.",
     alternates: {
-      canonical: `/${locale}/testimonials`,
+      canonical: sectionPath("testimonials", locale),
       languages: {
-        en: "/en/testimonials",
-        ar: "/ar/testimonials",
-        "x-default": "/en/testimonials"
+        en: sectionPath("testimonials", "en"),
+        ar: sectionPath("testimonials", "ar"),
+        "x-default": sectionPath("testimonials", "en")
       }
     },
     openGraph: {
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? "تجارب مرضى وتحولات ابتسامة تبني الثقة قبل الاستشارة."
         : "Patient stories and smile transformations that build trust before consultation.",
       type: "website",
-      url: `/${locale}/testimonials`,
+      url: sectionPath("testimonials", locale),
       locale: locale === "ar" ? "ar_JO" : "en_US",
       images: [{ url: "/media/brand/dr-ali-alheneiti-logo.webp", alt: "Dr. Ali Alheneiti" }]
     }

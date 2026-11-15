@@ -3,6 +3,7 @@ import { ContactLeadForm } from "@/components/ContactLeadForm";
 import { FinalCta } from "@/components/Sections";
 import { site } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { sectionPath } from "@/lib/localized-routes";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -14,11 +15,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? "تواصل مع د. علي الحنيطي لحجز استشارة خاصة في تجميل الأسنان وتصميم الابتسامة في عمّان."
       : "Contact Dr. Ali Alheneiti for a private cosmetic dentistry consultation in Amman.",
     alternates: {
-      canonical: `/${locale}/contact`,
+      canonical: sectionPath("contact", locale),
       languages: {
-        en: "/en/contact",
-        ar: "/ar/contact",
-        "x-default": "/en/contact"
+        en: sectionPath("contact", "en"),
+        ar: sectionPath("contact", "ar"),
+        "x-default": sectionPath("contact", "en")
       }
     },
     openGraph: {
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? "استشارة خاصة لتجميل الأسنان وتصميم الابتسامة في عمّان."
         : "Private cosmetic dentistry consultation in Amman.",
       type: "website",
-      url: `/${locale}/contact`,
+      url: sectionPath("contact", locale),
       locale: locale === "ar" ? "ar_JO" : "en_US"
     }
   };

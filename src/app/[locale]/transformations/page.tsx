@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TransformationCaseCarousel } from "@/components/TransformationCaseCarousel";
 import { TransformationReelsSlider, type TransformationReelSlide } from "@/components/TransformationReelsSlider";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { sectionPath } from "@/lib/localized-routes";
 import { site } from "@/lib/content";
 
 type TransformationCase = {
@@ -221,11 +222,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? "شاهد حالات حقيقية قبل وبعد لتصميم الابتسامة، الفينير، وابتسامة هوليوود مع الدكتور علي الحنيطي في الأردن، بنتائج طبيعية وراقية."
       : "Explore real smile transformations by Dr. Ali Al Heneiti, including veneers, Hollywood Smile, smile design, and natural-looking dental aesthetic results in Jordan.",
     alternates: {
-      canonical: `/${locale}/transformations`,
+      canonical: sectionPath("transformations", locale),
       languages: {
-        en: "/en/transformations",
-        ar: "/ar/transformations",
-        "x-default": "/en/transformations"
+        en: sectionPath("transformations", "en"),
+        ar: sectionPath("transformations", "ar"),
+        "x-default": sectionPath("transformations", "en")
       }
     },
     openGraph: {
@@ -235,7 +236,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         : "Real smile transformations and premium dental aesthetic cases by Dr. Ali Al Heneiti.",
       images: [transformationCases[0].images[0]],
       locale: locale === "ar" ? "ar_JO" : "en_US",
-      url: `/${locale}/transformations`,
+      url: sectionPath("transformations", locale),
       type: "website"
     }
   };
@@ -269,7 +270,7 @@ export default async function TransformationsPage({ params }: { params: Promise<
               <a className="button" href={site.whatsapp} target="_blank" rel="noopener noreferrer">
                 {locale === "ar" ? "احجز استشارتك" : "Book Your Consultation"}
               </a>
-              <Link className="button secondary" href={`/${locale}/contact`}>
+              <Link className="button secondary" href={sectionPath("contact", locale)}>
                 {locale === "ar" ? "تواصل مع العيادة" : "Contact the Clinic"}
               </Link>
             </div>
